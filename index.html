@@ -1,1 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beauty Store</title>
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #171717;
+  background: #fff;
+}
+
+.top-bar {
+  background: #050505;
+  color: white;
+  text-align: center;
+  padding: 11px;
+  font-size: 12px;
+}
+
+header {
+  padding: 22px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.icons {
+  display: flex;
+  gap: 20px;
+  font-size: 22px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 17px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #222;
+  text-decoration: none;
+}
+
+.hero {
+  min-height: 390px;
+  background: #eee9e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 45px 8%;
+  gap: 25px;
+}
+
+.hero-text h1 {
+  font-size: clamp(35px, 6vw, 65px);
+  margin-bottom: 18px;
+}
+
+.hero-text p {
+  color: #555;
+  line-height: 2;
+  margin-bottom: 25px;
+}
+
+.black-btn {
+  display: inline-block;
+  background: #050505;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.hero img {
+  width: 42%;
+  max-height: 330px;
+  object-fit: cover;
+}
+
+.section {
+  padding: 55px 6%;
+}
+
+.section h2 {
+  font-size: 27px;
+  margin-bottom: 28px;
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.category {
+  text-align: center;
+}
+
+.category img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+.category p {
+  padding: 15px 0;
+  font-weight: bold;
+}
+
+.camera-box {
+  background: #f3eeea;
+  padding: 45px 20px;
+  text-align: center;
+  margin: 20px 6%;
+}
+
+.camera-box h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+
+.camera-box p {
+  line-height: 2;
+  margin-bottom: 20px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #f5f5f5;
+}
+
+.product p {
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+.product strong {
+  display: block;
+  margin-top: 8px;
+}
+
+footer {
+  background: #080808;
+  color: white;
+  padding: 40px;
+  text-align: center;
+  line-height: 2.5;
+}
+
+@media(max-width:650px) {
+  .categories, .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero img {
+    width: 100%;
+  }
+
+  nav {
+    gap: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="top-bar">
+اكتشفي عالم الجمال والعناية | تسوقي أحدث المنتجات
+</div>
+
+<header>
+  <div class="icons">♡　⌕</div>
+  <div class="logo">BEAUTY</div>
+  <div class="icons">♙　🛍</div>
+</header>
+
+<nav>
+  <a href="#">الرئيسية</a>
+  <a href="#makeup">المكياج</a>
+  <a href="#skincare">العناية بالبشرة</a>
+  <a href="#fragrance">العطور</a>
+  <a href="#brands">الماركات</a>
+  <a href="#camera">اكتشفي درجتك</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>YOUR BEAUTY.<br>YOUR RULES.</h1>
+    <p>اكتشفي أحدث مستحضرات التجميل<br>واجعلي جمالك يعبر عنك.</p>
+    <a href="#makeup" class="black-btn">تسوقي الآن</a>
+  </div>
+  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800" alt="Beauty">
+</section>
+
+<section class="section" id="makeup">
+  <h2>تسوقي حسب الفئة</h2>
+  <div class="categories">
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="Makeup">
+      <p>المكياج</p>
+    </div>
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500" alt="Skincare">
+      <p>العناية بالبشرة</p>
+    </div>
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Perfume">
+      <p>العطور</p>
+    </div>
+    <div class="category">
+      <img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500" alt="Beauty">
+      <p>الأكثر مبيعاً</p>
+    </div>
+  </div>
+</section>
+
+<section class="camera-box" id="camera">
+  <h2>اكتشفي درجتك المثالية</h2>
+  <p>دعي تقنيتنا الذكية تساعدك في اكتشاف درجات المكياج المناسبة لبشرتك.</p>
+  <button class="black-btn" onclick="document.getElementById('facePhoto').click()">
+    📷 اكتشفي درجتك
+  </button>
+  <input type="file" id="facePhoto" accept="image/*" capture="user" hidden>
+  <p id="photoStatus"></p>
+</section>
+
+<section class="section" id="skincare">
+  <h2>اختياراتنا لك</h2>
+  <div class="products">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500" alt="Product">
+      <p>مجموعة العناية بالبشرة</p>
+      <strong>189 ر.س</strong>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500" alt="Product">
+      <p>أحمر شفاه</p>
+      <strong>125 ر.س</strong>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="Product">
+      <p>مجموعة مكياج</p>
+      <strong>220 ر.س</strong>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Product">
+      <p>عطر فاخر</p>
+      <strong>350 ر.س</strong>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2>BEAUTY</h2>
+  اكتشفي جمالك بطريقتك الخاصة
+  <p>©️ 2026 Beauty Store</p>
+</footer>
+
+<script>
+document.getElementById('facePhoto').addEventListener('change', function() {
+  if (this.files.length) {
+    document.getElementById('photoStatus').textContent =
+      'تم اختيار الصورة بنجاح! سيتم تفعيل تحليل الدرجات الذكي في الخطوة القادمة.';
+  }
+});
+</script>
+
+</body>
+</html>
