@@ -1,524 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BEAUTY | عالم الجمال</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>BEAUTY | جمالك بطريقتك</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <div class="announcement">
-    <span>اكتشفي عالم الجمال</span>
-    <span>تسوّقي أحدث الإصدارات ومجموعات الجمال الحصرية</span>
-    <button onclick="this.parentElement.remove()">×</button>
+<header class="topbar">
+  <button class="icon-btn mobile-menu" id="menuBtn" aria-label="القائمة">☰</button>
+  <a class="brand" href="#home" aria-label="BEAUTY">BEAUTY<span>.</span></a>
+  <nav class="main-nav" id="mainNav">
+    <a href="#home" data-cat="الكل" class="active">الرئيسية</a>
+    <a href="#shop" data-cat="المكياج">المكياج</a>
+    <a href="#shop" data-cat="العطور">العطور</a>
+    <a href="#shop" data-cat="العناية بالبشرة">العناية بالبشرة</a>
+    <a href="#shop" data-cat="العناية بالشعر">العناية بالشعر</a>
+  </nav>
+  <div class="top-actions">
+    <button class="icon-btn" id="searchBtn" aria-label="بحث">⌕</button>
+    <button class="icon-btn" id="wishBtn" aria-label="المفضلة">♡<i id="wishCount">0</i></button>
+    <button class="icon-btn bag" id="cartBtn" aria-label="السلة">♧<i id="cartCount">0</i></button>
   </div>
+</header>
 
-  <header class="site-header">
-    <div class="header-top">
-      <div class="header-actions">
-        <button class="icon-button" onclick="showPanel('cart')">
-          <span class="icon">♧</span><b id="cartCount">0</b>
-        </button>
-        <button class="icon-button" onclick="showPanel('favorites')">
-          <span class="icon">♡</span><b id="favCount">0</b>
-        </button>
-      </div>
-
-      <a class="brand-logo" href="#" onclick="goHome()">BEAUTY</a>
-
-      <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+<main id="home">
+  <section class="hero">
+    <div class="hero-copy">
+      <span class="eyebrow">YOUR BEAUTY. YOUR WAY.</span>
+      <h1>جمالك يبدأ من هنا</h1>
+      <p>اكتشفي اختيارات الجمال والعناية التي تشبهك</p>
+      <a class="black-btn" href="#shop">تسوقي الآن <b>←</b></a>
     </div>
-
-    <div class="search-wrap">
-      <span class="search-symbol">⌕</span>
-      <input id="searchInput" type="search" placeholder="ما الذي تبحثين عنه؟">
-      <button onclick="searchProducts()">بحث</button>
-    </div>
-
-    <nav class="main-nav" id="mainNav">
-      <a href="#" onclick="goHome()">الرئيسية</a>
-      <a href="#makeup" onclick="openCategory('makeup')">المكياج</a>
-      <a href="#skincare" onclick="openCategory('skincare')">العناية بالبشرة</a>
-      <a href="#body" onclick="openCategory('body')">العناية بالجسم</a>
-      <a href="#hair" onclick="openCategory('hair')">العناية بالشعر</a>
-      <a href="#fragrance">العطور</a>
-      <a href="#brands">الماركات</a>
-      <a href="#best">الأكثر مبيعاً</a>
-    </nav>
-  </header>
-
-  <main id="homePage">
-
-    <section class="welcome-card">
-      <div class="welcome-icon">✧</div>
-      <div>
-        <h3>مرحباً بكِ في عالم الجمال</h3>
-        <p>كل ما تحبينه من منتجات الجمال في مكان واحد</p>
-      </div>
-      <span class="welcome-arrow">‹</span>
-    </section>
-
-    <section class="hero">
-      <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1600&q=90" alt="مجموعة مستحضرات تجميل">
-      </div>
-      <div class="hero-copy">
-        <span class="eyebrow">YOUR BEAUTY, YOUR WAY</span>
-        <h1>جمالك يبدأ من هنا</h1>
-        <p>اكتشفي منتجاتك المفضلة، وجربي إطلالات جديدة تعبّر عنكِ.</p>
-        <a href="#makeup" class="black-button">تسوّقي الآن</a>
-      </div>
-    </section>
-
-    <section class="campaign-grid">
-      <a class="campaign-card campaign-pink" href="#new">
-        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=85" alt="منتجات مكياج">
-        <div><small>NEW & EXCLUSIVE</small><h2>اكتشفي المجموعات الحصرية</h2><span>تسوّقي الآن ←</span></div>
-      </a>
-      <a class="campaign-card campaign-lilac" href="#best">
-        <img src="https://images.unsplash.com/photo-1631214540242-4b6f9f7b7b8b?auto=format&fit=crop&w=1000&q=85" alt="مستحضرات تجميل">
-        <div><small>BEAUTY FAVORITES</small><h2>اختيارات الجمال المفضلة</h2><span>اكتشفي المزيد ←</span></div>
-      </a>
-    </section>
-
-    <section class="section-block">
-      <div class="section-heading">
-        <div><span class="eyebrow">SHOP BY CATEGORY</span><h2>تسوّقي حسب الفئة</h2></div>
-        <a href="#categories">عرض الكل</a>
-      </div>
-      <div class="category-tiles" id="categories">
-        <button onclick="openCategory('makeup')">
-          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=85" alt="المكياج">
-          <span>المكياج</span>
-        </button>
-        <button onclick="openCategory('skincare')">
-          <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85" alt="العناية بالبشرة">
-          <span>العناية بالبشرة</span>
-        </button>
-        <button onclick="openCategory('body')">
-          <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85" alt="العناية بالجسم">
-          <span>العناية بالجسم</span>
-        </button>
-        <button onclick="openCategory('hair')">
-          <img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=700&q=85" alt="العناية بالشعر">
-          <span>العناية بالشعر</span>
-        </button>
-      </div>
-    </section>
-
-    <section class="section-block" id="new">
-      <div class="section-heading">
-        <div><span class="eyebrow">JUST DROPPED</span><h2>وصل حديثاً</h2></div>
-        <a href="#products">تسوّقي الكل</a>
-      </div>
-      <div class="product-grid" id="newProducts"></div>
-    </section>
-
-    <section class="editorial-banner">
-      <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=1500&q=90" alt="إطلالة جمالية">
-      <div>
-        <span class="eyebrow">BEAUTY STORIES</span>
-        <h2>إطلالتك… بطريقتك</h2>
-        <p>ألوان، لمسات، وتفاصيل صغيرة تصنع فرقاً كبيراً.</p>
-        <a href="#makeup" class="outline-button">اكتشفي المجموعة</a>
-      </div>
-    </section>
-
-    <section class="section-block" id="best">
-      <div class="section-heading">
-        <div><span class="eyebrow">MOST LOVED</span><h2>الأكثر مبيعاً</h2></div>
-        <a href="#products">عرض الكل</a>
-      </div>
-      <div class="product-grid" id="bestProducts"></div>
-    </section>
-
-    <section class="brand-section" id="brands">
-      <div class="section-heading">
-        <div><span class="eyebrow">THE BRANDS YOU LOVE</span><h2>تسوّقي الماركات</h2></div>
-      </div>
-      <div class="brand-list">
-        <button onclick="filterBrand('NARS')">NARS</button>
-        <button onclick="filterBrand('Huda Beauty')">HUDA BEAUTY</button>
-        <button onclick="filterBrand('Dior')">DIOR</button>
-        <button onclick="filterBrand('MAC')">MAC</button>
-        <button onclick="filterBrand('Fenty Beauty')">FENTY BEAUTY</button>
-        <button onclick="filterBrand('Rare Beauty')">RARE BEAUTY</button>
-        <button onclick="filterBrand('Clinique')">CLINIQUE</button>
-        <button onclick="filterBrand('Tarte')">TARTE</button>
-        <button onclick="filterBrand('Milk Makeup')">MILK MAKEUP</button>
-        <button onclick="filterBrand('Charlotte Tilbury')">CHARLOTTE TILBURY</button>
-      </div>
-    </section>
-
-    <section class="section-block" id="products">
-      <div class="section-heading">
-        <div><span class="eyebrow">BEAUTY EDIT</span><h2>اختياراتنا لكِ</h2></div>
-        <span class="muted">منتجات تجريبية للعرض</span>
-      </div>
-      <div class="product-grid" id="allProducts"></div>
-    </section>
-
-    <section class="feature-banner">
-      <div class="feature-image">
-        <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?auto=format&fit=crop&w=1000&q=90" alt="جمال البشرة">
-      </div>
-      <div class="feature-copy">
-        <span class="eyebrow">FIND YOUR PERFECT MATCH</span>
-        <h2>درجتك المثالية تبدأ بمعرفة بشرتك</h2>
-        <p>اكتشفي الاندرتون ودرجات الألوان التي قد تناسبك.</p>
-        <a href="#undertone" class="black-button">اكتشفي درجتك</a>
-      </div>
-    </section>
-
-    <section class="undertone-section" id="undertone">
-      <div class="undertone-photo">
-        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=1200&q=90" alt="تحليل درجات البشرة">
-      </div>
-      <div class="undertone-content">
-        <span class="eyebrow">YOUR SHADE, YOUR BEAUTY</span>
-        <h2>اكتشفي الاندرتون الخاص بكِ</h2>
-        <p>ابدئي تجربة تساعدك على التعرف على undertone بشرتك واختيار درجات المكياج المناسبة.</p>
-        <button class="black-button" onclick="openUndertone()">ابدئي تحليل الاندرتون</button>
-        <small>يمكنك رفع صورة أو استخدام الكاميرا. النتيجة في هذه النسخة إرشادية وليست تحليلاً طبياً أو قياساً دقيقاً للون البشرة.</small>
-      </div>
-    </section>
-
-  </main>
-
-  <section class="category-page" id="categoryPage" hidden>
-    <div class="category-top">
-      <button onclick="goHome()" class="back-button">›</button>
-      <h1 id="categoryTitle">المكياج</h1>
-      <button class="icon-button" onclick="showPanel('cart')">♡</button>
-    </div>
-    <div class="search-wrap category-search">
-      <span class="search-symbol">⌕</span>
-      <input id="categorySearch" placeholder="ما الذي تبحثين عنه؟" oninput="filterCategoryItems()">
-    </div>
-    <div class="accordion-list" id="accordionList"></div>
-    <div class="category-products">
-      <div class="section-heading"><h2 id="categoryProductsTitle">تسوّقي المنتجات</h2></div>
-      <div class="product-grid" id="categoryProducts"></div>
+    <div class="hero-art">
+      <div class="hero-note">THE BEAUTY EDIT<br><small>اختياراتنا لهذا الموسم</small></div>
+      <img src="assets/makeup-dg-gift.jpg" alt="مجموعة مكياج">
+      <img class="hero-small" src="assets/perfume-gaultier.jpg" alt="عطر">
     </div>
   </section>
 
-  <section class="product-results" id="searchResults" hidden>
-    <div class="category-top">
-      <button onclick="goHome()" class="back-button">›</button>
-      <h1>نتائج البحث</h1>
-    </div>
-    <div class="product-grid" id="searchProductGrid"></div>
+  <section class="category-strip" aria-label="الأقسام">
+    <button class="category-tile selected" data-category="الكل"><span>✧</span> الكل</button>
+    <button class="category-tile" data-category="المكياج"><span>◉</span> المكياج</button>
+    <button class="category-tile" data-category="العطور"><span>♧</span> العطور</button>
+    <button class="category-tile" data-category="العناية بالبشرة"><span>✿</span> العناية بالبشرة</button>
+    <button class="category-tile" data-category="العناية بالشعر"><span>〰</span> العناية بالشعر</button>
   </section>
 
-  <div class="bottom-nav">
-    <button onclick="showPanel('account')"><span>♙</span>حسابي</button>
-    <button onclick="goHome()"><span>▤</span>المتجر</button>
-    <button onclick="document.getElementById('searchInput').focus()"><span>⌕</span>تسوّق</button>
-    <button class="active" onclick="goHome()"><span>⌂</span>الرئيسية</button>
-  </div>
+  <section class="shop-section" id="shop">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">THE BEAUTY COLLECTION</span>
+        <h2 id="sectionTitle">تسوقي كل المنتجات</h2>
+        <p id="resultCount">اختيارات مختارة لك</p>
+      </div>
+      <div class="toolbar">
+        <label class="search-field" id="searchWrap">
+          <span>⌕</span>
+          <input id="searchInput" placeholder="ابحثي عن منتج أو ماركة">
+        </label>
+        <select id="sortSelect" aria-label="ترتيب المنتجات">
+          <option value="featured">ترتيب حسب</option>
+          <option value="low">السعر: الأقل أولاً</option>
+          <option value="high">السعر: الأعلى أولاً</option>
+        </select>
+      </div>
+    </div>
 
-  <div class="overlay" id="overlay" onclick="closePanel()"></div>
-  <aside class="side-panel" id="sidePanel">
-    <button class="close-panel" onclick="closePanel()">×</button>
-    <div id="panelContent"></div>
+    <div class="chips" id="chips">
+      <button class="chip active" data-filter="الكل">كل المنتجات</button>
+      <button class="chip" data-filter="الأكثر مبيعاً">الأكثر مبيعاً</button>
+      <button class="chip" data-filter="جديد">جديد</button>
+      <button class="chip" data-filter="حصري">حصري</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <section class="undertone" id="undertone">
+    <div class="undertone-image">
+      <div class="tone-orb"></div>
+      <span>FIND YOUR SHADE</span>
+    </div>
+    <div class="undertone-copy">
+      <span class="eyebrow">PERSONAL BEAUTY MATCH</span>
+      <h2>اكتشفي الاندرتون ودرجتك</h2>
+      <p>ارفعي صورة واضحة لبشرتك في إضاءة طبيعية، أو استخدمي الكاميرا، لتحصلي على إرشاد مبدئي يساعدك في اختيار درجات المكياج.</p>
+      <div class="tone-actions">
+        <label class="black-btn upload-btn">ارفعي صورة
+          <input type="file" id="toneFile" accept="image/*">
+        </label>
+        <button class="outline-btn" id="cameraBtn">استخدمي الكاميرا</button>
+      </div>
+      <div class="tone-result" id="toneResult" aria-live="polite">النتيجة إرشادية فقط؛ الإضاءة والكاميرا قد تؤثران على دقة تحديد الاندرتون.</div>
+      <video id="cameraPreview" autoplay playsinline hidden></video>
+      <canvas id="toneCanvas" hidden></canvas>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <a class="brand" href="#home">BEAUTY<span>.</span></a>
+  <p>مساحة تجريبية لاكتشاف منتجات الجمال واختيار الدرجات.</p>
+  <small>©️ BEAUTY — Demo Experience</small>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <section class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <button class="close-modal" id="closeModal">×</button>
+    <div class="modal-image"><img id="modalImage" src="" alt=""></div>
+    <div class="modal-info">
+      <span class="modal-brand" id="modalBrand"></span>
+      <h2 id="modalName"></h2>
+      <p id="modalRating"></p>
+      <strong class="modal-price" id="modalPrice"></strong>
+      <p class="modal-old" id="modalOld"></p>
+      <label class="option-label" id="optionLabel">اختاري الدرجة</label>
+      <div class="shade-options" id="shadeOptions"></div>
+      <button class="black-btn add-cart" id="addCart">أضيفي إلى السلة</button>
+      <p class="modal-note">الدرجات المعروضة مرقمة حسب عدد الخيارات الظاهر في المرجع؛ أسماء الدرجات التفصيلية غير ظاهرة في الصور.</p>
+    </div>
+  </section>
+</div>
+
+<div class="drawer-backdrop" id="drawerBackdrop">
+  <aside class="drawer">
+    <button class="close-modal" id="closeDrawer">×</button>
+    <h2 id="drawerTitle">سلة التسوق</h2>
+    <div id="drawerContent"></div>
+    <div class="drawer-total" id="drawerTotal"></div>
   </aside>
-
-  <div class="modal" id="productModal">
-    <div class="modal-card">
-      <button class="close-modal" onclick="closeProduct()">×</button>
-      <div id="productModalContent"></div>
-    </div>
-  </div>
-
-  <div class="modal" id="undertoneModal">
-    <div class="modal-card undertone-modal">
-      <button class="close-modal" onclick="closeUndertone()">×</button>
-      <span class="eyebrow">YOUR BEAUTY MATCH</span>
-      <h2>اكتشفي الاندرتون</h2>
-      <p>اختاري صورة واضحة لبشرتك بإضاءة طبيعية، أو استخدمي الكاميرا.</p>
-      <label class="upload-box">
-        <span>＋</span>
-        <strong>ارفعي صورة</strong>
-        <small>JPG أو PNG</small>
-        <input type="file" id="skinUpload" accept="image/*" onchange="previewSkin(event)">
-      </label>
-      <button class="outline-button camera-button" onclick="startCamera()">استخدام الكاميرا</button>
-      <video id="cameraVideo" autoplay playsinline hidden></video>
-      <canvas id="cameraCanvas" hidden></canvas>
-      <img id="skinPreview" class="skin-preview" alt="معاينة الصورة" hidden>
-      <div class="camera-actions">
-        <button class="black-button" id="captureButton" onclick="capturePhoto()" hidden>التقاط الصورة</button>
-      </div>
-      <p class="privacy-note">صورتك تبقى في المعاينة داخل هذه الصفحة ولا يتم إرسالها إلى خادم.</p>
-      <div id="analysisMessage" class="analysis-message" hidden>
-        <strong>المعاينة جاهزة</strong>
-        <p>ميزة التحليل الذكي وربط درجات المنتجات تحتاج إلى تفعيل خدمة تحليل فعلية. حالياً يمكنك استخدام الصورة للمعاينة فقط.</p>
-      </div>
-    </div>
-  </div>
-
-  <footer class="site-footer">
-    <div class="footer-logo">BEAUTY</div>
-    <p>جمالك، اختياراتك، وطريقتك الخاصة.</p>
-    <div class="footer-links">
-      <a href="#brands">الماركات</a>
-      <a href="#makeup">المكياج</a>
-      <a href="#undertone">تحليل الاندرتون</a>
-    </div>
-    <small>©️ 2026 BEAUTY — نموذج تجريبي لمشروع تصميم متجر تجميل.</small>
-  </footer>
-
-<script>
-const products = [
-  {id:1,brand:"NARS",name:"كونسيلر سوفت مات كومبليت",price:170,old:210,rating:"4.5",shades:["Vanilla","Custard","Ginger","Macadamia"],shadeCount:23,tag:"الأكثر طلباً",category:"makeup",type:"concealer",image:"https://images.unsplash.com/photo-1631214540242-4b6f9f7b7b8b?auto=format&fit=crop&w=700&q=85"},
-  {id:2,brand:"Huda Beauty",name:"كونسيلر فوكس فلتر",price:145,rating:"4.8",shades:["Whipped Cream","Meringue","Nougat","Cookie Dough"],shadeCount:29,tag:"جديد",category:"makeup",type:"concealer",image:"https://images.unsplash.com/photo-1599733589046-833a5d6c6e0a?auto=format&fit=crop&w=700&q=85"},
-  {id:3,brand:"Fenty Beauty",name:"فاونديشن برو فيلتر سوفت مات",price:195,rating:"4.7",shades:["110","150","185","210","230","260"],shadeCount:50,tag:"الأكثر مبيعاً",category:"makeup",type:"foundation",image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85"},
-  {id:4,brand:"Dior",name:"باكستيج فيس آند بودي",price:219,rating:"4.8",shades:["0N","1N","2N","2W","3N"],shadeCount:40,tag:"مميز",category:"makeup",type:"foundation",image:"https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=85"},
-  {id:5,brand:"Rare Beauty",name:"سوفت بينش ليكويد بلاشر",price:135,rating:"4.9",shades:["Happy","Hope","Joy","Bliss","Love"],shadeCount:12,tag:"الأكثر طلباً",category:"makeup",type:"blush",image:"https://images.unsplash.com/photo-1583241800698-e8ab01830a4a?auto=format&fit=crop&w=700&q=85"},
-  {id:6,brand:"MAC",name:"قلم تحديد الشفاه",price:105,rating:"4.6",shades:["Spice","Whirl","Soar","Chestnut"],shadeCount:18,tag:"جديد",category:"makeup",type:"lip",image:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85"},
-  {id:7,brand:"Clinique",name:"مجموعة زيت الشفاه",price:175,rating:"4.6",shades:["Black Honey","Pink","Rose"],shadeCount:6,tag:"مجموعة",category:"makeup",type:"lip",image:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85"},
-  {id:8,brand:"Tarte",name:"Shape Tape كونسيلر",price:190,rating:"4.7",shades:["Fair","Light","Medium","Tan"],shadeCount:35,tag:"الأكثر مبيعاً",category:"makeup",type:"concealer",image:"https://images.unsplash.com/photo-1591360236480-4ed861025fa1?auto=format&fit=crop&w=700&q=85"},
-  {id:9,brand:"Milk Makeup",name:"بلشر ستيك",price:125,rating:"4.8",shades:["Werk","Dash","Rally","Quickie"],shadeCount:8,tag:"حصري",category:"makeup",type:"blush",image:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=700&q=85"},
-  {id:10,brand:"Charlotte Tilbury",name:"محدد الشفاه",price:155,rating:"4.7",shades:["Pillow Talk","Iconic Nude","Foxy Brown"],shadeCount:10,tag:"مميز",category:"makeup",type:"lip",image:"https://images.unsplash.com/photo-1583241800698-e8ab01830a4a?auto=format&fit=crop&w=700&q=85"},
-  {id:11,brand:"The Ordinary",name:"سيروم الترطيب",price:65,rating:"4.7",shades:[],shadeCount:0,tag:"الأكثر مبيعاً",category:"skincare",type:"serum",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85"},
-  {id:12,brand:"Clinique",name:"مرطب الوجه",price:145,rating:"4.6",shades:[],shadeCount:0,tag:"مميز",category:"skincare",type:"moisturizer",image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=85"},
-  {id:13,brand:"Sol de Janeiro",name:"كريم الجسم",price:185,rating:"4.8",shades:[],shadeCount:0,tag:"الأكثر طلباً",category:"body",type:"body",image:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85"},
-  {id:14,brand:"Olaplex",name:"زيت العناية بالشعر",price:135,rating:"4.7",shades:[],shadeCount:0,tag:"جديد",category:"hair",type:"hair",image:"https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?auto=format&fit=crop&w=700&q=85"}
-];
-
-const categories = {
-  makeup:{title:"المكياج",groups:[
-    ["الوجه",["كريمات الأساس","برايمر وبخاخ تثبيت المكياج","كريمات الإخفاء والتصحيح","هايلايتر","برونزر","كونتور","بودرة الوجه","مرطب ملون","باليتات الوجه"]],
-    ["مزيل المكياج",["مزيل المكياج","مناديل إزالة المكياج","ماء ميسيلار"]],
-    ["مجموعات هدايا المكياج",["مجموعات الوجه","مجموعات العيون","مجموعات الشفاه"]],
-    ["العيون",["ظلال العيون","ماسكارا","باليتات ظلال العيون","آيلاينر","الرموش"]],
-    ["الشفاه",["أحمر الشفاه","ملمع الشفاه","لاينر الشفاه","بلسم الشفاه","مكبر الشفاه","أحمر شفاه سائل"]],
-    ["باليتات المكياج",["باليتات الوجه","باليتات العيون","باليتات الشفاه"]],
-    ["الحواجب",["قلم وبودرة الحواجب","جل وماسكارا الحواجب","مجموعة العناية بالحواجب"]],
-    ["الفرش وأدوات",["فرش للوجه","فرش الحواجب","فرش للعيون","مجموعات فرش المكياج","الإسفنجات وأدوات وضع المكياج","منظفات فرش المكياج"]],
-    ["الأظافر",["طلاء الأظافر","العناية بالأظافر"]],
-    ["منتجات ملائمة للسفر",["أحجام السفر","مجموعات السفر"]],
-    ["أدوات وضع المكياج",["مرايا","مباري","أدوات المكياج"]]
-  ]},
-  skincare:{title:"العناية بالبشرة",groups:[
-    ["بشرتك. لحظتك.",["روتين العناية بالبشرة","اختاري حسب نوع بشرتك"]],
-    ["كريمات الترطيب",["مرطبات الوجه","كريمات الليل","كريمات العين"]],
-    ["منظفات",["غسول الوجه","منظفات زيتية","ماء ميسيلار"]],
-    ["الماسكات",["ماسكات الوجه","ماسكات الطين","ماسكات ورقية"]],
-    ["مشاكل البشرة",["حب الشباب","التصبغات","الجفاف","المسام"]],
-    ["العناية بالشفاه",["مرطبات الشفاه","مقشرات الشفاه"]],
-    ["الحماية من الشمس",["واقي الشمس للوجه","واقي الشمس الملون"]],
-    ["أطقم",["مجموعات العناية بالبشرة","أحجام السفر"]],
-    ["أدوات الوجه",["أدوات تنظيف الوجه","أدوات التدليك"]]
-  ]},
-  body:{title:"العناية بالجسم",groups:[
-    ["الأكثر مبيعاً",["الأكثر طلباً للعناية بالجسم"]],
-    ["الاستحمام والعناية بالجسم",["غسول الجسم","مقشرات الجسم","صابون الجسم"]],
-    ["العناية بالجسم",["لوشن الجسم","كريمات الجسم","زيوت الجسم"]],
-    ["منتجات السمرة",["تسمير الجسم","العناية بعد الشمس"]],
-    ["الشموع والروائح",["شموع معطرة","معطرات الجسم"]],
-    ["إكسسوارات للجسم",["أدوات الاستحمام","فرش الجسم"]]
-  ]},
-  hair:{title:"العناية بالشعر",groups:[
-    ["وصل حديثاً",["أحدث منتجات الشعر"]],
-    ["الأكثر مبيعاً",["الأكثر طلباً للشعر"]],
-    ["مجموعة العناية بالشعر",["شامبو","بلسم","ماسكات الشعر"]],
-    ["تريدين شعراً رائعاً؟",["منتجات حسب نوع الشعر"]],
-    ["العناية بالشعر",["زيوت الشعر","سيروم الشعر","كريمات التصفيف"]],
-    ["التسوق حسب نوع الشعر",["الشعر الجاف","الشعر الدهني","الشعر المجعد"]],
-    ["علاج",["علاج التساقط","علاج التلف"]],
-    ["أدوات تصفيف الشعر",["مجففات الشعر","مكواة الشعر","فرش الشعر"]],
-    ["التسوق بحسب الاهتمامات",["حماية الحرارة","زيادة الكثافة"]],
-    ["المجموعات",["مجموعات العناية بالشعر"]],
-    ["حجم مناسب للسفر",["أحجام السفر"]]
-  ]}
-};
-
-let favorites = [];
-let cart = [];
-let activeCategory = "makeup";
-let cameraStream = null;
-
-function productCard(p){
-  return `<article class="product-card">
-    <div class="product-photo" onclick="openProduct(${p.id})">
-      <img src="${p.image}" alt="${p.brand} ${p.name}" loading="lazy">
-      ${p.tag?`<span class="product-tag">${p.tag}</span>`:""}
-      <button class="heart" onclick="event.stopPropagation();toggleFavorite(${p.id})">${favorites.includes(p.id)?"♥️":"♡"}</button>
-    </div>
-    <div class="product-info" onclick="openProduct(${p.id})">
-      <strong>${p.brand}</strong>
-      <h3>${p.name}</h3>
-      <div class="rating"><span>★★★★★</span> ${p.rating} <small>(${Math.floor(Number(p.rating)*123)})</small></div>
-      ${p.shadeCount?`<p class="shade-count">${p.shadeCount} درجة متاحة</p>`:""}
-      <div class="product-bottom"><b>${p.price.toFixed(2)} ر.س</b>${p.old?`<del>${p.old.toFixed(2)} ر.س</del>`:""}</div>
-    </div>
-    <button class="quick-add" onclick="addToCart(${p.id})">أضيفي للسلة +</button>
-  </article>`;
-}
-
-function renderProducts(){
-  document.getElementById("newProducts").innerHTML=products.slice(0,4).map(productCard).join("");
-  document.getElementById("bestProducts").innerHTML=[products[4],products[0],products[2],products[8]].map(productCard).join("");
-  document.getElementById("allProducts").innerHTML=products.map(productCard).join("");
-}
-
-function goHome(){
-  document.getElementById("homePage").hidden=false;
-  document.getElementById("categoryPage").hidden=true;
-  document.getElementById("searchResults").hidden=true;
-  window.scrollTo({top:0,behavior:"smooth"});
-  document.getElementById("mainNav").classList.remove("show");
-}
-
-function openCategory(key){
-  const data=categories[key];
-  if(!data)return;
-  activeCategory=key;
-  document.getElementById("homePage").hidden=true;
-  document.getElementById("searchResults").hidden=true;
-  document.getElementById("categoryPage").hidden=false;
-  document.getElementById("categoryTitle").textContent=data.title;
-  document.getElementById("categoryProductsTitle").textContent="تسوّقي "+data.title;
-  document.getElementById("accordionList").innerHTML=data.groups.map((g,i)=>`
-    <section class="accordion">
-      <button class="accordion-head" onclick="toggleAccordion(${i})">
-        <span>${g[0]}</span><b id="arrow${i}">⌄</b>
-      </button>
-      <div class="accordion-body" id="accordionBody${i}" hidden>
-        ${g[1].map(item=>`<button onclick="showCategoryProducts('${item}')">${item}<span>‹</span></button>`).join("")}
-        <button class="shop-all" onclick="showCategoryProducts('${g[0]}')">تسوّقي الكل</button>
-      </div>
-    </section>`).join("");
-  showCategoryProducts(data.title);
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function toggleAccordion(i){
-  const body=document.getElementById("accordionBody"+i);
-  body.hidden=!body.hidden;
-  document.getElementById("arrow"+i).textContent=body.hidden?"⌄":"⌃";
-}
-
-function showCategoryProducts(label){
-  document.getElementById("categoryProductsTitle").textContent=label;
-  let list=products.filter(p=>p.category===activeCategory);
-  if(!list.length)list=products;
-  document.getElementById("categoryProducts").innerHTML=list.map(productCard).join("");
-}
-
-function filterCategoryItems(){
-  const q=document.getElementById("categorySearch").value.trim();
-  document.querySelectorAll(".accordion").forEach(el=>{
-    el.style.display=el.textContent.includes(q)?"block":"none";
-  });
-}
-
-function searchProducts(){
-  const q=document.getElementById("searchInput").value.trim().toLowerCase();
-  if(!q)return;
-  const found=products.filter(p=>(p.brand+" "+p.name+" "+p.shades.join(" ")).toLowerCase().includes(q));
-  document.getElementById("homePage").hidden=true;
-  document.getElementById("categoryPage").hidden=true;
-  document.getElementById("searchResults").hidden=false;
-  document.getElementById("searchProductGrid").innerHTML=found.length?found.map(productCard).join():"<p>ما لقينا منتجات مطابقة لبحثك.</p>";
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-document.getElementById("searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")searchProducts()});
-
-function filterBrand(brand){
-  document.getElementById("homePage").hidden=true;
-  document.getElementById("categoryPage").hidden=true;
-  document.getElementById("searchResults").hidden=false;
-  const found=products.filter(p=>p.brand===brand);
-  document.getElementById("searchProductGrid").innerHTML=found.length?found.map(productCard).join():"<p>ستتوفر منتجات هذه الماركة قريباً.</p>";
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-
-function toggleFavorite(id){
-  favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];
-  document.getElementById("favCount").textContent=favorites.length;
-  renderProducts();
-}
-
-function addToCart(id){
-  cart.push(id);
-  document.getElementById("cartCount").textContent=cart.length;
-  const btn=event?.currentTarget;
-  if(btn){btn.textContent="تمت الإضافة ✓";setTimeout(()=>btn.textContent="أضيفي للسلة +",1200);}
-}
-
-function openProduct(id){
-  const p=products.find(x=>x.id===id);
-  document.getElementById("productModalContent").innerHTML=`
-    <img class="modal-product-image" src="${p.image}" alt="${p.name}">
-    <div class="modal-product-info">
-      <span class="eyebrow">${p.brand}</span><h2>${p.name}</h2>
-      <div class="rating"><span>★★★★★</span> ${p.rating}</div>
-      <h3>${p.price.toFixed(2)} ر.س</h3>
-      ${p.shades.length?`<p>اختاري الدرجة:</p><div class="shade-options">${p.shades.map(s=>`<button onclick="selectShade(this)">${s}</button>`).join("")}</div>`:""}
-      <button class="black-button" onclick="addToCart(${p.id});closeProduct()">أضيفي إلى السلة</button>
-    </div>`;
-  document.getElementById("productModal").classList.add("open");
-}
-function selectShade(btn){btn.parentElement.querySelectorAll("button").forEach(b=>b.classList.remove("selected"));btn.classList.add("selected")}
-function closeProduct(){document.getElementById("productModal").classList.remove("open")}
-
-function showPanel(type){
-  const panel=document.getElementById("panelContent");
-  if(type==="cart"){
-    panel.innerHTML=`<h2>سلة التسوق</h2>${cart.length?cart.map(id=>{const p=products.find(x=>x.id===id);return `<div class="panel-item"><img src="${p.image}"><div><b>${p.brand}</b><p>${p.name}</p><strong>${p.price} ر.س</strong></div></div>`}).join(""):`<p>سلتك فارغة حالياً.</p>`}<button class="black-button" onclick="closePanel()">متابعة التسوق</button>`;
-  }else if(type==="favorites"){
-    panel.innerHTML=`<h2>قائمة الأمنيات</h2>${favorites.length?favorites.map(id=>{const p=products.find(x=>x.id===id);return `<div class="panel-item"><img src="${p.image}"><div><b>${p.brand}</b><p>${p.name}</p><strong>${p.price} ر.س</strong></div></div>`}).join(""):`<p>لم تضيفي أي منتجات للمفضلة بعد.</p>`}`;
-  }else{
-    panel.innerHTML=`<h2>حسابي</h2><p>أهلاً بكِ في BEAUTY</p><label>البريد الإلكتروني</label><input class="panel-input" placeholder="name@example.com"><label>كلمة المرور</label><input class="panel-input" type="password" placeholder="كلمة المرور"><button class="black-button" onclick="alert('هذه واجهة تجريبية للحساب')">تسجيل الدخول</button><p class="muted">واجهة حساب تجريبية.</p>`;
-  }
-  document.getElementById("overlay").classList.add("open");
-  document.getElementById("sidePanel").classList.add("open");
-}
-function closePanel(){
-  document.getElementById("overlay").classList.remove("open");
-  document.getElementById("sidePanel").classList.remove("open");
-}
-function toggleMenu(){document.getElementById("mainNav").classList.toggle("show")}
-
-function openUndertone(){document.getElementById("undertoneModal").classList.add("open")}
-function closeUndertone(){
-  document.getElementById("undertoneModal").classList.remove("open");
-  if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;}
-  document.getElementById("cameraVideo").hidden=true;
-  document.getElementById("captureButton").hidden=true;
-}
-function previewSkin(e){
-  const file=e.target.files[0];if(!file)return;
-  const reader=new FileReader();
-  reader.onload=()=>{const img=document.getElementById("skinPreview");img.src=reader.result;img.hidden=false;document.getElementById("analysisMessage").hidden=false;};
-  reader.readAsDataURL(file);
-}
-async function startCamera(){
-  try{
-    cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"user"}});
-    const video=document.getElementById("cameraVideo");
-    video.srcObject=cameraStream;video.hidden=false;
-    document.getElementById("captureButton").hidden=false;
-  }catch(e){alert("تعذر تشغيل الكاميرا. يمكنك رفع صورة بدلاً من ذلك.");}
-}
-function capturePhoto(){
-  const video=document.getElementById("cameraVideo");
-  const canvas=document.getElementById("cameraCanvas");
-  canvas.width=video.videoWidth;canvas.height=video.videoHeight;
-  canvas.getContext("2d").drawImage(video,0,0);
-  const img=document.getElementById("skinPreview");
-  img.src=canvas.toDataURL("image/png");img.hidden=false;
-  document.getElementById("analysisMessage").hidden=false;
-}
-
-renderProducts();
-</script>
+</div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
 </body>
 </html>
