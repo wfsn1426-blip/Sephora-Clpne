@@ -1,397 +1,305 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BEAUTY | عالم الجمال</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--black:#080808;--gray:#777;--line:#e9e9e9;--light:#f6f6f6}
-body{font-family:Arial,Tahoma,sans-serif;color:#171717;background:#fff}
-button,input{font:inherit}
-button{cursor:pointer}
-a{text-decoration:none;color:inherit}
-.top{background:#080808;color:#fff;text-align:center;padding:11px;font-size:12px;letter-spacing:.3px}
-.header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;gap:25px;border-bottom:1px solid var(--line)}
-.logo{font-size:34px;font-weight:900;letter-spacing:4px;white-space:nowrap}
-.search{background:#f4f4f4;display:flex;align-items:center;padding:12px 16px;flex:1;max-width:520px;border-radius:3px}
-.search input{border:0;outline:0;background:transparent;width:100%;font-size:14px}
-.actions{display:flex;gap:20px;align-items:center}
-.action{border:0;background:none;font-size:23px;position:relative}
-.action small{display:block;font-size:10px;margin-top:5px}
-.count{position:absolute;top:-7px;right:-9px;background:#111;color:white;border-radius:50%;font-size:10px;padding:3px 6px}
-.nav{display:flex;justify-content:center;gap:30px;padding:17px 10px;border-bottom:1px solid var(--line);font-size:13px;flex-wrap:wrap}
-.nav a:hover{border-bottom:2px solid #111;padding-bottom:6px}
-.hero{display:grid;grid-template-columns:1fr 1fr;min-height:420px;background:#eee}
-.hero img{width:100%;height:420px;object-fit:cover}
-.hero-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:9%}
-.eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:20px}
-.hero h1{font-size:clamp(30px,4vw,54px);line-height:1.3;margin-bottom:18px}
-.hero p{line-height:2;color:#555;font-size:15px;margin-bottom:25px}
-.black-btn{background:#080808;color:white;border:1px solid #080808;padding:14px 28px;font-size:13px}
-.black-btn:hover{background:white;color:#080808}
-.section{padding:55px 5%}
-.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
-.section-head h2{font-size:25px;font-weight:700}
-.section-head a{font-size:12px;text-decoration:underline}
-.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
-.category{text-align:center;cursor:pointer}
-.category img{width:100%;aspect-ratio:1/1.15;object-fit:cover;background:#eee}
-.category p{font-size:14px;font-weight:bold;margin-top:13px}
-.category:hover img{opacity:.85}
-.brand-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-.brand{height:100px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:bold;letter-spacing:1px}
-.brand:hover{background:#111;color:white}
-.banner{display:grid;grid-template-columns:1fr 1fr;background:#f1eeee}
-.banner img{width:100%;height:290px;object-fit:cover}
-.banner-copy{display:flex;flex-direction:column;justify-content:center;padding:9%}
-.banner-copy h2{font-size:32px;margin-bottom:15px}
-.banner-copy p{line-height:2;color:#555;margin-bottom:20px}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.product{position:relative;cursor:pointer;min-width:0}
-.product-image{position:relative;background:#f5f5f5}
-.product-image img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.tag{position:absolute;top:12px;right:12px;background:white;padding:7px 10px;font-size:10px}
-.heart{position:absolute;top:10px;left:10px;border:0;border-radius:50%;background:white;width:35px;height:35px;font-size:19px}
-.product-info{padding:13px 2px}
-.product-brand{font-size:11px;color:#777;margin-bottom:7px}
-.product-name{font-size:14px;font-weight:bold;line-height:1.6;margin-bottom:8px}
-.product-desc{font-size:11px;color:#777;margin-bottom:10px}
-.price{font-size:14px;font-weight:bold}
-.old-price{text-decoration:line-through;color:#999;font-size:12px;margin-right:8px}
-.add{width:100%;background:#111;color:white;border:1px solid #111;padding:12px;margin-top:12px;font-size:12px}
-.add:hover{background:white;color:#111}
-.camera-section{background:#f5f2f0;text-align:center;padding:65px 20px}
-.camera-section h2{font-size:30px;margin:15px 0}
-.camera-section p{color:#666;line-height:2;max-width:600px;margin:0 auto 20px}
-.camera-icon{font-size:42px}
-.camera-preview{max-width:240px;max-height:240px;display:none;margin:20px auto;object-fit:cover}
-#cameraInput{display:none}
-.newsletter{background:#111;color:white;text-align:center;padding:50px 20px}
-.newsletter h2{font-size:25px;margin-bottom:12px}
-.newsletter p{font-size:13px;color:#ccc;margin-bottom:20px}
-.newsletter form{display:flex;max-width:450px;margin:auto}
-.newsletter input{flex:1;padding:13px;border:0;outline:0}
-.newsletter button{background:#fff;color:#111;border:0;padding:13px 22px}
-footer{background:#080808;color:white;padding:45px 6% 20px}
-.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
-footer h3{font-size:14px;margin-bottom:18px}
-footer a,footer p{display:block;color:#ccc;font-size:12px;margin:12px 0;line-height:1.8}
-.copyright{text-align:center;border-top:1px solid #444;margin-top:35px;padding-top:20px;color:#aaa;font-size:11px}
-.overlay{position:fixed;inset:0;background:#0008;z-index:20;display:none}
-.drawer{position:fixed;top:0;left:0;width:min(420px,100%);height:100%;background:white;z-index:21;padding:25px;overflow:auto;transform:translateX(-105%);transition:.3s}
-.drawer.open{transform:translateX(0)}
-.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding-bottom:20px;margin-bottom:20px}
-.close{border:0;background:none;font-size:25px}
-.cart-item{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid #eee}
-.cart-item img{width:75px;height:90px;object-fit:cover}
-.cart-item h4{font-size:13px;margin-bottom:8px}
-.cart-item p{font-size:12px;color:#777;margin-bottom:10px}
-.quantity{display:flex;align-items:center;gap:12px}
-.quantity button{border:1px solid #ddd;background:white;padding:3px 9px}
-.cart-total{border-top:1px solid #ddd;margin-top:25px;padding-top:20px}
-.cart-total div{display:flex;justify-content:space-between;margin-bottom:15px}
-.cart-total button{width:100%}
-.empty{text-align:center;padding:50px 10px;color:#777;font-size:14px}
-.modal{position:fixed;inset:0;background:#0009;z-index:30;display:none;align-items:center;justify-content:center;padding:15px}
-.modal-box{background:white;width:min(750px,100%);max-height:90vh;overflow:auto;padding:25px;position:relative}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
-.detail-grid img{width:100%;max-height:480px;object-fit:cover}
-.detail-copy{padding:25px 0}
-.detail-copy h2{font-size:24px;margin:10px 0}
-.detail-copy p{line-height:2;color:#666;font-size:13px;margin:15px 0}
-.shades{display:flex;gap:9px;margin:15px 0;flex-wrap:wrap}
-.shade{width:28px;height:28px;border-radius:50%;border:2px solid white;outline:1px solid #aaa}
-.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#111;color:white;padding:13px 22px;z-index:50;font-size:13px;display:none}
-@media(max-width:750px){
-.header{height:auto;min-height:75px;padding:12px 4%;flex-wrap:wrap;gap:12px}
-.logo{font-size:26px}
-.search{order:3;flex-basis:100%;max-width:none}
-.actions{gap:13px}
-.action small{display:none}
-.nav{justify-content:flex-start;overflow-x:auto;white-space:nowrap;gap:22px;padding:15px}
-.hero{grid-template-columns:1fr}
-.hero img{height:260px;grid-row:1}
-.hero-copy{padding:35px 7%}
-.hero h1{font-size:34px}
-.section{padding:38px 4%}
-.categories{grid-template-columns:repeat(3,1fr);gap:18px 10px}
-.brand-grid{grid-template-columns:repeat(3,1fr)}
-.brand{height:75px;font-size:13px}
-.products{grid-template-columns:repeat(2,1fr);gap:18px 12px}
-.banner{grid-template-columns:1fr}
-.banner img{height:220px}
-.banner-copy{padding:30px}
-.banner-copy h2{font-size:26px}
-.footer-grid{grid-template-columns:repeat(2,1fr)}
-.detail-grid{grid-template-columns:1fr}
-.detail-grid img{max-height:300px}
-.detail-copy{padding:0}
-}
-</style>
-  <link rel="stylesheet" href="style.css"></head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>BEAUTY | اكتشفي عالم الجمال</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
 <body>
+  <div class="announcement">تسوّقي أجمل اختيارات الجمال — شحن مجاني للطلبات فوق 300 ر.س</div>
 
-<div class="top">اكتشفي عالم الجمال والعناية | تسوّقي أحدث المنتجات</div>
+  <header class="site-header">
+    <div class="header-main">
+      <div class="header-tools">
+        <button class="icon-button" id="openSearch" aria-label="بحث"><span class="line-icon search-icon"></span></button>
+        <button class="icon-button badge-wrap" id="openWishlist" aria-label="المفضلة"><span class="line-icon heart-icon">♡</span><b id="wishCount">0</b></button>
+        <button class="icon-button badge-wrap" id="openCart" aria-label="السلة"><span class="line-icon bag-icon">♧</span><b id="cartCount">0</b></button>
+      </div>
+      <a class="wordmark" href="#" data-page="home">BEAUTY</a>
+      <button class="account-link" id="openAccount">حسابي <span class="user-icon">♙</span></button>
+    </div>
+    <div class="search-row" id="searchRow">
+      <span class="line-icon search-icon"></span>
+      <input id="searchInput" type="search" placeholder="ما الذي تبحثين عنه؟" autocomplete="off">
+      <button id="clearSearch" aria-label="إغلاق البحث">×</button>
+    </div>
+    <nav class="desktop-nav" aria-label="التصنيفات">
+      <a href="#" data-category="الكل">الرئيسية</a>
+      <a href="#" data-category="المكياج">المكياج</a>
+      <a href="#" data-category="العناية بالبشرة">العناية بالبشرة</a>
+      <a href="#" data-category="العطور">العطور</a>
+      <a href="#" data-category="العناية بالشعر">العناية بالشعر</a>
+      <a href="#" data-category="الأكثر مبيعاً">الأكثر مبيعاً</a>
+      <a href="#" data-category="الماركات">الماركات</a>
+      <a href="#" data-category="العروض">العروض</a>
+    </nav>
+  </header>
 
-<header class="header">
-  <div class="logo">BEAUTY</div>
-  <div class="search">
-    <span>⌕</span>
-    <input id="searchInput" placeholder="ابحثي عن منتج، ماركة أو فئة..." oninput="renderProducts()">
+  <main id="mainContent">
+    <section class="welcome-strip">
+      <div class="welcome-icon">✦</div>
+      <div><strong>مرحباً بكِ في BEAUTY</strong><p>اكتشفي اختيارات الجمال التي تحبينها، واجمعي نقاطك مع كل طلب تجريبي.</p></div>
+      <span class="member-label">BEAUTY CLUB</span>
+    </section>
+
+    <section class="hero" aria-label="حملة الموسم">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1500&q=90" alt="مجموعة مستحضرات مكياج مرتبة">
+      </div>
+      <div class="hero-copy">
+        <span class="eyebrow">THE BEAUTY EDIT</span>
+        <h1>جمالك يبدأ<br>من هنا</h1>
+        <p>اكتشفي عالمًا من الألوان والتركيبات والمنتجات التي تعبّر عنكِ.</p>
+        <button class="dark-button" data-scroll-products>اكتشفي المجموعة <span>←</span></button>
+      </div>
+      <div class="hero-index">01 / 03</div>
+    </section>
+
+    <section class="category-section section-wrap">
+      <div class="section-heading"><div><span class="eyebrow">EXPLORE BEAUTY</span><h2>تسوّقي حسب الفئة</h2></div><a href="#" data-category="الكل">عرض الكل ←</a></div>
+      <div class="category-grid">
+        <button class="category-tile" data-category="المكياج"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=85" alt="مكياج"><span>المكياج</span></button>
+        <button class="category-tile" data-category="العناية بالبشرة"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85" alt="عناية بالبشرة"><span>العناية بالبشرة</span></button>
+        <button class="category-tile" data-category="العطور"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85" alt="عطور"><span>العطور</span></button>
+        <button class="category-tile" data-category="العناية بالشعر"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85" alt="العناية بالشعر"><span>العناية بالشعر</span></button>
+      </div>
+    </section>
+
+    <section class="promo-banner">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1400&q=85" alt="إطلالة جمالية">
+      <div><span class="eyebrow">NEW SEASON, NEW YOU</span><h2>اختاري إطلالتكِ<br>بلمستكِ الخاصة</h2><button class="light-button" data-category="المكياج">تسوّقي المكياج</button></div>
+    </section>
+
+    <section class="section-wrap product-section" id="featuredSection">
+      <div class="section-heading"><div><span class="eyebrow">JUST DROPPED</span><h2>وصل حديثاً</h2></div><a href="#" data-category="الكل">اكتشفي المزيد ←</a></div>
+      <div class="product-grid" id="newProducts"></div>
+    </section>
+
+    <section class="brand-section">
+      <div class="section-wrap">
+        <div class="section-heading"><div><span class="eyebrow">THE NAMES YOU LOVE</span><h2>تسوّقي الماركات</h2></div><a href="#" data-category="الماركات">كل الماركات ←</a></div>
+        <div class="brand-list" id="brandList"></div>
+      </div>
+    </section>
+
+    <section class="section-wrap product-section">
+      <div class="section-heading"><div><span class="eyebrow">BEAUTY FAVORITES</span><h2>الأكثر مبيعاً</h2></div><a href="#" data-category="الأكثر مبيعاً">عرض الكل ←</a></div>
+      <div class="product-grid" id="bestProducts"></div>
+    </section>
+
+    <section class="editorial-banner">
+      <div><span class="eyebrow">FIND YOUR SHADE</span><h2>درجتكِ المثالية<br>تبدأ باختياركِ</h2><p>استكشفي درجات الفاونديشن والكونسيلر، واختاري ما يناسب إطلالتكِ.</p><button class="dark-button" id="shadeFinder">اكتشفي الدرجات ←</button></div>
+      <img src="https://images.unsplash.com/photo-1631214540242-4e3c9d4c2b9b?auto=format&fit=crop&w=1000&q=85" alt="مستحضرات تجميل بدرجات متنوعة">
+    </section>
+
+    <section class="section-wrap product-section" id="allProductsSection">
+      <div class="section-heading"><div><span class="eyebrow">THE BEAUTY COLLECTION</span><h2 id="listingTitle">تسوّقي كل المنتجات</h2></div><span class="result-count" id="resultCount"></span></div>
+      <div class="filter-bar">
+        <select id="brandFilter"><option value="">كل الماركات</option></select>
+        <select id="categoryFilter"><option value="">كل الفئات</option><option>المكياج</option><option>العناية بالبشرة</option><option>العطور</option><option>العناية بالشعر</option></select>
+        <select id="sortFilter"><option value="featured">ترتيب حسب</option><option value="low">السعر: الأقل أولاً</option><option value="high">السعر: الأعلى أولاً</option><option value="rating">الأعلى تقييماً</option></select>
+      </div>
+      <div class="product-grid" id="allProducts"></div>
+    </section>
+
+    <section class="newsletter">
+      <span class="eyebrow">A LITTLE BEAUTY IN YOUR INBOX</span>
+      <h2>كوني أول من يعرف</h2><p>اشتركي لتصلكِ أحدث الإصدارات والعروض.</p>
+      <form id="newsletterForm"><input type="email" placeholder="بريدك الإلكتروني" required><button class="dark-button">اشتراك</button></form>
+    </section>
+  </main>
+
+  <section id="categoryPage" class="page-view hidden"></section>
+  <section id="accountPage" class="page-view hidden"></section>
+
+  <footer class="site-footer">
+    <div class="footer-top"><div><a class="wordmark footer-logo" href="#">BEAUTY</a><p>مساحتكِ لاكتشاف الجمال والتعبير عن أسلوبكِ.</p></div><div><h3>تسوّقي</h3><a href="#" data-category="المكياج">المكياج</a><a href="#" data-category="العناية بالبشرة">العناية بالبشرة</a><a href="#" data-category="العطور">العطور</a></div><div><h3>مساعدتكِ</h3><a href="#shipping">الشحن والتوصيل</a><a href="#returns">الاستبدال والاسترجاع</a><a href="#contact">تواصلي معنا</a></div><div><h3>تابعينا</h3><p>Instagram · TikTok · Snapchat</p></div></div>
+    <div class="footer-bottom">©️ 2026 BEAUTY. مشروع تجريبي تعليمي — المنتجات والأسعار للعرض فقط.</div>
+  </footer>
+
+  <nav class="mobile-tabbar">
+    <button class="active" data-mobile="home"><span>⌂</span>الرئيسية</button>
+    <button data-mobile="shop"><span>☷</span>تسوّق</button>
+    <button data-mobile="brands"><span>▦</span>الماركات</button>
+    <button data-mobile="account"><span>♙</span>الحساب</button>
+  </nav>
+
+  <div class="scrim hidden" id="scrim"></div>
+  <aside class="side-drawer" id="drawer">
+    <div class="drawer-head"><h2 id="drawerTitle">سلة التسوق</h2><button id="closeDrawer">×</button></div>
+    <div id="drawerBody"></div>
+  </aside>
+
+  <div class="modal-backdrop hidden" id="productModal">
+    <div class="product-modal"><button class="modal-close" id="closeProductModal">×</button><div id="productModalContent"></div></div>
   </div>
-  <div class="actions">
-    <button class="action" onclick="showAccount()">♙<small>حسابي</small></button>
-    <button class="action" onclick="openFavorites()">♡<small>المفضلة</small></button>
-    <button class="action" onclick="openCart()">♧<small>السلة</small><span class="count" id="cartCount">0</span></button>
-  </div>
-</header>
+  <div class="toast" id="toast" role="status"></div>
 
-<nav class="nav">
-  <a href="#home">الرئيسية</a>
-  <a href="#makeup" onclick="setCategory('المكياج')">المكياج</a>
-  <a href="#skincare" onclick="setCategory('العناية بالبشرة')">العناية بالبشرة</a>
-  <a href="#fragrance" onclick="setCategory('العطور')">العطور</a>
-  <a href="#hair" onclick="setCategory('العناية بالشعر')">العناية بالشعر</a>
-  <a href="#brands">الماركات</a>
-  <a href="#bestsellers">الأكثر مبيعًا</a>
-  <a href="#camera">اكتشفي درجتك</a>
-</nav>
+  <script>
+  const products = [
+    {id:1,brand:"Dior",name:"Backstage Face & Body Foundation",category:"المكياج",type:"فاونديشن",price:219,rating:4.8,tag:"الأكثر طلباً",image:"https://images.unsplash.com/photo-1631214540242-4e3c9d4c2b9b?auto=format&fit=crop&w=700&q=85",shades:["0N","1N","1W","2N","2W","3N","3W","4N"],desc:"فاونديشن بتركيبة خفيفة قابلة للبناء ولمسة طبيعية.",best:true},
+    {id:2,brand:"Fenty Beauty",name:"Pro Filt'r Soft Matte Foundation",category:"المكياج",type:"فاونديشن",price:195,rating:4.7,tag:"تغطية مطفية",image:"https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=700&q=85",shades:["110","120","150","180","210","230","260","300","330","350"],desc:"تغطية متوسطة إلى كاملة بلمسة مطفية.",best:true},
+    {id:3,brand:"Huda Beauty",name:"#FauxFilter Luminous Matte Concealer",category:"المكياج",type:"كونسيلر",price:145,rating:4.8,tag:"اختيار مميز",image:"https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?auto=format&fit=crop&w=700&q=85",shades:["Meringue","Nougat","Cookie Dough","Whipped Cream","Granola","Toffee"],desc:"كونسيلر بتغطية عالية ولمسة ناعمة.",best:true},
+    {id:4,brand:"Rare Beauty",name:"Soft Pinch Liquid Blush",category:"المكياج",type:"بلاشر",price:135,rating:4.9,tag:"الأكثر مبيعاً",image:"https://images.unsplash.com/photo-1599733589046-10c005739ef9?auto=format&fit=crop&w=700&q=85",shades:["Happy","Hope","Joy","Bliss","Believe","Encourage"],desc:"بلاشر سائل مركز يمنح الخدود لوناً حيوياً.",best:true},
+    {id:5,brand:"NARS",name:"Radiant Creamy Concealer",category:"المكياج",type:"كونسيلر",price:159,rating:4.8,tag:"أيقوني",image:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85",shades:["Vanilla","Custard","Ginger","Macadamia","Caramel","Biscuit"],desc:"كونسيلر كريمي بإضاءة طبيعية وتغطية قابلة للبناء.",best:true},
+    {id:6,brand:"Charlotte Tilbury",name:"Airbrush Flawless Finish Powder",category:"المكياج",type:"بودرة",price:225,rating:4.7,tag:"لمسة مخملية",image:"https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=700&q=85",shades:["Fair","Medium","Tan","Deep"],desc:"بودرة ناعمة لتثبيت المكياج وتقليل اللمعان."},
+    {id:7,brand:"MAC",name:"Macximal Silky Matte Lipstick",category:"المكياج",type:"روج",price:115,rating:4.6,tag:"لون كلاسيكي",image:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85",shades:["Ruby Woo","Velvet Teddy","Mehr","Twig","Diva"],desc:"أحمر شفاه بألوان غنية ولمسة مخملية."},
+    {id:8,brand:"Too Faced",name:"Better Than Sex Mascara",category:"المكياج",type:"ماسكارا",price:129,rating:4.7,tag:"رموش كثيفة",image:"https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?auto=format&fit=crop&w=700&q=85",shades:["Black"],desc:"ماسكارا تمنح الرموش كثافة ومظهراً درامياً."},
+    {id:9,brand:"Yves Saint Laurent",name:"Loveshine Lip Oil Stick",category:"المكياج",type:"روج",price:205,rating:4.6,tag:"ترطيب ولمعان",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85",shades:["44 Nude Lavalliere","150 Nude Lingerie","201 Rosewood"],desc:"لون شفاف غني بلمسة لامعة وملمس مرطب."},
+    {id:10,brand:"Benefit",name:"The POREfessional Primer",category:"المكياج",type:"برايمر",price:169,rating:4.5,tag:"تحضير البشرة",image:"https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=85",shades:["Original","Lite"],desc:"برايمر يساعد على تنعيم مظهر المسام."},
+    {id:11,brand:"Sephora Collection",name:"Best Skin Ever Foundation",category:"المكياج",type:"فاونديشن",price:99,rating:4.4,tag:"قيمة رائعة",image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85",shades:["10N","15N","20Y","25N","30Y","35N","40N"],desc:"فاونديشن يومي بتغطية طبيعية قابلة للبناء."},
+    {id:12,brand:"Tarte",name:"Shape Tape Concealer",category:"المكياج",type:"كونسيلر",price:149,rating:4.7,tag:"تغطية كاملة",image:"https://images.unsplash.com/photo-1591360236480-4ed861025fa1?auto=format&fit=crop&w=700&q=85",shades:["12N Fair","20S Light Sand","27S Light-Medium","35N Medium"],desc:"كونسيلر بتغطية كاملة وثبات طويل."},
+    {id:13,brand:"Estée Lauder",name:"Double Wear Stay-in-Place",category:"المكياج",type:"فاونديشن",price:229,rating:4.8,tag:"ثبات طويل",image:"https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=700&q=85",shades:["1N1 Ivory Nude","2N1 Desert Beige","2W2 Rattan","3W1 Tawny","4N1 Shell Beige"],desc:"فاونديشن بثبات طويل وتغطية متوسطة إلى كاملة."},
+    {id:14,brand:"Giorgio Armani",name:"Luminous Silk Foundation",category:"المكياج",type:"فاونديشن",price:279,rating:4.8,tag:"إشراقة طبيعية",image:"https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85",shades:["3.5","4","4.5","5.1","5.5","6"],desc:"تركيبة خفيفة تمنح البشرة مظهراً حريرياً."},
+    {id:15,brand:"Kérastase",name:"Nutritive 8H Magic Night Serum",category:"العناية بالشعر",type:"سيروم شعر",price:189,rating:4.6,tag:"عناية ليلية",image:"https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&q=85",shades:[],desc:"سيروم ليلي للعناية بالشعر الجاف."},
+    {id:16,brand:"The Ordinary",name:"Hyaluronic Acid 2% + B5",category:"العناية بالبشرة",type:"سيروم",price:65,rating:4.6,tag:"ترطيب",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85",shades:[],desc:"سيروم مرطب يساعد على دعم نعومة البشرة."},
+    {id:17,brand:"Sol de Janeiro",name:"Brazilian Bum Bum Cream",category:"العناية بالبشرة",type:"كريم جسم",price:189,rating:4.7,tag:"رائحة محبوبة",image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=85",shades:[],desc:"كريم جسم غني بملمس ناعم ورائحة مميزة."},
+    {id:18,brand:"Maison Margiela",name:"REPLICA Lazy Sunday Morning",category:"العطور",type:"عطر",price:385,rating:4.6,tag:"رائحة ناعمة",image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85",shades:["30 ml","100 ml"],desc:"عطر بطابع نظيف وناعم للاستخدام اليومي."}
+  ];
 
-<section class="hero" id="home">
-  <div class="hero-copy">
-    <div class="eyebrow">YOUR BEAUTY, YOUR WAY</div>
-    <h1>جمالك يبدأ من هنا</h1>
-    <p>اكتشفي عالمًا من الجمال، اختاري منتجاتك المفضلة وتألقّي بإطلالة تعبر عنك.</p>
-    <button class="black-btn" onclick="document.getElementById('bestsellers').scrollIntoView({behavior:'smooth'})">تسوّقي الآن</button>
-  </div>
-  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200" alt="مستحضرات تجميل">
-</section>
+  const brands = ["Dior","Fenty Beauty","Huda Beauty","Rare Beauty","NARS","MAC","Charlotte Tilbury","Too Faced","Yves Saint Laurent","Benefit","Sephora Collection","Tarte","Estée Lauder","Giorgio Armani","Kérastase","The Ordinary","Sol de Janeiro","Maison Margiela"];
+  let cart = JSON.parse(localStorage.getItem("beautyCart") || "[]");
+  let wishlist = JSON.parse(localStorage.getItem("beautyWishlist") || "[]");
+  let activeCategory = "";
+  let activeBrand = "";
+  let searchTerm = "";
 
-<section class="section" id="makeup">
-  <div class="section-head"><h2>تسوّقي حسب الفئة</h2><a href="#allProducts">اكتشفي الكل</a></div>
-  <div class="categories">
-    <div class="category" onclick="setCategory('المكياج')"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500"><p>المكياج</p></div>
-    <div class="category" onclick="setCategory('العناية بالبشرة')"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500"><p>العناية بالبشرة</p></div>
-    <div class="category" onclick="setCategory('العطور')"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500"><p>العطور</p></div>
-    <div class="category" onclick="setCategory('العناية بالشعر')"><img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=500"><p>العناية بالشعر</p></div>
-    <div class="category" onclick="setCategory('المكياج')"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500"><p>الوجه والخدود</p></div>
-    <div class="category" onclick="setCategory('المكياج')"><img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a5d?w=500"><p>الشفاه والأظافر</p></div>
-  </div>
-</section>
+  const $ = id => document.getElementById(id);
+  const money = n => `${n.toLocaleString("en-US")} ر.س`;
+  const save = () => {
+    localStorage.setItem("beautyCart", JSON.stringify(cart));
+    localStorage.setItem("beautyWishlist", JSON.stringify(wishlist));
+    updateCounts();
+  };
+  const toast = msg => {
+    const t=$("toast"); t.textContent=msg; t.classList.add("show");
+    clearTimeout(window.toastTimer); window.toastTimer=setTimeout(()=>t.classList.remove("show"),2300);
+  };
+  function updateCounts(){
+    $("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
+    $("wishCount").textContent=wishlist.length;
+  }
+  function productCard(p){
+    const liked=wishlist.includes(p.id);
+    return `<article class="product-card">
+      <div class="product-photo" data-open-product="${p.id}">
+        ${p.tag?`<span class="product-tag">${p.tag}</span>`:""}
+        <button class="favorite-button ${liked?"liked":""}" data-favorite="${p.id}" aria-label="إضافة للمفضلة">${liked?"♥️":"♡"}</button>
+        <img loading="lazy" src="${p.image}" alt="${p.brand} ${p.name}" onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=80'">
+      </div>
+      <div class="product-card-info">
+        <div class="product-brand">${p.brand}</div>
+        <button class="product-title" data-open-product="${p.id}">${p.name}</button>
+        <div class="rating">★★★★★ <span>${p.rating.toFixed(1)}</span></div>
+        <div class="product-card-bottom"><strong>${money(p.price)}</strong><button class="quick-add" data-add="${p.id}">أضيفي للسلة +</button></div>
+        ${p.shades?.length?`<div class="shade-note">${p.shades.length} درجات متوفرة</div>`:""}
+      </div>
+    </article>`;
+  }
+  function renderProducts(target, list){
+    $(target).innerHTML=list.map(productCard).join("") || `<div class="empty-state">لا توجد منتجات مطابقة لبحثكِ.</div>`;
+  }
+  function filteredProducts(){
+    let list=[...products];
+    if(activeCategory==="الأكثر مبيعاً") list=list.filter(p=>p.best);
+    else if(activeCategory && activeCategory!=="الكل" && activeCategory!=="الماركات" && activeCategory!=="العروض") list=list.filter(p=>p.category===activeCategory);
+    if(activeBrand) list=list.filter(p=>p.brand===activeBrand);
+    if(searchTerm) list=list.filter(p=>(p.brand+" "+p.name+" "+p.type+" "+p.category).toLowerCase().includes(searchTerm.toLowerCase()));
+    const sort=$("sortFilter")?.value;
+    if(sort==="low") list.sort((a,b)=>a.price-b.price);
+    if(sort==="high") list.sort((a,b)=>b.price-a.price);
+    if(sort==="rating") list.sort((a,b)=>b.rating-a.rating);
+    return list;
+  }
+  function renderAll(){
+    renderProducts("newProducts",products.slice(0,8));
+    renderProducts("bestProducts",products.filter(p=>p.best).slice(0,8));
+    renderProducts("allProducts",filteredProducts());
+    $("resultCount").textContent=`${filteredProducts().length} منتج`;
+    $("brandList").innerHTML=brands.map(b=>`<button class="brand-chip" data-brand="${b}">${b}</button>`).join("");
+    $("brandFilter").innerHTML='<option value="">كل الماركات</option>'+brands.map(b=>`<option>${b}</option>`).join("");
+  }
+  function openProduct(id){
+    const p=products.find(x=>x.id===id); if(!p)return;
+    const shadeMarkup=p.shades.length?`<label class="field-label">اختاري الدرجة</label><div class="shade-select">${p.shades.map((s,i)=>`<button class="shade-option ${i===0?"selected":""}" data-shade="${s}">${s}</button>`).join("")}</div>`:"";
+    $("productModalContent").innerHTML=`<div class="modal-product-layout">
+      <div class="modal-product-image"><img src="${p.image}" alt="${p.name}"></div>
+      <div class="modal-product-details"><span class="eyebrow">${p.brand}</span><h2>${p.name}</h2><div class="rating">★★★★★ <span>${p.rating} / 5</span></div><p>${p.desc}</p><div class="modal-price">${money(p.price)}</div>${shadeMarkup}<label class="field-label">الكمية</label><div class="quantity-control"><button id="qtyMinus">−</button><span id="qtyValue">1</span><button id="qtyPlus">+</button></div><button class="dark-button full-button" id="modalAdd">أضيفي إلى السلة</button><small class="demo-note">السعر والدرجات في هذا النموذج تجريبية للتصميم.</small></div>
+    </div>`;
+    let qty=1, shade=p.shades[0]||"";
+    $("qtyMinus").onclick=()=>{qty=Math.max(1,qty-1);$("qtyValue").textContent=qty;};
+    $("qtyPlus").onclick=()=>{qty++;$("qtyValue").textContent=qty;};
+    document.querySelectorAll("[data-shade]").forEach(b=>b.onclick=()=>{document.querySelectorAll("[data-shade]").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");shade=b.dataset.shade;});
+    $("modalAdd").onclick=()=>{addToCart(p.id,qty,shade);$("productModal").classList.add("hidden");};
+    $("productModal").classList.remove("hidden");
+  }
+  function addToCart(id,qty=1,shade=""){
+    const p=products.find(x=>x.id===id); if(!p)return;
+    const existing=cart.find(x=>x.id===id && x.shade===shade);
+    if(existing) existing.qty+=qty; else cart.push({id,qty,shade});
+    save(); toast("تمت إضافة المنتج إلى سلتكِ");
+  }
+  function toggleFavorite(id){
+    wishlist=wishlist.includes(id)?wishlist.filter(x=>x!==id):[...wishlist,id];
+    save(); renderAll(); toast(wishlist.includes(id)?"أضيف إلى المفضلة":"حُذف من المفضلة");
+  }
+  function openDrawer(type){
+    $("drawerTitle").textContent=type==="cart"?"سلة التسوق":type==="wishlist"?"قائمة الأمنيات":"حسابي";
+    if(type==="cart"){
+      const total=cart.reduce((s,x)=>s+products.find(p=>p.id===x.id).price*x.qty,0);
+      $("drawerBody").innerHTML=cart.length?cart.map(x=>{const p=products.find(p=>p.id===x.id);return `<div class="drawer-item"><img src="${p.image}" alt=""><div><b>${p.brand}</b><p>${p.name}</p><small>${x.shade||""} · الكمية ${x.qty}</small><strong>${money(p.price*x.qty)}</strong><button data-remove-cart="${p.id}" data-shade-remove="${x.shade}">إزالة</button></div></div>`}).join("")+`<div class="drawer-total"><b>الإجمالي</b><strong>${money(total)}</strong></div><button class="dark-button full-button" id="checkoutBtn">متابعة تجريبية لإتمام الطلب</button>`:`<div class="empty-state">سلتكِ فارغة حالياً.</div>`;
+    } else if(type==="wishlist"){
+      const items=products.filter(p=>wishlist.includes(p.id));
+      $("drawerBody").innerHTML=items.length?items.map(p=>`<div class="drawer-item"><img src="${p.image}" alt=""><div><b>${p.brand}</b><p>${p.name}</p><strong>${money(p.price)}</strong><button data-add="${p.id}">أضيفي للسلة</button></div></div>`).join(""):`<div class="empty-state">لم تضيفي منتجات للمفضلة بعد.</div>`;
+    } else {
+      $("drawerBody").innerHTML=`<div class="account-card"><span class="account-avatar">♙</span><h3>مرحباً بكِ في BEAUTY</h3><p>هذه مساحة حساب تجريبية.</p><div class="points-card"><strong>0</strong><span>نقاط BEAUTY CLUB</span></div></div><div class="account-links"><button>طلباتي　 ←</button><button id="accountWish">قائمة الأمنيات　 ←</button><button>عناويني　 ←</button><button>الإعدادات　 ←</button><button>المساعدة والأسئلة الشائعة　 ←</button></div>`;
+      $("accountWish").onclick=()=>openDrawer("wishlist");
+    }
+    $("drawer").classList.add("open"); $("scrim").classList.remove("hidden");
+  }
+  function closeDrawer(){ $("drawer").classList.remove("open"); $("scrim").classList.add("hidden");}
+  function showCategory(category){
+    activeCategory=category;activeBrand="";
+    $("listingTitle").textContent=category==="الكل"?"تسوّقي كل المنتجات":category;
+    document.querySelectorAll(".page-view").forEach(x=>x.classList.add("hidden"));
+    $("mainContent").classList.remove("hidden");
+    $("allProductsSection").scrollIntoView({behavior:"smooth"});
+    renderAll();
+  }
 
-<section class="section" id="brands">
-  <div class="section-head"><h2>ماركات مختارة</h2><a href="#allProducts">تسوّقي الماركات</a></div>
-  <div class="brand-grid">
-    <div class="brand">DIOR</div><div class="brand">CHANEL</div>
-    <div class="brand">NARS</div><div class="brand">YSL</div>
-    <div class="brand">MAC</div><div class="brand">FENTY</div>
-  </div>
-</section>
-
-<section class="banner">
-  <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1000" alt="جمال">
-  <div class="banner-copy">
-    <div class="eyebrow">BEAUTY DISCOVERY</div>
-    <h2>اختاري ما يناسبك</h2>
-    <p>من أساسيات العناية إلى لمسات المكياج الأخيرة، اكتشفي اختياراتك المفضلة في مكان واحد.</p>
-    <button class="black-btn" onclick="document.getElementById('allProducts').scrollIntoView({behavior:'smooth'})">اكتشفي المنتجات</button>
-  </div>
-</section>
-
-<section class="section" id="bestsellers">
-  <div class="section-head"><h2>الأكثر مبيعًا</h2><a href="#allProducts">عرض الكل</a></div>
-  <div class="products" id="bestProducts"></div>
-</section>
-
-<section class="section" id="allProducts">
-  <div class="section-head"><h2 id="productsTitle">اكتشفي منتجاتنا</h2><a href="#" onclick="clearCategory();return false">عرض الكل</a></div>
-  <div class="products" id="productGrid"></div>
-</section>
-
-<section class="camera-section" id="camera">
-  <div class="camera-icon">◎</div>
-  <div class="eyebrow">YOUR PERFECT SHADE</div>
-  <h2>اكتشفي درجة مكياجك</h2>
-  <p>ارفعي صورة واضحة لبشرتك في إضاءة طبيعية، واستعدّي لاكتشاف درجات المكياج التي قد تناسبك. هذه نسخة تجريبية لمعاينة الصورة وليست تحليلًا آليًا فعليًا.</p>
-  <label for="cameraInput" class="black-btn">التقطي صورة أو اختاري صورة</label>
-  <input id="cameraInput" type="file" accept="image/*" capture="user" onchange="previewPhoto(event)">
-  <img id="cameraPreview" class="camera-preview" alt="معاينة الصورة">
-  <div id="cameraMessage" style="font-size:13px;margin-top:12px"></div>
-</section>
-
-<section class="newsletter">
-  <h2>كوني أول من يعرف</h2>
-  <p>اشتركي ليصلك كل جديد من عالم الجمال والعناية.</p>
-  <form onsubmit="subscribe(event)">
-    <input type="email" required placeholder="بريدك الإلكتروني">
-    <button>اشتراك</button>
-  </form>
-</section>
-
-<footer>
-  <div class="footer-grid">
-    <div><h3>BEAUTY</h3><p>اكتشفي عالم الجمال واختاري ما يعبر عنك.</p></div>
-    <div><h3>تسوّقي</h3><a href="#makeup">المكياج</a><a href="#skincare">العناية بالبشرة</a><a href="#fragrance">العطور</a><a href="#hair">الشعر</a></div>
-    <div><h3>خدمة العملاء</h3><a href="#" onclick="showMessage('هذه صفحة تجريبية')">تواصل معنا</a><a href="#" onclick="showMessage('سياسة تجريبية')">سياسة الخصوصية</a><a href="#" onclick="showMessage('شروط تجريبية')">الشروط والأحكام</a></div>
-    <div><h3>حسابك</h3><a href="#" onclick="showAccount()">حسابي</a><a href="#" onclick="openFavorites()">المفضلة</a><a href="#" onclick="openCart()">سلة التسوق</a></div>
-  </div>
-  <div class="copyright">©️ 2026 BEAUTY — مشروع تجريبي تعليمي</div>
-</footer>
-
-<div class="overlay" id="overlay" onclick="closePanels()"></div>
-<aside class="drawer" id="drawer">
-  <div class="drawer-head"><h3 id="drawerTitle">سلة التسوق</h3><button class="close" onclick="closePanels()">×</button></div>
-  <div id="drawerContent"></div>
-</aside>
-
-<div class="modal" id="productModal" onclick="if(event.target===this)closeProduct()">
-  <div class="modal-box">
-    <button class="close" onclick="closeProduct()" style="float:left">×</button>
-    <div id="productDetail"></div>
-  </div>
-</div>
-<div class="toast" id="toast"></div>
-
-<script>
-const products=[
-{id:1,brand:"BEAUTY EDIT",name:"كريم أساس بإطلالة طبيعية",desc:"تغطية متوسطة ولمسة ناعمة",price:145,category:"المكياج",tag:"الأكثر مبيعًا",image:"https://images.unsplash.com/photo-1631214540242-6d5c4f5b2c9a?w=700",shades:["فاتح","متوسط","قمحي","داكن"]},
-{id:2,brand:"GLOW STUDIO",name:"كونسيلر لإخفاء العيوب",desc:"تغطية قابلة للبناء",price:95,category:"المكياج",tag:"اختيار مميز",image:"https://images.unsplash.com/photo-1583241800698-e8ab01830a5d?w=700",shades:["01","02","03","04"]},
-{id:3,brand:"SKIN LAB",name:"سيروم ترطيب البشرة",desc:"ترطيب يومي للبشرة",price:120,category:"العناية بالبشرة",tag:"",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700"},
-{id:4,brand:"SCENT HOUSE",name:"عطر زهري أنيق",desc:"نفحات ناعمة تدوم",price:260,category:"العطور",tag:"جديد",image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"},
-{id:5,brand:"COLOR EDIT",name:"أحمر شفاه كريمي",desc:"لون غني ولمسة مريحة",price:85,category:"المكياج",tag:"",image:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=700",shades:["وردي","نود","أحمر","موف"]},
-{id:6,brand:"PURE SKIN",name:"كريم ترطيب يومي",desc:"عناية ونعومة للبشرة",price:110,category:"العناية بالبشرة",tag:"",image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=700"},
-{id:7,brand:"HAIR STUDIO",name:"ماسك العناية بالشعر",desc:"لشعر ناعم ولامع",price:130,category:"العناية بالشعر",tag:"",image:"https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=700"},
-{id:8,brand:"GLOW STUDIO",name:"بودرة خدود ناعمة",desc:"لون طبيعي قابل للدمج",price:90,category:"المكياج",tag:"الأكثر طلبًا",image:"https://images.unsplash.com/photo-1599733589046-10c6e9f4b1b6?w=700",shades:["وردي فاتح","خوخي","وردي غامق"]},
-{id:9,brand:"SCENT HOUSE",name:"عطر بنفحات دافئة",desc:"رائحة أنيقة للمساء",price:290,category:"العطور",tag:"",image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"},
-{id:10,brand:"SKIN LAB",name:"منظف لطيف للوجه",desc:"لروتين العناية اليومي",price:75,category:"العناية بالبشرة",tag:"",image:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=700"},
-{id:11,brand:"COLOR EDIT",name:"باليت ظلال عيون",desc:"ألوان متنوعة للمناسبات",price:155,category:"المكياج",tag:"",image:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=700"},
-{id:12,brand:"HAIR STUDIO",name:"زيت عناية بالشعر",desc:"لمعان ونعومة",price:99,category:"العناية بالشعر",tag:"",image:"https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=700"}
-];
-
-let cart=JSON.parse(localStorage.getItem("beautyCart")||"[]");
-let favorites=JSON.parse(localStorage.getItem("beautyFav")||"[]");
-let activeCategory="";
-let currentProduct=null;
-
-function money(n){return n.toLocaleString("ar-SA")+" ر.س"}
-function save(){
-localStorage.setItem("beautyCart",JSON.stringify(cart));
-localStorage.setItem("beautyFav",JSON.stringify(favorites));
-document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
-}
-function card(p){
-return `<article class="product">
-<div class="product-image" onclick="openProduct(${p.id})">
-${p.tag?`<span class="tag">${p.tag}</span>`:""}
-<img src="${p.image}" alt="${p.name}" loading="lazy">
-<button class="heart" onclick="event.stopPropagation();toggleFavorite(${p.id})">${favorites.includes(p.id)?"♥️":"♡"}</button>
-</div>
-<div class="product-info" onclick="openProduct(${p.id})">
-<div class="product-brand">${p.brand}</div>
-<div class="product-name">${p.name}</div>
-<div class="product-desc">${p.desc}</div>
-<div class="price">${money(p.price)}</div>
-</div>
-<button class="add" onclick="addToCart(${p.id})">أضيفي إلى السلة</button>
-</article>`;
-}
-function renderProducts(){
-let q=document.getElementById("searchInput").value.trim().toLowerCase();
-let filtered=products.filter(p=>(!activeCategory||p.category===activeCategory)&&(!q||(p.name+" "+p.brand+" "+p.category).toLowerCase().includes(q)));
-document.getElementById("productGrid").innerHTML=filtered.length?filtered.map(card).join(""):'<div class="empty">لا توجد منتجات مطابقة لبحثك</div>';
-document.getElementById("productsTitle").textContent=activeCategory||"اكتشفي منتجاتنا";
-}
-function renderBest(){
-document.getElementById("bestProducts").innerHTML=products.slice(0,4).map(card).join("");
-}
-function setCategory(c){
-activeCategory=c;
-document.getElementById("searchInput").value="";
-renderProducts();
-document.getElementById("allProducts").scrollIntoView({behavior:"smooth"});
-}
-function clearCategory(){activeCategory="";document.getElementById("searchInput").value="";renderProducts()}
-function addToCart(id){
-let item=cart.find(x=>x.id===id);
-if(item)item.qty++;else cart.push({id,qty:1});
-save();showMessage("تمت إضافة المنتج إلى السلة");
-}
-function toggleFavorite(id){
-favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];
-save();renderProducts();renderBest();showMessage(favorites.includes(id)?"أضيف إلى المفضلة":"حذف من المفضلة");
-}
-function openProduct(id){
-currentProduct=products.find(p=>p.id===id);
-let p=currentProduct;
-document.getElementById("productDetail").innerHTML=`
-<div class="detail-grid">
-<img src="${p.image}" alt="${p.name}">
-<div class="detail-copy">
-<div class="product-brand">${p.brand}</div>
-<h2>${p.name}</h2>
-<p>${p.desc}. منتج تجريبي ضمن متجر BEAUTY.</p>
-<div class="price">${money(p.price)}</div>
-${p.shades?`<p><b>اختاري الدرجة:</b></p><div class="shades">${p.shades.map((s,i)=>`<button class="shade" title="${s}" style="background:${["#f0c9ae","#d49b76","#a96e4c","#71452f"][i%4]}" onclick="selectShade(this,'${s}')"></button>`).join("")}</div><div id="selectedShade" style="font-size:12px;color:#777"></div>`:""}
-<button class="black-btn" style="width:100%;margin-top:20px" onclick="addToCart(${p.id});closeProduct()">أضيفي إلى السلة</button>
-<button class="add" onclick="toggleFavorite(${p.id})">♡ أضيفي إلى المفضلة</button>
-</div></div>`;
-document.getElementById("productModal").style.display="flex";
-}
-function selectShade(el,s){
-document.querySelectorAll(".shade").forEach(x=>x.style.outline="1px solid #aaa");
-el.style.outline="2px solid #111";
-document.getElementById("selectedShade").textContent="الدرجة المختارة: "+s;
-}
-function closeProduct(){document.getElementById("productModal").style.display="none"}
-function openCart(){openDrawer("سلة التسوق");renderCart()}
-function openFavorites(){openDrawer("قائمة المفضلة");renderFavorites()}
-function openDrawer(title){
-document.getElementById("drawerTitle").textContent=title;
-document.getElementById("overlay").style.display="block";
-document.getElementById("drawer").classList.add("open");
-}
-function closePanels(){
-document.getElementById("overlay").style.display="none";
-document.getElementById("drawer").classList.remove("open");
-}
-function renderCart(){
-let el=document.getElementById("drawerContent");
-if(!cart.length){el.innerHTML='<div class="empty">سلتك فارغة حاليًا</div>';return}
-let total=0;
-el.innerHTML=cart.map(x=>{
-let p=products.find(y=>y.id===x.id);total+=p.price*x.qty;
-return `<div class="cart-item"><img src="${p.image}"><div style="flex:1"><h4>${p.name}</h4><p>${money(p.price)}</p><div class="quantity"><button onclick="changeQty(${p.id},-1)">−</button>${x.qty}<button onclick="changeQty(${p.id},1)">+</button><button onclick="removeCart(${p.id})">حذف</button></div></div></div>`;
-}).join("")+`<div class="cart-total"><div><b>الإجمالي</b><b>${money(total)}</b></div><button class="black-btn" onclick="checkout()">إتمام الطلب التجريبي</button></div>`;
-}
-function changeQty(id,n){
-let x=cart.find(y=>y.id===id);if(!x)return;
-x.qty+=n;if(x.qty<=0)cart=cart.filter(y=>y.id!==id);
-save();renderCart();
-}
-function removeCart(id){cart=cart.filter(x=>x.id!==id);save();renderCart()}
-function renderFavorites(){
-let list=products.filter(p=>favorites.includes(p.id));
-document.getElementById("drawerContent").innerHTML=list.length?`<div class="products" style="grid-template-columns:1fr 1fr">${list.map(card).join("")}</div>`:'<div class="empty">لا توجد منتجات في المفضلة</div>';
-}
-function checkout(){showMessage("هذه تجربة تجريبية ولا تتم عملية دفع حقيقية");}
-function showAccount(){showMessage("صفحة الحساب التجريبية — يمكن إضافة تسجيل الدخول لاحقًا")}
-function subscribe(e){e.preventDefault();showMessage("تم تسجيل بريدك في القائمة التجريبية");e.target.reset()}
-function showMessage(msg){
-let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";
-clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2600);
-}
-function previewPhoto(e){
-let file=e.target.files[0];if(!file)return;
-let reader=new FileReader();
-reader.onload=()=>{
-let img=document.getElementById("cameraPreview");
-img.src=reader.result;img.style.display="block";
-document.getElementById("cameraMessage").textContent="تم تحميل الصورة بنجاح. تحليل الدرجات الذكي غير مفعّل في هذه النسخة التجريبية.";
-};
-reader.readAsDataURL(file);
-}
-save();renderProducts();renderBest();
-</script>
+  document.addEventListener("click",e=>{
+    const cat=e.target.closest("[data-category]");
+    if(cat){e.preventDefault();showCategory(cat.dataset.category);}
+    const open=e.target.closest("[data-open-product]");if(open)openProduct(Number(open.dataset.openProduct));
+    const add=e.target.closest("[data-add]");if(add)addToCart(Number(add.dataset.add));
+    const fav=e.target.closest("[data-favorite]");if(fav)toggleFavorite(Number(fav.dataset.favorite));
+    const brand=e.target.closest("[data-brand]");if(brand){activeBrand=brand.dataset.brand;activeCategory="";$("listingTitle").textContent=brand.dataset.brand; $("allProductsSection").scrollIntoView({behavior:"smooth"});renderAll();}
+    const mobile=e.target.closest("[data-mobile]");if(mobile){document.querySelectorAll(".mobile-tabbar button").forEach(x=>x.classList.remove("active"));mobile.classList.add("active");if(mobile.dataset.mobile==="home"){activeCategory="";window.scrollTo({top:0,behavior:"smooth"});renderAll();}if(mobile.dataset.mobile==="shop")showCategory("الكل");if(mobile.dataset.mobile==="brands")$("brandList").scrollIntoView({behavior:"smooth"});if(mobile.dataset.mobile==="account")openDrawer("account");}
+    const scroll=e.target.closest("[data-scroll-products]");if(scroll)$("featuredSection").scrollIntoView({behavior:"smooth"});
+    const remove=e.target.closest("[data-remove-cart]");if(remove){cart=cart.filter(x=>!(x.id===Number(remove.dataset.removeCart)&&x.shade===remove.dataset.shadeRemove));save();openDrawer("cart");}
+  });
+  $("openCart").onclick=()=>openDrawer("cart");
+  $("openWishlist").onclick=()=>openDrawer("wishlist");
+  $("openAccount").onclick=()=>openDrawer("account");
+  $("closeDrawer").onclick=closeDrawer;
+  $("scrim").onclick=closeDrawer;
+  $("closeProductModal").onclick=()=>$("productModal").classList.add("hidden");
+  $("productModal").onclick=e=>{if(e.target===$("productModal"))$("productModal").classList.add("hidden");};
+  $("openSearch").onclick=()=>{$("searchRow").classList.toggle("visible");$("searchInput").focus();};
+  $("clearSearch").onclick=()=>{$("searchInput").value="";searchTerm="";renderAll();$("searchRow").classList.remove("visible");};
+  $("searchInput").addEventListener("input",e=>{searchTerm=e.target.value;activeCategory="";$("listingTitle").textContent=searchTerm?`نتائج البحث عن: ${searchTerm}`:"تسوّقي كل المنتجات";renderProducts("allProducts",filteredProducts());$("resultCount").textContent=`${filteredProducts().length} منتج`;});
+  $("brandFilter").onchange=e=>{activeBrand=e.target.value;renderProducts("allProducts",filteredProducts());$("resultCount").textContent=`${filteredProducts().length} منتج`;};
+  $("categoryFilter").onchange=e=>{activeCategory=e.target.value;renderProducts("allProducts",filteredProducts());$("resultCount").textContent=`${filteredProducts().length} منتج`;};
+  $("sortFilter").onchange=()=>renderProducts("allProducts",filteredProducts());
+  $("newsletterForm").onsubmit=e=>{e.preventDefault();toast("شكراً لاشتراككِ — نموذج تجريبي");e.target.reset();};
+  $("shadeFinder").onclick=()=>toast("ميزة اقتراح الدرجات قيد التطوير — لا يوجد تحليل فعلي للصورة حالياً");
+  document.addEventListener("click",e=>{if(e.target.id==="checkoutBtn")toast("هذه تجربة متجر وليست عملية شراء حقيقية");});
+  renderAll();updateCounts();
+  </script>
 </body>
 </html>
