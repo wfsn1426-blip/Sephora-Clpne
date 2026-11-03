@@ -190,3 +190,28 @@ footer small{color:#888}
     transform: scale(1.08);
   }
 }
+.hero-art {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-art .hero-products {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  width: 65%;
+  height: 95%;
+  object-fit: contain;
+  object-position: center bottom;
+  padding: 0;
+  mix-blend-mode: normal;
+  z-index: 2;
+}
+
+@media (max-width: 520px) {
+  .hero-art .hero-products {
+    width: 85%;
+    height: 95%;
+    right: 7%;
+  }
+}
