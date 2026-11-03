@@ -215,3 +215,54 @@ footer small{color:#888}
     right: 7%;
   }
 }
+/* ضبط منتجات البانر */
+.hero-art {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-art .hero-products {
+  position: absolute;
+  right: 0;
+  bottom: -2%;
+  width: 100%;
+  height: 105%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: scale(1.2);
+  z-index: 2;
+  padding: 0;
+}
+/* توحيد حجم صور المنتجات */
+.product-photo {
+  height: 300px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.product-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0;
+  transform: scale(1.3);
+  transition: transform .3s ease;
+}
+
+.product-card:hover .product-photo img {
+  transform: scale(1.36);
+}
+
+@media (max-width: 520px) {
+  .product-photo {
+    height: 235px;
+  }
+
+  .product-photo img {
+    transform: scale(1.2);
+  }
+}
