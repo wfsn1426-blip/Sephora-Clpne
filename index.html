@@ -4,283 +4,394 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BEAUTY | عالم الجمال</title>
-
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;color:#111;background:#fff}
+:root{--black:#080808;--gray:#777;--line:#e9e9e9;--light:#f6f6f6}
+body{font-family:Arial,Tahoma,sans-serif;color:#171717;background:#fff}
+button,input{font:inherit}
+button{cursor:pointer}
 a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit}
-.promo{background:#080808;color:#fff;text-align:center;padding:12px;font-size:13px}
-.header{height:85px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;border-bottom:1px solid #eee;gap:20px}
-.logo{font-size:33px;font-weight:900;letter-spacing:4px}
-.search{flex:1;max-width:520px;display:flex;background:#f5f5f5;border-radius:3px;padding:12px 15px;gap:10px}
+.top{background:#080808;color:#fff;text-align:center;padding:11px;font-size:12px;letter-spacing:.3px}
+.header{height:82px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;gap:25px;border-bottom:1px solid var(--line)}
+.logo{font-size:34px;font-weight:900;letter-spacing:4px;white-space:nowrap}
+.search{background:#f4f4f4;display:flex;align-items:center;padding:12px 16px;flex:1;max-width:520px;border-radius:3px}
 .search input{border:0;outline:0;background:transparent;width:100%;font-size:14px}
-.actions{display:flex;gap:22px;font-size:22px}
-.actions button{border:0;background:none;font-size:22px}
-.nav{display:flex;justify-content:center;gap:27px;padding:18px 10px;border-bottom:1px solid #eee;font-size:14px;flex-wrap:wrap}
-.nav a:hover{border-bottom:2px solid black;padding-bottom:5px}
-.hero{position:relative;height:430px;background:#e9e4df;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
-.hero img{width:100%;height:430px;object-fit:cover}
-.hero-content{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:9%}
-.hero-content .eyebrow{letter-spacing:3px;font-size:13px;margin-bottom:20px}
-.hero-content h1{font-size:clamp(34px,5vw,64px);line-height:1.2;margin-bottom:20px}
-.hero-content p{line-height:2;color:#444;margin-bottom:25px}
-.btn{background:#080808;color:white;padding:15px 30px;border:1px solid #080808;font-size:14px}
-.btn:hover{background:white;color:black}
+.actions{display:flex;gap:20px;align-items:center}
+.action{border:0;background:none;font-size:23px;position:relative}
+.action small{display:block;font-size:10px;margin-top:5px}
+.count{position:absolute;top:-7px;right:-9px;background:#111;color:white;border-radius:50%;font-size:10px;padding:3px 6px}
+.nav{display:flex;justify-content:center;gap:30px;padding:17px 10px;border-bottom:1px solid var(--line);font-size:13px;flex-wrap:wrap}
+.nav a:hover{border-bottom:2px solid #111;padding-bottom:6px}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:420px;background:#eee}
+.hero img{width:100%;height:420px;object-fit:cover}
+.hero-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:9%}
+.eyebrow{font-size:12px;letter-spacing:3px;margin-bottom:20px}
+.hero h1{font-size:clamp(30px,4vw,54px);line-height:1.3;margin-bottom:18px}
+.hero p{line-height:2;color:#555;font-size:15px;margin-bottom:25px}
+.black-btn{background:#080808;color:white;border:1px solid #080808;padding:14px 28px;font-size:13px}
+.black-btn:hover{background:white;color:#080808}
 .section{padding:55px 5%}
-.heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.heading h2{font-size:25px}
-.heading a{font-size:13px;text-decoration:underline}
-.categories{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
-.cat{text-align:center}
-.cat img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f5f5f5}
-.cat p{padding:14px 0;font-weight:bold;font-size:14px}
-.brands{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
-.brand{border:1px solid #eee;min-height:85px;display:grid;place-items:center;font-size:17px;font-weight:bold;letter-spacing:1px}
-.banner{margin:10px 5%;background:#eee8e3;display:grid;grid-template-columns:1fr 1fr;min-height:290px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.section-head h2{font-size:25px;font-weight:700}
+.section-head a{font-size:12px;text-decoration:underline}
+.categories{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.category{text-align:center;cursor:pointer}
+.category img{width:100%;aspect-ratio:1/1.15;object-fit:cover;background:#eee}
+.category p{font-size:14px;font-weight:bold;margin-top:13px}
+.category:hover img{opacity:.85}
+.brand-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.brand{height:100px;border:1px solid #e5e5e5;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:bold;letter-spacing:1px}
+.brand:hover{background:#111;color:white}
+.banner{display:grid;grid-template-columns:1fr 1fr;background:#f1eeee}
 .banner img{width:100%;height:290px;object-fit:cover}
-.banner-content{display:flex;flex-direction:column;justify-content:center;padding:35px}
-.banner-content h2{font-size:35px;margin-bottom:15px}
-.banner-content p{line-height:2;margin-bottom:20px}
+.banner-copy{display:flex;flex-direction:column;justify-content:center;padding:9%}
+.banner-copy h2{font-size:32px;margin-bottom:15px}
+.banner-copy p{line-height:2;color:#555;margin-bottom:20px}
 .products{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.product{position:relative}
-.product img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#f7f7f7}
-.product .heart{position:absolute;top:12px;left:12px;background:white;border:0;border-radius:50%;width:35px;height:35px;font-size:20px}
-.product .name{font-size:14px;margin:12px 0 7px}
-.product .desc{font-size:12px;color:#777;margin-bottom:10px}
-.product .price{font-weight:bold;font-size:14px}
-.product .add{width:100%;margin-top:12px;background:#111;color:white;padding:12px;border:0}
-.product .add:hover{background:#444}
-.camera{margin:35px 5%;padding:55px 25px;text-align:center;background:#f1eeeb}
-.camera .symbol{font-size:42px;margin-bottom:15px}
-.camera h2{font-size:30px;margin-bottom:15px}
-.camera p{line-height:2;color:#555;max-width:600px;margin:0 auto 20px}
-.camera button{margin-top:5px}
-#preview{display:none;max-width:220px;max-height:220px;object-fit:cover;margin:20px auto}
-footer{background:#080808;color:white;padding:45px 6%}
-.footer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-footer h3{margin-bottom:18px}
-footer p{font-size:13px;color:#ccc;line-height:2.5}
-.copyright{text-align:center;border-top:1px solid #444;margin-top:30px;padding-top:20px;color:#aaa;font-size:12px}
-#cartCount{font-size:12px;background:black;color:white;border-radius:50%;padding:3px 6px}
-@media(max-width:700px){
- .header{padding:15px;height:auto;flex-wrap:wrap}
- .logo{font-size:26px}
- .search{order:3;flex-basis:100%;max-width:none}
- .nav{gap:15px;font-size:12px}
- .hero{grid-template-columns:1fr;height:auto}
- .hero img{height:260px;grid-row:1}
- .hero-content{padding:35px 25px}
- .categories{grid-template-columns:repeat(2,1fr)}
- .brands{grid-template-columns:repeat(3,1fr)}
- .products{grid-template-columns:repeat(2,1fr)}
- .banner{grid-template-columns:1fr}
- .banner img{height:230px}
- .footer-grid{grid-template-columns:1fr}
+.product{position:relative;cursor:pointer;min-width:0}
+.product-image{position:relative;background:#f5f5f5}
+.product-image img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.tag{position:absolute;top:12px;right:12px;background:white;padding:7px 10px;font-size:10px}
+.heart{position:absolute;top:10px;left:10px;border:0;border-radius:50%;background:white;width:35px;height:35px;font-size:19px}
+.product-info{padding:13px 2px}
+.product-brand{font-size:11px;color:#777;margin-bottom:7px}
+.product-name{font-size:14px;font-weight:bold;line-height:1.6;margin-bottom:8px}
+.product-desc{font-size:11px;color:#777;margin-bottom:10px}
+.price{font-size:14px;font-weight:bold}
+.old-price{text-decoration:line-through;color:#999;font-size:12px;margin-right:8px}
+.add{width:100%;background:#111;color:white;border:1px solid #111;padding:12px;margin-top:12px;font-size:12px}
+.add:hover{background:white;color:#111}
+.camera-section{background:#f5f2f0;text-align:center;padding:65px 20px}
+.camera-section h2{font-size:30px;margin:15px 0}
+.camera-section p{color:#666;line-height:2;max-width:600px;margin:0 auto 20px}
+.camera-icon{font-size:42px}
+.camera-preview{max-width:240px;max-height:240px;display:none;margin:20px auto;object-fit:cover}
+#cameraInput{display:none}
+.newsletter{background:#111;color:white;text-align:center;padding:50px 20px}
+.newsletter h2{font-size:25px;margin-bottom:12px}
+.newsletter p{font-size:13px;color:#ccc;margin-bottom:20px}
+.newsletter form{display:flex;max-width:450px;margin:auto}
+.newsletter input{flex:1;padding:13px;border:0;outline:0}
+.newsletter button{background:#fff;color:#111;border:0;padding:13px 22px}
+footer{background:#080808;color:white;padding:45px 6% 20px}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:25px}
+footer h3{font-size:14px;margin-bottom:18px}
+footer a,footer p{display:block;color:#ccc;font-size:12px;margin:12px 0;line-height:1.8}
+.copyright{text-align:center;border-top:1px solid #444;margin-top:35px;padding-top:20px;color:#aaa;font-size:11px}
+.overlay{position:fixed;inset:0;background:#0008;z-index:20;display:none}
+.drawer{position:fixed;top:0;left:0;width:min(420px,100%);height:100%;background:white;z-index:21;padding:25px;overflow:auto;transform:translateX(-105%);transition:.3s}
+.drawer.open{transform:translateX(0)}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ddd;padding-bottom:20px;margin-bottom:20px}
+.close{border:0;background:none;font-size:25px}
+.cart-item{display:flex;gap:15px;padding:15px 0;border-bottom:1px solid #eee}
+.cart-item img{width:75px;height:90px;object-fit:cover}
+.cart-item h4{font-size:13px;margin-bottom:8px}
+.cart-item p{font-size:12px;color:#777;margin-bottom:10px}
+.quantity{display:flex;align-items:center;gap:12px}
+.quantity button{border:1px solid #ddd;background:white;padding:3px 9px}
+.cart-total{border-top:1px solid #ddd;margin-top:25px;padding-top:20px}
+.cart-total div{display:flex;justify-content:space-between;margin-bottom:15px}
+.cart-total button{width:100%}
+.empty{text-align:center;padding:50px 10px;color:#777;font-size:14px}
+.modal{position:fixed;inset:0;background:#0009;z-index:30;display:none;align-items:center;justify-content:center;padding:15px}
+.modal-box{background:white;width:min(750px,100%);max-height:90vh;overflow:auto;padding:25px;position:relative}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.detail-grid img{width:100%;max-height:480px;object-fit:cover}
+.detail-copy{padding:25px 0}
+.detail-copy h2{font-size:24px;margin:10px 0}
+.detail-copy p{line-height:2;color:#666;font-size:13px;margin:15px 0}
+.shades{display:flex;gap:9px;margin:15px 0;flex-wrap:wrap}
+.shade{width:28px;height:28px;border-radius:50%;border:2px solid white;outline:1px solid #aaa}
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#111;color:white;padding:13px 22px;z-index:50;font-size:13px;display:none}
+@media(max-width:750px){
+.header{height:auto;min-height:75px;padding:12px 4%;flex-wrap:wrap;gap:12px}
+.logo{font-size:26px}
+.search{order:3;flex-basis:100%;max-width:none}
+.actions{gap:13px}
+.action small{display:none}
+.nav{justify-content:flex-start;overflow-x:auto;white-space:nowrap;gap:22px;padding:15px}
+.hero{grid-template-columns:1fr}
+.hero img{height:260px;grid-row:1}
+.hero-copy{padding:35px 7%}
+.hero h1{font-size:34px}
+.section{padding:38px 4%}
+.categories{grid-template-columns:repeat(3,1fr);gap:18px 10px}
+.brand-grid{grid-template-columns:repeat(3,1fr)}
+.brand{height:75px;font-size:13px}
+.products{grid-template-columns:repeat(2,1fr);gap:18px 12px}
+.banner{grid-template-columns:1fr}
+.banner img{height:220px}
+.banner-copy{padding:30px}
+.banner-copy h2{font-size:26px}
+.footer-grid{grid-template-columns:repeat(2,1fr)}
+.detail-grid{grid-template-columns:1fr}
+.detail-grid img{max-height:300px}
+.detail-copy{padding:0}
 }
 </style>
 </head>
-
 <body>
 
-<div class="promo">
-تسوقي أحدث مستحضرات الجمال واكتشفي عالمك المفضل
-</div>
+<div class="top">اكتشفي عالم الجمال والعناية | تسوّقي أحدث المنتجات</div>
 
 <header class="header">
- <div class="actions">
-  <button onclick="alert('قريباً: حسابك الشخصي')">♙</button>
-  <button onclick="alert('قائمة المفضلة')">♡</button>
-  <button onclick="alert('عدد المنتجات في السلة: '+cart)">♧ <span id="cartCount">0</span></button>
- </div>
-
- <div class="logo">BEAUTY</div>
-
- <div class="search">
-  <span>⌕</span>
-  <input id="search" placeholder="ابحثي عن منتج أو ماركة..." oninput="searchProducts()">
- </div>
+  <div class="logo">BEAUTY</div>
+  <div class="search">
+    <span>⌕</span>
+    <input id="searchInput" placeholder="ابحثي عن منتج، ماركة أو فئة..." oninput="renderProducts()">
+  </div>
+  <div class="actions">
+    <button class="action" onclick="showAccount()">♙<small>حسابي</small></button>
+    <button class="action" onclick="openFavorites()">♡<small>المفضلة</small></button>
+    <button class="action" onclick="openCart()">♧<small>السلة</small><span class="count" id="cartCount">0</span></button>
+  </div>
 </header>
 
 <nav class="nav">
- <a href="#">الرئيسية</a>
- <a href="#makeup">المكياج</a>
- <a href="#skincare">العناية بالبشرة</a>
- <a href="#fragrance">العطور</a>
- <a href="#brands">الماركات</a>
- <a href="#bestsellers">الأكثر مبيعاً</a>
- <a href="#camera">اكتشفي درجتك</a>
+  <a href="#home">الرئيسية</a>
+  <a href="#makeup" onclick="setCategory('المكياج')">المكياج</a>
+  <a href="#skincare" onclick="setCategory('العناية بالبشرة')">العناية بالبشرة</a>
+  <a href="#fragrance" onclick="setCategory('العطور')">العطور</a>
+  <a href="#hair" onclick="setCategory('العناية بالشعر')">العناية بالشعر</a>
+  <a href="#brands">الماركات</a>
+  <a href="#bestsellers">الأكثر مبيعًا</a>
+  <a href="#camera">اكتشفي درجتك</a>
 </nav>
 
-<section class="hero">
- <div class="hero-content">
-  <div class="eyebrow">DISCOVER YOUR BEAUTY</div>
-  <h1>جمالك<br>بأسلوبك الخاص</h1>
-  <p>اكتشفي أحدث مستحضرات التجميل<br>والعناية واختاري ما يعبر عن جمالك.</p>
-  <a class="btn" href="#makeup">تسوقي الآن</a>
- </div>
- <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1100" alt="Beauty">
+<section class="hero" id="home">
+  <div class="hero-copy">
+    <div class="eyebrow">YOUR BEAUTY, YOUR WAY</div>
+    <h1>جمالك يبدأ من هنا</h1>
+    <p>اكتشفي عالمًا من الجمال، اختاري منتجاتك المفضلة وتألقّي بإطلالة تعبر عنك.</p>
+    <button class="black-btn" onclick="document.getElementById('bestsellers').scrollIntoView({behavior:'smooth'})">تسوّقي الآن</button>
+  </div>
+  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200" alt="مستحضرات تجميل">
 </section>
 
 <section class="section" id="makeup">
- <div class="heading">
-  <h2>تسوقي حسب الفئة</h2>
-  <a href="#products">اكتشفي الكل</a>
- </div>
-
- <div class="categories">
-  <a class="cat" href="#products">
-   <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="">
-   <p>الوجه</p>
-  </a>
-  <a class="cat" href="#products">
-   <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500" alt="">
-   <p>العيون</p>
-  </a>
-  <a class="cat" href="#products">
-   <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500" alt="">
-   <p>الشفاه</p>
-  </a>
-  <a class="cat" href="#products">
-   <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500" alt="">
-   <p>العناية بالبشرة</p>
-  </a>
-  <a class="cat" href="#products">
-   <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="">
-   <p>العطور</p>
-  </a>
- </div>
+  <div class="section-head"><h2>تسوّقي حسب الفئة</h2><a href="#allProducts">اكتشفي الكل</a></div>
+  <div class="categories">
+    <div class="category" onclick="setCategory('المكياج')"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500"><p>المكياج</p></div>
+    <div class="category" onclick="setCategory('العناية بالبشرة')"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500"><p>العناية بالبشرة</p></div>
+    <div class="category" onclick="setCategory('العطور')"><img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500"><p>العطور</p></div>
+    <div class="category" onclick="setCategory('العناية بالشعر')"><img src="https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=500"><p>العناية بالشعر</p></div>
+    <div class="category" onclick="setCategory('المكياج')"><img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=500"><p>الوجه والخدود</p></div>
+    <div class="category" onclick="setCategory('المكياج')"><img src="https://images.unsplash.com/photo-1583241800698-e8ab01830a5d?w=500"><p>الشفاه والأظافر</p></div>
+  </div>
 </section>
 
 <section class="section" id="brands">
- <div class="heading">
-  <h2>ماركاتنا المفضلة</h2>
-  <a href="#products">كل الماركات</a>
- </div>
- <div class="brands">
-  <div class="brand">DIOR</div>
-  <div class="brand">CHANEL</div>
-  <div class="brand">MAC</div>
-  <div class="brand">NARS</div>
-  <div class="brand">FENTY</div>
-  <div class="brand">YSL</div>
- </div>
+  <div class="section-head"><h2>ماركات مختارة</h2><a href="#allProducts">تسوّقي الماركات</a></div>
+  <div class="brand-grid">
+    <div class="brand">DIOR</div><div class="brand">CHANEL</div>
+    <div class="brand">NARS</div><div class="brand">YSL</div>
+    <div class="brand">MAC</div><div class="brand">FENTY</div>
+  </div>
 </section>
 
 <section class="banner">
- <div class="banner-content">
-  <h2>اكتشفي إطلالتك الجديدة</h2>
-  <p>كل ما تحتاجينه لإطلالة مميزة في مكان واحد.</p>
-  <a class="btn" href="#products">تسوقي المجموعة</a>
- </div>
- <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900" alt="Beauty collection">
+  <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=1000" alt="جمال">
+  <div class="banner-copy">
+    <div class="eyebrow">BEAUTY DISCOVERY</div>
+    <h2>اختاري ما يناسبك</h2>
+    <p>من أساسيات العناية إلى لمسات المكياج الأخيرة، اكتشفي اختياراتك المفضلة في مكان واحد.</p>
+    <button class="black-btn" onclick="document.getElementById('allProducts').scrollIntoView({behavior:'smooth'})">اكتشفي المنتجات</button>
+  </div>
 </section>
 
 <section class="section" id="bestsellers">
- <div class="heading">
-  <h2>الأكثر مبيعاً</h2>
-  <a href="#products">عرض الكل</a>
- </div>
-
- <div class="products" id="products">
-
-  <div class="product">
-   <button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥️':'♡'">♡</button>
-   <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500" alt="Lipstick">
-   <p class="name">أحمر شفاه</p>
-   <p class="desc">لون غني ولمسة أنيقة</p>
-   <p class="price">125 ر.س</p>
-   <button class="add" onclick="addCart()">أضيفي إلى السلة</button>
-  </div>
-
-  <div class="product">
-   <button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥️':'♡'">♡</button>
-   <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500" alt="Makeup">
-   <p class="name">مجموعة مكياج</p>
-   <p class="desc">إطلالة متكاملة لكل يوم</p>
-   <p class="price">220 ر.س</p>
-   <button class="add" onclick="addCart()">أضيفي إلى السلة</button>
-  </div>
-
-  <div class="product">
-   <button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥️':'♡'">♡</button>
-   <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500" alt="Skincare">
-   <p class="name">مجموعة العناية</p>
-   <p class="desc">روتين لبشرة مشرقة</p>
-   <p class="price">189 ر.س</p>
-   <button class="add" onclick="addCart()">أضيفي إلى السلة</button>
-  </div>
-
-  <div class="product">
-   <button class="heart" onclick="this.textContent=this.textContent==='♡'?'♥️':'♡'">♡</button>
-   <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500" alt="Perfume">
-   <p class="name">عطر فاخر</p>
-   <p class="desc">رائحة تترك أثراً</p>
-   <p class="price">350 ر.س</p>
-   <button class="add" onclick="addCart()">أضيفي إلى السلة</button>
-  </div>
-
- </div>
+  <div class="section-head"><h2>الأكثر مبيعًا</h2><a href="#allProducts">عرض الكل</a></div>
+  <div class="products" id="bestProducts"></div>
 </section>
 
-<section class="camera" id="camera">
- <div class="symbol">📷</div>
- <h2>اكتشفي درجتك المثالية</h2>
- <p>صوري وجهك ودعي ميزة اكتشاف الدرجات تساعدك في العثور على درجات الفاونديشن والكونسيلر والبلاشر المناسبة لك.</p>
- <button class="btn" onclick="document.getElementById('facePhoto').click()">ابدئي اكتشاف درجتك</button>
- <input id="facePhoto" type="file" accept="image/*" capture="user" hidden>
- <img id="preview" alt="معاينة الصورة">
- <p id="photoStatus"></p>
+<section class="section" id="allProducts">
+  <div class="section-head"><h2 id="productsTitle">اكتشفي منتجاتنا</h2><a href="#" onclick="clearCategory();return false">عرض الكل</a></div>
+  <div class="products" id="productGrid"></div>
+</section>
+
+<section class="camera-section" id="camera">
+  <div class="camera-icon">◎</div>
+  <div class="eyebrow">YOUR PERFECT SHADE</div>
+  <h2>اكتشفي درجة مكياجك</h2>
+  <p>ارفعي صورة واضحة لبشرتك في إضاءة طبيعية، واستعدّي لاكتشاف درجات المكياج التي قد تناسبك. هذه نسخة تجريبية لمعاينة الصورة وليست تحليلًا آليًا فعليًا.</p>
+  <label for="cameraInput" class="black-btn">التقطي صورة أو اختاري صورة</label>
+  <input id="cameraInput" type="file" accept="image/*" capture="user" onchange="previewPhoto(event)">
+  <img id="cameraPreview" class="camera-preview" alt="معاينة الصورة">
+  <div id="cameraMessage" style="font-size:13px;margin-top:12px"></div>
+</section>
+
+<section class="newsletter">
+  <h2>كوني أول من يعرف</h2>
+  <p>اشتركي ليصلك كل جديد من عالم الجمال والعناية.</p>
+  <form onsubmit="subscribe(event)">
+    <input type="email" required placeholder="بريدك الإلكتروني">
+    <button>اشتراك</button>
+  </form>
 </section>
 
 <footer>
- <div class="footer-grid">
-  <div>
-   <h3>BEAUTY</h3>
-   <p>اكتشفي عالم الجمال والعناية<br>واختاري ما يناسبك.</p>
+  <div class="footer-grid">
+    <div><h3>BEAUTY</h3><p>اكتشفي عالم الجمال واختاري ما يعبر عنك.</p></div>
+    <div><h3>تسوّقي</h3><a href="#makeup">المكياج</a><a href="#skincare">العناية بالبشرة</a><a href="#fragrance">العطور</a><a href="#hair">الشعر</a></div>
+    <div><h3>خدمة العملاء</h3><a href="#" onclick="showMessage('هذه صفحة تجريبية')">تواصل معنا</a><a href="#" onclick="showMessage('سياسة تجريبية')">سياسة الخصوصية</a><a href="#" onclick="showMessage('شروط تجريبية')">الشروط والأحكام</a></div>
+    <div><h3>حسابك</h3><a href="#" onclick="showAccount()">حسابي</a><a href="#" onclick="openFavorites()">المفضلة</a><a href="#" onclick="openCart()">سلة التسوق</a></div>
   </div>
-  <div>
-   <h3>خدمة العملاء</h3>
-   <p>تواصل معنا<br>الأسئلة الشائعة<br>سياسة الاستبدال</p>
-  </div>
-  <div>
-   <h3>تسوقي معنا</h3>
-   <p>المكياج<br>العناية بالبشرة<br>العطور والماركات</p>
-  </div>
- </div>
- <div class="copyright">©️ 2026 BEAUTY STORE</div>
+  <div class="copyright">©️ 2026 BEAUTY — مشروع تجريبي تعليمي</div>
 </footer>
 
+<div class="overlay" id="overlay" onclick="closePanels()"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h3 id="drawerTitle">سلة التسوق</h3><button class="close" onclick="closePanels()">×</button></div>
+  <div id="drawerContent"></div>
+</aside>
+
+<div class="modal" id="productModal" onclick="if(event.target===this)closeProduct()">
+  <div class="modal-box">
+    <button class="close" onclick="closeProduct()" style="float:left">×</button>
+    <div id="productDetail"></div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
 <script>
-let cart=0;
+const products=[
+{id:1,brand:"BEAUTY EDIT",name:"كريم أساس بإطلالة طبيعية",desc:"تغطية متوسطة ولمسة ناعمة",price:145,category:"المكياج",tag:"الأكثر مبيعًا",image:"https://images.unsplash.com/photo-1631214540242-6d5c4f5b2c9a?w=700",shades:["فاتح","متوسط","قمحي","داكن"]},
+{id:2,brand:"GLOW STUDIO",name:"كونسيلر لإخفاء العيوب",desc:"تغطية قابلة للبناء",price:95,category:"المكياج",tag:"اختيار مميز",image:"https://images.unsplash.com/photo-1583241800698-e8ab01830a5d?w=700",shades:["01","02","03","04"]},
+{id:3,brand:"SKIN LAB",name:"سيروم ترطيب البشرة",desc:"ترطيب يومي للبشرة",price:120,category:"العناية بالبشرة",tag:"",image:"https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=700"},
+{id:4,brand:"SCENT HOUSE",name:"عطر زهري أنيق",desc:"نفحات ناعمة تدوم",price:260,category:"العطور",tag:"جديد",image:"https://images.unsplash.com/photo-1594035910387-fea47794261f?w=700"},
+{id:5,brand:"COLOR EDIT",name:"أحمر شفاه كريمي",desc:"لون غني ولمسة مريحة",price:85,category:"المكياج",tag:"",image:"https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=700",shades:["وردي","نود","أحمر","موف"]},
+{id:6,brand:"PURE SKIN",name:"كريم ترطيب يومي",desc:"عناية ونعومة للبشرة",price:110,category:"العناية بالبشرة",tag:"",image:"https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?w=700"},
+{id:7,brand:"HAIR STUDIO",name:"ماسك العناية بالشعر",desc:"لشعر ناعم ولامع",price:130,category:"العناية بالشعر",tag:"",image:"https://images.unsplash.com/photo-1527799820374-dcf8d9d4a388?w=700"},
+{id:8,brand:"GLOW STUDIO",name:"بودرة خدود ناعمة",desc:"لون طبيعي قابل للدمج",price:90,category:"المكياج",tag:"الأكثر طلبًا",image:"https://images.unsplash.com/photo-1599733589046-10c6e9f4b1b6?w=700",shades:["وردي فاتح","خوخي","وردي غامق"]},
+{id:9,brand:"SCENT HOUSE",name:"عطر بنفحات دافئة",desc:"رائحة أنيقة للمساء",price:290,category:"العطور",tag:"",image:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=700"},
+{id:10,brand:"SKIN LAB",name:"منظف لطيف للوجه",desc:"لروتين العناية اليومي",price:75,category:"العناية بالبشرة",tag:"",image:"https://images.unsplash.com/photo-1556228720-195a672e8a03?w=700"},
+{id:11,brand:"COLOR EDIT",name:"باليت ظلال عيون",desc:"ألوان متنوعة للمناسبات",price:155,category:"المكياج",tag:"",image:"https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=700"},
+{id:12,brand:"HAIR STUDIO",name:"زيت عناية بالشعر",desc:"لمعان ونعومة",price:99,category:"العناية بالشعر",tag:"",image:"https://images.unsplash.com/photo-1600612253971-422e7f7faeb6?w=700"}
+];
 
-function addCart(){
- cart++;
- document.getElementById('cartCount').textContent=cart;
- alert('تمت إضافة المنتج إلى السلة');
+let cart=JSON.parse(localStorage.getItem("beautyCart")||"[]");
+let favorites=JSON.parse(localStorage.getItem("beautyFav")||"[]");
+let activeCategory="";
+let currentProduct=null;
+
+function money(n){return n.toLocaleString("ar-SA")+" ر.س"}
+function save(){
+localStorage.setItem("beautyCart",JSON.stringify(cart));
+localStorage.setItem("beautyFav",JSON.stringify(favorites));
+document.getElementById("cartCount").textContent=cart.reduce((s,x)=>s+x.qty,0);
 }
-
-function searchProducts(){
- let value=document.getElementById('search').value.toLowerCase();
- document.querySelectorAll('.product').forEach(p=>{
-  p.style.display=p.textContent.toLowerCase().includes(value)?'block':'none';
- });
+function card(p){
+return `<article class="product">
+<div class="product-image" onclick="openProduct(${p.id})">
+${p.tag?`<span class="tag">${p.tag}</span>`:""}
+<img src="${p.image}" alt="${p.name}" loading="lazy">
+<button class="heart" onclick="event.stopPropagation();toggleFavorite(${p.id})">${favorites.includes(p.id)?"♥️":"♡"}</button>
+</div>
+<div class="product-info" onclick="openProduct(${p.id})">
+<div class="product-brand">${p.brand}</div>
+<div class="product-name">${p.name}</div>
+<div class="product-desc">${p.desc}</div>
+<div class="price">${money(p.price)}</div>
+</div>
+<button class="add" onclick="addToCart(${p.id})">أضيفي إلى السلة</button>
+</article>`;
 }
-
-document.getElementById('facePhoto').addEventListener('change',function(){
- if(this.files && this.files[0]){
-  const reader=new FileReader();
-  reader.onload=e=>{
-   const preview=document.getElementById('preview');
-   preview.src=e.target.result;
-   preview.style.display='block';
-   document.getElementById('photoStatus').textContent=
-   'تم اختيار الصورة. سيتم تفعيل تحليل درجات البشرة الذكي في المرحلة القادمة.';
-  };
-  reader.readAsDataURL(this.files[0]);
- }
-});
+function renderProducts(){
+let q=document.getElementById("searchInput").value.trim().toLowerCase();
+let filtered=products.filter(p=>(!activeCategory||p.category===activeCategory)&&(!q||(p.name+" "+p.brand+" "+p.category).toLowerCase().includes(q)));
+document.getElementById("productGrid").innerHTML=filtered.length?filtered.map(card).join(""):'<div class="empty">لا توجد منتجات مطابقة لبحثك</div>';
+document.getElementById("productsTitle").textContent=activeCategory||"اكتشفي منتجاتنا";
+}
+function renderBest(){
+document.getElementById("bestProducts").innerHTML=products.slice(0,4).map(card).join("");
+}
+function setCategory(c){
+activeCategory=c;
+document.getElementById("searchInput").value="";
+renderProducts();
+document.getElementById("allProducts").scrollIntoView({behavior:"smooth"});
+}
+function clearCategory(){activeCategory="";document.getElementById("searchInput").value="";renderProducts()}
+function addToCart(id){
+let item=cart.find(x=>x.id===id);
+if(item)item.qty++;else cart.push({id,qty:1});
+save();showMessage("تمت إضافة المنتج إلى السلة");
+}
+function toggleFavorite(id){
+favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];
+save();renderProducts();renderBest();showMessage(favorites.includes(id)?"أضيف إلى المفضلة":"حذف من المفضلة");
+}
+function openProduct(id){
+currentProduct=products.find(p=>p.id===id);
+let p=currentProduct;
+document.getElementById("productDetail").innerHTML=`
+<div class="detail-grid">
+<img src="${p.image}" alt="${p.name}">
+<div class="detail-copy">
+<div class="product-brand">${p.brand}</div>
+<h2>${p.name}</h2>
+<p>${p.desc}. منتج تجريبي ضمن متجر BEAUTY.</p>
+<div class="price">${money(p.price)}</div>
+${p.shades?`<p><b>اختاري الدرجة:</b></p><div class="shades">${p.shades.map((s,i)=>`<button class="shade" title="${s}" style="background:${["#f0c9ae","#d49b76","#a96e4c","#71452f"][i%4]}" onclick="selectShade(this,'${s}')"></button>`).join("")}</div><div id="selectedShade" style="font-size:12px;color:#777"></div>`:""}
+<button class="black-btn" style="width:100%;margin-top:20px" onclick="addToCart(${p.id});closeProduct()">أضيفي إلى السلة</button>
+<button class="add" onclick="toggleFavorite(${p.id})">♡ أضيفي إلى المفضلة</button>
+</div></div>`;
+document.getElementById("productModal").style.display="flex";
+}
+function selectShade(el,s){
+document.querySelectorAll(".shade").forEach(x=>x.style.outline="1px solid #aaa");
+el.style.outline="2px solid #111";
+document.getElementById("selectedShade").textContent="الدرجة المختارة: "+s;
+}
+function closeProduct(){document.getElementById("productModal").style.display="none"}
+function openCart(){openDrawer("سلة التسوق");renderCart()}
+function openFavorites(){openDrawer("قائمة المفضلة");renderFavorites()}
+function openDrawer(title){
+document.getElementById("drawerTitle").textContent=title;
+document.getElementById("overlay").style.display="block";
+document.getElementById("drawer").classList.add("open");
+}
+function closePanels(){
+document.getElementById("overlay").style.display="none";
+document.getElementById("drawer").classList.remove("open");
+}
+function renderCart(){
+let el=document.getElementById("drawerContent");
+if(!cart.length){el.innerHTML='<div class="empty">سلتك فارغة حاليًا</div>';return}
+let total=0;
+el.innerHTML=cart.map(x=>{
+let p=products.find(y=>y.id===x.id);total+=p.price*x.qty;
+return `<div class="cart-item"><img src="${p.image}"><div style="flex:1"><h4>${p.name}</h4><p>${money(p.price)}</p><div class="quantity"><button onclick="changeQty(${p.id},-1)">−</button>${x.qty}<button onclick="changeQty(${p.id},1)">+</button><button onclick="removeCart(${p.id})">حذف</button></div></div></div>`;
+}).join("")+`<div class="cart-total"><div><b>الإجمالي</b><b>${money(total)}</b></div><button class="black-btn" onclick="checkout()">إتمام الطلب التجريبي</button></div>`;
+}
+function changeQty(id,n){
+let x=cart.find(y=>y.id===id);if(!x)return;
+x.qty+=n;if(x.qty<=0)cart=cart.filter(y=>y.id!==id);
+save();renderCart();
+}
+function removeCart(id){cart=cart.filter(x=>x.id!==id);save();renderCart()}
+function renderFavorites(){
+let list=products.filter(p=>favorites.includes(p.id));
+document.getElementById("drawerContent").innerHTML=list.length?`<div class="products" style="grid-template-columns:1fr 1fr">${list.map(card).join("")}</div>`:'<div class="empty">لا توجد منتجات في المفضلة</div>';
+}
+function checkout(){showMessage("هذه تجربة تجريبية ولا تتم عملية دفع حقيقية");}
+function showAccount(){showMessage("صفحة الحساب التجريبية — يمكن إضافة تسجيل الدخول لاحقًا")}
+function subscribe(e){e.preventDefault();showMessage("تم تسجيل بريدك في القائمة التجريبية");e.target.reset()}
+function showMessage(msg){
+let t=document.getElementById("toast");t.textContent=msg;t.style.display="block";
+clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.style.display="none",2600);
+}
+function previewPhoto(e){
+let file=e.target.files[0];if(!file)return;
+let reader=new FileReader();
+reader.onload=()=>{
+let img=document.getElementById("cameraPreview");
+img.src=reader.result;img.style.display="block";
+document.getElementById("cameraMessage").textContent="تم تحميل الصورة بنجاح. تحليل الدرجات الذكي غير مفعّل في هذه النسخة التجريبية.";
+};
+reader.readAsDataURL(file);
+}
+save();renderProducts();renderBest();
 </script>
-
 </body>
 </html>
