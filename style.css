@@ -525,3 +525,81 @@ a {
   cursor: pointer;
   font-family: inherit;
 }
+
+.undertone-section {
+  padding: 55px 20px;
+  background: #f8f5f1;
+  direction: rtl;
+}
+
+.undertone-content {
+  max-width: 620px;
+  margin: auto;
+  text-align: center;
+}
+
+.undertone-label {
+  letter-spacing: 3px;
+  font-size: 11px;
+  color: #a58a70;
+}
+
+.undertone-content h2 {
+  font-size: 27px;
+  margin: 15px 0;
+  color: #171717;
+}
+
+.undertone-content > p {
+  color: #777;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+#undertoneForm {
+  display: grid;
+  gap: 12px;
+  text-align: right;
+  margin-top: 28px;
+}
+
+#undertoneForm label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+#undertoneForm select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ded7cf;
+  background: white;
+  font-family: inherit;
+  border-radius: 4px;
+}
+
+#undertoneForm button {
+  padding: 15px;
+  margin-top: 15px;
+  background: #111;
+  color: white;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.undertone-result {
+  margin-top: 25px;
+  padding: 24px;
+  background: white;
+  border: 1px solid #e5ddd4;
+  line-height: 1.9;
+}
+
+.undertone-result h3 {
+  margin: 10px 0;
+}
+
+.undertone-result small {
+  color: #888;
+}
