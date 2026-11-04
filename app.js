@@ -1,202 +1,215 @@
 
-// BEAUTY - Main JavaScript
-
 const products = [
+  // MAKEUP - المكياج
   {
     brand: "NARS",
     name: "Radiant Creamy Concealer",
-    price: null,
     category: "makeup",
-    image: "assets/nars.jpg"
+    image: "assets/makeup/nars-radiant-creamy-concealer.jpg"
+  },
+  {
+    brand: "CLINIQUE",
+    name: "Cult Classic Lip Duo",
+    category: "makeup",
+    image: "assets/makeup/clinique-cult-classic-lip-duo.jpg"
   },
   {
     brand: "HUDA BEAUTY",
-    name: "Easy Bake Loose Powder",
-    price: null,
+    name: "Easy Bake Powder",
     category: "makeup",
-    image: "assets/huda.jpg"
+    image: "assets/makeup/huda-beauty-easy-bake-powder.jpg"
   },
   {
-    brand: "DIOR",
-    name: "Forever Skin Correct",
-    price: null,
+    brand: "DOLCE & GABBANA",
+    name: "Compact Powder",
     category: "makeup",
-    image: "assets/dior.jpg"
+    image: "assets/makeup/dolce-gabbana-compact-powder.jpg"
   },
   {
-    brand: "FENTY BEAUTY",
-    name: "Gloss Bomb",
-    price: null,
+    brand: "PATRICK TA",
+    name: "Blush Duo",
     category: "makeup",
-    image: "assets/fenty.jpg"
+    image: "assets/makeup/patrick-ta-blush-duo.jpg"
   },
   {
-    brand: "RARE BEAUTY",
-    name: "Soft Pinch Blush",
-    price: null,
+    brand: "MILK MAKEUP",
+    name: "Bronzer Stick",
     category: "makeup",
-    image: "assets/rare.jpg"
+    image: "assets/makeup/milk-makeup-bronzer-stick.jpg"
   },
   {
-    brand: "CHARLOTTE TILBURY",
-    name: "Beauty Highlighter",
-    price: null,
+    brand: "MAKEUP TOOLS",
+    name: "Makeup Brush",
     category: "makeup",
-    image: "assets/charlotte.jpg"
+    image: "assets/makeup/makeup-brush.jpg"
+  },
+
+  // FRAGRANCE - العطور
+  {
+    brand: "JEAN PAUL GAULTIER",
+    name: "La Favorite",
+    category: "fragrance",
+    image: "assets/fragrance/jean-paul-gaultier-la-favorite.png"
   },
   {
-    brand: "THE ORDINARY",
-    name: "Niacinamide Serum",
-    price: null,
+    brand: "CAROLINA HERRERA",
+    name: "Good Girl Blush Set",
+    category: "fragrance",
+    image: "assets/fragrance/carolina-herrera-good-girl-set.jpg"
+  },
+  {
+    brand: "PENHALIGON'S",
+    name: "The Tragedy of Lord George",
+    category: "fragrance",
+    image: "assets/fragrance/penhaligons-lord-george.png"
+  },
+  {
+    brand: "SOL DE JANEIRO",
+    name: "Cheirosa 91",
+    category: "fragrance",
+    image: "assets/fragrance/sol-de-janeiro-cheirosa-91.png"
+  },
+  {
+    brand: "GIORGIO ARMANI",
+    name: "Armani Perfume",
+    category: "fragrance",
+    image: "assets/fragrance/giorgio-armani-perfume.png"
+  },
+  {
+    brand: "KAYALI",
+    name: "Oudgasm Smoky Oud",
+    category: "fragrance",
+    image: "assets/fragrance/kayali-oudgasm-smoky-oud.png"
+  },
+
+  // SKINCARE - العناية بالبشرة
+  {
+    brand: "ANUA",
+    name: "Daily Routine Set",
     category: "skincare",
-    image: "assets/ordinary.jpg"
+    image: "assets/skincare/anua-daily-routine-set.jpg"
   },
   {
-    brand: "CERAVE",
-    name: "Moisturizing Cream",
-    price: null,
+    brand: "ESTÉE LAUDER",
+    name: "Night Repair Set",
     category: "skincare",
-    image: "assets/cerave.jpg"
+    image: "assets/skincare/estee-lauder-night-repair-set.jpg"
+  },
+  {
+    brand: "CLINIQUE",
+    name: "Moisture Surge Set",
+    category: "skincare",
+    image: "assets/skincare/clinique-moisture-surge-set.png"
+  },
+  {
+    brand: "CLINIQUE",
+    name: "3-Step Skincare Set",
+    category: "skincare",
+    image: "assets/skincare/clinique-3-step-skincare-set.png"
   }
 ];
 
 let cart = [];
 
-const productsGrid = document.getElementById("productsGrid");
-const makeupGrid = document.getElementById("makeupGrid");
-const skincareGrid = document.getElementById("skincareGrid");
-
-// Display products
-
-function displayProducts(list, container) {
+function renderProducts(list, container) {
   if (!container) return;
 
   container.innerHTML = "";
 
-  if (list.length === 0) {
-    container.innerHTML = "<p>لا توجد منتجات مطابقة للبحث.</p>";
-    return;
-  }
-
-  list.forEach((product, index) => {
+  list.forEach(product => {
     const card = document.createElement("article");
     card.className = "product-card";
 
-    const priceText = product.price
-      ? `${product.price} ر.س`
-      : "السعر قريباً";
+    const image = document.createElement("img");
+    image.src = product.image;
+    image.alt = product.name;
+    image.loading = "lazy";
 
-    card.innerHTML = `
-      <div class="product-image">
-        <img
-          src="${product.image}"
-          alt="${product.brand} ${product.name}"
-          onerror="this.style.display='none'; this.parentElement.innerHTML='<span>BEAUTY</span>';"
-        >
-      </div>
+    image.onerror = () => {
+      image.alt = "صورة المنتج غير متاحة";
+      image.style.display = "none";
+    };
 
-      <div class="product-info">
-        <span class="product-brand">${product.brand}</span>
-        <h3 class="product-name">${product.name}</h3>
-        <p class="product-price">${priceText}</p>
-        <button type="button" data-product-index="${index}">
-          أضيفي إلى السلة
-        </button>
-      </div>
-    `;
+    const imageBox = document.createElement("div");
+    imageBox.className = "product-image";
+    imageBox.appendChild(image);
 
+    const info = document.createElement("div");
+    info.className = "product-info";
+
+    const brand = document.createElement("span");
+    brand.className = "product-brand";
+    brand.textContent = product.brand;
+
+    const name = document.createElement("h3");
+    name.className = "product-name";
+    name.textContent = product.name;
+
+    const price = document.createElement("p");
+    price.className = "product-price";
+    price.textContent = "السعر قريباً";
+
+    const button = document.createElement("button");
+    button.textContent = "أضيفي إلى السلة";
+    button.type = "button";
+
+    button.addEventListener("click", () => {
+      cart.push(product);
+      updateCartCount();
+      button.textContent = "تمت الإضافة ✓";
+    });
+
+    info.append(brand, name, price, button);
+    card.append(imageBox, info);
     container.appendChild(card);
   });
 }
 
-// Initial display
-
-displayProducts(products, productsGrid);
-displayProducts(
-  products.filter(product => product.category === "makeup"),
-  makeupGrid
-);
-displayProducts(
-  products.filter(product => product.category === "skincare"),
-  skincareGrid
-);
-
-// Add to cart
-
-document.addEventListener("click", function (event) {
-  const button = event.target.closest("[data-product-index]");
-
-  if (!button) return;
-
-  const index = Number(button.dataset.productIndex);
-  const product = products[index];
-
-  if (!product) return;
-
-  cart.push(product);
-
-  button.textContent = "تمت الإضافة ✓";
-
-  updateCartCount();
-});
-
-// Cart count
-
 function updateCartCount() {
-  const cartButton = document.getElementById("cartBtn");
-
-  if (cartButton) {
-    cartButton.textContent = `♡ ${cart.length}`;
-  }
+  const cartBtn = document.getElementById("cartBtn");
+  if (cartBtn) cartBtn.textContent = `السلة (${cart.length})`;
 }
 
-// Search
+function showCategory(category, containerId) {
+  const container = document.getElementById(containerId);
+  const items = products.filter(p => p.category === category);
+  renderProducts(items, container);
+}
 
+showCategory("makeup", "makeupGrid");
+showCategory("fragrance", "fragranceGrid");
+showCategory("skincare", "skincareGrid");
+
+renderProducts(products, document.getElementById("productsGrid"));
+
+// Search
 const searchBtn = document.getElementById("searchBtn");
 const searchSection = document.getElementById("searchSection");
 const searchInput = document.getElementById("searchInput");
 
-if (searchBtn && searchSection) {
-  searchBtn.addEventListener("click", () => {
-    searchSection.classList.toggle("active");
+searchBtn?.addEventListener("click", () => {
+  searchSection?.classList.toggle("active");
+  searchInput?.focus();
+});
 
-    if (searchSection.classList.contains("active")) {
-      searchInput?.focus();
-    }
-  });
-}
+searchInput?.addEventListener("input", () => {
+  const query = searchInput.value.trim().toLowerCase();
 
-if (searchInput) {
-  searchInput.addEventListener("input", () => {
-    const query = searchInput.value.trim().toLowerCase();
+  const results = products.filter(product =>
+    product.brand.toLowerCase().includes(query) ||
+    product.name.toLowerCase().includes(query)
+  );
 
-    const filtered = products.filter(product =>
-      product.name.toLowerCase().includes(query) ||
-      product.brand.toLowerCase().includes(query)
-    );
-
-    displayProducts(filtered, productsGrid);
-
-    if (query) {
-      productsGrid?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      displayProducts(products, productsGrid);
-    }
-  });
-}
+  renderProducts(results, document.getElementById("productsGrid"));
+});
 
 // Mobile menu
-
 const menuBtn = document.getElementById("menuBtn");
 const navigation = document.getElementById("navigation");
 
-if (menuBtn && navigation) {
-  menuBtn.addEventListener("click", () => {
-    navigation.classList.toggle("active");
-  });
-}
-
-// Close mobile menu after choosing a link
+menuBtn?.addEventListener("click", () => {
+  navigation?.classList.toggle("active");
+});
 
 navigation?.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
@@ -204,31 +217,27 @@ navigation?.querySelectorAll("a").forEach(link => {
   });
 });
 
-// Account button
-
-document.getElementById("accountBtn")?.addEventListener("click", () => {
-  alert("مرحباً بكِ في BEAUTY!");
-});
-
-// Cart button
-
+// Cart
 document.getElementById("cartBtn")?.addEventListener("click", () => {
-  if (cart.length === 0) {
-    alert("سلتك فارغة حالياً.");
+  if (!cart.length) {
+    alert("سلتك فارغة حالياً");
     return;
   }
 
-  const items = cart
-    .map(product => `${product.brand} - ${product.name}`)
-    .join("\n");
+  alert(
+    "منتجات سلتك:\n" +
+    cart.map(p => `${p.brand} - ${p.name}`).join("\n")
+  );
+});
 
-  alert("منتجات سلتك:\n\n" + items);
+// Account
+document.getElementById("accountBtn")?.addEventListener("click", () => {
+  alert("مرحباً بكِ في BEAUTY");
 });
 
 // Newsletter
-
 document.getElementById("newsletterForm")?.addEventListener("submit", event => {
   event.preventDefault();
-  alert("شكراً لاشتراكك في BEAUTY!");
+  alert("شكراً لاشتراكك في BEAUTY");
   event.target.reset();
 });
