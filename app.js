@@ -4,42 +4,58 @@ const products = [
   {
     brand: "NARS",
     name: "Radiant Creamy Concealer",
+    description: "كونسيلر كريمي يمنح تغطية قابلة للبناء، ويساعد على إخفاء العيوب وتوحيد مظهر البشرة.",
+    price: 190,
     category: "makeup",
     image: "assets/makeup/nars-radiant-creamy-concealer.jpg"
   },
   {
     brand: "CLINIQUE",
     name: "Cult Classic Lip Duo",
+    description: "ثنائي شفاه يجمع بين اللون الجميل والعناية، لإطلالة ناعمة وأنيقة.",
+    price: 180,
+    suggested: true,
     category: "makeup",
     image: "assets/makeup/clinique-cult-classic-lip-duo.jpg"
   },
   {
     brand: "HUDA BEAUTY",
     name: "Easy Bake Powder",
+    description: "بودرة تثبيت ناعمة تساعد على تثبيت المكياج وتقليل اللمعان ومنح البشرة مظهرًا مخمليًا.",
+    price: 219,
     category: "makeup",
     image: "assets/makeup/huda-beauty-easy-bake-powder.jpg"
   },
   {
     brand: "DOLCE & GABBANA",
     name: "Compact Powder",
+    description: "بودرة أساس مضغوطة تمنح البشرة تغطية أنيقة ومظهرًا متجانسًا مع لمسة فاخرة.",
+    price: 256,
     category: "makeup",
     image: "assets/makeup/dolce-gabbana-compact-powder.jpg"
   },
   {
     brand: "PATRICK TA",
     name: "Blush Duo",
+    description: "ثنائي بلاشر يجمع بين قوامين متكاملين لإضافة لون وحيوية إلى الخدود.",
+    price: 230,
+    suggested: true,
     category: "makeup",
     image: "assets/makeup/patrick-ta-blush-duo.jpg"
   },
   {
     brand: "MILK MAKEUP",
     name: "Bronzer Stick",
+    description: "قلم برونزر كريمي سهل الدمج يمنح البشرة دفئًا ولمسة طبيعية.",
+    price: 125,
     category: "makeup",
     image: "assets/makeup/milk-makeup-bronzer-stick.jpg"
   },
   {
-    brand: "MAKEUP TOOLS",
-    name: "Makeup Brush",
+    brand: "HOURGLASS",
+    name: "Makeup Brush Set",
+    description: "مجموعة فرش ناعمة بتصميم أنيق، تساعد على توزيع ودمج مستحضرات المكياج بسهولة.",
+    price: 245,
     category: "makeup",
     image: "assets/makeup/makeup-brush.jpg"
   },
@@ -48,36 +64,50 @@ const products = [
   {
     brand: "JEAN PAUL GAULTIER",
     name: "La Favorite",
+    description: "عطر أنثوي بطابع جذاب وأنيق، يضيف لمسة مميزة إلى إطلالتك.",
+    price: 650,
+    suggested: true,
     category: "fragrance",
     image: "assets/fragrance/jean-paul-gaultier-la-favorite.png"
   },
   {
     brand: "CAROLINA HERRERA",
     name: "Good Girl Blush Set",
+    description: "مجموعة عطرية أنثوية تجمع بين الأناقة والجاذبية، مناسبة للإهداء والمناسبات.",
+    price: 780,
+    originalPrice: 1114,
     category: "fragrance",
     image: "assets/fragrance/carolina-herrera-good-girl-set.jpg"
   },
   {
     brand: "PENHALIGON'S",
     name: "The Tragedy of Lord George",
+    description: "عطر فاخر من مجموعة Portraits، يتميز بطابع راقٍ وحضور عطري مميز.",
+    price: 1745,
     category: "fragrance",
     image: "assets/fragrance/penhaligons-lord-george.png"
   },
   {
     brand: "SOL DE JANEIRO",
     name: "Cheirosa 91",
+    description: "رذاذ عطري بلمسة زهرية وفاكهية، يمنحك إحساسًا منعشًا ومشرقًا.",
+    price: 125,
     category: "fragrance",
     image: "assets/fragrance/sol-de-janeiro-cheirosa-91.png"
   },
   {
     brand: "GIORGIO ARMANI",
-    name: "Armani Perfume",
+    name: "Armani Sì",
+    description: "ماء عطر أنيق بطابع أنثوي راقٍ، مناسب لمن تحب الروائح المميزة.",
+    price: 723,
     category: "fragrance",
     image: "assets/fragrance/giorgio-armani-perfume.png"
   },
   {
     brand: "KAYALI",
-    name: "Oudgasm Smoky Oud",
+    name: "Oudgasm Smoky Oud 07",
+    description: "عطر عود بطابع دافئ ومدخّن، يمنح إطلالتك حضورًا قويًا وفخمًا.",
+    price: 620,
     category: "fragrance",
     image: "assets/fragrance/kayali-oudgasm-smoky-oud.png"
   },
@@ -86,24 +116,36 @@ const products = [
   {
     brand: "ANUA",
     name: "Daily Routine Set",
+    description: "مجموعة روتين يومي تضم أربعة منتجات للتنظيف والعناية والترطيب، لبشرة تبدو أكثر نضارة.",
+    price: 245,
+    originalPrice: 377,
     category: "skincare",
     image: "assets/skincare/anua-daily-routine-set.jpg"
   },
   {
     brand: "ESTÉE LAUDER",
-    name: "Night Repair Set",
+    name: "Nighttime Experts Set",
+    description: "مجموعة عناية ليلية تضم منتجات تساعد على ترطيب البشرة وتحسين مظهرها ومنحها إشراقة.",
+    price: 385,
+    originalPrice: 550,
     category: "skincare",
     image: "assets/skincare/estee-lauder-night-repair-set.jpg"
   },
   {
     brand: "CLINIQUE",
     name: "Moisture Surge Set",
+    description: "مجموعة ترطيب متكاملة تساعد على منح البشرة ترطيبًا ونعومة ومظهرًا ممتلئًا.",
+    price: 255,
+    originalPrice: 413,
     category: "skincare",
     image: "assets/skincare/clinique-moisture-surge-set.png"
   },
   {
     brand: "CLINIQUE",
     name: "3-Step Skincare Set",
+    description: "مجموعة عناية من ثلاث خطوات لتنظيف البشرة وتقشيرها وترطيبها، مناسبة للبشرة المختلطة إلى الجافة.",
+    price: 569,
+    originalPrice: 809,
     category: "skincare",
     image: "assets/skincare/clinique-3-step-skincare-set.png"
   }
@@ -145,11 +187,36 @@ function renderProducts(list, container) {
     name.className = "product-name";
     name.textContent = product.name;
 
+    const description = document.createElement("p");
+    description.className = "product-description";
+    description.textContent = product.description;
+
+    const priceBox = document.createElement("div");
+    priceBox.className = "product-prices";
+
     const price = document.createElement("p");
     price.className = "product-price";
-    price.textContent = "السعر قريباً";
+    price.textContent = `${product.price.toLocaleString("en-US")} ر.س`;
+
+    priceBox.appendChild(price);
+
+    if (product.originalPrice) {
+      const oldPrice = document.createElement("span");
+      oldPrice.className = "product-old-price";
+      oldPrice.textContent =
+        `${product.originalPrice.toLocaleString("en-US")} ر.س`;
+      priceBox.appendChild(oldPrice);
+    }
+
+    if (product.suggested) {
+      const suggested = document.createElement("small");
+      suggested.className = "suggested-price";
+      suggested.textContent = "سعر مقترح";
+      priceBox.appendChild(suggested);
+    }
 
     const button = document.createElement("button");
+    button.className = "add-to-cart";
     button.textContent = "أضيفي إلى السلة";
     button.type = "button";
 
@@ -159,7 +226,7 @@ function renderProducts(list, container) {
       button.textContent = "تمت الإضافة ✓";
     });
 
-    info.append(brand, name, price, button);
+    info.append(brand, name, description, priceBox, button);
     card.append(imageBox, info);
     container.appendChild(card);
   });
@@ -197,7 +264,8 @@ searchInput?.addEventListener("input", () => {
 
   const results = products.filter(product =>
     product.brand.toLowerCase().includes(query) ||
-    product.name.toLowerCase().includes(query)
+    product.name.toLowerCase().includes(query) ||
+    product.description.toLowerCase().includes(query)
   );
 
   renderProducts(results, document.getElementById("productsGrid"));
@@ -224,9 +292,14 @@ document.getElementById("cartBtn")?.addEventListener("click", () => {
     return;
   }
 
+  const total = cart.reduce((sum, product) => sum + product.price, 0);
+
   alert(
     "منتجات سلتك:\n" +
-    cart.map(p => `${p.brand} - ${p.name}`).join("\n")
+    cart.map(p =>
+      `${p.brand} - ${p.name} - ${p.price} ر.س`
+    ).join("\n") +
+    `\n\nالإجمالي: ${total.toLocaleString("en-US")} ر.س`
   );
 });
 
