@@ -1,138 +1,196 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#ffffff">
-  <title>BEAUTY | جمالك بطريقتك</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BEAUTY - اكتشفي عالم الجمال والعناية">
+  <title>BEAUTY | عالم الجمال</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header class="topbar">
-  <button class="icon-btn mobile-menu" id="menuBtn" aria-label="القائمة">☰</button>
-  <a class="brand" href="#home" aria-label="BEAUTY">BEAUTY<span>.</span></a>
-  <nav class="main-nav" id="mainNav">
-    <a href="#home" data-cat="الكل" class="active">الرئيسية</a>
-    <a href="#shop" data-cat="المكياج">المكياج</a>
-    <a href="#shop" data-cat="العطور">العطور</a>
-    <a href="#shop" data-cat="العناية بالبشرة">العناية بالبشرة</a>
-    <a href="#shop" data-cat="العناية بالشعر">العناية بالشعر</a>
-  </nav>
-  <div class="top-actions">
-    <button class="icon-btn" id="searchBtn" aria-label="بحث">⌕</button>
-    <button class="icon-btn" id="wishBtn" aria-label="المفضلة">♡<i id="wishCount">0</i></button>
-    <button class="icon-btn bag" id="cartBtn" aria-label="السلة">♧<i id="cartCount">0</i></button>
+
+  <!-- Announcement -->
+  <div class="announcement">
+    اكتشفي عالم الجمال مع BEAUTY
   </div>
-</header>
 
-<main id="home">
-  <section class="hero">
-    <div class="hero-copy">
-      <span class="eyebrow">YOUR BEAUTY. YOUR WAY.</span>
-      <h1>جمالك يبدأ من هنا</h1>
-      <p>اكتشفي اختيارات الجمال والعناية التي تشبهك</p>
-      <a class="black-btn" href="#shop">تسوقي الآن <b>←</b></a>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-top">
+
+      <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+        ☰
+      </button>
+
+      <a href="#" class="logo">BEAUTY<span>.</span></a>
+
+      <div class="header-actions">
+        <button id="searchBtn" aria-label="بحث">⌕</button>
+        <button id="accountBtn" aria-label="حسابي">♙</button>
+        <button id="cartBtn" aria-label="السلة">♡</button>
+      </div>
+
     </div>
-    <div class="hero-art">
-      <div class="hero-note">THE BEAUTY EDIT<br><small>اختياراتنا لهذا الموسم</small></div>
-     <img src="assets/holiday-campaign.png" alt="حملة مجموعة الأعياد">    </div>
+
+    <nav class="navigation" id="navigation">
+      <a href="#home">الرئيسية</a>
+      <a href="#new">وصل حديثاً</a>
+      <a href="#makeup">المكياج</a>
+      <a href="#skincare">العناية بالبشرة</a>
+      <a href="#brands">العلامات التجارية</a>
+      <a href="#offers">العروض</a>
+    </nav>
+  </header>
+
+  <!-- Search -->
+  <section class="search-section" id="searchSection">
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="ابحثي عن منتجك المفضل..."
+    >
   </section>
 
-  <section class="category-strip" aria-label="الأقسام">
-    <button class="category-tile selected" data-category="الكل"><span>✧</span> الكل</button>
-    <button class="category-tile" data-category="المكياج"><span>◉</span> المكياج</button>
-    <button class="category-tile" data-category="العطور"><span>♧</span> العطور</button>
-    <button class="category-tile" data-category="العناية بالبشرة"><span>✿</span> العناية بالبشرة</button>
-    <button class="category-tile" data-category="العناية بالشعر"><span>〰</span> العناية بالشعر</button>
-  </section>
+  <main>
 
-  <section class="shop-section" id="shop">
-    <div class="section-heading">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="hero-label">YOUR BEAUTY DESTINATION</span>
+        <h1>جمالك يبدأ<br>من هنا</h1>
+        <p>
+          اكتشفي عالمًا من الجمال، واختاري منتجاتك المفضلة
+          من أشهر العلامات التجارية.
+        </p>
+        <a href="#new" class="main-btn">اكتشفي المنتجات</a>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section" id="categories">
+      <div class="section-heading">
+        <span>EXPLORE</span>
+        <h2>تسوّقي حسب الفئة</h2>
+        <p>كل ما تحتاجينه لإطلالة متكاملة</p>
+      </div>
+
+      <div class="categories-grid">
+        <a href="#makeup" class="category-card">
+          <div class="category-image makeup-image"></div>
+          <h3>المكياج</h3>
+        </a>
+
+        <a href="#skincare" class="category-card">
+          <div class="category-image skincare-image"></div>
+          <h3>العناية بالبشرة</h3>
+        </a>
+
+        <a href="#haircare" class="category-card">
+          <div class="category-image hair-image"></div>
+          <h3>العناية بالشعر</h3>
+        </a>
+
+        <a href="#new" class="category-card">
+          <div class="category-image perfume-image"></div>
+          <h3>العطور</h3>
+        </a>
+      </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="section products-section" id="new">
+      <div class="section-heading">
+        <span>NEW ARRIVALS</span>
+        <h2>وصل حديثاً</h2>
+        <p>اكتشفي أحدث المنتجات المختارة لكِ</p>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be added using JavaScript -->
+      </div>
+    </section>
+
+    <!-- Makeup -->
+    <section class="section products-section" id="makeup">
+      <div class="section-heading">
+        <span>MAKEUP</span>
+        <h2>عالم المكياج</h2>
+      </div>
+
+      <div class="products-grid" id="makeupGrid"></div>
+    </section>
+
+    <!-- Skincare -->
+    <section class="section products-section" id="skincare">
+      <div class="section-heading">
+        <span>SKINCARE</span>
+        <h2>العناية بالبشرة</h2>
+      </div>
+
+      <div class="products-grid" id="skincareGrid"></div>
+    </section>
+
+    <!-- Brands -->
+    <section class="section brands-section" id="brands">
+      <div class="section-heading">
+        <span>OUR BRANDS</span>
+        <h2>علامات تجارية تحبينها</h2>
+      </div>
+
+      <div class="brands-grid">
+        <span>NARS</span>
+        <span>HUDA BEAUTY</span>
+        <span>DIOR</span>
+        <span>FENTY BEAUTY</span>
+        <span>CHARLOTTE TILBURY</span>
+        <span>RARE BEAUTY</span>
+      </div>
+    </section>
+
+    <!-- Offers -->
+    <section class="offers-section" id="offers">
       <div>
-        <span class="eyebrow">THE BEAUTY COLLECTION</span>
-        <h2 id="sectionTitle">تسوقي كل المنتجات</h2>
-        <p id="resultCount">اختيارات مختارة لك</p>
+        <span>BEAUTY SPECIAL</span>
+        <h2>لأنك تستحقين الأفضل</h2>
+        <p>اكتشفي مجموعتنا المختارة من منتجات الجمال.</p>
+        <a href="#new" class="main-btn">تسوّقي الآن</a>
       </div>
-      <div class="toolbar">
-        <label class="search-field" id="searchWrap">
-          <span>⌕</span>
-          <input id="searchInput" placeholder="ابحثي عن منتج أو ماركة">
-        </label>
-        <select id="sortSelect" aria-label="ترتيب المنتجات">
-          <option value="featured">ترتيب حسب</option>
-          <option value="low">السعر: الأقل أولاً</option>
-          <option value="high">السعر: الأعلى أولاً</option>
-        </select>
-      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <h2>كوني أول من يعرف</h2>
+      <p>اشتركي ليصلك كل جديد من عالم BEAUTY</p>
+
+      <form id="newsletterForm">
+        <input type="email" placeholder="بريدك الإلكتروني" required>
+        <button type="submit">اشتراك</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="#home" class="logo">BEAUTY<span>.</span></a>
+    <p>كل ما تحبينه في عالم الجمال، في مكان واحد.</p>
+
+    <div class="footer-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#new">المنتجات</a>
+      <a href="#brands">العلامات التجارية</a>
     </div>
 
-    <div class="chips" id="chips">
-      <button class="chip active" data-filter="الكل">كل المنتجات</button>
-      <button class="chip" data-filter="الأكثر مبيعاً">الأكثر مبيعاً</button>
-      <button class="chip" data-filter="جديد">جديد</button>
-      <button class="chip" data-filter="حصري">حصري</button>
-    </div>
-    <div class="product-grid" id="productGrid"></div>
-  </section>
+    <p class="copyright">© 2026 BEAUTY. جميع الحقوق محفوظة.</p>
+  </footer>
 
-  <section class="undertone" id="undertone">
-    <div class="undertone-image">
-      <div class="tone-orb"></div>
-      <span>FIND YOUR SHADE</span>
-    </div>
-    <div class="undertone-copy">
-      <span class="eyebrow">PERSONAL BEAUTY MATCH</span>
-      <h2>اكتشفي الاندرتون ودرجتك</h2>
-      <p>ارفعي صورة واضحة لبشرتك في إضاءة طبيعية، أو استخدمي الكاميرا، لتحصلي على إرشاد مبدئي يساعدك في اختيار درجات المكياج.</p>
-      <div class="tone-actions">
-        <label class="black-btn upload-btn">ارفعي صورة
-          <input type="file" id="toneFile" accept="image/*">
-        </label>
-        <button class="outline-btn" id="cameraBtn">استخدمي الكاميرا</button>
-      </div>
-      <div class="tone-result" id="toneResult" aria-live="polite">النتيجة إرشادية فقط؛ الإضاءة والكاميرا قد تؤثران على دقة تحديد الاندرتون.</div>
-      <video id="cameraPreview" autoplay playsinline hidden></video>
-      <canvas id="toneCanvas" hidden></canvas>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <a class="brand" href="#home">BEAUTY<span>.</span></a>
-  <p>مساحة تجريبية لاكتشاف منتجات الجمال واختيار الدرجات.</p>
-  <small>©️ BEAUTY — Demo Experience</small>
-</footer>
-
-<div class="modal-backdrop" id="modalBackdrop">
-  <section class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
-    <button class="close-modal" id="closeModal">×</button>
-    <div class="modal-image"><img id="modalImage" src="" alt=""></div>
-    <div class="modal-info">
-      <span class="modal-brand" id="modalBrand"></span>
-      <h2 id="modalName"></h2>
-      <p id="modalRating"></p>
-      <strong class="modal-price" id="modalPrice"></strong>
-      <p class="modal-old" id="modalOld"></p>
-      <label class="option-label" id="optionLabel">اختاري الدرجة</label>
-      <div class="shade-options" id="shadeOptions"></div>
-      <button class="black-btn add-cart" id="addCart">أضيفي إلى السلة</button>
-      <p class="modal-note">الدرجات المعروضة مرقمة حسب عدد الخيارات الظاهر في المرجع؛ أسماء الدرجات التفصيلية غير ظاهرة في الصور.</p>
-    </div>
-  </section>
-</div>
-
-<div class="drawer-backdrop" id="drawerBackdrop">
-  <aside class="drawer">
-    <button class="close-modal" id="closeDrawer">×</button>
-    <h2 id="drawerTitle">سلة التسوق</h2>
-    <div id="drawerContent"></div>
-    <div class="drawer-total" id="drawerTotal"></div>
-  </aside>
-</div>
-<div class="toast" id="toast"></div>
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
