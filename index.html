@@ -4,171 +4,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="BEAUTY - اكتشفي عالم الجمال والعناية">
-  <title>BEAUTY | عالم الجمال</title>
-
+  <title>BEAUTY | اكتشفي عالم الجمال</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- Announcement -->
   <div class="announcement">
     اكتشفي عالم الجمال مع BEAUTY
   </div>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-top">
+  <header class="site-header">
+    <div class="header-main">
+      <button class="icon-button" id="menuBtn" aria-label="القائمة">☰</button>
 
-      <button class="menu-btn" id="menuBtn" aria-label="القائمة">
-        ☰
-      </button>
+      <a class="wordmark" href="#">BEAUTY</a>
 
-      <a href="#" class="logo">BEAUTY<span>.</span></a>
-
-      <div class="header-actions">
-        <button id="searchBtn" aria-label="بحث">⌕</button>
-        <button id="accountBtn" aria-label="حسابي">♙</button>
-        <button id="cartBtn" aria-label="السلة">♡</button>
+      <div class="header-tools">
+        <button class="icon-button" id="searchBtn" aria-label="بحث">⌕</button>
+        <button class="icon-button" id="cartBtn" aria-label="السلة">♡ 0</button>
+        <button class="account-link" id="accountBtn">حسابي</button>
       </div>
-
     </div>
 
-    <nav class="navigation" id="navigation">
+    <div class="search-row" id="searchSection">
+      <input id="searchInput" type="search" placeholder="ابحثي عن منتج أو ماركة...">
+    </div>
+
+    <nav class="desktop-nav" id="navigation">
       <a href="#home">الرئيسية</a>
-      <a href="#new">وصل حديثاً</a>
       <a href="#makeup">المكياج</a>
+      <a href="#fragrance">العطور</a>
       <a href="#skincare">العناية بالبشرة</a>
-      <a href="#brands">العلامات التجارية</a>
-      <a href="#offers">العروض</a>
     </nav>
   </header>
 
-  <!-- Search -->
-  <section class="search-section" id="searchSection">
-    <input
-      type="search"
-      id="searchInput"
-      placeholder="ابحثي عن منتجك المفضل..."
-    >
-  </section>
+  <main id="home">
 
-  <main>
-
-    <!-- Hero -->
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <span class="hero-label">YOUR BEAUTY DESTINATION</span>
-        <h1>جمالك يبدأ<br>من هنا</h1>
-        <p>
-          اكتشفي عالمًا من الجمال، واختاري منتجاتك المفضلة
-          من أشهر العلامات التجارية.
-        </p>
-        <a href="#new" class="main-btn">اكتشفي المنتجات</a>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">THE BEAUTY EDIT</span>
+        <h1>جمالك يبدأ من هنا</h1>
+        <p>اكتشفي اختياراتنا من أجمل منتجات المكياج والعطور والعناية بالبشرة.</p>
+        <a href="#makeup" class="dark-button">اكتشفي المنتجات</a>
+      </div>
+      <div class="hero-image">
+        <img src="assets/makeup/nars-radiant-creamy-concealer.jpg" alt="منتجات BEAUTY">
       </div>
     </section>
 
-    <!-- Categories -->
-    <section class="section" id="categories">
+    <section class="section-wrap product-section" id="makeup">
       <div class="section-heading">
-        <span>EXPLORE</span>
-        <h2>تسوّقي حسب الفئة</h2>
-        <p>كل ما تحتاجينه لإطلالة متكاملة</p>
+        <div>
+          <span class="eyebrow">MAKEUP COLLECTION</span>
+          <h2>المكياج</h2>
+        </div>
       </div>
-
-      <div class="categories-grid">
-        <a href="#makeup" class="category-card">
-          <div class="category-image makeup-image"></div>
-          <h3>المكياج</h3>
-        </a>
-
-        <a href="#skincare" class="category-card">
-          <div class="category-image skincare-image"></div>
-          <h3>العناية بالبشرة</h3>
-        </a>
-
-        <a href="#haircare" class="category-card">
-          <div class="category-image hair-image"></div>
-          <h3>العناية بالشعر</h3>
-        </a>
-
-        <a href="#new" class="category-card">
-          <div class="category-image perfume-image"></div>
-          <h3>العطور</h3>
-        </a>
-      </div>
+      <div class="product-grid" id="makeupGrid"></div>
     </section>
 
-    <!-- New Arrivals -->
-    <section class="section products-section" id="new">
+    <section class="section-wrap product-section" id="fragrance">
       <div class="section-heading">
-        <span>NEW ARRIVALS</span>
-        <h2>وصل حديثاً</h2>
-        <p>اكتشفي أحدث المنتجات المختارة لكِ</p>
+        <div>
+          <span class="eyebrow">FRAGRANCE COLLECTION</span>
+          <h2>العطور</h2>
+        </div>
       </div>
-
-      <div class="products-grid" id="productsGrid">
-        <!-- Products will be added using JavaScript -->
-      </div>
+      <div class="product-grid" id="fragranceGrid"></div>
     </section>
 
-    <!-- Makeup -->
-    <section class="section products-section" id="makeup">
+    <section class="section-wrap product-section" id="skincare">
       <div class="section-heading">
-        <span>MAKEUP</span>
-        <h2>عالم المكياج</h2>
+        <div>
+          <span class="eyebrow">SKINCARE COLLECTION</span>
+          <h2>العناية بالبشرة</h2>
+        </div>
       </div>
-
-      <div class="products-grid" id="makeupGrid"></div>
+      <div class="product-grid" id="skincareGrid"></div>
     </section>
 
-    <!-- Skincare -->
-    <section class="section products-section" id="skincare">
+    <section class="section-wrap product-section" id="all-products">
       <div class="section-heading">
-        <span>SKINCARE</span>
-        <h2>العناية بالبشرة</h2>
+        <div>
+          <span class="eyebrow">DISCOVER BEAUTY</span>
+          <h2>جميع المنتجات</h2>
+        </div>
       </div>
-
-      <div class="products-grid" id="skincareGrid"></div>
+      <div class="product-grid" id="productsGrid"></div>
     </section>
 
-    <!-- Brands -->
-    <section class="section brands-section" id="brands">
-      <div class="section-heading">
-        <span>OUR BRANDS</span>
-        <h2>علامات تجارية تحبينها</h2>
-      </div>
-
-      <div class="brands-grid">
-        <span>NARS</span>
-        <span>HUDA BEAUTY</span>
-        <span>DIOR</span>
-        <span>FENTY BEAUTY</span>
-        <span>CHARLOTTE TILBURY</span>
-        <span>RARE BEAUTY</span>
-      </div>
-    </section>
-
-    <!-- Offers -->
-    <section class="offers-section" id="offers">
-      <div>
-        <span>BEAUTY SPECIAL</span>
-        <h2>لأنك تستحقين الأفضل</h2>
-        <p>اكتشفي مجموعتنا المختارة من منتجات الجمال.</p>
-        <a href="#new" class="main-btn">تسوّقي الآن</a>
-      </div>
-    </section>
-
-    <!-- Newsletter -->
     <section class="newsletter">
-      <h2>كوني أول من يعرف</h2>
-      <p>اشتركي ليصلك كل جديد من عالم BEAUTY</p>
-
+      <h2>كوني جزءاً من عالم BEAUTY</h2>
+      <p>اشتركي ليصلك كل جديد من عالم الجمال.</p>
       <form id="newsletterForm">
         <input type="email" placeholder="بريدك الإلكتروني" required>
         <button type="submit">اشتراك</button>
@@ -177,18 +107,10 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <a href="#home" class="logo">BEAUTY<span>.</span></a>
-    <p>كل ما تحبينه في عالم الجمال، في مكان واحد.</p>
-
-    <div class="footer-links">
-      <a href="#home">الرئيسية</a>
-      <a href="#new">المنتجات</a>
-      <a href="#brands">العلامات التجارية</a>
-    </div>
-
-    <p class="copyright">© 2026 BEAUTY. جميع الحقوق محفوظة.</p>
+  <footer class="site-footer">
+    <a class="wordmark" href="#home">BEAUTY</a>
+    <p>جمالك، اختيارك، عالمك.</p>
+    <small>© 2026 BEAUTY. All rights reserved.</small>
   </footer>
 
   <script src="app.js"></script>
