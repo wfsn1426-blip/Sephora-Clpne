@@ -314,3 +314,69 @@ document.getElementById("newsletterForm")?.addEventListener("submit", event => {
   alert("شكراً لاشتراكك في BEAUTY");
   event.target.reset();
 });
+
+const undertoneForm = document.getElementById("undertoneForm");
+const undertoneResult = document.getElementById("undertoneResult");
+
+undertoneForm?.addEventListener("submit", event => {
+  event.preventDefault();
+
+  const answers = [
+    document.getElementById("veins").value,
+    document.getElementById("sun").value,
+    document.getElementById("jewelry").value
+  ];
+
+  const scores = {
+    cool: 0,
+    warm: 0,
+    neutral: 0,
+    olive: 0
+  };
+
+  answers.forEach(answer => scores[answer]++);
+
+  const descriptions = {
+    cool: {
+      title: "اندرتون بارد Cool",
+      description: "تميل بشرتكِ إلى النغمات الوردية أو الزرقاء. جربي درجات الأساس ذات القاعدة الوردية أو المحايدة الباردة."
+    },
+    warm: {
+      title: "اندرتون دافئ Warm",
+      description: "تميل بشرتكِ إلى النغمات الذهبية أو الصفراء. جربي درجات الأساس ذات القاعدة الذهبية أو الصفراء."
+    },
+    neutral: {
+      title: "اندرتون محايد Neutral",
+      description: "تتوازن في بشرتكِ النغمات الباردة والدافئة. غالبًا تناسبكِ الدرجات المحايدة."
+    },
+    olive: {
+      title: "اندرتون زيتوني Olive",
+      description: "تظهر في بشرتكِ نغمة زيتونية مائلة للأخضر. جربي درجات الأساس ذات القاعدة الزيتونية أو المحايدة المناسبة."
+    }
+  };
+
+  const maxScore = Math.max(...Object.values(scores));
+  const winners = Object.keys(scores).filter(
+    key => scores[key] === maxScore
+  );
+
+  const result = winners.length === 1
+    ? descriptions[winners[0]]
+    : {
+        title: "اندرتون مختلط",
+        description: "إجاباتكِ تشير إلى مزيج من النغمات. جربي درجات محايدة، واختبري اللون على خط الفك في ضوء النهار."
+      };
+
+  undertoneResult.innerHTML = `
+    <span>نتيجتكِ من BEAUTY</span>
+    <h3>${result.title}</h3>
+    <p>${result.description}</p>
+    <small>النتيجة إرشادية؛ اختبري درجة الأساس على بشرتكِ للتأكد من تطابقها.</small>
+  `;
+
+  undertoneResult.hidden = false;
+  undertoneResult.scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+});
