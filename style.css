@@ -619,3 +619,48 @@ a {
   border-radius: 14px;
   background: #fff;
 }
+.beauty-ai-entry {
+  padding: 25px 7%;
+}
+
+.beauty-ai-card {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #fff;
+  border: 1px solid #e8e0e3;
+  border-radius: 14px;
+  cursor: pointer;
+  color: #222;
+  text-align: right;
+}
+
+.beauty-ai-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #d8c4cd;
+  border-radius: 50%;
+  font-size: 27px;
+}
+
+.beauty-ai-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.beauty-ai-text small {
+  color: #777;
+  font-size: 13px;
+}
+
+.beauty-ai-arrow {
+  font-size: 22px;
+}
