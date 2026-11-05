@@ -380,3 +380,296 @@ undertoneForm?.addEventListener("submit", event => {
     block: "nearest"
   });
 });
+
+// ===================================
+// BEAUTY AI - Undertone Analyzer
+// ===================================
+
+const analysisImage = document.getElementById("analysisImage");
+const cameraVideo = document.getElementById("cameraVideo");
+const analysisCanvas = document.getElementById("analysisCanvas");
+const previewPlaceholder = document.getElementById("previewPlaceholder");
+
+const startCamera = document.getElementById("startCamera");
+const capturePhoto = document.getElementById("capturePhoto");
+const stopCamera = document.getElementById("stopCamera");
+const uploadPhoto = document.getElementById("uploadPhoto");
+const analyzePhoto = document.getElementById("analyzePhoto");
+
+const analysisMessage = document.getElementById("analysisMessage");
+const analysisResult = document.getElementById("analysisResult");
+
+let cameraStream = null;
+let selectedImage = null;
+let selectedTarget = "face";
+
+// اختيار الوجه أو اليد
+document.querySelectorAll(".analysis-choice").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".analysis-choice").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    button.classList.add("active");
+    selectedTarget = button.dataset.target;
+  });
+});
+
+// إظهار الصورة المختارة
+function showAnalysisImage(source) {
+  analysisImage.src = source;
+  analysisImage.hidden = false;
+  cameraVideo.hidden = true;
+  previewPlaceholder.hidden = true;
+  selectedImage = analysisImage;
+
+  analyzePhoto.disabled = false;
+  analysisMessage.textContent = "تم اختيار الصورة، يمكنك الآن تحليل لون البشرة.";
+}
+
+// تشغيل الكاميرا
+startCamera?.addEventListener("click", async () => {
+  try {
+    stopCameraStream();
+
+    cameraStream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: "environment"
+      },
+      audio: false
+    });
+
+    cameraVideo.srcObject = cameraStream;
+    cameraVideo.hidden = false;
+    analysisImage.hidden = true;
+    previewPlaceholder.hidden = true;
+
+    capturePhoto.disabled = false;
+    analyzePhoto.disabled = true;
+
+    analysisMessage.textContent = "الكاميرا تعمل الآن. التقطي الصورة.";
+
+  } catch (error) {
+    analysisMessage.textContent =
+      "تعذر تشغيل الكاميرا. اسمحي للموقع باستخدام الكاميرا أو ارفعي صورة من جهازك.";
+  }
+});
+
+// التقاط صورة
+capturePhoto?.addEventListener("click", () => {
+  if (!cameraVideo.videoWidth) return;
+
+  analysisCanvas.width = cameraVideo.videoWidth;
+  analysisCanvas.height = cameraVideo.videoHeight;
+
+  const context = analysisCanvas.getContext("2d");
+  context.drawImage(
+    cameraVideo,
+    0,
+    0,
+    analysisCanvas.width,
+    analysisCanvas.height
+  );
+
+  const photo = analysisCanvas.toDataURL("image/jpeg", 0.9);
+
+  showAnalysisImage(photo);
+  stopCameraStream();
+
+  capturePhoto.disabled = true;
+});
+
+// إيقاف الكاميرا
+function stopCameraStream() {
+  if (cameraStream) {
+    cameraStream.getTracks().forEach(track => track.stop());
+    cameraStream = null;
+  }
+
+  cameraVideo.srcObject = null;
+}
+
+stopCamera?.addEventListener("click", () => {
+  stopCameraStream();
+  cameraVideo.hidden = true;
+  capturePhoto.disabled = true;
+  analysisMessage.textContent = "تم إيقاف الكاميرا.";
+});
+
+// رفع صورة من الجهاز
+uploadPhoto?.addEventListener("change", event => {
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    analysisMessage.textContent = "اختاري ملف صورة صالح.";
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    showAnalysisImage(reader.result);
+    stopCameraStream();
+    capturePhoto.disabled = true;
+  };
+
+  reader.readAsDataURL(file);
+});
+
+// تحليل الصورة
+analyzePhoto?.addEventListener("click", () => {
+  if (!selectedImage || !selectedImage.complete) {
+    analysisMessage.textContent = "اختاري صورة أولاً.";
+    return;
+  }
+
+  try {
+    const canvas = analysisCanvas;
+    const context = canvas.getContext("2d");
+
+    const width = selectedImage.naturalWidth;
+    const height = selectedImage.naturalHeight;
+
+    if (!width || !height) {
+      analysisMessage.textContent = "تعذر قراءة الصورة.";
+      return;
+    }
+
+    canvas.width = 100;
+    canvas.height = 100;
+
+    // نأخذ عينة من منتصف الصورة
+    context.drawImage(
+      selectedImage,
+      width * 0.35,
+      height * 0.35,
+      width * 0.3,
+      height * 0.3,
+      0,
+      0,
+      100,
+      100
+    );
+
+    const pixels = context.getImageData(0, 0, 100, 100).data;
+
+    let red = 0;
+    let green = 0;
+    let blue = 0;
+    let count = 0;
+
+    for (let i = 0; i < pixels.length; i += 4) {
+      if (pixels[i + 3] < 200) continue;
+
+      red += pixels[i];
+      green += pixels[i + 1];
+      blue += pixels[i + 2];
+      count++;
+    }
+
+    if (!count) throw new Error("No image data");
+
+    red /= count;
+    green /= count;
+    blue /= count;
+
+    // تقدير مبدئي للاندرتون
+    const warmScore = red - blue;
+    const oliveScore = green - red;
+
+    let type;
+    let description;
+    let colors;
+
+    if (oliveScore > 8 && warmScore > 5) {
+      type = "زيتوني";
+      description = "قد تناسبك الدرجات الزيتونية والترابية والذهبية الهادئة.";
+      colors = ["#B5A078", "#8B7355", "#A7A77C", "#C49A6C"];
+    } else if (warmScore > 15) {
+      type = "دافئ";
+      description = "قد تناسبك الدرجات الذهبية والخوخية والمرجانية.";
+      colors = ["#D69B68", "#C9825B", "#E5B58B", "#A96D45"];
+    } else if (warmScore < 0) {
+      type = "بارد";
+      description = "قد تناسبك الدرجات الوردية والتوتية والبنفسجية.";
+      colors = ["#D8A0A8", "#A96D88", "#B8A1C9", "#C58B9D"];
+    } else {
+      type = "محايد";
+      description = "قد تناسبك الدرجات المتوازنة مثل البيج والوردي الطبيعي.";
+      colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
+    }
+
+    displayUndertoneResult(type, description, colors);
+
+  } catch (error) {
+    analysisMessage.textContent =
+      "تعذر تحليل الصورة. جربي صورة أوضح بإضاءة طبيعية.";
+  }
+});
+
+// عرض النتيجة والترشيحات
+function displayUndertoneResult(type, description, colors) {
+  document.getElementById("undertoneName").textContent =
+    "اندرتون بشرتك: " + type;
+
+  document.getElementById("undertoneDescription").textContent =
+    description;
+
+  const palette = document.getElementById("colorPalette");
+  palette.innerHTML = "";
+
+  colors.forEach(color => {
+    const swatch = document.createElement("span");
+    swatch.className = "color-swatch";
+    swatch.style.backgroundColor = color;
+    palette.appendChild(swatch);
+  });
+
+  const recommendations = document.getElementById("matchedProducts");
+  recommendations.innerHTML = "";
+
+  const makeupProducts = products.filter(product =>
+    product.category === "makeup"
+  );
+
+  makeupProducts.forEach(product => {
+    const item = document.createElement("div");
+    item.className = "matched-product";
+
+    const name = document.createElement("strong");
+    name.textContent = product.brand;
+
+    const title = document.createElement("p");
+    title.textContent = product.name;
+
+    item.append(name, title);
+    recommendations.appendChild(item);
+  });
+
+  analysisResult.hidden = false;
+  analysisMessage.textContent =
+    "هذه نتيجة تقديرية أولية وليست تشخيصاً دقيقاً للون البشرة.";
+
+  analysisResult.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+// إعادة التحليل
+document.getElementById("resetAnalysis")?.addEventListener("click", () => {
+  analysisResult.hidden = true;
+  analysisImage.hidden = true;
+  cameraVideo.hidden = true;
+  previewPlaceholder.hidden = false;
+
+  selectedImage = null;
+  uploadPhoto.value = "";
+  analyzePhoto.disabled = true;
+  capturePhoto.disabled = true;
+
+  analysisMessage.textContent = "اختاري صورة جديدة للبدء.";
+  stopCameraStream();
+});
