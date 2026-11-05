@@ -57,39 +57,99 @@
     </section>
 
     
+
 <section class="undertone-section" id="undertone">
   <div class="undertone-content">
-    <span class="undertone-label">BEAUTY SKIN GUIDE</span>
-    <h2>اكتشفي الاندرتون الخاص بكِ</h2>
-    <p>أجيبي عن الأسئلة واكتشفي النغمة المناسبة لبشرتكِ لاختيار مكياجك بثقة.</p>
 
-    <form id="undertoneForm">
-      <label>1. ما لون عروق معصمكِ غالبًا؟</label>
-      <select id="veins" required>
-        <option value="">اختاري إجابتك</option>
-        <option value="cool">زرقاء أو بنفسجية</option>
-        <option value="warm">خضراء</option>
-        <option value="neutral">مزيج من الأزرق والأخضر</option>
-        <option value="olive">خضراء مائلة للرمادي</option>
-      </select>
+    <span class="undertone-label">BEAUTY AI EXPERIENCE</span>
 
-      <label>2. كيف تتفاعل بشرتكِ مع الشمس؟</label>
-      <select id="sun" required>
-        <option value="">اختاري إجابتك</option>
-        <option value="cool">تحمر أو تحترق بسرعة</option>
-        <option value="warm">تسمر بسهولة</option>
-        <option value="neutral">قد تحمر ثم تسمر</option>
-        <option value="olive">تسمر ويظهر عليها لون زيتوني</option>
-      </select>
+    <h2>اكتشفي ألوانك المثالية</h2>
 
-      <label>3. أي ألوان مجوهرات تبدو أجمل عليكِ؟</label>
-      <select id="jewelry" required>
-        <option value="">اختاري إجابتك</option>
-        <option value="cool">الفضي</option>
-        <option value="warm">الذهبي</option>
-        <option value="neutral">كلاهما يناسبني</option>
-        <option value="olive">الذهبي المعتّق أو البرونزي</option>
-      </select>
+    <p>
+      اكتشفي النغمة المناسبة لبشرتك واحصلي على ترشيحات
+      تجميلية مصممة لتناسبك.
+    </p>
+
+    <div class="analysis-options">
+      <button type="button" class="analysis-choice active" data-target="face">
+        تحليل الوجه
+      </button>
+
+      <button type="button" class="analysis-choice" data-target="hand">
+        تحليل اليد
+      </button>
+    </div>
+
+    <div class="analysis-upload">
+
+      <div class="analysis-preview" id="analysisPreview">
+        <div id="previewPlaceholder">
+          <span class="camera-symbol">◎</span>
+          <p>صورتك ستظهر هنا</p>
+        </div>
+
+        <img id="analysisImage" alt="الصورة المختارة" hidden>
+        <video id="cameraVideo" autoplay playsinline hidden></video>
+        <canvas id="analysisCanvas" hidden></canvas>
+      </div>
+
+      <div class="analysis-actions">
+
+        <button type="button" id="startCamera">
+          تشغيل الكاميرا
+        </button>
+
+        <button type="button" id="capturePhoto" disabled>
+          التقاط الصورة
+        </button>
+
+        <label for="uploadPhoto" class="upload-button">
+          رفع صورة من الجوال
+        </label>
+
+        <input
+          type="file"
+          id="uploadPhoto"
+          accept="image/*"
+          hidden
+        >
+
+        <button type="button" id="analyzePhoto" disabled>
+          حللي لون بشرتي
+        </button>
+
+        <button type="button" id="stopCamera">
+          إيقاف الكاميرا
+        </button>
+
+      </div>
+
+      <p class="camera-note">
+        للحصول على نتيجة أفضل، استخدمي إضاءة طبيعية وصورة بدون فلاتر أو مكياج كثيف.
+      </p>
+
+      <div id="analysisMessage" role="status"></div>
+
+      <div id="analysisResult" hidden>
+        <span class="result-label">نتيجتك من BEAUTY</span>
+        <h3 id="undertoneName"></h3>
+        <p id="undertoneDescription"></p>
+
+        <h4>لوحة الألوان المناسبة لكِ</h4>
+        <div id="colorPalette" class="color-palette"></div>
+
+        <h4>منتجات قد تناسبكِ</h4>
+        <div id="matchedProducts" class="matched-products"></div>
+
+        <button type="button" id="resetAnalysis">
+          تحليل صورة جديدة
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       <button type="submit">اكتشفي نتيجتكِ</button>
     </form>
