@@ -603,3 +603,19 @@ a {
 .undertone-result small {
   color: #888;
 }
+.matched-product-image {
+  width: 100%;
+  max-width: 180px;
+  height: 180px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 12px;
+  border-radius: 12px;
+}
+
+.matched-product {
+  padding: 16px;
+  text-align: center;
+  border-radius: 14px;
+  background: #fff;
+}
