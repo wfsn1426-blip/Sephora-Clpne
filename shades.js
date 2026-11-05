@@ -2,14 +2,13 @@
 // قاعدة بيانات درجات المكياج
 
 const shadeDatabase = {
-  brands: [
-    {
-      id: "nars",
-      name: "NARS",
-      foundation: [
-        {
-          product: "Light Reflecting Foundation",
-          shades: [
+ {
+  id: "nars",
+  name: "NARS",
+  foundation: [{
+    product: "Light Reflecting Foundation",
+    image: "assets/makeup/nars-foundation.jpg",
+    shades: [] // احتفظي بدرجات NARS الموجودة عندك
             { name: "YangYang", code: "L0.5", depth: "Very Light", undertone: "Cool" },
             { name: "Oslo", code: "L1", depth: "Very Light", undertone: "Cool" },
             { name: "Kailash", code: "L1.25", depth: "Very Light", undertone: "Warm Peach" },
@@ -65,13 +64,13 @@ const shadeDatabase = {
       ]
     },
 
-   {
+  {
   id: "dior",
   name: "Dior",
-  foundation: [
-    {
-      product: "Dior Forever",
-      shades: [
+  foundation: [{
+    product: "Dior Forever",
+    image: "assets/makeup/dior-foundation.jpg",
+    shades: [] // احتفظي بدرجات Dior الموجودة عندك
         { name: "00", code: "00", depth: "Very Fair", undertone: "Neutral" },
         { name: "0N", code: "0N", depth: "Very Fair", undertone: "Neutral" },
         { name: "0.5N", code: "0.5N", depth: "Very Fair", undertone: "Neutral" },
@@ -126,15 +125,13 @@ const shadeDatabase = {
     ]
   }
 ]
-    {
+   {
   id: "fenty",
   name: "Fenty Beauty",
-
-  foundation: [
-    {
-      product: "Pro Filt'r Soft Matte Longwear Foundation",
-      collection: "Original shade range",
-      shades: [
+  foundation: [{
+    product: "Pro Filt'r Soft Matte Foundation",
+    image: "assets/makeup/fenty-foundation.jpg",
+    shades: [] // احتفظي بدرجات Fenty الموجودة عندك
         "100", "110", "120", "125", "130",
         "140", "150", "160", "170", "175",
         "185", "190", "200", "210", "220",
@@ -179,14 +176,13 @@ const shadeDatabase = {
     }
   ]
 },
-    {
+   {
   id: "huda",
   name: "Huda Beauty",
-
-  foundation: [
-    {
-      product: "Easy Blur Natural Airbrush Foundation",
-      shades: [
+  foundation: [{
+    product: "Easy Blur Foundation",
+    image: "assets/makeup/huda-foundation.jpg",
+    shades: [] // احتفظي بدرجات Huda الموجودة عندك
         ["Milkshake", "100B"],
         ["Angel Food", "110N"],
         ["Vanilla", "120B"],
@@ -278,14 +274,13 @@ const shadeDatabase = {
     }
   ]
 },
-    {
+   {
   id: "mac",
   name: "MAC",
-
-  foundation: [
-    {
-      product: "Studio Fix Fluid SPF 15 Foundation",
-      shades: [
+  foundation: [{
+    product: "Studio Fix Fluid Foundation",
+    image: "assets/makeup/mac-foundation.jpg",
+    shades: [] // احتفظي بدرجات MAC الموجودة عندك
         "NC5", "NC10", "NW5", "NW10", "NC12",
         "N4", "NC13", "NW13", "N4.5", "NC15",
         "N4.75", "NC16", "NC17", "NC18", "NW15",
@@ -336,11 +331,10 @@ const shadeDatabase = {
     {
   id: "estee-lauder",
   name: "Estée Lauder",
-
-  foundation: [
-    {
-      product: "Double Wear Stay-in-Place Longwear Matte Foundation",
-      shades: [
+  foundation: [{
+    product: "Double Wear Foundation",
+    image: "assets/makeup/estee-foundation.jpg",
+    shades: [] // احتفظي بدرجات Estée Lauder الموجودة عندك
         ["0N1", "Alabaster"],
         ["0C1", "Cool Sand"],
         ["0W1", "Warm Ivory"],
@@ -435,11 +429,10 @@ const shadeDatabase = {
    {
   id: "rare-beauty",
   name: "Rare Beauty",
-
-  foundation: [
-    {
-      product: "Liquid Touch Weightless Foundation",
-      shades: [
+  foundation: [{
+    product: "Liquid Touch Foundation",
+    image: "assets/makeup/rare-foundation.jpg",
+    shades: [] // احتفظي بدرجات Rare Beauty الموجودة عندك
         ["100W", "Light", "Warm Golden"],
         ["110N", "Light", "Neutral"],
         ["120C", "Light", "Cool"],
@@ -492,11 +485,10 @@ const shadeDatabase = {
 {
   id: "charlotte-tilbury",
   name: "Charlotte Tilbury",
-
-  foundation: [
-    {
-      product: "Beautiful Skin Foundation",
-      shades: [
+  foundation: [{
+    product: "Beautiful Skin Foundation",
+    image: "assets/makeup/charlotte-foundation.jpg",
+    shades: [] // احتفظي بدرجات Charlotte Tilbury الموجودة عندك
         ["1N", "1 Neutral", "Fair", "Neutral"],
         ["2N", "2 Neutral", "Fair", "Neutral"],
         ["2W", "2 Warm", "Fair", "Warm"],
