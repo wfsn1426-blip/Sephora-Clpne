@@ -634,18 +634,29 @@ function displayUndertoneResult(type, description, colors) {
     product.category === "makeup"
   );
 
-  makeupProducts.forEach(product => {
-    const item = document.createElement("div");
-    item.className = "matched-product";
+ makeupProducts.forEach(product => {
+  const item = document.createElement("div");
+  item.className = "matched-product";
 
-    const name = document.createElement("strong");
-    name.textContent = product.brand;
+  const image = document.createElement("img");
+  image.src = product.image;
+  image.alt = product.name;
+  image.className = "matched-product-image";
 
-    const title = document.createElement("p");
-    title.textContent = product.name;
+  const name = document.createElement("strong");
+  name.textContent = product.brand;
 
-    item.append(name, title);
-    recommendations.appendChild(item);
+  const title = document.createElement("p");
+  title.textContent = product.name;
+
+  const shade = document.createElement("p");
+  shade.textContent = product.shade
+    ? `الدرجة المناسبة: ${product.shade}`
+    : "";
+
+  item.append(image, name, title, shade);
+  recommendations.appendChild(item);
+});
   });
 
   analysisResult.hidden = false;
