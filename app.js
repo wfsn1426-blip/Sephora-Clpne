@@ -684,3 +684,9 @@ document.getElementById("resetAnalysis")?.addEventListener("click", () => {
   analysisMessage.textContent = "اختاري صورة جديدة للبدء.";
   stopCameraStream();
 });
+document.getElementById("openBeautyAI")?.addEventListener("click", () => {
+  document.getElementById("undertone").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
