@@ -1,6 +1,6 @@
 
 /* ========================================
-   BEAUTY — Luxury Beauty Store
+   BEAUTY — LUXURY BEAUTY STORE
 ======================================== */
 
 :root {
@@ -153,184 +153,78 @@ img {
   border: 1px solid var(--line);
 }
 
-/* HERO */
+/* HERO — EDITORIAL DESIGN */
 
 .hero {
-  min-height: 490px;
-  margin-bottom: 75px;
-  padding: 55px 8%;
-  background: var(--cream);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  max-width: 1400px;
+  min-height: 470px;
+  margin: 35px auto 75px;
+  padding: 70px 8%;
+  background: linear-gradient(135deg, #f5f0e8, #eee5da);
+  border: 1px solid #e5dacb;
+  display: flex;
   align-items: center;
-  gap: 35px;
+  justify-content: center;
+  text-align: center;
   overflow: hidden;
+  position: relative;
 }
 
 .hero-content {
-  padding: 25px 0;
+  width: 100%;
+  max-width: 720px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content .eyebrow {
+  color: #9b806a;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
 }
 
 .hero h1 {
   font-family: Georgia, serif;
-  font-size: clamp(42px, 5vw, 67px);
-  line-height: 1.25;
+  font-size: clamp(44px, 6vw, 76px);
+  line-height: 1.35;
   font-weight: 500;
   margin: 0 0 20px;
-  color: #211d19;
+  color: #302820;
 }
 
 .hero-content p {
-  color: #70675f;
+  color: #76685b;
   font-size: 15px;
-  max-width: 410px;
+  max-width: 470px;
   line-height: 2;
-  margin-bottom: 25px;
+  margin: 0 0 28px;
 }
 
-/* BEAUTY DISPLAY */
-
-.hero-beauty-display {
-  min-height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 13px;
-  position: relative;
-  direction: ltr;
+.hero-content .primary-btn {
+  min-height: 49px;
+  padding: 13px 32px;
+  background: #302820;
+  border: 1px solid #302820;
+  color: #fff;
+  gap: 12px;
 }
 
-.beauty-product {
-  position: relative;
-  filter: drop-shadow(0 13px 12px #5e4c3b20);
+.hero-content .primary-btn:hover {
+  background: transparent;
+  color: #302820;
 }
 
-.compact {
-  width: 100px;
-  height: 100px;
-  margin-top: 55px;
-}
-
-.compact-lid {
-  height: 48px;
-  background: linear-gradient(135deg, #c5b4a1, #f5eee5, #b9a58f);
-  border: 1px solid #b9a895;
-  display: grid;
-  place-items: center;
-  font: 10px Georgia, serif;
-  letter-spacing: 2px;
-  color: #5a493a;
-}
-
-.compact-base {
-  height: 15px;
-  background: #c7b6a3;
-  border-radius: 0 0 8px 8px;
-}
-
-.foundation {
-  width: 85px;
-  height: 190px;
-  margin-top: -25px;
-}
-
-.foundation-cap {
-  width: 43px;
-  height: 30px;
-  margin: auto;
-  background: linear-gradient(90deg, #b9a58f, #e5d6c5, #a9927c);
-}
-
-.foundation-bottle {
-  height: 155px;
-  border-radius: 12px 12px 20px 20px;
-  background: linear-gradient(90deg, #b98f70, #e5c5a5, #b58c6c);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 5px 0 10px #fff5;
-}
-
-.foundation-bottle span {
-  font: 10px Georgia, serif;
-  letter-spacing: 2px;
-  color: #5c4534;
-  writing-mode: vertical-rl;
-}
-
-.lipstick {
-  width: 48px;
-  height: 150px;
-  margin-top: 45px;
-}
-
-.lipstick-tip {
-  width: 28px;
-  height: 43px;
-  margin: auto;
-  background: linear-gradient(90deg, #8d3543, #c8757c, #78313b);
-  clip-path: polygon(0 100%, 10% 30%, 50% 0, 90% 30%, 100% 100%);
-}
-
-.lipstick-body {
-  height: 75px;
-  background: linear-gradient(90deg, #aa927b, #e8d8c5, #9e866f);
-}
-
-.lipstick-base {
-  height: 30px;
-  background: #292522;
-}
-
-.perfume {
-  width: 90px;
-  height: 165px;
-  margin-top: -5px;
-}
-
-.perfume-cap {
-  width: 38px;
-  height: 28px;
-  margin: auto;
-  background: linear-gradient(90deg, #b69b76, #f0dfbd, #a68a66);
-}
-
-.perfume-bottle {
-  height: 135px;
-  border: 2px solid #d0bda7;
-  border-radius: 10px 10px 20px 20px;
-  background: linear-gradient(110deg, #e9d7bd, #f9eddb, #cbb294);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.perfume-bottle span {
-  font: 8px Georgia, serif;
-  color: #77614d;
-  letter-spacing: 1px;
-  writing-mode: vertical-rl;
-}
-
-.blush {
-  width: 85px;
-  margin-top: 75px;
-}
-
-.blush-lid {
-  height: 42px;
-  background: linear-gradient(135deg, #d4a59b, #f0d2c7, #c58c82);
-  display: grid;
-  place-items: center;
-  color: #77524c;
-  font: 10px Georgia, serif;
-  letter-spacing: 2px;
-}
-
-.blush-base {
-  height: 13px;
-  background: #c18e83;
-  border-radius: 0 0 7px 7px;
+.hero-caption {
+  display: block;
+  color: #a49381;
+  font-family: Georgia, serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  margin-top: 38px;
 }
 
 /* INTRO */
@@ -387,10 +281,12 @@ img {
 .product-card {
   min-width: 0;
   background: #fff;
-  border: 1px solid #eee9e3;
+  border: 1px solid #e5dfd5;
+  border-radius: 4px;
   padding-bottom: 16px;
   transition: .25s ease;
   overflow: hidden;
+  box-shadow: none;
 }
 
 .product-card:hover {
@@ -406,6 +302,8 @@ img {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border: none;
+  border-radius: 0;
 }
 
 .product-image img {
@@ -422,6 +320,7 @@ img {
 .product-info {
   padding: 15px 16px 0;
   text-align: right;
+  border: none;
 }
 
 .product-brand {
@@ -738,8 +637,8 @@ img {
   }
 
   .hero {
-    padding: 45px 5%;
     min-height: 420px;
+    padding: 45px 5%;
   }
 
   .products-grid {
@@ -785,16 +684,17 @@ img {
   }
 
   .hero {
-    display: flex;
+    width: 94%;
+    min-height: 390px;
+    margin: 20px auto 48px;
+    padding: 48px 20px;
     flex-direction: column;
-    min-height: auto;
-    padding: 38px 22px 25px;
-    gap: 10px;
-    margin-bottom: 45px;
+    justify-content: center;
   }
 
   .hero-content {
     text-align: center;
+    align-items: center;
     padding: 10px 0;
   }
 
@@ -808,37 +708,10 @@ img {
     margin-left: auto;
   }
 
-  .hero-beauty-display {
-    width: 100%;
-    min-height: 230px;
-    gap: 8px;
-    transform: scale(.85);
-    margin: -5px 0;
-  }
-
-  .compact {
-    width: 75px;
-  }
-
-  .foundation {
-    width: 65px;
-    height: 160px;
-  }
-
-  .foundation-bottle {
-    height: 130px;
-  }
-
-  .lipstick {
-    width: 38px;
-  }
-
-  .perfume {
-    width: 70px;
-  }
-
-  .blush {
-    width: 68px;
+  .hero-caption {
+    font-size: 8px;
+    letter-spacing: 2px;
+    margin-top: 30px;
   }
 
   .intro-section {
@@ -938,11 +811,6 @@ img {
 }
 
 @media (max-width: 370px) {
-  .hero-beauty-display {
-    transform: scale(.72);
-    margin: -20px 0;
-  }
-
   .product-image {
     height: 160px;
   }
@@ -950,144 +818,4 @@ img {
   .section-note {
     display: none;
   }
-}
-/* ضبط حدود بطاقات المنتجات */
-.product-card {
-    box-sizing: border-box;
-    border: 1px solid #e5dfd5 !important;
-    border-radius: 5px;
-    overflow: hidden;
-    background: #fff;
-    box-shadow: none;
-}
-
-/* منع تداخل حدود الصورة مع البطاقة */
-.product-image {
-    box-sizing: border-box;
-    border: none !important;
-    border-radius: 0;
-    overflow: hidden;
-}
-
-/* توحيد المسافات داخل البطاقة */
-.product-info {
-    box-sizing: border-box;
-    border: none !important;
-}
-/* BEAUTY - Luxury Hero Design */
-.hero {
-    min-height: 520px;
-    background: linear-gradient(115deg, #f5f0e8, #e9dfd1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 65px 9%;
-    position: relative;
-    overflow: hidden;
-    border: none;
-    border-radius: 0;
-}
-
-.hero-content {
-    max-width: 480px;
-    text-align: right;
-    z-index: 2;
-}
-
-.hero-content h1 {
-    font-family: Georgia, serif;
-    font-size: clamp(38px, 5vw, 64px);
-    color: #30251f;
-    letter-spacing: 2px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero-content p {
-    color: #78685c;
-    font-size: 17px;
-    line-height: 2;
-    margin-bottom: 28px;
-}
-
-.hero-content button {
-    background: #30251f;
-    color: #fff;
-    border: 1px solid #30251f;
-    padding: 14px 35px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.hero-content button:hover {
-    background: transparent;
-    color: #30251f;
-}
-
-.hero-beauty-display {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    width: 48%;
-    min-height: 350px;
-    position: relative;
-}
-
-.beauty-product {
-    box-shadow: 0 20px 35px rgba(70, 48, 35, .12);
-    border: 1px solid rgba(255,255,255,.7);
-}
-
-.beauty-product.compact {
-    background: linear-gradient(145deg, #e9d8c6, #b99b7c);
-    border-radius: 50%;
-    width: 115px;
-    height: 115px;
-}
-
-.beauty-product.foundation {
-    background: linear-gradient(145deg, #e6c9a8, #b58a62);
-    border-radius: 25px 25px 35px 35px;
-    width: 125px;
-    height: 250px;
-}
-
-.beauty-product.lipstick {
-    background: linear-gradient(145deg, #d9a0a0, #9e5960);
-    border-radius: 8px;
-    width: 65px;
-    height: 175px;
-}
-
-.beauty-product.perfume {
-    background: linear-gradient(145deg, #f4e6cf, #c8a77d);
-    border-radius: 25px 25px 35px 35px;
-    width: 115px;
-    height: 205px;
-}
-
-.beauty-product.blush {
-    background: linear-gradient(145deg, #e8c2b5, #bd8d7e);
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
-
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 55px 20px;
-    }
-
-    .hero-content {
-        text-align: center;
-    }
-
-    .hero-beauty-display {
-        width: 100%;
-        transform: scale(.8);
-    }
 }
