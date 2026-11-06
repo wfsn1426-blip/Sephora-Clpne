@@ -4,225 +4,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BEAUTY | اكتشفي عالم الجمال</title>
+  <meta name="theme-color" content="#f5f1eb">
+  <title>BEAUTY | Your Beauty Destination</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <div class="announcement">
-    اكتشفي عالم الجمال مع BEAUTY
-  </div>
-
   <header class="site-header">
-    <div class="header-main">
-      <button class="icon-button" id="menuBtn" aria-label="القائمة">☰</button>
-
-      <a class="wordmark" href="#">BEAUTY</a>
-
-      <div class="header-tools">
-        <button class="icon-button" id="searchBtn" aria-label="بحث">⌕</button>
-        <button class="icon-button" id="cartBtn" aria-label="السلة">♡ 0</button>
-        <button class="account-link" id="accountBtn">حسابي</button>
-      </div>
-    </div>
-
-    <div class="search-row" id="searchSection">
-      <input id="searchInput" type="search" placeholder="ابحثي عن منتج أو ماركة...">
-    </div>
-
-    <nav class="desktop-nav" id="navigation">
+    <a href="#" class="logo">BEAUTY<span>.</span></a>
+    <nav class="main-nav">
       <a href="#home">الرئيسية</a>
       <a href="#makeup">المكياج</a>
       <a href="#fragrance">العطور</a>
-      <a href="#skincare">العناية بالبشرة</a>
+      <a href="#skincare">العناية</a>
+      <a href="#beauty-ai">BEAUTY AI</a>
     </nav>
+    <a href="#products" class="header-link">اكتشفي المنتجات</a>
   </header>
 
-  <main id="home">
-
-    <section class="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">THE BEAUTY EDIT</span>
-        <h1>جمالك يبدأ من هنا</h1>
-        <p>اكتشفي اختياراتنا من أجمل منتجات المكياج والعطور والعناية بالبشرة.</p>
-        <a href="#makeup" class="dark-button">اكتشفي المنتجات</a>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="eyebrow">YOUR BEAUTY DESTINATION</span>
+        <h1>جمالك يبدأ<br>من اختيارك.</h1>
+        <p>اكتشفي عالمًا من الجمال، يجمع بين المكياج والعطور والعناية.</p>
+        <a href="#products" class="primary-btn">اكتشفي المجموعة</a>
       </div>
-      <div class="hero-image">
-        <img src="assets/makeup/nars-radiant-creamy-concealer.jpg" alt="منتجات BEAUTY">
+      <div class="hero-decoration">
+        <span>BEAUTY</span>
       </div>
     </section>
 
-    
+    <section class="intro-section" id="products">
+      <span class="eyebrow">THE BEAUTY EDIT</span>
+      <h2>اختيارات تستحق التجربة</h2>
+      <p>منتجات مختارة لتكمّل جمالك وتفاصيلك.</p>
+    </section>
 
-<section class="undertone-section" id="undertone">
-  <div class="undertone-content">
+    <section class="product-section" id="makeup">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">01 / MAKEUP</span>
+          <h2>المكياج</h2>
+        </div>
+        <span class="section-note">Makeup essentials</span>
+      </div>
+      <div class="products-grid" id="makeupProducts"></div>
+    </section>
 
-    <span class="undertone-label">BEAUTY AI EXPERIENCE</span>
+    <section class="product-section" id="fragrance">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">02 / FRAGRANCE</span>
+          <h2>العطور</h2>
+        </div>
+        <span class="section-note">Find your signature scent</span>
+      </div>
+      <div class="products-grid" id="fragranceProducts"></div>
+    </section>
 
-    <h2>اكتشفي ألوانك المثالية</h2>
+    <section class="product-section" id="skincare">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">03 / SKINCARE</span>
+          <h2>العناية بالبشرة</h2>
+        </div>
+        <span class="section-note">Your skincare ritual</span>
+      </div>
+      <div class="products-grid" id="skincareProducts"></div>
+    </section>
 
-    <p>
-      اكتشفي النغمة المناسبة لبشرتك واحصلي على ترشيحات
-      تجميلية مصممة لتناسبك.
-    </p>
+    <section class="beauty-ai-promo" id="beauty-ai">
+      <div class="ai-card-content">
+        <span class="eyebrow">DISCOVER YOUR PERFECT MATCH</span>
+        <h2>BEAUTY AI</h2>
+        <p>اكتشفي درجات المكياج والألوان الأقرب لبشرتك.</p>
+        <button type="button" id="openBeautyAI" class="primary-btn">
+          ابدئي التحليل
+        </button>
+      </div>
+      <div class="ai-card-art">
+        <span>YOUR</span>
+        <strong>PERFECT<br>SHADE</strong>
+        <div class="shade-swatches">
+          <i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+    </section>
 
-    <div class="analysis-options">
-      <button type="button" class="analysis-choice active" data-target="face">
-        تحليل الوجه
-      </button>
+    <section class="undertone-section" id="undertone" hidden>
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">BEAUTY AI EXPERIENCE</span>
+          <h2>اكتشفي درجتك المثالية</h2>
+        </div>
+        <button type="button" id="closeBeautyAI" class="secondary-btn">إغلاق</button>
+      </div>
 
-      <button type="button" class="analysis-choice" data-target="hand">
-        تحليل اليد
-      </button>
-    </div>
+      <p>اختاري تصوير الوجه أو اليد، أو ارفعي صورة واضحة بإضاءة طبيعية.</p>
 
-    <div class="analysis-upload">
+      <div class="analysis-options">
+        <button type="button" id="faceOption">تحليل الوجه</button>
+        <button type="button" id="handOption">تحليل اليد</button>
+      </div>
 
       <div class="analysis-preview" id="analysisPreview">
-        <div id="previewPlaceholder">
-          <span class="camera-symbol">◎</span>
-          <p>صورتك ستظهر هنا</p>
-        </div>
-
-        <img id="analysisImage" alt="الصورة المختارة" hidden>
         <video id="cameraVideo" autoplay playsinline hidden></video>
+        <img id="analysisImage" alt="الصورة المختارة للتحليل" hidden>
         <canvas id="analysisCanvas" hidden></canvas>
       </div>
 
-      <div class="analysis-actions">
-
-        <button type="button" id="startCamera">
-          تشغيل الكاميرا
-        </button>
-
-        <button type="button" id="capturePhoto" disabled>
-          التقاط الصورة
-        </button>
-
-        <label for="uploadPhoto" class="upload-button">
-          رفع صورة من الجوال
-        </label>
-
-        <input
-          type="file"
-          id="uploadPhoto"
-          accept="image/*"
-          hidden
-        >
-
-        <button type="button" id="analyzePhoto" disabled>
-          حللي لون بشرتي
-        </button>
-
-        <button type="button" id="stopCamera">
-          إيقاف الكاميرا
-        </button>
-
+      <div class="analysis-controls">
+        <button type="button" id="startCamera">تشغيل الكاميرا</button>
+        <button type="button" id="capturePhoto">التقاط صورة</button>
+        <label class="upload-btn" for="uploadPhoto">رفع صورة</label>
+        <input type="file" id="uploadPhoto" accept="image/*" hidden>
+        <button type="button" id="analyzePhoto">تحليل الصورة</button>
       </div>
 
-      <p class="camera-note">
-        للحصول على نتيجة أفضل، استخدمي إضاءة طبيعية وصورة بدون فلاتر أو مكياج كثيف.
-      </p>
-
-      <div id="analysisMessage" role="status"></div>
+      <p id="analysisMessage" aria-live="polite"></p>
 
       <div id="analysisResult" hidden>
-        <span class="result-label">نتيجتك من BEAUTY</span>
         <h3 id="undertoneName"></h3>
         <p id="undertoneDescription"></p>
-
-        <h4>لوحة الألوان المناسبة لكِ</h4>
-        <div id="colorPalette" class="color-palette"></div>
-
-        <h4>منتجات قد تناسبكِ</h4>
-        <div id="matchedProducts" class="matched-products"></div>
-
-        <button type="button" id="resetAnalysis">
-          تحليل صورة جديدة
-        </button>
+        <div id="colorPalette"></div>
+        <div id="matchedProducts"></div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-
-      <button type="submit">اكتشفي نتيجتكِ</button>
-    </form>
-
-    <div id="undertoneResult" class="undertone-result" hidden></div>
-  </div>
-</section>
-    <section class="section-wrap product-section" id="makeup">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">MAKEUP COLLECTION</span>
-          <h2>المكياج</h2>
-        </div>
-      </div>
-      <div class="product-grid" id="makeupGrid"></div>
+      <button type="button" id="resetAnalysis">إعادة التحليل</button>
     </section>
-
-    <section class="section-wrap product-section" id="fragrance">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">FRAGRANCE COLLECTION</span>
-          <h2>العطور</h2>
-        </div>
-      </div>
-      <div class="product-grid" id="fragranceGrid"></div>
-    </section>
-
-    <section class="section-wrap product-section" id="skincare">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">SKINCARE COLLECTION</span>
-          <h2>العناية بالبشرة</h2>
-        </div>
-      </div>
-      <div class="product-grid" id="skincareGrid"></div>
-    </section>
-
-    <section class="section-wrap product-section" id="all-products">
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">DISCOVER BEAUTY</span>
-          <h2>جميع المنتجات</h2>
-        </div>
-      </div>
-      <div class="product-grid" id="productsGrid"></div>
-    </section>
-
-    <section class="newsletter">
-      <h2>كوني جزءاً من عالم BEAUTY</h2>
-      <p>اشتركي ليصلك كل جديد من عالم الجمال.</p>
-      <form id="newsletterForm">
-        <input type="email" placeholder="بريدك الإلكتروني" required>
-        <button type="submit">اشتراك</button>
-      </form>
-    </section>
-<!-- BEAUTY AI ENTRY -->
-<section class="beauty-ai-entry" id="beauty-ai-entry">
-  <button type="button" class="beauty-ai-card" id="openBeautyAI">
-    <span class="beauty-ai-icon">◎</span>
-    <span class="beauty-ai-text">
-      <strong>BEAUTY AI</strong>
-      <small>اكتشفي درجات الجمال المناسبة لكِ</small>
-    </span>
-    <span class="beauty-ai-arrow">←</span>
-  </button>
-</section>  </main>
+  </main>
 
   <footer class="site-footer">
-    <a class="wordmark" href="#home">BEAUTY</a>
-    <p>جمالك، اختيارك، عالمك.</p>
-    <small>© 2026 BEAUTY. All rights reserved.</small>
+    <a href="#" class="logo">BEAUTY<span>.</span></a>
+    <p>Beauty is in every detail.</p>
+    <span>© 2026 BEAUTY. All rights reserved.</span>
   </footer>
 
+  <script src="shades.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
