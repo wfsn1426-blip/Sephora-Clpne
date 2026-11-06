@@ -519,3 +519,60 @@ document.getElementById("resetAnalysis")?.addEventListener("click", () => {
   uploadPhoto.value = "";
   analysisMessage.textContent = "اختاري صورة جديدة للبدء.";
 });
+
+// =====================================
+// تحريك أشرطة المنتجات والصور بالأسهم
+// =====================================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const sliders = [
+    {
+      track: ".products-track",
+      prev: ".slider-arrow.prev",
+      next: ".slider-arrow.next"
+    },
+    {
+      track: ".featured-track",
+      prev: ".featured-arrow.prev",
+      next: ".featured-arrow.next"
+    },
+    {
+      track: ".brands-track",
+      prev: ".brands-arrow.prev",
+      next: ".brands-arrow.next"
+    }
+  ];
+
+  sliders.forEach(function (slider) {
+    const track = document.querySelector(slider.track);
+    const prev = document.querySelector(slider.prev);
+    const next = document.querySelector(slider.next);
+
+    if (!track) return;
+
+    const move = function (direction) {
+      const card = track.querySelector(":scope > *");
+      const gap = 20;
+      const amount = card
+        ? card.getBoundingClientRect().width + gap
+        : track.clientWidth * 0.8;
+
+      track.scrollBy({
+        left: direction * amount,
+        behavior: "smooth"
+      });
+    };
+
+    if (prev) {
+      prev.addEventListener("click", function () {
+        move(1);
+      });
+    }
+
+    if (next) {
+      next.addEventListener("click", function () {
+        move(-1);
+      });
+    }
+  });
+});
