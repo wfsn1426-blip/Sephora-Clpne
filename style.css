@@ -951,3 +951,143 @@ img {
     display: none;
   }
 }
+/* ضبط حدود بطاقات المنتجات */
+.product-card {
+    box-sizing: border-box;
+    border: 1px solid #e5dfd5 !important;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: none;
+}
+
+/* منع تداخل حدود الصورة مع البطاقة */
+.product-image {
+    box-sizing: border-box;
+    border: none !important;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+/* توحيد المسافات داخل البطاقة */
+.product-info {
+    box-sizing: border-box;
+    border: none !important;
+}
+/* BEAUTY - Luxury Hero Design */
+.hero {
+    min-height: 520px;
+    background: linear-gradient(115deg, #f5f0e8, #e9dfd1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 65px 9%;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 0;
+}
+
+.hero-content {
+    max-width: 480px;
+    text-align: right;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 5vw, 64px);
+    color: #30251f;
+    letter-spacing: 2px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    color: #78685c;
+    font-size: 17px;
+    line-height: 2;
+    margin-bottom: 28px;
+}
+
+.hero-content button {
+    background: #30251f;
+    color: #fff;
+    border: 1px solid #30251f;
+    padding: 14px 35px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.hero-content button:hover {
+    background: transparent;
+    color: #30251f;
+}
+
+.hero-beauty-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 48%;
+    min-height: 350px;
+    position: relative;
+}
+
+.beauty-product {
+    box-shadow: 0 20px 35px rgba(70, 48, 35, .12);
+    border: 1px solid rgba(255,255,255,.7);
+}
+
+.beauty-product.compact {
+    background: linear-gradient(145deg, #e9d8c6, #b99b7c);
+    border-radius: 50%;
+    width: 115px;
+    height: 115px;
+}
+
+.beauty-product.foundation {
+    background: linear-gradient(145deg, #e6c9a8, #b58a62);
+    border-radius: 25px 25px 35px 35px;
+    width: 125px;
+    height: 250px;
+}
+
+.beauty-product.lipstick {
+    background: linear-gradient(145deg, #d9a0a0, #9e5960);
+    border-radius: 8px;
+    width: 65px;
+    height: 175px;
+}
+
+.beauty-product.perfume {
+    background: linear-gradient(145deg, #f4e6cf, #c8a77d);
+    border-radius: 25px 25px 35px 35px;
+    width: 115px;
+    height: 205px;
+}
+
+.beauty-product.blush {
+    background: linear-gradient(145deg, #e8c2b5, #bd8d7e);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 55px 20px;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-beauty-display {
+        width: 100%;
+        transform: scale(.8);
+    }
+}
