@@ -4,314 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5f1eb">
-  <meta name="description" content="BEAUTY - اكتشفي عالم المكياج والعطور والعناية">
+  <meta name="theme-color" content="#ffffff">
   <title>BEAUTY | Your Beauty Destination</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <a href="#home" class="logo">BEAUTY<span>.</span></a>
+  <!-- شريط الإعلان -->
+  <div class="announcement-bar">
+    <strong>اكتشفي عالم الجمال مع BEAUTY</strong>
+    <span>اختيارات مميزة من المكياج والعطور والعناية — تسوّقي الآن</span>
+  </div>
 
-    <nav class="main-nav">
-      <a href="#home">الرئيسية</a>
-      <a href="#makeup">المكياج</a>
-      <a href="#fragrance">العطور</a>
-      <a href="#skincare">العناية</a>
-      <a href="#beauty-ai">BEAUTY AI</a>
-    </nav>
+  <!-- الشريط الرئيسي -->
+  <header class="main-header">
 
-    <a href="#products" class="header-link">اكتشفي المنتجات</a>
+    <div class="header-icons">
+      <a href="#cart" aria-label="السلة" class="header-icon">♧</a>
+      <a href="#favorites" aria-label="المفضلة" class="header-icon">♡</a>
+      <a href="#account" aria-label="حسابي" class="header-icon">♙</a>
+    </div>
+
+    <div class="search-box">
+      <input type="search" placeholder="بحث عن المنتجات...">
+      <button type="button" aria-label="بحث">⌕</button>
+    </div>
+
+    <a href="#home" class="brand-logo">BEAUTY<span>.</span></a>
+
   </header>
 
-
-  <main>
-
-    <!-- HERO BANNER -->
-    <section class="hero" id="home">
-      <div class="hero-content">
-
-        <span class="eyebrow">THE ART OF BEAUTY</span>
-
-        <h1>
-          جمالك يبدأ<br>
-          من اختيارك.
-        </h1>
-
-        <p>
-          عالم من الجمال اختير بعناية،
-          ليكون كل تفصيل انعكاسًا لأسلوبك.
-        </p>
-
-        <a href="#products" class="primary-btn">
-          اكتشفي المجموعة <span>←</span>
-        </a>
-
-        <span class="hero-caption">
-          BEAUTY — YOUR WORLD, YOUR STYLE
-        </span>
-
-      </div>
-    </section>
-
-
-    <!-- INTRO -->
-    <section class="intro-section" id="products">
-      <span class="eyebrow">THE BEAUTY EDIT</span>
-
-      <h2>اختيارات تستحق التجربة</h2>
-
-      <p>
-        منتجات مختارة لتكمّل جمالك وتفاصيلك.
-      </p>
-    </section>
-
-
-    <!-- MAKEUP -->
-    <section class="product-section" id="makeup">
-
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">01 / MAKEUP</span>
-          <h2>المكياج</h2>
-        </div>
-
-        <span class="section-note">
-          Makeup essentials
-        </span>
-      </div>
-
-      <div class="products-grid" id="makeupProducts"></div>
-
-    </section>
-
-
-    <!-- FRAGRANCE -->
-    <section class="product-section" id="fragrance">
-
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">02 / FRAGRANCE</span>
-          <h2>العطور</h2>
-        </div>
-
-        <span class="section-note">
-          Find your signature scent
-        </span>
-      </div>
-
-      <div class="products-grid" id="fragranceProducts"></div>
-
-    </section>
-
-
-    <!-- SKINCARE -->
-    <section class="product-section" id="skincare">
-
-      <div class="section-heading">
-        <div>
-          <span class="eyebrow">03 / SKINCARE</span>
-          <h2>العناية بالبشرة</h2>
-        </div>
-
-        <span class="section-note">
-          Your skincare ritual
-        </span>
-      </div>
-
-      <div class="products-grid" id="skincareProducts"></div>
-
-    </section>
-
-
-    <!-- BEAUTY AI -->
-    <section class="beauty-ai-promo" id="beauty-ai">
-
-      <div class="ai-card-content">
-
-        <span class="eyebrow">
-          DISCOVER YOUR PERFECT MATCH
-        </span>
-
-        <h2>BEAUTY AI</h2>
-
-        <p>
-          اكتشفي درجات المكياج والألوان الأقرب لبشرتك.
-        </p>
-
-        <button
-          type="button"
-          id="openBeautyAI"
-          class="primary-btn"
-        >
-          ابدئي التحليل
-        </button>
-
-      </div>
-
-
-      <div class="ai-card-art">
-
-        <span>YOUR</span>
-
-        <strong>
-          PERFECT<br>
-          SHADE
-        </strong>
-
-        <div class="shade-swatches">
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-          <i></i>
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- UNDERTONE ANALYSIS -->
-    <section class="undertone-section" id="undertone" hidden>
-
-      <div class="section-heading">
-
-        <div>
-          <span class="eyebrow">
-            BEAUTY AI EXPERIENCE
-          </span>
-
-          <h2>اكتشفي درجتك المثالية</h2>
-        </div>
-
-        <button
-          type="button"
-          id="closeBeautyAI"
-          class="secondary-btn"
-        >
-          إغلاق
-        </button>
-
-      </div>
-
-
-      <p>
-        اختاري تصوير الوجه أو اليد، أو ارفعي صورة واضحة بإضاءة طبيعية.
-      </p>
-
-
-      <div class="analysis-options">
-
-        <button type="button" id="faceOption">
-          تحليل الوجه
-        </button>
-
-        <button type="button" id="handOption">
-          تحليل اليد
-        </button>
-
-      </div>
-
-
-      <div class="analysis-preview" id="analysisPreview">
-
-        <video
-          id="cameraVideo"
-          autoplay
-          playsinline
-          hidden
-        ></video>
-
-        <img
-          id="analysisImage"
-          alt="الصورة المختارة للتحليل"
-          hidden
-        >
-
-        <canvas
-          id="analysisCanvas"
-          hidden
-        ></canvas>
-
-      </div>
-
-
-      <div class="analysis-controls">
-
-        <button type="button" id="startCamera">
-          تشغيل الكاميرا
-        </button>
-
-        <button type="button" id="capturePhoto">
-          التقاط صورة
-        </button>
-
-        <label class="upload-btn" for="uploadPhoto">
-          رفع صورة
-        </label>
-
-        <input
-          type="file"
-          id="uploadPhoto"
-          accept="image/*"
-          hidden
-        >
-
-        <button type="button" id="analyzePhoto">
-          تحليل الصورة
-        </button>
-
-      </div>
-
-
-      <p id="analysisMessage" aria-live="polite"></p>
-
-
-      <div id="analysisResult" hidden>
-
-        <h3 id="undertoneName"></h3>
-
-        <p id="undertoneDescription"></p>
-
-        <div id="colorPalette"></div>
-
-        <div id="matchedProducts"></div>
-
-      </div>
-
-
-      <button type="button" id="resetAnalysis">
-        إعادة التحليل
-      </button>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-
-    <a href="#home" class="logo">
-      BEAUTY<span>.</span>
+  <!-- قائمة الأقسام -->
+  <nav class="main-navigation">
+    <a href="#new">وصل حديثًا</a>
+    <a href="#offers">عروض الجمال</a>
+    <a href="#makeup">المكياج</a>
+    <a href="#fragrance">العطور</a>
+    <a href="#skincare">العناية بالبشرة</a>
+    <a href="#brands">الماركات</a>
+    <a href="#undertone">اكتشفي الاندرتون</a>
+  </nav>
+
+  <!-- شريط المزايا -->
+  <section class="welcome-strip">
+    <div class="welcome-message">
+      <strong>انضمي إلى عالم BEAUTY!</strong>
+      <p>استمتعي بتجربة تسوق مميزة واكتشفي اختيارات تناسب جمالك.</p>
+    </div>
+
+    <a href="#account" class="login-button">
+      تسجيل الدخول / إنشاء حساب
     </a>
+  </section>
 
-    <p>Beauty is in every detail.</p>
-
-    <span>
-      © 2026 BEAUTY. All rights reserved.
-    </span>
-
-  </footer>
-
-
-  <!-- JAVASCRIPT -->
-  <script src="shades.js"></script>
-  <script src="app.js"></script>
+  <!-- البانر الرئيسي: صورتك الأصلية -->
+  <main>
+    <section class="hero-banner" id="home">
+      <img
+        src="assets/beauty-hero.png"
+        alt="حملة BEAUTY للجمال والمكياج"
+      >
+    </section>
+  </main>
 
 </body>
 </html>
