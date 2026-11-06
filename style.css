@@ -869,3 +869,135 @@ body {
     gap: 8px;
   }
 }
+.beauty-footer {
+  background: #000;
+  color: #fff;
+  padding: 45px 8% 25px;
+  direction: rtl;
+  font-family: inherit;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 45px;
+}
+
+.footer-newsletter {
+  width: 45%;
+}
+
+.footer-newsletter h3 {
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.footer-newsletter p {
+  color: #ccc;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  max-width: 380px;
+}
+
+.newsletter-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid #777;
+  color: white;
+  outline: none;
+}
+
+.newsletter-form button {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 22px;
+  cursor: pointer;
+}
+
+.footer-social {
+  display: flex;
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.footer-social a {
+  color: white;
+  font-size: 23px;
+  text-decoration: none;
+}
+
+.footer-location h4,
+.footer-column h4 {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.footer-location a {
+  color: #ccc;
+  font-size: 13px;
+}
+
+.footer-divider {
+  height: 1px;
+  background: #444;
+  margin-bottom: 30px;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.footer-column a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 35px;
+  padding-top: 20px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .footer-newsletter {
+    width: 100%;
+  }
+
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 20px;
+  }
+}
