@@ -576,3 +576,60 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// =====================================
+// BEAUTY - Slider Navigation
+// =====================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const sliderGroups = [
+    {
+      track: ".products-track",
+      previous: ".slider-arrow.prev",
+      next: ".slider-arrow.next"
+    },
+    {
+      track: ".featured-track",
+      previous: ".featured-arrow.prev",
+      next: ".featured-arrow.next"
+    },
+    {
+      track: ".brands-track",
+      previous: ".brands-arrow.prev",
+      next: ".brands-arrow.next"
+    }
+  ];
+
+  sliderGroups.forEach(function (slider) {
+
+    const track = document.querySelector(slider.track);
+    const previous = document.querySelector(slider.previous);
+    const next = document.querySelector(slider.next);
+
+    if (!track) return;
+
+    function moveSlider(direction) {
+      const firstCard = track.firstElementChild;
+      if (!firstCard) return;
+
+      const gap = parseFloat(getComputedStyle(track).gap) || 0;
+      const distance = firstCard.getBoundingClientRect().width + gap;
+
+      track.scrollBy({
+        left: direction * distance,
+        behavior: "smooth"
+      });
+    }
+
+    previous?.addEventListener("click", function () {
+      moveSlider(1);
+    });
+
+    next?.addEventListener("click", function () {
+      moveSlider(-1);
+    });
+
+  });
+
+});
