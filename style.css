@@ -334,3 +334,538 @@ body {
     aspect-ratio: 1.3 / 1;
   }
 }
+
+/* =====================================
+   تنسيق الأقسام الجديدة
+===================================== */
+
+/* عناوين الأقسام */
+.section-heading {
+  width: 79%;
+  max-width: 1208px;
+  margin: 55px auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.section-heading h2 {
+  font-size: 27px;
+  font-weight: 700;
+  color: #111;
+}
+
+.section-heading a {
+  color: #333;
+  font-size: 13px;
+  text-decoration: underline;
+}
+
+/* =====================================
+   كل شيء جديد - شريط المنتجات
+===================================== */
+
+.new-arrivals {
+  width: 100%;
+  margin: 45px auto 65px;
+}
+
+.products-slider {
+  width: 79%;
+  max-width: 1208px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.products-track {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 5px 2px 15px;
+}
+
+.products-track::-webkit-scrollbar,
+.featured-track::-webkit-scrollbar,
+.brands-track::-webkit-scrollbar {
+  display: none;
+}
+
+.product-card {
+  flex: 0 0 calc((100% - 90px) / 5);
+  min-width: 0;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  transition: box-shadow .25s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 5px 18px rgba(0,0,0,.09);
+}
+
+.product-image {
+  width: 100%;
+  height: 210px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-card h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  min-height: 20px;
+}
+
+.product-card p {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+  min-height: 45px;
+  margin-bottom: 15px;
+}
+
+.product-card strong {
+  font-size: 15px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.slider-arrow,
+.featured-arrow,
+.brands-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 43px;
+  height: 55px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #111;
+  font-size: 32px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .2s;
+}
+
+.slider-arrow:hover,
+.featured-arrow:hover,
+.brands-arrow:hover {
+  background: #f5eeee;
+}
+
+.slider-arrow.prev,
+.featured-arrow.prev,
+.brands-arrow.prev {
+  right: -55px;
+}
+
+.slider-arrow.next,
+.featured-arrow.next,
+.brands-arrow.next {
+  left: -55px;
+}
+
+/* =====================================
+   تشكيلات مختارة
+===================================== */
+
+.featured-collections {
+  width: 100%;
+  margin: 55px auto 65px;
+}
+
+.featured-slider {
+  width: 79%;
+  max-width: 1208px;
+  margin: auto;
+  position: relative;
+}
+
+.featured-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+}
+
+.featured-collections .featured-card {
+  flex: 0 0 calc((100% - 40px) / 3);
+  min-width: 0;
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+
+.featured-collections .featured-card img {
+  width: 100%;
+  height: 245px;
+  aspect-ratio: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+}
+
+/* =====================================
+   اكتشف الماركات
+===================================== */
+
+.brands-section {
+  width: 100%;
+  margin: 55px auto 75px;
+}
+
+.brands-slider {
+  width: 79%;
+  max-width: 1208px;
+  margin: auto;
+  position: relative;
+}
+
+.brands-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 10px;
+}
+
+.brand-card {
+  flex: 0 0 calc((100% - 80px) / 5);
+  min-width: 0;
+  background: #fff;
+  overflow: hidden;
+  text-align: center;
+}
+
+.brand-card img {
+  width: 100%;
+  height: 270px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =====================================
+   اكتشفي الاندرتون الخاص بك
+===================================== */
+
+.undertone-section {
+  width: 79%;
+  max-width: 1208px;
+  margin: 75px auto 80px;
+}
+
+.undertone-container {
+  width: 100%;
+  min-height: 390px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  background: #f8eeee;
+  border-radius: 3px;
+}
+
+.undertone-visual {
+  padding: 45px 35px;
+  background: linear-gradient(135deg, #f7e5e3, #f2d6d5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: right;
+}
+
+.undertone-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: #99736b;
+  margin-bottom: 18px;
+}
+
+.undertone-visual h2 {
+  font-size: 29px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #211918;
+}
+
+.undertone-visual p {
+  font-size: 14px;
+  line-height: 2;
+  color: #5e4d49;
+  margin-bottom: 25px;
+}
+
+.undertone-shades {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.shade-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  color: #51413d;
+}
+
+.shade-item span {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,.9);
+  box-shadow: 0 2px 7px rgba(0,0,0,.12);
+}
+
+.undertone-discovery {
+  padding: 45px 35px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+}
+
+.undertone-discovery h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.undertone-discovery > p {
+  color: #777;
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 22px;
+}
+
+.discovery-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.discovery-option {
+  min-height: 65px;
+  background: #faf6f5;
+  border: 1px solid #e8d9d6;
+  color: #302725;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-family: inherit;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.discovery-option:hover,
+.discovery-option:focus {
+  background: #f1dddd;
+  border-color: #c8a39a;
+}
+
+.option-icon {
+  font-size: 20px;
+}
+
+.discovery-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.discovery-action {
+  min-height: 47px;
+  border: 1px solid #171313;
+  background: #171313;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: .2s;
+}
+
+.discovery-action:hover {
+  background: #59443f;
+}
+
+.upload-action {
+  background: #fff;
+  color: #171313;
+}
+
+.upload-action:hover {
+  background: #f8eeee;
+}
+
+.undertone-discovery .discovery-note {
+  font-size: 11px;
+  color: #888;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+
+/* =====================================
+   الشاشات المتوسطة
+===================================== */
+
+@media (max-width: 1000px) {
+  .section-heading,
+  .products-slider,
+  .featured-slider,
+  .brands-slider,
+  .undertone-section {
+    width: 90%;
+  }
+
+  .product-card {
+    flex-basis: calc((100% - 54px) / 4);
+  }
+
+  .brand-card {
+    flex-basis: calc((100% - 40px) / 3);
+  }
+
+  .undertone-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =====================================
+   الجوال
+===================================== */
+
+@media (max-width: 600px) {
+  .section-heading {
+    width: 94%;
+    margin: 38px auto 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 21px;
+  }
+
+  .section-heading a {
+    font-size: 11px;
+  }
+
+  .products-slider,
+  .featured-slider,
+  .brands-slider {
+    width: 88%;
+  }
+
+  .product-card {
+    flex: 0 0 65%;
+  }
+
+  .product-image {
+    height: 190px;
+  }
+
+  .featured-collections .featured-card {
+    flex-basis: 82%;
+  }
+
+  .featured-collections .featured-card img {
+    height: 230px;
+  }
+
+  .brand-card {
+    flex: 0 0 65%;
+  }
+
+  .brand-card img {
+    height: 250px;
+  }
+
+  .slider-arrow,
+  .featured-arrow,
+  .brands-arrow {
+    width: 32px;
+    height: 43px;
+    font-size: 25px;
+  }
+
+  .slider-arrow.prev,
+  .featured-arrow.prev,
+  .brands-arrow.prev {
+    right: -35px;
+  }
+
+  .slider-arrow.next,
+  .featured-arrow.next,
+  .brands-arrow.next {
+    left: -35px;
+  }
+
+  .undertone-section {
+    width: 94%;
+    margin: 50px auto;
+  }
+
+  .undertone-container {
+    grid-template-columns: 1fr;
+  }
+
+  .undertone-visual,
+  .undertone-discovery {
+    padding: 30px 22px;
+  }
+
+  .undertone-visual h2 {
+    font-size: 23px;
+  }
+
+  .undertone-shades {
+    gap: 10px;
+  }
+
+  .shade-item span {
+    width: 35px;
+    height: 35px;
+  }
+
+  .undertone-discovery h3 {
+    font-size: 21px;
+  }
+
+  .discovery-options {
+    gap: 8px;
+  }
+}
