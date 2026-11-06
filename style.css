@@ -593,3 +593,167 @@ button {
 .shade-swatches i:nth-child(5) {
   background: linear-gradient(145deg, #936044, #573522);
 }
+
+.hero-beauty-display {
+  width: 46%;
+  min-height: 390px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: radial-gradient(ellipse, #e9ddcf 0%, #f5f1eb 68%, transparent 75%);
+}
+
+.beauty-product {
+  position: relative;
+  filter: drop-shadow(7px 12px 8px #5c443322);
+  transition: transform .4s;
+}
+
+.beauty-product:hover {
+  transform: translateY(-12px) rotate(-3deg);
+}
+
+.compact {
+  width: 105px;
+  height: 110px;
+  transform: rotate(-12deg);
+  z-index: 2;
+}
+
+.compact-lid {
+  height: 48px;
+  background: linear-gradient(135deg,#e9d7bd,#b69a77);
+  border: 2px solid #c3aa89;
+  border-radius: 12px 12px 4px 4px;
+  display: grid;
+  place-items: center;
+  font: 10px 'DM Sans',sans-serif;
+  letter-spacing: 2px;
+  color: #66523e;
+}
+
+.compact-base {
+  height: 48px;
+  background: linear-gradient(135deg,#f8e9d5,#cbb18e);
+  border: 2px solid #c3aa89;
+  border-radius: 4px 4px 12px 12px;
+}
+
+.foundation {
+  width: 75px;
+  height: 220px;
+  z-index: 3;
+  margin-top: -25px;
+}
+
+.foundation-cap {
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  background: linear-gradient(90deg,#b89c7e,#eee0ca,#aa8969);
+  border-radius: 7px 7px 2px 2px;
+}
+
+.foundation-bottle {
+  height: 160px;
+  background: linear-gradient(90deg,#b88d6a,#f0d1ae,#c69b76);
+  border: 1px solid #c19a78;
+  border-radius: 10px 10px 18px 18px;
+  display: grid;
+  place-items: center;
+}
+
+.foundation-bottle span {
+  font: 8px 'DM Sans',sans-serif;
+  letter-spacing: 2px;
+  color: #6e4b36;
+}
+
+.lipstick {
+  width: 47px;
+  height: 155px;
+  z-index: 4;
+  margin-top: 55px;
+}
+
+.lipstick-tip {
+  height: 55px;
+  width: 31px;
+  margin: auto;
+  background: linear-gradient(90deg,#8c3d40,#d88b83,#a84d4b);
+  border-radius: 12px 12px 3px 3px;
+  clip-path: polygon(0 100%,0 35%,45% 0,100% 35%,100% 100%);
+}
+
+.lipstick-body {
+  height: 60px;
+  background: linear-gradient(90deg,#b6a184,#f2e5d0,#9e8468);
+}
+
+.lipstick-base {
+  height: 40px;
+  background: linear-gradient(90deg,#7d6650,#d3b99b,#776047);
+  border-radius: 2px 2px 7px 7px;
+}
+
+.perfume {
+  width: 75px;
+  height: 165px;
+  z-index: 2;
+  margin-top: 65px;
+}
+
+.perfume-cap {
+  width: 35px;
+  height: 25px;
+  margin: auto;
+  background: linear-gradient(90deg,#b39a6d,#ead7a9,#a78b5e);
+  border-radius: 4px 4px 0 0;
+}
+
+.perfume-bottle {
+  height: 125px;
+  background: linear-gradient(100deg,#c6a17e,#f2dfc5,#c29b74);
+  border: 2px solid #c4a27e;
+  border-radius: 9px 9px 18px 18px;
+  display: grid;
+  place-items: center;
+  writing-mode: vertical-rl;
+  color: #775d43;
+  font: 8px 'DM Sans',sans-serif;
+  letter-spacing: 2px;
+}
+
+.blush {
+  width: 85px;
+  height: 90px;
+  z-index: 1;
+  transform: rotate(10deg);
+}
+
+.blush-lid {
+  height: 43px;
+  background: linear-gradient(135deg,#d9b5a4,#f0d8c9);
+  border-radius: 10px 10px 3px 3px;
+  display: grid;
+  place-items: center;
+  font: 9px 'DM Sans',sans-serif;
+  color: #795d51;
+  letter-spacing: 2px;
+}
+
+.blush-base {
+  height: 40px;
+  background: linear-gradient(135deg,#e9c6b5,#c58f7d);
+  border-radius: 3px 3px 10px 10px;
+}
+
+@media (max-width: 560px) {
+  .hero-beauty-display {
+    width: 100%;
+    min-height: 280px;
+    transform: scale(.85);
+  }
+}
