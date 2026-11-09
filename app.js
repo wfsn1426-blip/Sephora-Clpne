@@ -286,13 +286,27 @@ function stopCameraStream() {
 
 // عرض الصورة المختارة
 function showAnalysisImage(source) {
+  analysisImage.onload = () => {
+    analysisImage.hidden = false;
+    cameraVideo.hidden = true;
+
+    selectedImage = analysisImage;
+
+    capturePhoto.disabled = true;
+    analyzePhoto.disabled = false;
+
+    analysisResult.hidden = true;
+
+    analysisMessage.textContent =
+      "تم اختيار الصورة بنجاح. اضغطي ابدئي تحليل بشرتك.";
+  };
+
+  analysisImage.onerror = () => {
+    analysisMessage.textContent =
+      "تعذر عرض الصورة. جربي اختيار صورة أخرى.";
+  };
+
   analysisImage.src = source;
-  analysisImage.hidden = false;
-  cameraVideo.hidden = true;
-  selectedImage = analysisImage;
-  analyzePhoto.disabled = false;
-  analysisResult.hidden = true;
-  analysisMessage.textContent = "تم اختيار الصورة. يمكنك بدء التحليل.";
 }
 
 // تشغيل الكاميرا
