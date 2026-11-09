@@ -649,15 +649,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
-});
 const faceOption = document.getElementById("faceOption");
 const handOption = document.getElementById("handOption");
 
-[faceOption, handOption].forEach(option => {
-  option.addEventListener("click", () => {
-    faceOption.classList.remove("active");
-    handOption.classList.remove("active");
+function selectAnalysisTarget(target) {
+  selectedTarget = target;
 
-    option.classList.add("active");
-  });
+  faceOption.classList.toggle("active", target === "face");
+  handOption.classList.toggle("active", target === "hand");
+
+  analysisMessage.textContent =
+    target === "face"
+      ? "تم اختيار تحليل الوجه. التقطي صورة أو ارفعي صورة واضحة."
+      : "تم اختيار تحليل اليد. التقطي صورة أو ارفعي صورة واضحة.";
+}
+
+faceOption.addEventListener("click", () => {
+  selectAnalysisTarget("face");
+});
+
+handOption.addEventListener("click", () => {
+  selectAnalysisTarget("hand");
 });
