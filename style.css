@@ -1001,3 +1001,20 @@ body {
     gap: 30px 20px;
   }
 }
+/* تحديد خيار تحليل الوجه أو اليد */
+.discovery-option {
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.discovery-option.active {
+  border: 2px solid #879487;
+  background-color: #f0f3ef;
+  box-shadow: 0 0 0 3px rgba(135, 148, 135, 0.15);
+}
+
+.discovery-option.active .option-icon {
+  color: #687b68;
+}
