@@ -633,3 +633,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+const faceOption = document.getElementById("faceOption");
+const handOption = document.getElementById("handOption");
+
+[faceOption, handOption].forEach(option => {
+  option.addEventListener("click", () => {
+    faceOption.classList.remove("active");
+    handOption.classList.remove("active");
+
+    option.classList.add("active");
+  });
+});
