@@ -1047,3 +1047,55 @@ body {
 #cameraVideo[hidden] {
   display: none;
 }
+.beauty-result-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.result-item {
+  background: #f5f1ea;
+  border: 1px solid #e5ded4;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+}
+
+.result-item span {
+  color: #777;
+  font-size: 13px;
+}
+
+.result-item h3 {
+  color: #343a36;
+  margin: 12px 0;
+}
+
+.discover-products {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 20px;
+  margin-top: 20px;
+  background: #879487;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.discover-products:hover {
+  background: #687b68;
+}
+
+.discover-products span {
+  font-size: 24px;
+}
+
+@media (max-width: 500px) {
+  .beauty-result-card {
+    grid-template-columns: 1fr;
+  }
+}
