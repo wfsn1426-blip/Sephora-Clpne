@@ -347,7 +347,7 @@ src="assets/kayali-set.jpg.png"
         </button>
 
         <button type="button" class="discovery-option" id="handOption">
-          <span class="option-icon">✋</span>
+          <span class="option-icon">◉</span>
           <span>تحليل اليد</span>
         </button>
 
@@ -369,6 +369,42 @@ src="assets/kayali-set.jpg.png"
           accept="image/*"
           hidden
         >
+
+<div class="analysis-preview">
+  <video id="cameraVideo" autoplay playsinline hidden></video>
+
+  <img id="analysisImage" alt="الصورة المختارة للتحليل" hidden>
+
+  <canvas id="analysisCanvas" hidden></canvas>
+</div>
+
+<div class="analysis-controls">
+  <button type="button" id="capturePhoto" disabled>
+    التقاط الصورة
+  </button>
+
+  <button type="button" id="analyzePhoto" disabled>
+    حللي بشرتي
+  </button>
+</div>
+
+<p id="analysisMessage" aria-live="polite">
+  اختاري الوجه أو اليد ثم التقطي صورة أو ارفعي صورة.
+</p>
+
+<div id="analysisResult" hidden>
+  <h3 id="undertoneName"></h3>
+  <p id="undertoneDescription"></p>
+
+  <div id="colorPalette"></div>
+
+  <h3>المنتجات المقترحة لكِ</h3>
+  <div id="matchedProducts"></div>
+
+  <button type="button" id="resetAnalysis">
+    إعادة التحليل
+  </button>
+</div>
 
       </div>
 
