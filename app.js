@@ -550,63 +550,6 @@ function displayUndertoneResult(type, description, colors, skinTone) {
   });
 }
 
-// عرض نتيجة التحليل
-function displayUndertoneResult(type, description, colors, skinTone) {
-
-  document.getElementById("undertoneName").textContent =
-    `الاندرتون التقديري: ${type}`;
-
-  document.getElementById("undertoneDescription").textContent =
-    description;
-
-  document.getElementById("skinToneName").textContent =
-    skinTone || "غير محدد";
-
-  const palette = document.getElementById("colorPalette");
-  palette.innerHTML = "";
-
-  colors.forEach(color => {
-    const swatch = document.createElement("span");
-    swatch.style.backgroundColor = color;
-    palette.appendChild(swatch);
-  });
-
-  const recommendations = document.getElementById("matchedProducts");
-  recommendations.innerHTML = "";
-
-  const makeupProducts = products.filter(
-    product => product.category === "makeup"
-  );
-
-  makeupProducts.forEach(product => {
-    const item = document.createElement("div");
-    item.className = "matched-product";
-
-    const image = document.createElement("img");
-    image.src = product.image;
-    image.alt = product.name;
-
-    const name = document.createElement("strong");
-    name.textContent = product.brand;
-
-    const title = document.createElement("p");
-    title.textContent = product.name;
-
-    item.append(image, name, title);
-    recommendations.appendChild(item);
-  });
-
-  analysisResult.hidden = false;
-
-  analysisMessage.textContent =
-    "هذه قراءة لونية أولية من الصورة وليست تحليلًا احترافيًا.";
-
-  analysisResult.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-}
-
 // إعادة التحليل
 document.getElementById("resetAnalysis")?.addEventListener("click", () => {
   stopCameraStream();
