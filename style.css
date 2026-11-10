@@ -1149,3 +1149,21 @@ body {
   object-fit: cover;
   border-radius: 14px;
 }
+/* تمييز اختيار الوجه واليد */
+.discovery-option.active {
+    background-color: #879487 !important;
+    color: #ffffff !important;
+    border-color: #879487 !important;
+}
+
+/* تمييز اختيار الكاميرا ورفع الصورة */
+.discovery-action.active {
+    background-color: #879487 !important;
+    color: #ffffff !important;
+    border-color: #879487 !important;
+}
+
+/* إظهار معاينة الصورة */
+.analysis-preview.visible {
+    display: block !important;
+}
