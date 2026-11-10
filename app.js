@@ -528,7 +528,8 @@ function displayUndertoneResult(type, description, colors, skinTone) {
     const image = document.createElement("img");
     image.src = product.image;
     image.alt = product.name;
-
+    image.className = "matched-product-image";
+    
     const name = document.createElement("strong");
     name.textContent = product.brand;
 
