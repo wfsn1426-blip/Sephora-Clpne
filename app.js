@@ -666,22 +666,27 @@ document.addEventListener("DOMContentLoaded", function () {
 const faceOption = document.getElementById("faceOption");
 const handOption = document.getElementById("handOption");
 
-function selectAnalysisTarget(target) {
-  selectedTarget = target;
+const uploadActionButton = document.querySelector(".upload-action");
 
-  faceOption.classList.toggle("active", target === "face");
-  handOption.classList.toggle("active", target === "hand");
+startCamera.addEventListener("click", () => {
+  startCamera.classList.add("active");
+  uploadActionButton.classList.remove("active");
 
-  analysisMessage.textContent =
-    target === "face"
-      ? "تم اختيار تحليل الوجه. التقطي صورة أو ارفعي صورة واضحة."
-      : "تم اختيار تحليل اليد. التقطي صورة أو ارفعي صورة واضحة.";
-}
-
-faceOption.addEventListener("click", () => {
-  selectAnalysisTarget("face");
+  document.querySelector(".analysis-preview").classList.add("visible");
 });
 
-handOption.addEventListener("click", () => {
-  selectAnalysisTarget("hand");
+uploadActionButton.addEventListener("click", () => {
+  uploadActionButton.classList.add("active");
+  startCamera.classList.remove("active");
+
+  document.querySelector(".analysis-preview").classList.add("visible");
+});
+
+uploadPhoto.addEventListener("change", () => {
+  if (uploadPhoto.files.length > 0) {
+    uploadActionButton.classList.add("active");
+    startCamera.classList.remove("active");
+
+    document.querySelector(".analysis-preview").classList.add("visible");
+  }
 });
