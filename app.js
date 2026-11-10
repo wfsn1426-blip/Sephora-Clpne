@@ -551,29 +551,16 @@ function displayUndertoneResult(type, description, colors, skinTone) {
 }
 
 // عرض نتيجة التحليل
-const brightness = (red + green + blue) / 3;
+function displayUndertoneResult(type, description, colors, skinTone) {
 
-let skinTone;
-
-if (brightness >= 210) {
-  skinTone = "فاتح";
-} else if (brightness >= 180) {
-  skinTone = "فاتح متوسط";
-} else if (brightness >= 145) {
-  skinTone = "متوسط";
-} else if (brightness >= 110) {
-  skinTone = "قمحي";
-} else if (brightness >= 75) {
-  skinTone = "داكن";
-} else {
-  skinTone = "عميق";
-}
-
-displayUndertoneResult(type, description, colors, skinTone);  document.getElementById("undertoneName").textContent =
+  document.getElementById("undertoneName").textContent =
     `الاندرتون التقديري: ${type}`;
 
   document.getElementById("undertoneDescription").textContent =
     description;
+
+  document.getElementById("skinToneName").textContent =
+    skinTone || "غير محدد";
 
   const palette = document.getElementById("colorPalette");
   palette.innerHTML = "";
@@ -612,7 +599,7 @@ displayUndertoneResult(type, description, colors, skinTone);  document.getElemen
   analysisResult.hidden = false;
 
   analysisMessage.textContent =
-    "هذه قراءة لونية أولية من الصورة وليست تحليلًا احترافيًا أو مطابقة مضمونة للدرجات. الإضاءة والكاميرا قد تؤثر في النتيجة.";
+    "هذه قراءة لونية أولية من الصورة وليست تحليلًا احترافيًا.";
 
   analysisResult.scrollIntoView({
     behavior: "smooth",
