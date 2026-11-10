@@ -264,15 +264,24 @@ let selectedImage = null;
 let selectedTarget = "face";
 
 // اختيار الوجه أو اليد
-document.getElementById("faceOption")?.addEventListener("click", () => {
+
+const faceOption = document.getElementById("faceOption");
+const handOption = document.getElementById("handOption");
+
+faceOption?.addEventListener("click", () => {
   selectedTarget = "face";
+  faceOption.classList.add("active");
+  handOption?.classList.remove("active");
   analysisMessage.textContent = "تم اختيار تحليل الوجه.";
 });
 
-document.getElementById("handOption")?.addEventListener("click", () => {
+handOption?.addEventListener("click", () => {
   selectedTarget = "hand";
+  handOption.classList.add("active");
+  faceOption?.classList.remove("active");
   analysisMessage.textContent = "تم اختيار تحليل اليد.";
 });
+
 
 // إيقاف الكاميرا
 function stopCameraStream() {
@@ -737,30 +746,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
   });
 
-const faceOption = document.getElementById("faceOption");
-const handOption = document.getElementById("handOption");
-
-const uploadActionButton = document.querySelector(".upload-action");
-
-startCamera.addEventListener("click", () => {
-  startCamera.classList.add("active");
-  uploadActionButton.classList.remove("active");
-
-  document.querySelector(".analysis-preview").classList.add("visible");
-});
-
-uploadActionButton.addEventListener("click", () => {
-  uploadActionButton.classList.add("active");
-  startCamera.classList.remove("active");
-
-  document.querySelector(".analysis-preview").classList.add("visible");
-});
-
-uploadPhoto.addEventListener("change", () => {
-  if (uploadPhoto.files.length > 0) {
-    uploadActionButton.classList.add("active");
-    startCamera.classList.remove("active");
-
-    document.querySelector(".analysis-preview").classList.add("visible");
-  }
-});
