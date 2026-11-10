@@ -265,21 +265,22 @@ let selectedTarget = "face";
 
 // اختيار الوجه أو اليد
 
-const faceOption = document.getElementById("faceOption");
-const handOption = document.getElementById("handOption");
+document.getElementById("faceOption")?.addEventListener("click", () => {
+    selectedTarget = "face";
 
-faceOption?.addEventListener("click", () => {
-  selectedTarget = "face";
-  faceOption.classList.add("active");
-  handOption?.classList.remove("active");
-  analysisMessage.textContent = "تم اختيار تحليل الوجه.";
+    document.getElementById("faceOption").classList.add("active");
+    document.getElementById("handOption").classList.remove("active");
+
+    analysisMessage.textContent = "تم اختيار تحليل الوجه.";
 });
 
-handOption?.addEventListener("click", () => {
-  selectedTarget = "hand";
-  handOption.classList.add("active");
-  faceOption?.classList.remove("active");
-  analysisMessage.textContent = "تم اختيار تحليل اليد.";
+document.getElementById("handOption")?.addEventListener("click", () => {
+    selectedTarget = "hand";
+
+    document.getElementById("handOption").classList.add("active");
+    document.getElementById("faceOption").classList.remove("active");
+
+    analysisMessage.textContent = "تم اختيار تحليل اليد.";
 });
 
 
