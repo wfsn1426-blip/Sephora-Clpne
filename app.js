@@ -542,9 +542,9 @@ function displayUndertoneResult(type, description, colors, skinTone) {
 
   analysisResult.hidden = false;
 
-  analysisMessage.textContent =
-    "هذه قراءة لونية أولية وليست تحليلًا احترافيًا أو مطابقة مضمونة للدرجات.";
-
+ analysisMessage.textContent =
+  "لأفضل نتيجة، استخدمي صورة واضحة بإضاءة طبيعية ومن دون فلاتر.";
+  
   analysisResult.scrollIntoView({
     behavior: "smooth",
     block: "start"
