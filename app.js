@@ -379,9 +379,10 @@ uploadPhoto?.addEventListener("change", event => {
   reader.readAsDataURL(file);
 });
 
-// تحليل الصورة - تقدير لوني أولي فقط
+
+// تحليل الصورة
 analyzePhoto?.addEventListener("click", () => {
-  if (!selectedImage || !selectedImage.complete) {
+  if (!selectedImage || !selectedImage.complete || !selectedImage.naturalWidth) {
     analysisMessage.textContent = "اختاري صورة أولاً.";
     return;
   }
@@ -389,10 +390,6 @@ analyzePhoto?.addEventListener("click", () => {
   try {
     const width = selectedImage.naturalWidth;
     const height = selectedImage.naturalHeight;
-
-    if (!width || !height) {
-      throw new Error("Invalid image");
-    }
 
     analysisCanvas.width = 80;
     analysisCanvas.height = 80;
@@ -458,13 +455,90 @@ analyzePhoto?.addEventListener("click", () => {
       colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
     }
 
-    displayUndertoneResult(type, description, colors);
+    const brightness = (red + green + blue) / 3;
+
+    let skinTone;
+
+    if (brightness >= 210) {
+      skinTone = "فاتح";
+    } else if (brightness >= 180) {
+      skinTone = "فاتح متوسط";
+    } else if (brightness >= 145) {
+      skinTone = "متوسط";
+    } else if (brightness >= 110) {
+      skinTone = "قمحي";
+    } else if (brightness >= 75) {
+      skinTone = "داكن";
+    } else {
+      skinTone = "عميق";
+    }
+
+    displayUndertoneResult(type, description, colors, skinTone);
 
   } catch (error) {
+    console.error("Beauty AI analysis error:", error);
     analysisMessage.textContent =
       "تعذر قراءة الصورة. جربي صورة أوضح بإضاءة طبيعية.";
   }
 });
+
+
+// عرض نتيجة التحليل
+function displayUndertoneResult(type, description, colors, skinTone) {
+
+  document.getElementById("undertoneName").textContent =
+    `الاندرتون التقديري: ${type}`;
+
+  document.getElementById("undertoneDescription").textContent =
+    description;
+
+  document.getElementById("skinToneName").textContent =
+    skinTone;
+
+  const palette = document.getElementById("colorPalette");
+  palette.innerHTML = "";
+
+  colors.forEach(color => {
+    const swatch = document.createElement("span");
+    swatch.style.backgroundColor = color;
+    palette.appendChild(swatch);
+  });
+
+  const recommendations = document.getElementById("matchedProducts");
+  recommendations.innerHTML = "";
+
+  const makeupProducts = products.filter(
+    product => product.category === "makeup"
+  );
+
+  makeupProducts.forEach(product => {
+    const item = document.createElement("div");
+    item.className = "matched-product";
+
+    const image = document.createElement("img");
+    image.src = product.image;
+    image.alt = product.name;
+
+    const name = document.createElement("strong");
+    name.textContent = product.brand;
+
+    const title = document.createElement("p");
+    title.textContent = product.name;
+
+    item.append(image, name, title);
+    recommendations.appendChild(item);
+  });
+
+  analysisResult.hidden = false;
+
+  analysisMessage.textContent =
+    "هذه قراءة لونية أولية وليست تحليلًا احترافيًا أو مطابقة مضمونة للدرجات.";
+
+  analysisResult.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
 
 // عرض نتيجة التحليل
 const brightness = (red + green + blue) / 3;
