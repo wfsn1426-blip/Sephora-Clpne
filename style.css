@@ -1114,3 +1114,38 @@ body {
 .discovery-option.active span {
   color: #536b55;
 }
+/* الاختيار المحدد */
+.discovery-option.active,
+.discovery-action.active {
+  border: 2px solid #879487 !important;
+  background: #e8eee7 !important;
+  color: #526753 !important;
+  box-shadow: 0 0 0 3px rgba(135, 148, 135, 0.15);
+}
+
+/* مربع معاينة الصورة */
+.analysis-preview {
+  display: none;
+  width: 240px;
+  height: 240px;
+  max-width: 100%;
+  margin: 20px auto;
+  border: 2px dashed #879487;
+  border-radius: 16px;
+  background: #f5f1ea;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.analysis-preview.visible {
+  display: flex;
+}
+
+#analysisImage,
+#cameraVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
