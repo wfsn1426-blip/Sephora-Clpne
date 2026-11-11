@@ -610,6 +610,14 @@ function getMedian(values) {
 const red = getMedian(redValues);
 const green = getMedian(greenValues);
 const blue = getMedian(blueValues);
+    
+const averageBrightness = (red + green + blue) / 3;
+
+if (averageBrightness < 45 || averageBrightness > 220) {
+  analysisMessage.textContent =
+    "الإضاءة غير مناسبة للتحليل. استخدمي إضاءة طبيعية متوازنة ومن دون فلاش.";
+  return;
+}
 
 
     const warmScore = red - blue;
