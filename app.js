@@ -569,27 +569,48 @@ analysisCanvas.style.width = "240px";
 analysisCanvas.style.height = "240px";
 analysisCanvas.style.display = "block";
     
-    const pixels = context.getImageData(0, 0, 80, 80).data;
+    
+const pixels = context.getImageData(0, 0, 80, 80).data;
 
-    let red = 0;
-    let green = 0;
-    let blue = 0;
-    let count = 0;
+const redValues = [];
+const greenValues = [];
+const blueValues = [];
 
-    for (let i = 0; i < pixels.length; i += 4) {
-      if (pixels[i + 3] < 200) continue;
+for (let i = 0; i < pixels.length; i += 4) {
+  const r = pixels[i];
+  const g = pixels[i + 1];
+  const b = pixels[i + 2];
+  const alpha = pixels[i + 3];
 
-      red += pixels[i];
-      green += pixels[i + 1];
-      blue += pixels[i + 2];
-      count++;
-    }
+  if (alpha < 200) continue;
 
-    if (!count) throw new Error("No pixels");
+  // استبعاد البكسلات شديدة الظلام أو شديدة السطوع
+  const brightness = (r + g + b) / 3;
 
-    red /= count;
-    green /= count;
-    blue /= count;
+  if (brightness < 20 || brightness > 245) continue;
+
+  redValues.push(r);
+  greenValues.push(g);
+  blueValues.push(b);
+}
+
+if (redValues.length < 100) {
+  throw new Error("Insufficient skin color samples");
+}
+
+function getMedian(values) {
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+
+  return sorted.length % 2 === 0
+    ? (sorted[middle - 1] + sorted[middle]) / 2
+    : sorted[middle];
+}
+
+const red = getMedian(redValues);
+const green = getMedian(greenValues);
+const blue = getMedian(blueValues);
+
 
     const warmScore = red - blue;
     const oliveScore = green - red;
