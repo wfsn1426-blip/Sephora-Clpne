@@ -565,11 +565,12 @@ analyzePhoto?.addEventListener("click", async () => {
 
     displayUndertoneResult(type, description, colors, skinTone);
 
-  } catch (error) {
-    console.error("Beauty AI analysis error:", error);
-    analysisMessage.textContent =
-      "تعذر قراءة الصورة. جربي صورة أوضح بإضاءة طبيعية.";
-  }
+ } catch (error) {
+  console.error("Beauty AI analysis error:", error);
+
+  analysisMessage.textContent =
+    "تعذر تشغيل أدوات التحليل. تأكدي من اتصال الإنترنت ثم حاولي مرة أخرى.";
+}
 });
 
 
