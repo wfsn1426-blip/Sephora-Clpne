@@ -453,13 +453,31 @@ uploadPhoto?.addEventListener("change", event => {
 
 
 // تحليل الصورة
-analyzePhoto?.addEventListener("click", () => {
+analyzePhoto?.addEventListener("click", async () => {
   if (!selectedImage || !selectedImage.complete || !selectedImage.naturalWidth) {
     analysisMessage.textContent = "اختاري صورة أولاً.";
     return;
   }
 
   try {
+    analysisMessage.textContent = "جاري تجهيز أدوات التحليل...";
+
+    const landmarker = await getVisionLandmarker(selectedTarget);
+    const detection = landmarker.detect(selectedImage);
+
+    const hasTarget = selectedTarget === "hand"
+      ? detection.handLandmarks?.length
+      : detection.faceLandmarks?.length;
+
+    if (!hasTarget) {
+      analysisMessage.textContent = selectedTarget === "hand"
+        ? "لم نتمكن من اكتشاف اليد. حاولي تصوير راحة اليد بوضوح."
+        : "لم نتمكن من اكتشاف الوجه. حاولي تصوير الوجه بوضوح.";
+      return;
+    }
+
+    analysisMessage.textContent = "تم اكتشاف الصورة، جاري إكمال التحليل...";
+
     const width = selectedImage.naturalWidth;
     const height = selectedImage.naturalHeight;
 
