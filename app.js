@@ -300,7 +300,9 @@ async function getVisionLandmarker(target) {
               "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"
           },
           runningMode: "IMAGE",
-          numHands: 1
+numHands: 1,
+minHandDetectionConfidence: 0.3,
+minHandPresenceConfidence: 0.3
         }
       );
     }
