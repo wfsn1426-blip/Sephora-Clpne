@@ -646,21 +646,26 @@ let type;
 let description;
 let colors;
 
-if (Math.abs(redGreen) <= 5 && Math.abs(blueYellow) <= 8) {
-  type = "محايد";
-  description = "القراءة اللونية متوازنة مبدئيًا. قد تناسبك الدرجات البيج والوردية الطبيعية.";
-  colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
-} else if (blueYellow > 8 && redGreen > 5) {
+
+const undertoneScore = blueYellow - redGreen;
+
+let type;
+let description;
+let colors;
+
+if (undertoneScore > 10) {
   type = "دافئ";
-  description = "تظهر مؤشرات لونية دافئة مبدئيًا. قد تناسبك الدرجات الذهبية والخوخية.";
+  description = "تظهر مؤشرات دافئة مبدئيًا. قد تناسبك الدرجات الذهبية والخوخية.";
   colors = ["#D69B68", "#C9825B", "#E5B58B", "#A96D45"];
-} else if (redGreen < -5) {
+
+} else if (undertoneScore < -10) {
   type = "بارد";
-  description = "تظهر مؤشرات لونية باردة مبدئيًا. قد تناسبك الدرجات الوردية والتوتية.";
+  description = "تظهر مؤشرات باردة مبدئيًا. قد تناسبك الدرجات الوردية والتوتية.";
   colors = ["#D8A0A8", "#A96D88", "#B8A1C9", "#C58B9D"];
+
 } else {
-  type = "غير محسوم";
-  description = "لم نستطع تحديد الاندرتون بثقة من هذه الصورة. جرّبي إضاءة طبيعية متوازنة وصورة أخرى.";
+  type = "محايد";
+  description = "المؤشرات اللونية متقاربة. قد تناسبك الدرجات المتوازنة.";
   colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
 }
 
