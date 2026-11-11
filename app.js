@@ -271,6 +271,60 @@ let cameraStream = null;
 let selectedImage = null;
 let selectedTarget = "face";
 
+let visionFilesetPromise = null;
+let faceLandmarker = null;
+let handLandmarker = null;
+
+async function getVisionLandmarker(target) {
+  const vision = await visionTasksPromise;
+
+  if (!vision) {
+    throw new Error("تعذر تحميل مكتبة تحليل الصور");
+  }
+
+  if (!visionFilesetPromise) {
+    visionFilesetPromise = vision.FilesetResolver.forVisionTasks(
+      "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/wasm"
+    );
+  }
+
+  const fileset = await visionFilesetPromise;
+
+  if (target === "hand") {
+    if (!handLandmarker) {
+      handLandmarker = await vision.HandLandmarker.createFromOptions(
+        fileset,
+        {
+          baseOptions: {
+            modelAssetPath:
+              "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task"
+          },
+          runningMode: "IMAGE",
+          numHands: 1
+        }
+      );
+    }
+
+    return handLandmarker;
+  }
+
+  if (!faceLandmarker) {
+    faceLandmarker = await vision.FaceLandmarker.createFromOptions(
+      fileset,
+      {
+        baseOptions: {
+          modelAssetPath:
+            "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task"
+        },
+        runningMode: "IMAGE",
+        numFaces: 1
+      }
+    );
+  }
+
+  return faceLandmarker;
+}
+
 // اختيار الوجه أو اليد
 
 document.getElementById("faceOption")?.addEventListener("click", () => {
