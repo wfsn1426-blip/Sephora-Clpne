@@ -383,6 +383,22 @@ function showAnalysisImage(source) {
   analysisImage.src = source;
 }
 
+// إظهار البطاقة الرمادية أثناء تصوير الوجه
+function drawGrayCard(context, width, height) {
+  const cardWidth = width * 0.16;
+  const cardHeight = cardWidth * 0.65;
+
+  const x = width - cardWidth - 20;
+  const y = 20;
+
+  context.fillStyle = "rgb(118, 118, 118)";
+  context.fillRect(x, y, cardWidth, cardHeight);
+
+  context.strokeStyle = "#ffffff";
+  context.lineWidth = 3;
+  context.strokeRect(x, y, cardWidth, cardHeight);
+}
+
 // تشغيل الكاميرا
 startCamera?.addEventListener("click", async () => {
   try {
@@ -394,6 +410,14 @@ startCamera?.addEventListener("click", async () => {
     });
 
     cameraVideo.srcObject = cameraStream;
+    if (selectedTarget === "face") {
+  analysisMessage.textContent =
+    "ضعي وجهك بجانب البطاقة الرمادية، وتأكدي من ظهورها كاملة.";
+} else {
+  analysisMessage.textContent =
+    "الكاميرا تعمل. ضعي اليد في إضاءة طبيعية.";
+}
+    
     cameraVideo.hidden = false;
     analysisImage.hidden = true;
     selectedImage = null;
