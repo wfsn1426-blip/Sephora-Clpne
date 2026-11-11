@@ -394,13 +394,8 @@ startCamera?.addEventListener("click", async () => {
     });
 
     cameraVideo.srcObject = cameraStream;
-    if (selectedTarget === "face") {
-  analysisMessage.textContent =
-    "ضعي وجهك بجانب البطاقة الرمادية، وتأكدي من ظهورها كاملة.";
-} else {
-  analysisMessage.textContent =
-    "الكاميرا تعمل. ضعي اليد في إضاءة طبيعية.";
-}
+   analysisMessage.textContent =
+  "وجّهي الكاميرا نحو الوجه أو اليد في إضاءة طبيعية، وابتعدي عن الفلاش.";
     
     cameraVideo.hidden = false;
     analysisImage.hidden = true;
