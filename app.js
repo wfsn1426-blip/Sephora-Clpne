@@ -1,4 +1,12 @@
 
+// تحميل مكتبة تحليل الوجه واليد
+const visionTasksPromise = import(
+  "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.mjs"
+).catch(error => {
+  console.error("MediaPipe loading error:", error);
+  return null;
+});
+
 const products = [
   // MAKEUP
   {
