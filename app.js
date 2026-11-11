@@ -627,50 +627,55 @@ if (averageBrightness < 45 || averageBrightness > 220) {
 }
 
 
-    const warmScore = red - blue;
-    const oliveScore = green - red;
+   
+const brightness = (red + green + blue) / 3;
 
-    let type;
-    let description;
-    let colors;
+// تحويل اللون إلى مؤشرات لونية نسبية
+const redGreen = red - green;
+const blueYellow = (red + green) / 2 - blue;
 
-    if (oliveScore > 8 && warmScore > 5) {
-      type = "زيتوني";
-      description = "قد تناسبك الدرجات الزيتونية والترابية والذهبية الهادئة.";
-      colors = ["#B5A078", "#8B7355", "#A7A77C", "#C49A6C"];
-    } else if (warmScore > 15) {
-      type = "دافئ";
-      description = "قد تناسبك الدرجات الذهبية والخوخية والمرجانية.";
-      colors = ["#D69B68", "#C9825B", "#E5B58B", "#A96D45"];
-    } else if (warmScore < 0) {
-      type = "بارد";
-      description = "قد تناسبك الدرجات الوردية والتوتية والبنفسجية.";
-      colors = ["#D8A0A8", "#A96D88", "#B8A1C9", "#C58B9D"];
-    } else {
-      type = "محايد";
-      description = "قد تناسبك الدرجات المتوازنة مثل البيج والوردي الطبيعي.";
-      colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
-    }
+// تصنيف مبدئي وليس قياسًا مؤكدًا للاندرتون
+let type;
+let description;
+let colors;
 
-    const brightness = (red + green + blue) / 3;
+if (Math.abs(redGreen) <= 5 && Math.abs(blueYellow) <= 8) {
+  type = "محايد";
+  description = "القراءة اللونية متوازنة مبدئيًا. قد تناسبك الدرجات البيج والوردية الطبيعية.";
+  colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
+} else if (blueYellow > 8 && redGreen > 5) {
+  type = "دافئ";
+  description = "تظهر مؤشرات لونية دافئة مبدئيًا. قد تناسبك الدرجات الذهبية والخوخية.";
+  colors = ["#D69B68", "#C9825B", "#E5B58B", "#A96D45"];
+} else if (redGreen < -5) {
+  type = "بارد";
+  description = "تظهر مؤشرات لونية باردة مبدئيًا. قد تناسبك الدرجات الوردية والتوتية.";
+  colors = ["#D8A0A8", "#A96D88", "#B8A1C9", "#C58B9D"];
+} else {
+  type = "غير محسوم";
+  description = "لم نستطع تحديد الاندرتون بثقة من هذه الصورة. جرّبي إضاءة طبيعية متوازنة وصورة أخرى.";
+  colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
+}
 
-    let skinTone;
+// عمق البشرة: تقدير أولي يتأثر بالإضاءة والكاميرا
+let skinTone;
 
-    if (brightness >= 210) {
-      skinTone = "فاتح";
-    } else if (brightness >= 180) {
-      skinTone = "فاتح متوسط";
-    } else if (brightness >= 145) {
-      skinTone = "متوسط";
-    } else if (brightness >= 110) {
-      skinTone = "قمحي";
-    } else if (brightness >= 75) {
-      skinTone = "داكن";
-    } else {
-      skinTone = "عميق";
-    }
+if (brightness >= 210) {
+  skinTone = "فاتح";
+} else if (brightness >= 180) {
+  skinTone = "فاتح متوسط";
+} else if (brightness >= 145) {
+  skinTone = "متوسط";
+} else if (brightness >= 110) {
+  skinTone = "قمحي";
+} else if (brightness >= 75) {
+  skinTone = "داكن";
+} else {
+  skinTone = "عميق";
+}
 
-    displayUndertoneResult(type, description, colors, skinTone);
+displayUndertoneResult(type, description, colors, skinTone);
+
 
  } catch (error) {
   console.error("Beauty AI analysis error:", error);
