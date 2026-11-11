@@ -633,7 +633,14 @@ const brightness = (red + green + blue) / 3;
 // تحويل اللون إلى مؤشرات لونية نسبية
 const redGreen = red - green;
 const blueYellow = (red + green) / 2 - blue;
-
+    console.log("قيم تحليل البشرة:", {
+  red,
+  green,
+  blue,
+  redGreen,
+  blueYellow
+});
+    
 // تصنيف مبدئي وليس قياسًا مؤكدًا للاندرتون
 let type;
 let description;
