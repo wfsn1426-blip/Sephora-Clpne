@@ -649,10 +649,6 @@ let colors;
 
 const undertoneScore = blueYellow - redGreen;
 
-let type;
-let description;
-let colors;
-
 if (undertoneScore > 10) {
   type = "دافئ";
   description = "تظهر مؤشرات دافئة مبدئيًا. قد تناسبك الدرجات الذهبية والخوخية.";
