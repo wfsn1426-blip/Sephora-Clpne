@@ -466,7 +466,11 @@ analyzePhoto?.addEventListener("click", async () => {
 
     const landmarker = await getVisionLandmarker(selectedTarget);
     const detection = landmarker.detect(selectedImage);
-
+    console.log("نوع التحليل:", selectedTarget);
+console.log("نتيجة الاكتشاف:", detection);
+console.log("عدد الأيدي المكتشفة:", detection?.landmarks?.length || 0);
+console.log("عدد الوجوه المكتشفة:", detection?.faceLandmarks?.length || 0);
+    
     const hasTarget = selectedTarget === "hand"
       ? detection.landmarks?.length
       : detection.faceLandmarks?.length;
