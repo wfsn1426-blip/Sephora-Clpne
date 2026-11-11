@@ -468,7 +468,7 @@ analyzePhoto?.addEventListener("click", async () => {
     const detection = landmarker.detect(selectedImage);
 
     const hasTarget = selectedTarget === "hand"
-      ? detection.handLandmarks?.length
+      ? detection.landmarks?.length
       : detection.faceLandmarks?.length;
 
     if (!hasTarget) {
@@ -490,7 +490,7 @@ analysisCanvas.height = 80;
 const context = analysisCanvas.getContext("2d");
 
 const landmarks = selectedTarget === "hand"
-  ? detection.handLandmarks[0]
+  ? detection.landmarks[0]
   : detection.faceLandmarks[0];
 
 if (selectedTarget === "face") {
