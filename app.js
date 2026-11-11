@@ -481,22 +481,87 @@ analyzePhoto?.addEventListener("click", async () => {
     const width = selectedImage.naturalWidth;
     const height = selectedImage.naturalHeight;
 
-    analysisCanvas.width = 80;
-    analysisCanvas.height = 80;
+    
+analysisCanvas.width = 80;
+analysisCanvas.height = 80;
 
-    const context = analysisCanvas.getContext("2d");
+const context = analysisCanvas.getContext("2d");
+
+const landmarks = selectedTarget === "hand"
+  ? detection.handLandmarks[0]
+  : detection.faceLandmarks[0];
+
+if (selectedTarget === "face") {
+  // أخذ عينات من منطقتي الخدين
+  const cheekPoints = [123, 352];
+
+  cheekPoints.forEach((index, position) => {
+    const point = landmarks[index];
+    const cropSize = width * 0.045;
+
+    const sx = Math.max(
+      0,
+      Math.min(width - cropSize, point.x * width - cropSize / 2)
+    );
+
+    const sy = Math.max(
+      0,
+      Math.min(height - cropSize, point.y * height - cropSize / 2)
+    );
 
     context.drawImage(
       selectedImage,
-      width * 0.35,
-      height * 0.35,
-      width * 0.3,
-      height * 0.3,
+      sx,
+      sy,
+      cropSize,
+      cropSize,
+      position * 40,
       0,
-      0,
-      80,
+      40,
       80
     );
+  });
+
+} else {
+  // أخذ عينة من وسط راحة اليد
+  const wrist = landmarks[0];
+  const middleBase = landmarks[9];
+
+  const centerX = (wrist.x + middleBase.x) / 2;
+  const centerY = (wrist.y + middleBase.y) / 2;
+
+  const cropSize = Math.min(
+    width,
+    height,
+    Math.hypot(
+      (middleBase.x - wrist.x) * width,
+      (middleBase.y - wrist.y) * height
+    ) * 0.45
+  );
+
+  const sx = Math.max(
+    0,
+    Math.min(width - cropSize, centerX * width - cropSize / 2)
+  );
+
+  const sy = Math.max(
+    0,
+    Math.min(height - cropSize, centerY * height - cropSize / 2)
+  );
+
+  context.drawImage(
+    selectedImage,
+    sx,
+    sy,
+    cropSize,
+    cropSize,
+    0,
+    0,
+    80,
+    80
+  );
+}
+
 
     const pixels = context.getImageData(0, 0, 80, 80).data;
 
