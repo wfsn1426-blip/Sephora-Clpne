@@ -562,7 +562,11 @@ if (selectedTarget === "face") {
   );
 }
 
-
+analysisCanvas.hidden = false;
+analysisCanvas.style.width = "240px";
+analysisCanvas.style.height = "240px";
+analysisCanvas.style.display = "block";
+    
     const pixels = context.getImageData(0, 0, 80, 80).data;
 
     let red = 0;
