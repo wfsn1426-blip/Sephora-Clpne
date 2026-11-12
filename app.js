@@ -893,3 +893,15 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   }); 
 
+/* Load BEAUTY AI Global Database */
+
+import("./beauty-ai-global-xl.js")
+  .then(database => {
+    window.BEAUTY_AI_DATABASE = database;
+
+    console.log("BEAUTY AI database loaded successfully");
+    console.log("Verified products:", database.BEAUTY_AI_PRODUCTS.length);
+  })
+  .catch(error => {
+    console.error("BEAUTY AI database loading error:", error);
+  });
