@@ -168,6 +168,17 @@ const products = [
     image: "assets/makeup/dior-forever-skin-glow.jpg",
     officialUrl: "https://www.dior.com/ar_sa/beauty/products/dior-forever-skin-glow-E000001130.html"
   },
+  {
+  brand: "ESTÉE LAUDER",
+  name: "Double Wear Stay-in-Place Foundation",
+  description: "كريم أساس ثابت بتغطية قابلة للبناء ومظهر مطفي.",
+  price: 280,
+  category: "makeup",
+  productType: "foundation",
+  databaseId: "estee-lauder-double-wear",
+  image: "assets/makeup/estee-lauder-double-wear.jpg",
+  officialUrl: "https://www.esteelauder.com/product/643/141225/product-catalog/makeup/face/foundation/double-wear/stay-in-place-longwear-matte-foundation"
+},
 ];
 
 // عرض المنتجات
