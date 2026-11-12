@@ -575,7 +575,9 @@ analysisCanvas.hidden = false;
 analysisCanvas.style.width = "240px";
 analysisCanvas.style.height = "240px";
 analysisCanvas.style.display = "block";
-    
+analysisCanvas.style.border = "2px solid red";
+analysisCanvas.style.margin = "15px auto";
+analysisCanvas.style.background = "#eeeeee";    
     
 const pixels = context.getImageData(0, 0, 80, 80).data;
 
