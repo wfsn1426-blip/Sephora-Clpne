@@ -928,7 +928,7 @@ const selectedUndertone = undertoneMap[type] || null;
 
 const databaseProducts =
   window.BEAUTY_AI_DATABASE?.BEAUTY_AI_PRODUCTS || [];
-      
+
 const databaseProduct = databaseProducts.find(
   item => item.id === product.databaseId
 );
@@ -936,7 +936,9 @@ const databaseProduct = databaseProducts.find(
 const matchingUndertoneShades = (
   databaseProduct?.shades || []
 ).filter(item =>
-  item.normalizedUndertone === selectedUndertone
+  selectedUndertone &&
+  item.normalizedUndertone === selectedUndertone &&
+  item.sourceStatus === "official-brand-page"
 );
 
 const shadeCodes = [
@@ -947,15 +949,15 @@ if (product.recommendedShade) {
   shade.textContent = `الدرجة: ${product.recommendedShade}`;
 } else if (shadeCodes.length > 0) {
   shade.textContent =
-    `خيارات الاندرتون المحايد: ${shadeCodes.join("، ")}`;
+    `درجات بنفس الاندرتون ${type}: ${shadeCodes.join("، ")} — تحتاج تأكيد عمق البشرة`;
 } else {
-  shade.textContent = "لا توجد درجة مطابقة موثقة حاليًا";
+  shade.textContent = "لم تتوفر درجة موثقة حاليًا";
 }
 
 shade.style.fontSize = "12px";
 shade.style.margin = "0";
 shade.style.color = "#879487";
-
+      
       card.append(image, brand, name, shade);
       productArea.appendChild(card);
     });
