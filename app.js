@@ -156,7 +156,7 @@ const products = [
     originalPrice: 809,
     category: "skincare",
     image: "assets/skincare/clinique-3-step-skincare-set.png"
-  }
+  },
   {
     brand: "DIOR",
     name: "Forever Skin Glow Foundation",
