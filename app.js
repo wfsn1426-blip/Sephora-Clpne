@@ -717,8 +717,7 @@ displayUndertoneResult(type, description, colors, skinTone);
 }
 });
 
-
-// عرض نتيجة التحليل
+// عرض نتيجة التحليل والتوصيات
 function displayUndertoneResult(type, description, colors, skinTone) {
 
   document.getElementById("undertoneName").textContent =
@@ -728,8 +727,9 @@ function displayUndertoneResult(type, description, colors, skinTone) {
     description;
 
   document.getElementById("skinToneName").textContent =
-    skinTone;
+    skinTone || "غير محدد";
 
+  // عرض لوحة الألوان
   const palette = document.getElementById("colorPalette");
   palette.innerHTML = "";
 
@@ -739,37 +739,225 @@ function displayUndertoneResult(type, description, colors, skinTone) {
     palette.appendChild(swatch);
   });
 
+  // تجهيز أقسام المكياج
   const recommendations = document.getElementById("matchedProducts");
   recommendations.innerHTML = "";
+
+  const categories = [
+    { id: "foundation", name: "كريم الأساس" },
+    { id: "concealer", name: "الكونسيلر" },
+    { id: "blush", name: "البلاشر" },
+    { id: "lipstick", name: "الأرواج" },
+    { id: "contour", name: "الكونتور" },
+    { id: "lipliner", name: "محدد الشفاه" }
+  ];
+
+  // تحديد نوع المنتج من بياناته أو اسمه
+  function getProductType(product) {
+    if (product.productType) {
+      return product.productType.toLowerCase();
+    }
+
+    const name = (
+      (product.name || "") + " " +
+      (product.description || "")
+    ).toLowerCase();
+
+    if (/foundation|skin glow|كريم اساس|فاونديشن/.test(name)) {
+      return "foundation";
+    }
+
+    if (/concealer|كونسيلر/.test(name)) {
+      return "concealer";
+    }
+
+    if (/blush|blusher|cheek|بلاشر|خدود/.test(name)) {
+      return "blush";
+    }
+
+    if (/lipstick|lip duo|lip color|أحمر شفاه|روج|ارواج/.test(name)) {
+      return "lipstick";
+    }
+
+    if (/contour|bronzer|كونتور|برونزر/.test(name)) {
+      return "contour";
+    }
+
+    if (/lip liner|lipliner|محدد شفاه|محدد الشفاه/.test(name)) {
+      return "lipliner";
+    }
+
+    return null;
+  }
 
   const makeupProducts = products.filter(
     product => product.category === "makeup"
   );
 
-  makeupProducts.forEach(product => {
-    const item = document.createElement("div");
-    item.className = "matched-product";
+  const groupedProducts = {};
 
-    const image = document.createElement("img");
-    image.src = product.image;
-    image.alt = product.name;
-    image.className = "matched-product-image";
-    
-    const name = document.createElement("strong");
-    name.textContent = product.brand;
-
-    const title = document.createElement("p");
-    title.textContent = product.name;
-
-    item.append(image, name, title);
-    recommendations.appendChild(item);
+  categories.forEach(category => {
+    groupedProducts[category.id] = makeupProducts.filter(
+      product => getProductType(product) === category.id
+    );
   });
+
+  // إنشاء واجهة التنقل
+  let currentCategory = 0;
+
+  const section = document.createElement("section");
+  section.className = "beauty-recommendation-section";
+
+  const header = document.createElement("div");
+  header.style.display = "flex";
+  header.style.justifyContent = "space-between";
+  header.style.alignItems = "center";
+  header.style.marginBottom = "16px";
+
+  const heading = document.createElement("h3");
+  heading.style.margin = "0";
+  heading.style.fontSize = "20px";
+
+  const counter = document.createElement("span");
+  counter.style.fontSize = "13px";
+  counter.style.color = "#888";
+
+  header.append(heading, counter);
+
+  const productArea = document.createElement("div");
+  productArea.style.display = "grid";
+  productArea.style.gridTemplateColumns =
+    "repeat(auto-fill, minmax(135px, 1fr))";
+  productArea.style.gap = "14px";
+
+  const navigation = document.createElement("div");
+  navigation.style.display = "flex";
+  navigation.style.justifyContent = "space-between";
+  navigation.style.alignItems = "center";
+  navigation.style.marginTop = "20px";
+  navigation.style.gap = "12px";
+
+  function createArrow(label, symbol) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = symbol + " " + label;
+    button.style.padding = "10px 16px";
+    button.style.border = "1px solid #d8cbb9";
+    button.style.borderRadius = "20px";
+    button.style.background = "#fff";
+    button.style.color = "#343a36";
+    button.style.cursor = "pointer";
+    return button;
+  }
+
+  const previousButton = createArrow("السابق", "→");
+  const nextButton = createArrow("التالي", "←");
+
+  navigation.append(previousButton, nextButton);
+
+  section.append(header, productArea, navigation);
+  recommendations.appendChild(section);
+
+  // عرض القسم الحالي
+  function renderCategory() {
+    const category = categories[currentCategory];
+    const categoryProducts = groupedProducts[category.id];
+
+    heading.textContent = category.name;
+    counter.textContent =
+      `${currentCategory + 1} / ${categories.length}`;
+
+    productArea.innerHTML = "";
+
+    if (categoryProducts.length === 0) {
+      const empty = document.createElement("p");
+      empty.textContent = "لا توجد منتجات مضافة لهذا القسم حاليًا.";
+      empty.style.gridColumn = "1 / -1";
+      empty.style.textAlign = "center";
+      empty.style.padding = "25px 10px";
+      empty.style.color = "#888";
+      productArea.appendChild(empty);
+    }
+
+    categoryProducts.forEach(product => {
+      const card = document.createElement("article");
+
+      card.style.textAlign = "center";
+      card.style.padding = "12px";
+      card.style.border = "1px solid #eee";
+      card.style.borderRadius = "14px";
+      card.style.background = "#fff";
+      card.style.minWidth = "0";
+
+      const image = document.createElement("img");
+      image.src = product.image;
+      image.alt = product.name;
+      image.loading = "lazy";
+      image.style.width = "100%";
+      image.style.height = "125px";
+      image.style.objectFit = "contain";
+      image.style.display = "block";
+      image.style.margin = "0 auto 10px";
+
+      image.onerror = () => {
+        image.style.display = "none";
+      };
+
+      const brand = document.createElement("strong");
+      brand.textContent = product.brand;
+      brand.style.display = "block";
+      brand.style.fontSize = "13px";
+      brand.style.marginBottom = "5px";
+
+      const name = document.createElement("p");
+      name.textContent = product.name;
+      name.style.fontSize = "12px";
+      name.style.margin = "0 0 8px";
+      name.style.color = "#555";
+
+      const shade = document.createElement("p");
+      shade.textContent = product.recommendedShade
+        ? `الدرجة: ${product.recommendedShade}`
+        : "الدرجة: لم يتم التحقق منها بعد";
+      shade.style.fontSize = "12px";
+      shade.style.margin = "0";
+      shade.style.color = "#879487";
+
+      card.append(image, brand, name, shade);
+      productArea.appendChild(card);
+    });
+
+    previousButton.disabled = currentCategory === 0;
+    nextButton.disabled = currentCategory === categories.length - 1;
+
+    previousButton.style.opacity =
+      previousButton.disabled ? "0.4" : "1";
+
+    nextButton.style.opacity =
+      nextButton.disabled ? "0.4" : "1";
+  }
+
+  previousButton.addEventListener("click", () => {
+    if (currentCategory > 0) {
+      currentCategory--;
+      renderCategory();
+    }
+  });
+
+  nextButton.addEventListener("click", () => {
+    if (currentCategory < categories.length - 1) {
+      currentCategory++;
+      renderCategory();
+    }
+  });
+
+  renderCategory();
 
   analysisResult.hidden = false;
 
- analysisMessage.textContent =
-  "لأفضل نتيجة، استخدمي صورة واضحة بإضاءة طبيعية ومن دون فلاتر.";
-  
+  analysisMessage.textContent =
+    "هذه قراءة لونية أولية، والدرجات المعروضة لا تُعد مطابقة مؤكدة إلا بعد التحقق منها.";
+
   analysisResult.scrollIntoView({
     behavior: "smooth",
     block: "start"
