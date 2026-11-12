@@ -179,6 +179,26 @@ const products = [
   image: "assets/makeup/estee-lauder-double-wear.jpg",
   officialUrl: "https://www.esteelauder.com/product/643/141225/product-catalog/makeup/face/foundation/double-wear/stay-in-place-longwear-matte-foundation"
 },
+  {
+  brand: "M·A·C",
+  name: "Studio Fix Fluid Foundation",
+  description: "كريم أساس بتغطية متوسطة إلى كاملة ولمسة نهائية طبيعية مطفية.",
+  price: 250,
+  category: "makeup",
+  productType: "foundation",
+  databaseId: "mac-studio-fix-fluid",
+  image: "assets/makeup/mac-studio-fix-fluid.jpg"
+},
+{
+  brand: "FENTY BEAUTY",
+  name: "Pro Filt'r Foundation",
+  description: "كريم أساس بلمسة نهائية مطفية ناعمة وتغطية قابلة للبناء.",
+  price: 230,
+  category: "makeup",
+  productType: "foundation",
+  databaseId: "fenty-pro-filtr-foundation",
+  image: "assets/makeup/fenty-pro-filtr-foundation.jpg"
+},
 ];
 
 // عرض المنتجات
