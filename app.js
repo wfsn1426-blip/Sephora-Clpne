@@ -966,23 +966,37 @@ const databaseProduct = databaseProducts.find(
   item => item.id === product.databaseId
 );
 
-const matchingUndertoneShades = (
+const allVerifiedShades = (
   databaseProduct?.shades || []
 ).filter(item =>
-  selectedUndertone &&
-  item.normalizedUndertone === selectedUndertone &&
   item.sourceStatus === "official-brand-page"
+);
+
+const matchingUndertoneShades = allVerifiedShades.filter(item =>
+  selectedUndertone &&
+  item.normalizedUndertone === selectedUndertone
 );
 
 const shadeCodes = [
   ...new Set(matchingUndertoneShades.map(item => item.code))
 ];
 
+const allShadeCodes = [
+  ...new Set(allVerifiedShades.map(item => item.code))
+];
+
+const hasClassifiedUndertones = allVerifiedShades.some(
+  item => item.normalizedUndertone !== "unknown"
+);
+
 if (product.recommendedShade) {
   shade.textContent = `الدرجة: ${product.recommendedShade}`;
 } else if (shadeCodes.length > 0) {
   shade.textContent =
     `درجات بنفس الاندرتون ${type}: ${shadeCodes.join("، ")} — تحتاج تأكيد عمق البشرة`;
+} else if (allShadeCodes.length > 0 && !hasClassifiedUndertones) {
+  shade.textContent =
+    `الدرجات المتاحة: ${allShadeCodes.join("، ")} — لم يُحدد الاندرتون لكل درجة`;
 } else {
   shade.textContent = "لم تتوفر درجة موثقة حاليًا";
 }
