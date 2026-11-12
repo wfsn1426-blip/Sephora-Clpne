@@ -826,10 +826,11 @@ function displayUndertoneResult(type, description, colors, skinTone) {
 
   const productArea = document.createElement("div");
   productArea.style.display = "grid";
-  productArea.style.gridTemplateColumns =
-    "repeat(auto-fill, minmax(135px, 1fr))";
-  productArea.style.gap = "14px";
-
+ productArea.style.gridTemplateColumns =
+  "repeat(auto-fit, minmax(220px, 260px))";
+productArea.style.justifyContent = "center";
+productArea.style.gap = "18px";
+  
   const navigation = document.createElement("div");
   navigation.style.display = "flex";
   navigation.style.justifyContent = "space-between";
