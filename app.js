@@ -836,11 +836,12 @@ function displayUndertoneResult(type, description, colors, skinTone) {
   header.append(heading, counter);
 
   const productArea = document.createElement("div");
-  productArea.style.display = "grid";
- productArea.style.gridTemplateColumns =
-  "repeat(auto-fit, minmax(220px, 260px))";
-productArea.style.justifyContent = "center";
-productArea.style.gap = "18px";
+ productArea.style.display = "grid";
+productArea.style.gridTemplateColumns =
+  "repeat(auto-fit, minmax(150px, 1fr))";
+productArea.style.justifyContent = "stretch";
+productArea.style.gap = "12px";
+productArea.style.width = "100%";
   
   const navigation = document.createElement("div");
   navigation.style.display = "flex";
