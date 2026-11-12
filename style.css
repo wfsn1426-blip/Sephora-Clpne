@@ -1174,3 +1174,9 @@ body {
   font-weight: 600;
   cursor: pointer;
 }
+#analysisCanvas:not([hidden]) {
+  display: block !important;
+  width: 240px;
+  height: 240px;
+  margin: 15px auto;
+}
