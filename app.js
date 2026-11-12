@@ -917,23 +917,17 @@ function displayUndertoneResult(type, description, colors, skinTone) {
 
      
 const shade = document.createElement("p");
-
 const undertoneMap = {
   "محايد": "neutral",
   "دافئ": "warm",
   "بارد": "cool"
 };
-
-const selectedUndertone = undertoneMap[type] || null;
-
-
+   
 const undertoneMap = {
   "محايد": "neutral",
   "دافئ": "warm",
   "بارد": "cool"
 };
-
-const selectedUndertone = undertoneMap[type] || null;
 
 const databaseProducts =
   window.BEAUTY_AI_DATABASE?.BEAUTY_AI_PRODUCTS || [];
