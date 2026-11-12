@@ -532,7 +532,7 @@ if (selectedTarget === "face") {
   });
 
 } else {
-  // أخذ عينة من وسط راحة اليد
+  // أخذ عينة أصغر من وسط اليد
   const wrist = landmarks[0];
   const middleBase = landmarks[9];
 
@@ -545,7 +545,7 @@ if (selectedTarget === "face") {
     Math.hypot(
       (middleBase.x - wrist.x) * width,
       (middleBase.y - wrist.y) * height
-    ) * 0.45
+    ) * 0.30
   );
 
   const sx = Math.max(
