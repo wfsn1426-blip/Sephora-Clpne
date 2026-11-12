@@ -442,3 +442,38 @@ export const ESTEE_LAUDER_DOUBLE_WEAR = {
     { code: "9N1", name: "Ebony" }
   ]
 };
+// ربط درجات Estée Lauder بتصنيف الاندرتون الرسمي
+
+ESTEE_LAUDER_DOUBLE_WEAR.shades =
+  ESTEE_LAUDER_DOUBLE_WEAR.shades.map(shade => {
+    const intensityMatch = shade.code.match(/^(\d+(?:\.\d+)?)/);
+    const undertoneMatch = shade.code.match(/[CNW]/);
+
+    const undertoneMap = {
+      C: "cool",
+      N: "neutral",
+      W: "warm"
+    };
+
+    return {
+      ...shade,
+      officialIntensity: intensityMatch
+        ? Number(intensityMatch[1])
+        : null,
+      normalizedUndertone: undertoneMap[
+        undertoneMatch?.[0]
+      ] || "unknown",
+      skinDepth: null,
+      sourceStatus: "official-brand-page"
+    };
+  });
+
+// ربط الدرجات بقاعدة المنتجات الرئيسية
+
+const esteeProduct = BEAUTY_AI_PRODUCTS.find(
+  item => item.id === "estee-lauder-double-wear"
+);
+
+if (esteeProduct) {
+  esteeProduct.shades = ESTEE_LAUDER_DOUBLE_WEAR.shades;
+}
