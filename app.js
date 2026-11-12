@@ -187,7 +187,7 @@ const products = [
   category: "makeup",
   productType: "foundation",
   databaseId: "mac-studio-fix-fluid",
-  image: "assets/makeup/mac-studio-fix-fluid.jpg"
+  image: "assets/makeup/mac-studio-fix-fluid.png"
 },
 {
   brand: "FENTY BEAUTY",
