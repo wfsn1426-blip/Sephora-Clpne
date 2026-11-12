@@ -320,3 +320,42 @@ export const COLOR_COSMETIC_MATCH_FIELDS = {
   ]
 
 };
+
+/* ESTEE LAUDER - OFFICIAL SHADE FINDER PROFILE */
+
+export const ESTEE_LAUDER_SKIN_PROFILE = {
+  source: "https://www.esteelauder.com/foundation-finder",
+
+  skinDepth: [
+    "Light",
+    "Light-Medium",
+    "Medium",
+    "Medium-Deep",
+    "Deep",
+    "Extra-Deep",
+    "Ultra-Deep",
+    "Deepest"
+  ],
+
+  undertones: [
+    {
+      id: "cool",
+      label: "Cool",
+      description: "Rosy undertone"
+    },
+    {
+      id: "neutral",
+      label: "Neutral",
+      description: "Balanced pink and golden tones"
+    },
+    {
+      id: "warm",
+      label: "Warm",
+      description: "Golden or olive undertone"
+    }
+  ],
+
+  verification: "official-brand-finder",
+
+  note: "Skin depth and undertone categories only. Individual shade assignments must be verified for each formula."
+};
