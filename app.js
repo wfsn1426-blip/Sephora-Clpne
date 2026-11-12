@@ -670,8 +670,13 @@ const blue = getMedian(blueValues);
 const totalPixels = pixels.length / 4;
 const validSamples = redValues.length;
 const sampleQuality = (validSamples / totalPixels) * 100;
-
-console.log("جودة عينة البشرة:", {
+// التأكد من أن عينة البشرة كافية للتحليل
+if (sampleQuality < 35) {
+  analysisMessage.textContent =
+    "لم نتمكن من أخذ عينة واضحة من البشرة. أعيدي التصوير بإضاءة طبيعية وبدون فلاتر.";
+  return;
+}
+  console.log("جودة عينة البشرة:", {
   totalPixels,
   validSamples,
   rejectedPixels: totalPixels - validSamples,
