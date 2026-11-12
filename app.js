@@ -621,12 +621,12 @@ analysisCanvas.style.border = "2px solid red";
 analysisCanvas.style.margin = "15px auto";
 analysisCanvas.style.background = "#eeeeee";    
 
-    // التحقق من صلاحية عينة البشرة
+const pixels = context.getImageData(0, 0, 80, 80).data;
+
+// التحقق من صلاحية عينة البشرة
 if (!pixels || pixels.length !== 80 * 80 * 4) {
   throw new Error("Invalid skin sample");
 }
-    
-const pixels = context.getImageData(0, 0, 80, 80).data;
 
 const redValues = [];
 const greenValues = [];
