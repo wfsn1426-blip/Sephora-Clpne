@@ -157,6 +157,17 @@ const products = [
     category: "skincare",
     image: "assets/skincare/clinique-3-step-skincare-set.png"
   }
+  {
+    brand: "DIOR",
+    name: "Forever Skin Glow Foundation",
+    description: "كريم أساس بلمسة نهائية مضيئة طبيعية، بتغطية متوسطة إلى عالية قابلة للبناء، وثبات يصل إلى 24 ساعة.",
+    price: 320,
+    category: "makeup",
+    productType: "foundation",
+    databaseId: "dior-forever-skin-glow",
+    image: "assets/makeup/dior-forever-skin-glow.jpg",
+    officialUrl: "https://www.dior.com/ar_sa/beauty/products/dior-forever-skin-glow-E000001130.html"
+  },
 ];
 
 // عرض المنتجات
