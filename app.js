@@ -955,16 +955,6 @@ if (product.recommendedShade) {
 shade.style.fontSize = "12px";
 shade.style.margin = "0";
 shade.style.color = "#879487";
-```
-
-**بعدها احفظي التعديل وجربي التحليل مرة ثانية.**
-
-<badge color="success">النتيجة المتوقعة</badge>
-
-بدل عبارة «لم يتم التحقق منها بعد» ستظهر درجات Dior ذات الاندرتون المحايد، مع التنبيه أنها خيارات أولية وليست درجة نهائية مؤكدة لعمق بشرتك.
-
-أرسلي لي صورة النتيجة بعد التجربة، ونكمل تحسين المطابقة.
-
 
       card.append(image, brand, name, shade);
       productArea.appendChild(card);
