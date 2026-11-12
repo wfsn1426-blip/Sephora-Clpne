@@ -964,6 +964,10 @@ const databaseProducts =
 
 const databaseProduct = databaseProducts.find(
   item => item.id === product.databaseId
+  console.log("PRODUCT ID:", product.databaseId);
+console.log("DATABASE PRODUCT:", databaseProduct);
+console.log("SHADES COUNT:", databaseProduct?.shades?.length);
+console.log("FIRST SHADE:", databaseProduct?.shades?.[0]);
 );
 
 const allVerifiedShades = (
