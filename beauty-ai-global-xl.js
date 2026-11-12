@@ -477,3 +477,34 @@ const esteeProduct = BEAUTY_AI_PRODUCTS.find(
 if (esteeProduct) {
   esteeProduct.shades = ESTEE_LAUDER_DOUBLE_WEAR.shades;
 }
+// FENTY BEAUTY - PRO FILT'R OFFICIAL SHADE CODES
+
+const fentyProFiltrShadeCodes = [
+  "100", "110", "120", "125", "130",
+  "140", "150", "160", "170", "175",
+  "185", "190", "200", "210", "220",
+  "225", "230", "235", "240", "250",
+  "260", "265", "280", "290", "295",
+  "300", "310", "315", "330", "335",
+  "345", "350", "360", "370", "385",
+  "390", "400", "410", "420", "425",
+  "430", "440", "445", "450", "470",
+  "480", "485", "490", "495", "498"
+];
+
+const fentyDatabaseProduct = BEAUTY_AI_PRODUCTS.find(
+  item => item.id === "fenty-pro-filtr-foundation"
+);
+
+if (fentyDatabaseProduct) {
+  fentyDatabaseProduct.shades = fentyProFiltrShadeCodes.map(
+    (code, index) => ({
+      id: `fenty-pro-filtr-${index + 1}`,
+      code,
+      name: null,
+      normalizedUndertone: "unknown",
+      skinDepth: null,
+      sourceStatus: "official-brand-page"
+    })
+  );
+}
