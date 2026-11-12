@@ -617,6 +617,17 @@ function getMedian(values) {
 const red = getMedian(redValues);
 const green = getMedian(greenValues);
 const blue = getMedian(blueValues);
+
+const totalPixels = pixels.length / 4;
+const validSamples = redValues.length;
+const sampleQuality = (validSamples / totalPixels) * 100;
+
+console.log("جودة عينة البشرة:", {
+  totalPixels,
+  validSamples,
+  rejectedPixels: totalPixels - validSamples,
+  sampleQuality: sampleQuality.toFixed(1) + "%"
+});
     
 const averageBrightness = (red + green + blue) / 3;
 
