@@ -915,13 +915,55 @@ function displayUndertoneResult(type, description, colors, skinTone) {
       name.style.margin = "0 0 8px";
       name.style.color = "#555";
 
-      const shade = document.createElement("p");
-      shade.textContent = product.recommendedShade
-        ? `الدرجة: ${product.recommendedShade}`
-        : "الدرجة: لم يتم التحقق منها بعد";
-      shade.style.fontSize = "12px";
-      shade.style.margin = "0";
-      shade.style.color = "#879487";
+     
+const shade = document.createElement("p");
+
+const undertoneMap = {
+  "محايد": "neutral",
+  "دافئ": "warm",
+  "بارد": "cool"
+};
+
+const selectedUndertone = undertoneMap[type] || null;
+
+const databaseProducts =
+  window.BEAUTY_AI_DATABASE?.BEAUTY_AI_PRODUCTS || [];
+
+const databaseProduct = databaseProducts.find(
+  item => item.id === product.databaseId
+);
+
+const matchingUndertoneShades = databaseProduct?.shades
+  ?.filter(item =>
+    item.normalizedUndertone === selectedUndertone
+  ) || [];
+
+const shadeCodes = [
+  ...new Set(matchingUndertoneShades.map(item => item.code))
+];
+
+if (product.recommendedShade) {
+  shade.textContent = `الدرجة: ${product.recommendedShade}`;
+} else if (shadeCodes.length > 0) {
+  shade.textContent =
+    `خيارات الاندرتون المحايد: ${shadeCodes.join("، ")}`;
+} else {
+  shade.textContent = "لا توجد درجة مطابقة موثقة حاليًا";
+}
+
+shade.style.fontSize = "12px";
+shade.style.margin = "0";
+shade.style.color = "#879487";
+```
+
+**بعدها احفظي التعديل وجربي التحليل مرة ثانية.**
+
+<badge color="success">النتيجة المتوقعة</badge>
+
+بدل عبارة «لم يتم التحقق منها بعد» ستظهر درجات Dior ذات الاندرتون المحايد، مع التنبيه أنها خيارات أولية وليست درجة نهائية مؤكدة لعمق بشرتك.
+
+أرسلي لي صورة النتيجة بعد التجربة، ونكمل تحسين المطابقة.
+
 
       card.append(image, brand, name, shade);
       productArea.appendChild(card);
