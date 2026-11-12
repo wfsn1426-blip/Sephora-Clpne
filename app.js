@@ -926,6 +926,15 @@ const undertoneMap = {
 
 const selectedUndertone = undertoneMap[type] || null;
 
+
+const undertoneMap = {
+  "محايد": "neutral",
+  "دافئ": "warm",
+  "بارد": "cool"
+};
+
+const selectedUndertone = undertoneMap[type] || null;
+
 const databaseProducts =
   window.BEAUTY_AI_DATABASE?.BEAUTY_AI_PRODUCTS || [];
 
@@ -933,10 +942,11 @@ const databaseProduct = databaseProducts.find(
   item => item.id === product.databaseId
 );
 
-const matchingUndertoneShades = databaseProduct?.shades
-  ?.filter(item =>
-    item.normalizedUndertone === selectedUndertone
-  ) || [];
+const matchingUndertoneShades = (
+  databaseProduct?.shades || []
+).filter(item =>
+  item.normalizedUndertone === selectedUndertone
+);
 
 const shadeCodes = [
   ...new Set(matchingUndertoneShades.map(item => item.code))
