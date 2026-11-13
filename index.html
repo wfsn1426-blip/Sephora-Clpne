@@ -519,7 +519,36 @@ src="assets/kayali-set.jpg.png"
 </footer>
   </main>
 
- <script src="app.js"></script>
+<!-- BEAUTY AI Shopping Cart -->
+<button type="button" id="beautyCartButton" class="beauty-cart-button">
+  🛍️ سلة مشترياتي
+  <span id="beautyCartCount">0</span>
+</button>
+
+<div id="beautyCartOverlay" class="beauty-cart-overlay" hidden>
+  <aside class="beauty-cart-panel" dir="rtl">
+    <div class="beauty-cart-header">
+      <h2>سلة مشترياتي</h2>
+      <button type="button" id="closeBeautyCart" aria-label="إغلاق">×</button>
+    </div>
+
+    <div id="beautyCartItems">
+      <p>سلتك فارغة حاليًا.</p>
+    </div>
+
+    <div class="beauty-cart-footer">
+      <div>
+        <strong>الإجمالي:</strong>
+        <strong id="beautyCartTotal">0 ر.س</strong>
+      </div>
+      <button type="button" id="beautyCheckoutButton">
+        متابعة الطلب
+      </button>
+    </div>
+  </aside>
+</div>
+
+  <script src="app.js"></script>
 
 </body>
 </html>
