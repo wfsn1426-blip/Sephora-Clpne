@@ -525,24 +525,21 @@ src="assets/kayali-set.jpg.png"
 </footer>
   </main>
 
+
 <!-- BEAUTY AI Shopping Cart -->
 
+<div id="beautyCartOverlay" class="beauty-cart-overlay" hidden>
+  <aside class="beauty-cart-panel" dir="rtl">
 
-<button
-  type="button"
-  id="beautyCartButton"
-  class="header-cart-button"
-  aria-label="سلة المشتريات"
-  onclick="document.getElementById('beautyCartOverlay').hidden = false"
->
-  <svg viewBox="0 0 24 24" width="25" height="25"
-       fill="none" stroke="currentColor" stroke-width="1.7"
-       stroke-linecap="round" stroke-linejoin="round">
-    <path d="M5 8h14l1 13H4L5 8Z"/>
-    <path d="M9 9V6a3 3 0 0 1 6 0v3"/>
-  </svg>
-  <span id="beautyCartCount">0</span>
-</button>
+    <div class="beauty-cart-header">
+      <h2>سلة مشترياتي</h2>
+      <button
+        type="button"
+        id="closeBeautyCart"
+        aria-label="إغلاق"
+        onclick="document.getElementById('beautyCartOverlay').hidden = true"
+      >×</button>
+    </div>
 
     <div id="beautyCartItems">
       <p>سلتك فارغة حاليًا.</p>
@@ -553,14 +550,17 @@ src="assets/kayali-set.jpg.png"
         <strong>الإجمالي:</strong>
         <strong id="beautyCartTotal">0 ر.س</strong>
       </div>
+
       <button type="button" id="beautyCheckoutButton">
         متابعة الطلب
       </button>
     </div>
+
   </aside>
 </div>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
+
