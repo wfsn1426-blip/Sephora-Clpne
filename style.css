@@ -1186,28 +1186,34 @@ body {
   gap: 14px;
 }
 
+
 .header-cart-button {
   position: relative;
-  border: none;
-  background: transparent;
-  color: #343A36;
-  font-size: 23px;
-  cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border: none;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+}
+
+.header-cart-button svg {
+  stroke: #000000;
 }
 
 .header-cart-button span {
   position: absolute;
-  top: -7px;
-  right: -9px;
-  background: #879487;
-  color: white;
-  font-size: 10px;
+  top: -5px;
+  right: -7px;
   min-width: 17px;
   height: 17px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  font-size: 10px;
 }
