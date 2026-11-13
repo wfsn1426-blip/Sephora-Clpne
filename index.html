@@ -21,7 +21,6 @@
   <header class="main-header">
 
     <div class="header-icons">
-      <a href="#cart" aria-label="السلة" class="header-icon">♧</a>
       <a href="#favorites" aria-label="المفضلة" class="header-icon">♡</a>
       <a href="#account" aria-label="حسابي" class="header-icon">♙</a>
     </div>
@@ -31,8 +30,15 @@
       <button type="button" aria-label="بحث">⌕</button>
     </div>
 
-    <a href="#home" class="brand-logo">BEAUTY<span>.</span></a>
+<div class="brand-with-cart">
+  <a href="#home" class="brand-logo">BEAUTY<span>.</span></a>
 
+  <button type="button" id="beautyCartButton" class="header-cart-button">
+    🛍️
+    <span id="beautyCartCount">0</span>
+  </button>
+</div>
+    
   </header>
 
   <!-- قائمة الأقسام -->
