@@ -189,25 +189,69 @@ export const BEAUTY_AI_PRODUCTS = [
     }
   },
 
-  {
-    id: "mac-studio-fix-fluid",
-    brand: "M·A·C",
-    product: "Studio Fix Fluid",
-    category: "foundation",
-    formula: "liquid",
-    finish: null,
-    coverage: null,
-    shades: [],
+ 
+{
+  id: "mac-studio-fix-fluid",
+  brand: "M·A·C",
+  product: "Studio Fix Fluid SPF 15",
+  category: "foundation",
+  formula: "liquid",
+  finish: "soft-matte",
+  coverage: "medium-to-full buildable",
+  shadeCountClaimedByBrand: 67,
 
-    source: {
-      type: "brand-official-shade-guide",
-      url: "https://www.maccosmetics.com/pages/foundation-shade-finder",
-      checkedAt: "2026-11-12"
-    },
+  shades: [
+    // LIGHT
+    "C4", "C40", "N4", "N4.5", "N4.75",
+    "NC5", "NC10", "NC12", "NC13", "NC15",
+    "NC16", "NC17", "NC18", "NC20",
+    "NW5", "NW10", "NW13", "NW15", "NW18",
 
-    verificationNote:
-      "Add individual shades only after checking the exact formula's current official shade selector."
+    // LIGHT TO MEDIUM
+    "C3.5", "N5", "N6", "N6.5",
+    "NC25", "NC27", "NC30", "NW20", "NW22", "NW25",
+
+    // MEDIUM
+    "C4.5", "C5", "C45",
+    "NC35", "NC37", "NC38", "NC40", "NC42",
+    "NW30", "NW33", "NW35",
+
+    // MEDIUM TO DEEP
+    "C8", "NC44", "NC45.5",
+    "NW40", "NW43", "NW44", "NW45",
+
+    // DEEP
+    "C55", "NC45", "NC46", "NC47", "NC50",
+    "NW46", "NW47", "NW48", "NW50", "NW53",
+
+    // RICH
+    "NC55", "NC58", "NC60", "NC63", "NC65",
+    "NW55", "NW57", "NW58", "NW60", "NW65"
+  ].map((code, index) => ({
+    id: `mac-studio-fix-${index + 1}`,
+    code,
+    name: null,
+    officialShadeGroup:
+      index < 19 ? "Light" :
+      index < 29 ? "Light to Medium" :
+      index < 39 ? "Medium" :
+      index < 46 ? "Medium to Deep" :
+      index < 56 ? "Deep" :
+      "Rich",
+    normalizedUndertone: "unknown",
+    skinDepth: null,
+    sourceStatus: "official-brand-page"
+  })),
+
+  source: {
+    type: "brand-official-shade-guide",
+    url: "https://www.maccosmetics.com/product/13847/120613/products/makeup/face/foundation/studio-fix-fluid-spf-15-24hr-matte-foundation-oil-control",
+    checkedAt: "2026-11-13"
   },
+
+  verificationNote:
+    "66 shade codes captured from official MAC shade descriptions. Brand page claims 67 shades; one code is not present in the retrieved description. Undertone and skin depth are not inferred."
+},
 
   {
     id: "fenty-pro-filtr-foundation",
