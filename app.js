@@ -1029,7 +1029,6 @@ console.log("PRODUCT ID:", product.databaseId);
 console.log("DATABASE PRODUCT:", databaseProduct);
 console.log("SHADES COUNT:", databaseProduct?.shades?.length);
 console.log("FIRST SHADE:", databaseProduct?.shades?.[0]);
-);
 
 const allVerifiedShades = (
   databaseProduct?.shades || []
