@@ -682,6 +682,55 @@ if (sampleQuality < 35) {
   rejectedPixels: totalPixels - validSamples,
   sampleQuality: sampleQuality.toFixed(1) + "%"
 });
+
+    // مقارنة إضاءة الخدين عند تحليل الوجه فقط
+if (selectedTarget !== "hand") {
+  let leftBrightness = 0;
+  let rightBrightness = 0;
+  let leftCount = 0;
+  let rightCount = 0;
+
+  for (let i = 0; i < pixels.length; i += 4) {
+    const pixelIndex = i / 4;
+    const x = pixelIndex % 80;
+
+    const r = pixels[i];
+    const g = pixels[i + 1];
+    const b = pixels[i + 2];
+    const alpha = pixels[i + 3];
+
+    const pixelBrightness = (r + g + b) / 3;
+
+    if (
+      alpha < 200 ||
+      pixelBrightness < 20 ||
+      pixelBrightness > 245
+    ) continue;
+
+    if (x < 40) {
+      leftBrightness += pixelBrightness;
+      leftCount++;
+    } else {
+      rightBrightness += pixelBrightness;
+      rightCount++;
+    }
+  }
+
+  if (leftCount < 500 || rightCount < 500) {
+    analysisMessage.textContent =
+      "تعذّر تحليل الخدين بوضوح. أعيدي التصوير بإضاءة طبيعية.";
+    return;
+  }
+
+  const leftAverage = leftBrightness / leftCount;
+  const rightAverage = rightBrightness / rightCount;
+
+  if (Math.abs(leftAverage - rightAverage) > 25) {
+    analysisMessage.textContent =
+      "الإضاءة غير متوازنة على الوجه. اختاري إضاءة موزعة بالتساوي وأعيدي التصوير.";
+    return;
+  }
+}
     
 const averageBrightness = (red + green + blue) / 3;
 
