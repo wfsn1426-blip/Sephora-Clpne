@@ -231,13 +231,13 @@ export const BEAUTY_AI_PRODUCTS = [
     id: `mac-studio-fix-${index + 1}`,
     code,
     name: null,
-    officialShadeGroup:
-      index < 19 ? "Light" :
-      index < 29 ? "Light to Medium" :
-      index < 39 ? "Medium" :
-      index < 46 ? "Medium to Deep" :
-      index < 56 ? "Deep" :
-      "Rich",
+   officialShadeGroup:
+  index < 19 ? "Light" :
+  index < 29 ? "Light to Medium" :
+  index < 40 ? "Medium" :
+  index < 47 ? "Medium to Deep" :
+  index < 57 ? "Deep" :
+  "Rich",
     normalizedUndertone: "unknown",
     skinDepth: null,
     sourceStatus: "official-brand-page"
