@@ -1250,3 +1250,35 @@ import("./beauty-ai-global-xl.js")
   .catch(error => {
     console.error("BEAUTY AI database loading error:", error);
   });
+
+// =====================================
+// BEAUTY AI - فتح وإغلاق سلة المشتريات
+// =====================================
+
+const beautyCartButton = document.getElementById("beautyCartButton");
+const beautyCartOverlay = document.getElementById("beautyCartOverlay");
+const closeBeautyCart = document.getElementById("closeBeautyCart");
+
+beautyCartButton?.addEventListener("click", () => {
+  if (beautyCartOverlay) {
+    beautyCartOverlay.hidden = false;
+  }
+});
+
+closeBeautyCart?.addEventListener("click", () => {
+  if (beautyCartOverlay) {
+    beautyCartOverlay.hidden = true;
+  }
+});
+
+beautyCartOverlay?.addEventListener("click", (event) => {
+  if (event.target === beautyCartOverlay) {
+    beautyCartOverlay.hidden = true;
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && beautyCartOverlay) {
+    beautyCartOverlay.hidden = true;
+  }
+});
