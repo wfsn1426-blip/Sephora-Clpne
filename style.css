@@ -1217,3 +1217,72 @@ body {
   color: #ffffff;
   font-size: 10px;
 }
+
+/* BEAUTY AI CART WINDOW */
+
+.beauty-cart-overlay[hidden] {
+  display: none !important;
+}
+
+.beauty-cart-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: flex-start;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.beauty-cart-panel {
+  width: 380px;
+  max-width: 90%;
+  height: 100%;
+  padding: 24px;
+  background: #ffffff;
+  color: #000000;
+  overflow-y: auto;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.beauty-cart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eeeeee;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.beauty-cart-header h2 {
+  font-size: 21px;
+  margin: 0;
+}
+
+.beauty-cart-header button {
+  border: none;
+  background: transparent;
+  color: #000000;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.beauty-cart-footer {
+  margin-top: 25px;
+  padding-top: 18px;
+  border-top: 1px solid #eeeeee;
+}
+
+.beauty-cart-footer > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+#beautyCheckoutButton {
+  width: 100%;
+  padding: 14px;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
