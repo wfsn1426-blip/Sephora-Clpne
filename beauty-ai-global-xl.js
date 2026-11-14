@@ -190,14 +190,16 @@ swatchImage:
     "2|Cool Rosy": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw04720f5d/Y0000149/Y0000149_E000001105_E05_RHC.jpg?sw=1206&sh=1808"
   }[`${code}|${officialUndertone}`] || null),
 sourceStatus: "official-brand-page",
-verificationNote:
-"Official undertone label captured; depth not assigned without a brand-published depth label.",
+        verificationNote:
+          "Official undertone label captured; depth not assigned without a brand-published depth label."
+      })
+    ),
+
     source: {
       type: "brand-official",
       url: "https://www.dior.com/en_sa/beauty",
       checkedAt: "2026-11-12"
     }
-  },
 
  
 {
