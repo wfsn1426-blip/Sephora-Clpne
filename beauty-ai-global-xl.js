@@ -175,7 +175,10 @@ export const BEAUTY_AI_PRODUCTS = [
         normalizedUndertone:
           normalizeUndertone(officialUndertone),
         skinDepth: null,
-        swatchImage: null,
+swatchImage:
+  code === "2" && officialUndertone === "Neutral"
+    ? "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw037cfa64/Y0000149/Y0000149_E000001130_E05_RHC.jpg?sw=1206&sh=1808"
+    : null,
         sourceStatus: "official-brand-page",
         verificationNote:
           "Official undertone label captured; depth not assigned without a brand-published depth label."
