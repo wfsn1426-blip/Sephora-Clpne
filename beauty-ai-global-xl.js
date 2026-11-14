@@ -175,15 +175,23 @@ export const BEAUTY_AI_PRODUCTS = [
         normalizedUndertone:
           normalizeUndertone(officialUndertone),
         skinDepth: null,
+
 swatchImage:
-  code === "2" && officialUndertone === "Neutral"
-    ? "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw037cfa64/Y0000149/Y0000149_E000001130_E05_RHC.jpg?sw=1206&sh=1808"
-    : null,
-        sourceStatus: "official-brand-page",
-        verificationNote:
-          "Official undertone label captured; depth not assigned without a brand-published depth label."
-      })
-    ),
+  ({
+    "2|Neutral": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw037cfa64/Y0000149/Y0000149_E000001130_E05_RHC.jpg?sw=1206&sh=1808",
+    "0.5|Neutral": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dwa7876eba/Y0000149/Y0000149_E000001117_E05_RHC.jpg?sw=1206&sh=1808",
+    "0|Neutral": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dwc2fd354e/Y0000149/Y0000149_E000001138_E05_RHC.jpg?sw=1206&sh=1808",
+    "1.5|Neutral": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw738d6bcc/Y0000149/Y0000149_E000001125_E05_RHC.jpg?sw=1206&sh=1808",
+    "1|Cool Rosy": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw5bbcf17c/Y0000149/Y0000149_E000001126_E05_RHC.jpg?sw=1206&sh=1808",
+    "1|Neutral": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw9c760199/Y0000149/Y0000149_E000001098_E05_RHC.jpg?sw=1206&sh=1808",
+    "1|Warm": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw296cf3ee/Y0000149/Y0000149_E000001129_E05_RHC.jpg?sw=1206&sh=1808",
+    "2.5|Neutral": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dwfcc5042c/Y0000149/Y0000149_E000001135_E05_RHC.jpg?sw=1206&sh=1808",
+    "2.5|Warm": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dwc4cb164c/Y0000149/Y0000149_E000001127_E05_RHC.jpg?sw=1206&sh=1808",
+    "2|Cool Rosy": "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dw04720f5d/Y0000149/Y0000149_E000001105_E05_RHC.jpg?sw=1206&sh=1808"
+  }[`${code}|${officialUndertone}`] || null),
+sourceStatus: "official-brand-page",
+verificationNote:
+  "Official undertone label captured; depth not assigned without a brand-published depth label."
 
     source: {
       type: "brand-official",
