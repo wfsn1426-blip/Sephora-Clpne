@@ -191,8 +191,7 @@ swatchImage:
   }[`${code}|${officialUndertone}`] || null),
 sourceStatus: "official-brand-page",
 verificationNote:
-  "Official undertone label captured; depth not assigned without a brand-published depth label."
-
+"Official undertone label captured; depth not assigned without a brand-published depth label.",
     source: {
       type: "brand-official",
       url: "https://www.dior.com/en_sa/beauty",
@@ -582,16 +581,4 @@ if (fentyDatabaseProduct) {
   fentyDatabaseProduct.coverage = "medium-to-full buildable";
   fentyDatabaseProduct.shadeCountClaimedByBrand = 50;
   fentyDatabaseProduct.priceSAR = 235;
-}
-
-  fentyDatabaseProduct.shades = fentyProFiltrShadeCodes.map(
-    (code, index) => ({
-      id: `fenty-pro-filtr-${index + 1}`,
-      code,
-      name: null,
-      normalizedUndertone: "unknown",
-      skinDepth: null,
-      sourceStatus: "official-brand-page"
-    })
-  );
 }
