@@ -536,11 +536,43 @@ const fentyProFiltrShadeCodes = [
   "480", "485", "490", "495", "498"
 ];
 
+
 const fentyDatabaseProduct = BEAUTY_AI_PRODUCTS.find(
   item => item.id === "fenty-pro-filtr-foundation"
 );
 
 if (fentyDatabaseProduct) {
+  fentyDatabaseProduct.shades = fentyProFiltrShadeCodes.map(
+    (code, index) => {
+      const number = Number(code);
+
+      return {
+        id: `fenty-pro-filtr-${index + 1}`,
+        code,
+        name: null,
+
+        officialShadeRange:
+          number < 200 ? "Light" :
+          number < 300 ? "Medium" :
+          number < 400 ? "Tan" :
+          "Deep",
+
+        normalizedUndertone: "unknown",
+        skinDepth: null,
+        sourceStatus: "official-brand-page",
+
+        verificationNote:
+          "Shade code verified against the current official product selector. Individual undertone and exact skin depth not assigned."
+      };
+    }
+  );
+
+  fentyDatabaseProduct.finish = "soft matte";
+  fentyDatabaseProduct.coverage = "medium-to-full buildable";
+  fentyDatabaseProduct.shadeCountClaimedByBrand = 50;
+  fentyDatabaseProduct.priceSAR = 235;
+}
+
   fentyDatabaseProduct.shades = fentyProFiltrShadeCodes.map(
     (code, index) => ({
       id: `fenty-pro-filtr-${index + 1}`,
