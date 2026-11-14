@@ -989,6 +989,11 @@ productArea.style.width = "100%";
       image.style.height = "130px";
       image.style.objectFit = "contain";
       image.style.display = "block";
+      if (["DIOR", "ESTÉE LAUDER", "FENTY BEAUTY"].includes(
+  (product.brand || "").toUpperCase()
+)) {
+  image.style.backgroundColor = "#fff";
+}
       image.style.margin = "0 auto 10px";
 
       image.onerror = () => {
