@@ -235,7 +235,7 @@ const products = [
   brand: "TARTE",
   name: "Shape Tape Concealer",
   description: "كونسيلر بتغطية عالية وثبات طويل ولمسة طبيعية.",
-  price: 162,
+  price: 170,
   category: "makeup",
   productType: "concealer",
   databaseId: "tarte-shape-tape-concealer",
@@ -248,7 +248,7 @@ const products = [
     productType: "concealer",
     databaseId: "kosas-revealer-concealer",
     description: "كونسيلر كريمي بتغطية طبيعية.",
-    price: 0,
+    price: 155,
     category: "makeup",
     image: "assets/makeup/kosas-revealer-concealer.jpg"
   },
@@ -258,7 +258,7 @@ const products = [
     productType: "concealer",
     databaseId: "fenty-beauty-concealer",
     description: "كونسيلر بتركيبة مرطبة وثبات طويل.",
-    price: 0,
+    price: 170,
     category: "makeup",
     image: "assets/makeup/fenty-beauty-concealer.jpg"
   },
@@ -268,7 +268,7 @@ const products = [
     productType: "concealer",
     databaseId: "huda-beauty-fauxfilter-concealer",
     description: "كونسيلر بتغطية عالية ولمسة مطفية.",
-    price: 0,
+    price: 163,
     category: "makeup",
     image: "assets/makeup/huda-beauty-fauxfilter-concealer.jpg"
   },
@@ -278,7 +278,7 @@ const products = [
     productType: "concealer",
     databaseId: "too-faced-born-this-way-concealer",
     description: "كونسيلر بتغطية عالية.",
-    price: 0,
+    price: 195,
     category: "makeup",
     image: "assets/makeup/too-faced-born-this-way-concealer.jpg"
   },
@@ -288,7 +288,7 @@ const products = [
     productType: "concealer",
     databaseId: "estee-lauder-double-wear-concealer",
     description: "كونسيلر بثبات طويل.",
-    price: 0,
+    price: 160,
     category: "makeup",
     image: "assets/makeup/estee-lauder-double-wear-concealer.jpg"
   },
@@ -298,7 +298,7 @@ const products = [
     productType: "concealer",
     databaseId: "mac-studio-fix-concealer",
     description: "كونسيلر بتغطية متوسطة إلى عالية.",
-    price: 0,
+    price: 145,
     category: "makeup",
     image: "assets/makeup/mac-studio-fix-concealer.jpg"
   },
@@ -308,7 +308,7 @@ const products = [
     productType: "concealer",
     databaseId: "dior-forever-skin-correct-concealer",
     description: "كونسيلر بتغطية عالية ولمسة طبيعية.",
-    price: 0,
+    price: 205,
     category: "makeup",
     image: "assets/makeup/dior-forever-skin-correct-concealer.jpg"
   },
