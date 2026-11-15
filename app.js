@@ -1276,16 +1276,6 @@ function showProductDetails(product) {
 
   productArea.appendChild(addButton);
 }
-  previousButton.disabled = currentCategory === 0;
-  nextButton.disabled =
-    currentCategory === categories.length - 1;
-
-  previousButton.style.opacity =
-    previousButton.disabled ? "0.4" : "1";
-
-  nextButton.style.opacity =
-    nextButton.disabled ? "0.4" : "1";
-}
 
 // شاشة تفاصيل المنتج والدرجات
 function showProductDetails(product) {
