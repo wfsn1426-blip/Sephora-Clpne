@@ -175,7 +175,9 @@ shades: diorSkinGlowLabels.map(
     officialUndertone,
     normalizedUndertone: normalizeUndertone(officialUndertone),
     skinDepth: null,
-    swatchImage: null,
+swatchImage: index === 0
+  ? "https://www.dior.com/on/demandware.static/-/Sites-master_dior/default/dwc2fd354e/Y0000149/Y0000149_E000001138_E05_RHC.jpg?sw=1206&sh=1808"
+  : null,
     sourceStatus: "official-brand-page",
     verificationNote:
       "Official undertone label captured; depth not assigned without a brand-published depth label."
