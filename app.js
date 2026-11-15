@@ -180,6 +180,16 @@ const products = [
   officialUrl: "https://www.esteelauder.com/product/643/141225/product-catalog/makeup/face/foundation/double-wear/stay-in-place-longwear-matte-foundation"
 },
   {
+  brand: "NARS",
+  name: "Natural Radiant Longwear Foundation",
+  description: "كريم أساس بتغطية متوسطة إلى كاملة ولمسة نهائية مشرقة طبيعية.",
+  price: 291,
+  category: "makeup",
+  productType: "foundation",
+  databaseId: "nars-natural-radiant-longwear",
+  image: "assets/makeup/nars-natural-radiant.jpg"
+},
+  {
   brand: "M·A·C",
   name: "Studio Fix Fluid Foundation",
   description: "كريم أساس بتغطية متوسطة إلى كاملة ولمسة نهائية طبيعية مطفية.",
