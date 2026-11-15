@@ -358,8 +358,7 @@ shades: diorSkinGlowLabels.map(
   finish: "natural airbrush",
   coverage: "medium-to-full buildable",
   priceSAR: 225,
-  image: "assets/makeup/huda-easy-blur.jpg",
-
+  image: "assets/makeup/huda-beauty-easy-blur-foundation.jpg",
   shades: [
     ["100B", "Milkshake"],
     ["110N", "Angel Food"],
