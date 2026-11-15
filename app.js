@@ -231,6 +231,87 @@ const products = [
   image: "assets/makeup/urban-decay-face-bond.jpg",
   officialUrl: "https://www.sephora.me/sa-en/p/face-bond-self-setting-waterproof-foundation/P10059355"
 },
+  {
+  brand: "TARTE",
+  name: "Shape Tape Concealer",
+  description: "كونسيلر بتغطية عالية وثبات طويل ولمسة طبيعية.",
+  price: 162,
+  category: "makeup",
+  productType: "concealer",
+  databaseId: "tarte-shape-tape-concealer",
+  image: "assets/makeup/tarte-shape-tape-concealer.jpg",
+  officialUrl: "https://tartecosmetics.com/en-sa/products/shape-tape-concealer"
+},
+    {
+    brand: "KOSAS",
+    name: "Revealer Concealer",
+    productType: "concealer",
+    databaseId: "kosas-revealer-concealer",
+    description: "كونسيلر كريمي بتغطية طبيعية.",
+    price: 0,
+    category: "makeup",
+    image: "assets/makeup/kosas-revealer-concealer.jpg"
+  },
+  {
+    brand: "FENTY BEAUTY",
+    name: "We're Even Hydrating Longwear Concealer",
+    productType: "concealer",
+    databaseId: "fenty-beauty-concealer",
+    description: "كونسيلر بتركيبة مرطبة وثبات طويل.",
+    price: 0,
+    category: "makeup",
+    image: "assets/makeup/fenty-beauty-concealer.jpg"
+  },
+  {
+    brand: "HUDA BEAUTY",
+    name: "#FauxFilter Luminous Matte Concealer",
+    productType: "concealer",
+    databaseId: "huda-beauty-fauxfilter-concealer",
+    description: "كونسيلر بتغطية عالية ولمسة مطفية.",
+    price: 0,
+    category: "makeup",
+    image: "assets/makeup/huda-beauty-fauxfilter-concealer.jpg"
+  },
+  {
+    brand: "TOO FACED",
+    name: "Born This Way Super Coverage Concealer",
+    productType: "concealer",
+    databaseId: "too-faced-born-this-way-concealer",
+    description: "كونسيلر بتغطية عالية.",
+    price: 0,
+    category: "makeup",
+    image: "assets/makeup/too-faced-born-this-way-concealer.jpg"
+  },
+  {
+    brand: "ESTÉE LAUDER",
+    name: "Double Wear Stay-in-Place Concealer",
+    productType: "concealer",
+    databaseId: "estee-lauder-double-wear-concealer",
+    description: "كونسيلر بثبات طويل.",
+    price: 0,
+    category: "makeup",
+    image: "assets/makeup/estee-lauder-double-wear-concealer.jpg"
+  },
+  {
+    brand: "M·A·C",
+    name: "Studio Fix 36HR Smooth Angles Concealer",
+    productType: "concealer",
+    databaseId: "mac-studio-fix-concealer",
+    description: "كونسيلر بتغطية متوسطة إلى عالية.",
+    price: 0,
+    category: "makeup",
+    image: "assets/makeup/mac-studio-fix-concealer.jpg"
+  },
+  {
+    brand: "DIOR",
+    name: "Forever Skin Correct Concealer",
+    productType: "concealer",
+    databaseId: "dior-forever-skin-correct-concealer",
+    description: "كونسيلر بتغطية عالية ولمسة طبيعية.",
+    price: 0,
+    category: "makeup",
+    image: "assets/makeup/dior-forever-skin-correct-concealer.jpg"
+  },
 ];
 
 // عرض المنتجات
