@@ -347,7 +347,143 @@ shades: diorSkinGlowLabels.map(
     verificationNote:
       "Use the official finder for the current exact formula shade list."
   }
+,
+{
+  id: "huda-easy-blur-foundation",
+  brand: "Huda Beauty",
+  product: "Easy Blur Natural Airbrush Foundation",
+  name: "Easy Blur Natural Airbrush Foundation",
+  category: "foundation",
+  formula: "liquid",
+  finish: "natural airbrush",
+  coverage: "medium-to-full buildable",
+  priceSAR: 225,
+  image: "assets/makeup/huda-easy-blur.jpg",
 
+  shades: [
+    ["100B", "Milkshake"],
+    ["110N", "Angel Food"],
+    ["120B", "Vanilla"],
+    ["140G", "Cashew"],
+    ["150G", "Creme Brulee"],
+    ["200B", "Shortbread"],
+    ["210B", "Chai"],
+    ["220N", "Custard"],
+    ["230N", "Macaroon"],
+    ["240N", "Toasted Coconut"],
+    ["250G", "Cheesecake"],
+    ["255B", "Apple Pie"],
+    ["260W", "Cream Puff"],
+    ["300N", "Latte"],
+    ["305C", "Iced Frappe"],
+    ["307N", "Golden Milk"],
+    ["310G", "Amaretti"],
+    ["320G", "TresLeches"],
+    ["330N", "Butter Pecan"],
+    ["340G", "Baklava"],
+    ["350G", "Dulce De Leche"],
+    ["355W", "Creme Caramel"],
+    ["400G", "Macchiato"],
+    ["420G", "Toffee"],
+    ["425N", "Pistachio Cream"],
+    ["430N", "Gingerbread"],
+    ["440G", "Cinnamon"],
+    ["450G", "Chocolate Mousse"],
+    ["455R", "Peanut Butter"],
+    ["500G", "Mocha"],
+    ["510R", "Cocoa"],
+    ["550R", "Hot Fudge"],
+    ["560R", "Ganache"],
+    ["570W", "Chocolate Swirl"],
+    ["580N", "Truffle Cake"],
+    ["590R", "True Lava Cake"],
+    ["595N", "Molten Cocoa"],
+    ["600N", "Espresso"]
+  ].map(([code, name], index) => ({
+    id: `huda-easy-blur-${index + 1}`,
+    code,
+    name,
+    normalizedUndertone: "unknown",
+    skinDepth: null,
+    sourceStatus: "official-brand-page"
+  })),
+
+  source: {
+    type: "brand-official-product-page",
+    url: "https://hudabeauty.com/en-sa/products/easy-blur-natural-airbrush-foundation-with-niacinamide-hb01166m",
+    checkedAt: "2026-11-15"
+  }
+}
+  
+,
+{
+  id: "urban-decay-face-bond-foundation",
+  brand: "Urban Decay",
+  product: "Face Bond Self-Setting Waterproof Foundation",
+  name: "Face Bond Foundation",
+  category: "foundation",
+  formula: "liquid",
+  finish: "natural matte",
+  coverage: "medium buildable",
+  image: "assets/makeup/urban-decay-face-bond.jpg",
+
+  shades: [
+    ["01", "Fair Cool", "fair", "cool"],
+    ["02", "Fair Neutral", "fair", "neutral"],
+    ["03", "Fair Warm", "fair", "warm"],
+    ["04", "Fair Cool", "fair", "cool"],
+    ["05", "Fair Neutral", "fair", "neutral"],
+    ["06", "Fair Warm", "fair", "warm"],
+    ["07", "Fair Neutral", "fair", "neutral"],
+    ["08", "Fair Warm", "fair", "warm"],
+    ["09", "Light Cool", "light", "cool"],
+    ["10", "Light Neutral", "light", "neutral"],
+    ["11", "Light Cool", "light", "cool"],
+    ["12", "Light Neutral", "light", "neutral"],
+    ["13", "Light Medium Cool Olive", "light-medium", "olive"],
+    ["14", "Light Medium Golden", "light-medium", "golden"],
+    ["15", "Light Medium Warm", "light-medium", "warm"],
+    ["16", "Light Medium Cool", "light-medium", "cool"],
+    ["17", "Medium Warm", "medium", "warm"],
+    ["18", "Medium Neutral", "medium", "neutral"],
+    ["19", "Medium Golden Olive", "medium", "olive"],
+    ["20", "Medium Olive", "medium", "olive"],
+    ["21", "Medium Neutral", "medium", "neutral"],
+    ["22", "Medium Neutral", "medium", "neutral"],
+    ["23", "Medium Neutral", "medium", "neutral"],
+    ["24", "Medium Neutral", "medium", "neutral"],
+    ["25", "Medium Deep Cool Olive", "medium-deep", "olive"],
+    ["26", "Medium Deep Warm Peachy", "medium-deep", "peach"],
+    ["27", "Medium Deep Olive", "medium-deep", "olive"],
+    ["28", "Deep Neutral", "deep", "neutral"],
+    ["29", "Medium Deep Neutral", "medium-deep", "neutral"],
+    ["30", "Medium Deep Warm", "medium-deep", "warm"],
+    ["31", "Medium Deep Warm Golden", "medium-deep", "golden"],
+    ["32", "Medium Deep Warm Golden", "medium-deep", "golden"],
+    ["33", "Deep Neutral", "deep", "neutral"],
+    ["34", "Deep Cool", "deep", "cool"],
+    ["35", "Deep Warm Neutral", "deep", "warm"],
+    ["36", "Deep Warm Neutral", "deep", "warm"],
+    ["37", "Deep Neutral", "deep", "neutral"],
+    ["38", "Deep Neutral", "deep", "neutral"],
+    ["39", "Deep Warm", "deep", "warm"],
+    ["40", "Deep Cool", "deep", "cool"]
+  ].map(([code, name, skinDepth, undertone]) => ({
+    id: `urban-face-bond-${code}`,
+    code,
+    name,
+    officialShadeGroup: name.split(" ").slice(0, 2).join(" "),
+    normalizedUndertone: undertone,
+    skinDepth,
+    sourceStatus: "official-brand-page"
+  })),
+
+  source: {
+    type: "brand-official-product-page",
+    url: "https://www.urbandecay.com/face-bond-2024.html",
+    checkedAt: "2026-11-15"
+  }
+}
 ];
 
 /* مطابقة درجات البشرة */
