@@ -1786,9 +1786,134 @@ import("./beauty-ai-global-xl.js")
 // BEAUTY AI - فتح وإغلاق سلة المشتريات
 // =====================================
 
+
 const beautyCartButton = document.getElementById("beautyCartButton");
 const beautyCartOverlay = document.getElementById("beautyCartOverlay");
 const closeBeautyCart = document.getElementById("closeBeautyCart");
+
+const beautyCartItemsElement = document.getElementById("beautyCartItems");
+const beautyCartCountElement = document.getElementById("beautyCartCount");
+const beautyCartTotalElement = document.getElementById("beautyCartTotal");
+
+const beautyCartItems = [];
+
+function renderBeautyCart() {
+  if (!beautyCartItemsElement) return;
+
+  beautyCartItemsElement.innerHTML = "";
+
+  let total = 0;
+  let count = 0;
+
+  if (beautyCartItems.length === 0) {
+    beautyCartItemsElement.innerHTML = "<p>سلتك فارغة حاليًا.</p>";
+  }
+
+  beautyCartItems.forEach((item, index) => {
+    total += item.price * item.quantity;
+    count += item.quantity;
+
+    const row = document.createElement("div");
+    row.style.cssText = `
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid #eee;
+      text-align:right;
+    `;
+
+    const image = document.createElement("img");
+    image.src = item.image || "";
+    image.alt = item.name;
+    image.style.cssText =
+      "width:64px;height:64px;object-fit:contain;border-radius:8px;";
+
+    const info = document.createElement("div");
+    info.style.flex = "1";
+
+    const title = document.createElement("strong");
+    title.textContent = `${item.brand} — ${item.name}`;
+
+    const shade = document.createElement("p");
+    shade.textContent = `الدرجة: ${item.shadeCode}`;
+
+    const price = document.createElement("p");
+    price.textContent = `${item.price.toLocaleString("en-US")} ر.س`;
+
+    const controls = document.createElement("div");
+
+    const minus = document.createElement("button");
+    minus.type = "button";
+    minus.textContent = "−";
+
+    minus.addEventListener("click", () => {
+      item.quantity--;
+
+      if (item.quantity <= 0) {
+        beautyCartItems.splice(index, 1);
+      }
+
+      renderBeautyCart();
+    });
+
+    const quantity = document.createElement("span");
+    quantity.textContent = item.quantity;
+
+    const plus = document.createElement("button");
+    plus.type = "button";
+    plus.textContent = "+";
+
+    plus.addEventListener("click", () => {
+      item.quantity++;
+      renderBeautyCart();
+    });
+
+    const remove = document.createElement("button");
+    remove.type = "button";
+    remove.textContent = "حذف";
+
+    remove.addEventListener("click", () => {
+      beautyCartItems.splice(index, 1);
+      renderBeautyCart();
+    });
+
+    controls.append(minus, quantity, plus, remove);
+    info.append(title, shade, price, controls);
+    row.append(image, info);
+
+    beautyCartItemsElement.appendChild(row);
+  });
+
+  if (beautyCartCountElement) {
+    beautyCartCountElement.textContent = count;
+  }
+
+  if (beautyCartTotalElement) {
+    beautyCartTotalElement.textContent =
+      `${total.toLocaleString("en-US")} ر.س`;
+  }
+}
+
+function addBeautyCartItem(newItem) {
+  const existing = beautyCartItems.find(item =>
+    item.productId === newItem.productId &&
+    item.shadeCode === newItem.shadeCode
+  );
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    beautyCartItems.push({
+      ...newItem,
+      quantity: 1
+    });
+  }
+
+  renderBeautyCart();
+}
+
+renderBeautyCart();
 
 beautyCartButton?.addEventListener("click", () => {
   if (beautyCartOverlay) {
@@ -1802,13 +1927,13 @@ closeBeautyCart?.addEventListener("click", () => {
   }
 });
 
-beautyCartOverlay?.addEventListener("click", (event) => {
+beautyCartOverlay?.addEventListener("click", event => {
   if (event.target === beautyCartOverlay) {
     beautyCartOverlay.hidden = true;
   }
 });
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener("keydown", event => {
   if (event.key === "Escape" && beautyCartOverlay) {
     beautyCartOverlay.hidden = true;
   }
