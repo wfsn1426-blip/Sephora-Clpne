@@ -1247,7 +1247,7 @@ import("./beauty-ai-global-xl.js")
     console.log("Verified products:", database.BEAUTY_AI_PRODUCTS.length);
   })
   .catch(error => {
-    console.error("BEAUTY AI database loading error:", error);
+        console.error("BEAUTY AI database loading error:", error);
   });
 
 // =====================================
