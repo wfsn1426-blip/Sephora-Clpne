@@ -425,7 +425,6 @@ shades: diorSkinGlowLabels.map(
   finish: "natural matte",
   coverage: "medium buildable",
   image: "assets/makeup/urban-decay-face-bond.jpg",
-
   shades: [
     ["01", "Fair Cool", "fair", "cool"],
     ["02", "Fair Neutral", "fair", "neutral"],
