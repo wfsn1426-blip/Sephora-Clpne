@@ -1457,7 +1457,26 @@ function showProductDetails(product) {
 
     moreButton.hidden = uniqueShades.length <= 4;
   }
-    previousButton.disabled = currentCategory === 0;
+    productArea.style.display = "block";
+
+  productArea.append(
+    backButton,
+    details,
+    shadeTitle
+  );
+
+  if (uniqueShades.length === 0) {
+    const unavailable = document.createElement("p");
+    unavailable.textContent =
+      "لا توجد درجات موثقة لهذا المنتج حاليًا.";
+    unavailable.style.textAlign = "center";
+    unavailable.style.color = "#888";
+    productArea.appendChild(unavailable);
+  } else {
+    productArea.append(shadeGrid, moreButton);
+    renderShadeOptions();
+  }
+  previousButton.disabled = currentCategory === 0;
     nextButton.disabled = currentCategory === categories.length - 1;
 
     previousButton.style.opacity =
