@@ -190,6 +190,60 @@ shades: diorSkinGlowLabels.map(
 },
 
 {
+  id: "nars-natural-radiant-longwear",
+  brand: "NARS",
+  product: "Natural Radiant Longwear Foundation",
+  category: "foundation",
+  formula: "liquid",
+  finish: "natural radiant",
+  coverage: "medium-to-full buildable",
+  priceSAR: 291,
+  shadeCountClaimedByBrand: 29,
+
+  shades: [
+    { code: "L1", name: "Oslo", normalizedUndertone: "cool", skinDepth: "very-fair", officialSkinDepth: "Very light" },
+    { code: "L2", name: "Mont Blanc", normalizedUndertone: "neutral", skinDepth: "very-fair", officialSkinDepth: "Very light" },
+    { code: "L2.5", name: "Yukon", normalizedUndertone: "cool", skinDepth: "light", officialSkinDepth: "Light" },
+    { code: "L3", name: "Gobi", normalizedUndertone: "warm", skinDepth: "light", officialSkinDepth: "Light" },
+    { code: "L3.5", name: "Salzburg", normalizedUndertone: "warm", skinDepth: "light", officialSkinDepth: "Light" },
+    { code: "L4", name: "Deauville", normalizedUndertone: "neutral", skinDepth: "light", officialSkinDepth: "Light" },
+    { code: "L4.5", name: "Vienna", normalizedUndertone: "cool", skinDepth: "light", officialSkinDepth: "Light" },
+    { code: "L5", name: "Fiji", normalizedUndertone: "warm", skinDepth: "light-medium", officialSkinDepth: "Light to medium" },
+    { code: "M1", name: "Punjab", normalizedUndertone: "warm", skinDepth: "medium", officialSkinDepth: "Medium" },
+    { code: "M1.2", name: "Patagonia", normalizedUndertone: "neutral", skinDepth: "medium", officialSkinDepth: "Medium" },
+    { code: "M1.5", name: "Vallauris", normalizedUndertone: "cool", skinDepth: "medium", officialSkinDepth: "Medium" },
+    { code: "M2", name: "Santa Fe", normalizedUndertone: "neutral", skinDepth: "medium", officialSkinDepth: "Medium" },
+    { code: "M2.5", name: "Sahel", normalizedUndertone: "warm", skinDepth: "medium", officialSkinDepth: "Medium" },
+    { code: "M3", name: "Stromboli", normalizedUndertone: "warm", skinDepth: "medium", officialSkinDepth: "Medium" },
+    { code: "M3.5", name: "Vanuatu", normalizedUndertone: "warm", skinDepth: "medium-deep", officialSkinDepth: "Medium to medium-deep" },
+    { code: "M4", name: "Barcelona", normalizedUndertone: "warm", skinDepth: "medium-deep", officialSkinDepth: "Medium to medium-deep" },
+    { code: "M5", name: "Valencia", normalizedUndertone: "warm", skinDepth: "medium-deep", officialSkinDepth: "Medium to medium-deep" },
+    { code: "M6", name: "Aruba", normalizedUndertone: "cool", skinDepth: "medium-deep", officialSkinDepth: "Medium to medium-deep" },
+    { code: "MD1", name: "Syracuse", normalizedUndertone: "warm", skinDepth: "medium-deep", officialSkinDepth: "Medium to medium-deep" },
+    { code: "MD2", name: "Tahoe", normalizedUndertone: "neutral", skinDepth: "medium-deep", officialSkinDepth: "Medium-deep" },
+    { code: "MD2.6", name: "Huahine", normalizedUndertone: "neutral", skinDepth: "medium-deep", officialSkinDepth: "Medium-deep" },
+    { code: "MD3.3", name: "Caracas", normalizedUndertone: "warm", skinDepth: "medium-deep", officialSkinDepth: "Medium-deep to deep" },
+    { code: "MD3.6", name: "Belem", normalizedUndertone: "warm", skinDepth: "medium-deep", officialSkinDepth: "Medium-deep to deep" },
+    { code: "MD4", name: "Macao", normalizedUndertone: "warm", skinDepth: "medium-deep", officialSkinDepth: "Medium-deep to deep" },
+    { code: "D3", name: "Iguacu", normalizedUndertone: "neutral", skinDepth: "deep", officialSkinDepth: "Deep" },
+    { code: "D4", name: "Namibia", normalizedUndertone: "warm", skinDepth: "deep", officialSkinDepth: "Deep" },
+    { code: "D5", name: "Zambie", normalizedUndertone: "warm", skinDepth: "deep", officialSkinDepth: "Deep" },
+    { code: "D6", name: "Mali", normalizedUndertone: "neutral", skinDepth: "very-deep", officialSkinDepth: "Very deep" },
+    { code: "D1", name: "Manaus", normalizedUndertone: "cool", skinDepth: "deep", officialSkinDepth: "Deep" }
+  ].map((shade, index) => ({
+    id: `nars-natural-radiant-${index + 1}`,
+    ...shade,
+    sourceStatus: "official-brand-page"
+  })),
+
+  source: {
+    type: "brand-official",
+    url: "https://www.narscosmetics.sa/en/natural-radiant-longwear-foundation/nars-base-natural-radiant-longwear-foundation.html",
+    checkedAt: "2026-11-15"
+  }
+},
+
+  {
   id: "mac-studio-fix-fluid",
   brand: "M·A·C",
   product: "Studio Fix Fluid SPF 15",
