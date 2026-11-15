@@ -1017,7 +1017,9 @@ productArea.style.width = "100%";
       name.style.color = "#555";
 
      
-const shade = document.createElement("p");
+
+const shade = document.createElement("div");
+shade.style.marginTop = "12px";
 
 const undertoneMap = {
   "محايد": "neutral",
@@ -1034,11 +1036,6 @@ const databaseProduct = databaseProducts.find(
   item => item.id === product.databaseId
 );
 
-console.log("PRODUCT ID:", product.databaseId);
-console.log("DATABASE PRODUCT:", databaseProduct);
-console.log("SHADES COUNT:", databaseProduct?.shades?.length);
-console.log("FIRST SHADE:", databaseProduct?.shades?.[0]);
-      
 const allVerifiedShades = (
   databaseProduct?.shades || []
 ).filter(item =>
@@ -1050,34 +1047,115 @@ const matchingUndertoneShades = allVerifiedShades.filter(item =>
   item.normalizedUndertone === selectedUndertone
 );
 
-const shadeCodes = [
-  ...new Set(matchingUndertoneShades.map(item => item.code))
+const availableShades =
+  matchingUndertoneShades.length > 0
+    ? matchingUndertoneShades
+    : allVerifiedShades;
+
+const uniqueShades = [
+  ...new Map(
+    availableShades.map(item => [item.id || item.code, item])
+  ).values()
 ];
 
-const allShadeCodes = [
-  ...new Set(allVerifiedShades.map(item => item.code))
-];
+let selectedShade = null;
+let showingAllShades = false;
 
-const hasClassifiedUndertones = allVerifiedShades.some(
-  item => item.normalizedUndertone !== "unknown"
-);
+const shadeTitle = document.createElement("p");
+shadeTitle.textContent = "اختاري درجتك";
+shadeTitle.style.fontWeight = "600";
+shadeTitle.style.fontSize = "13px";
+shadeTitle.style.margin = "0 0 10px";
+shadeTitle.style.color = "#343A36";
 
-if (product.recommendedShade) {
-  shade.textContent = `الدرجة: ${product.recommendedShade}`;
-} else if (shadeCodes.length > 0) {
-  shade.textContent =
-    `درجات بنفس الاندرتون ${type}: ${shadeCodes.join("، ")} — تحتاج تأكيد عمق البشرة`;
-} else if (allShadeCodes.length > 0 && !hasClassifiedUndertones) {
-  shade.textContent =
-    `الدرجات المتاحة: ${allShadeCodes.join("، ")} — لم يُحدد الاندرتون لكل درجة`;
-} else {
-  shade.textContent = "لم تتوفر درجة موثقة حاليًا";
+const shadeGrid = document.createElement("div");
+shadeGrid.style.display = "grid";
+shadeGrid.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+shadeGrid.style.gap = "7px";
+
+const moreButton = document.createElement("button");
+moreButton.type = "button";
+moreButton.textContent = "عرض المزيد";
+moreButton.style.marginTop = "10px";
+moreButton.style.padding = "7px 13px";
+moreButton.style.border = "1px solid #879487";
+moreButton.style.borderRadius = "20px";
+moreButton.style.background = "#fff";
+moreButton.style.color = "#526452";
+moreButton.style.cursor = "pointer";
+moreButton.style.fontSize = "12px";
+
+function renderShades() {
+  shadeGrid.innerHTML = "";
+
+  const visibleShades = showingAllShades
+    ? uniqueShades
+    : uniqueShades.slice(0, 4);
+
+  visibleShades.forEach(item => {
+    const shadeCard = document.createElement("button");
+    shadeCard.type = "button";
+
+    shadeCard.style.border = selectedShade === item
+      ? "2px solid #879487"
+      : "1px solid #e5e5e5";
+
+    shadeCard.style.borderRadius = "10px";
+    shadeCard.style.background = selectedShade === item
+      ? "#f2f5f0"
+      : "#fff";
+    shadeCard.style.padding = "9px 3px";
+    shadeCard.style.cursor = "pointer";
+    shadeCard.style.minWidth = "0";
+
+    const swatch = document.createElement("span");
+    swatch.style.display = "block";
+    swatch.style.width = "27px";
+    swatch.style.height = "27px";
+    swatch.style.margin = "0 auto 7px";
+    swatch.style.borderRadius = "50%";
+    swatch.style.background = "#d8cbb9";
+    swatch.style.border = "1px solid #ddd";
+
+    const code = document.createElement("span");
+    code.textContent = item.code;
+    code.style.display = "block";
+    code.style.fontSize = "12px";
+    code.style.fontWeight = "600";
+    code.style.color = "#343A36";
+
+    const undertone = document.createElement("span");
+    undertone.textContent = item.officialUndertone || "";
+    undertone.style.display = "block";
+    undertone.style.fontSize = "9px";
+    undertone.style.color = "#888";
+    undertone.style.marginTop = "3px";
+
+    shadeCard.append(swatch, code, undertone);
+
+    shadeCard.addEventListener("click", () => {
+      selectedShade = item;
+      renderShades();
+    });
+
+    shadeGrid.appendChild(shadeCard);
+  });
+
+  moreButton.textContent = showingAllShades
+    ? "عرض أقل"
+    : "عرض المزيد";
+
+  moreButton.hidden = uniqueShades.length <= 4;
 }
 
-shade.style.fontSize = "12px";
-shade.style.margin = "0";
-shade.style.color = "#879487";
-      
+moreButton.addEventListener("click", () => {
+  showingAllShades = !showingAllShades;
+  renderShades();
+});
+
+shade.append(shadeTitle, shadeGrid, moreButton);
+renderShades();
+
       card.append(image, brand, name, shade);
       productArea.appendChild(card);
     });
