@@ -926,7 +926,8 @@ displayUndertoneResult(type, description, colors, skinTone);
 
 // عرض نتيجة التحليل والتوصيات
 function displayUndertoneResult(type, description, colors, skinTone) {
-
+  currentUndertone = type;
+currentSkinTone = skinTone;
   document.getElementById("undertoneName").textContent =
     `الاندرتون التقديري: ${type}`;
 
