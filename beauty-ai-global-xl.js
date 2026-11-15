@@ -485,130 +485,122 @@ shades: diorSkinGlowLabels.map(
 }
 ];
 
-/* ================================
-   CONCEALERS - VERIFIED SHADE DATA
-   Add after BEAUTY_AI_PRODUCTS array
-================================ */
+
+/* =========================================
+   CONCEALERS -
+   Official shade data only
+========================================= */
 
 const concealerDepthMap = {
-  "Very light": "very-fair",
   "Very fair": "very-fair",
+  "Very light": "very-fair",
   "Fair": "fair",
   "Fair to light": "light",
   "Light": "light",
-  "Light+": "light-medium",
-  "Light medium": "light-medium",
   "Light to medium": "light-medium",
+  "Light medium": "light-medium",
+  "Light+": "light-medium",
   "Medium": "medium",
-  "Medium Tan": "medium-deep",
+  "Medium to medium-deep": "medium-deep",
+  "Medium-deep": "medium-deep",
   "Medium Deep": "medium-deep",
   "Medium to tan": "medium-deep",
   "Tan": "medium-deep",
   "Tan to deep": "deep",
   "Deep": "deep",
   "Deeper": "deep",
-  "Rich deep": "very-deep",
-  "Very deep": "very-deep"
+  "Very deep": "very-deep",
+  "Rich deep": "very-deep"
 };
 
-const concealerUndertoneMap = {
-  "cool": "cool",
-  "pink": "cool",
-  "rosy": "cool",
-  "warm": "warm",
-  "golden": "golden",
-  "peach": "peach",
-  "olive": "olive",
-  "neutral": "neutral"
-};
-
-function makeConcealerShade(id, code, name, depth, undertone) {
+function makeConcealerShade(
+  id, code, name, depth, undertone
+) {
   return {
     id,
     code,
-    name,
-    officialSkinDepth: depth,
+    name: name || null,
+    officialSkinDepth: depth || null,
     skinDepth: concealerDepthMap[depth] || null,
-    officialUndertone: undertone,
-    normalizedUndertone:
-      concealerUndertoneMap[undertone] || "unknown",
+    officialUndertone: undertone || "unknown",
+    normalizedUndertone: undertone || "unknown",
     sourceStatus: "official-brand-page"
   };
 }
 
-/* KOSAS - REVEALER CONCEALER */
+function addConcealer({
+  id, brand, product, image, url, shades = [],
+  formula = "liquid"
+}) {
+  BEAUTY_AI_PRODUCTS.push({
+    id,
+    brand,
+    product,
+    category: "concealer",
+    formula,
+    image,
+    shades,
+    source: {
+      type: "brand-official-product-page",
+      url
+    }
+  });
+}
 
-BEAUTY_AI_PRODUCTS.push({
-  id: "kosas-revealer-concealer",
-  brand: "Kosas",
-  product: "Revealer Concealer",
-  category: "concealer",
-  formula: "liquid",
-  image: "assets/makeup/kosas-revealer-concealer.jpg",
+/* 1. NARS - RADIANT CREAMY CONCEALER */
 
+addConcealer({
+  id: "nars-radiant-creamy-concealer",
+  brand: "NARS",
+  product: "Radiant Creamy Concealer",
+  image: "assets/makeup/nars-radiant-creamy-concealer.jpg",
+  url: "https://www.narscosmetics.com/USA/radiant-creamy-concealer/999NACRCC0001.html",
   shades: [
-    ["0.5 N", "Very light", "neutral"],
-    ["0.7 C", "Very light", "cool"],
-    ["01 N", "Very light", "neutral"],
-    ["1.5 C", "Light", "cool"],
-    ["02 W", "Light", "warm"],
-    ["2.3 N", "Light", "neutral"],
-    ["2.5 C", "Light", "cool"],
-    ["2.6 C", "Light", "cool"],
-    ["03 W", "Light", "warm"],
-    ["3.2 O", "Light+", "olive"],
-    ["3.5 W", "Light+", "warm"],
-    ["3.6 C", "Light+", "cool"],
-    ["3.8 N", "Light medium", "neutral"],
-    ["04 N", "Light medium", "neutral"],
-    ["4.5 N", "Light medium", "neutral"],
-    ["05 W", "Medium", "warm"],
-    ["5.3 C", "Medium", "cool"],
-    ["5.5 O", "Medium", "olive"],
-    ["5.8 N", "Medium", "neutral"],
-    ["06 O", "Medium Tan", "olive"],
-    ["6.2 N", "Medium Tan", "neutral"],
-    ["6.3 N", "Medium Tan", "neutral"],
-    ["6.5 O", "Medium Tan", "olive"],
-    ["6.8 W", "Medium Tan", "warm"],
-    ["07 N", "Medium Deep", "neutral"],
-    ["7.3 N", "Medium Deep", "neutral"],
-    ["7.5 W", "Medium Deep", "warm"],
-    ["7.8 N", "Medium Deep", "neutral"],
-    ["08 W", "Medium Deep", "warm"],
-    ["8.1 O", "Medium Deep", "olive"],
-    ["8.2 W", "Deep", "warm"],
-    ["8.5 C", "Deep", "cool"],
-    ["8.7 N", "Deep", "neutral"],
-    ["8.8 N", "Deep", "neutral"],
-    ["9.1 N", "Deep", "neutral"],
-    ["9.5 N", "Deep", "neutral"],
-    ["10 W", "Rich deep", "warm"],
-    ["10.5 N", "Rich deep", "neutral"]
+    ["L1", "Chantilly", "Very light", "neutral"],
+    ["L1.25", "Affogato", "Very light", "cool"],
+    ["L2", "Vanilla", "Very light", "neutral"],
+    ["L2.2", "Nougatine", "Light", "warm"],
+    ["L2.3", "Madeleine", "Light", "neutral"],
+    ["L2.4", "Café au Lait", "Light", "neutral"],
+    ["L2.5", "Crème Brulée", "Light", "cool"],
+    ["L2.6", "Café Con Leche", "Light to medium", "warm"],
+    ["L2.75", "Cannelle", "Light", "warm"],
+    ["L2.8", "Marron Glacé", "Light to medium", "warm"],
+    ["L3", "Honey", "Light to medium", "cool"],
+    ["M0", "Crema Catalana", "Medium", "cool"],
+    ["M1", "Custard", "Medium", "neutral"],
+    ["M1.25", "Toffee", "Medium", "cool"],
+    ["M1.5", "Macadamia", "Medium", "warm"],
+    ["M1.75", "Tiramisu", "Medium", "neutral"],
+    ["M2", "Ginger", "Medium", "warm"],
+    ["M3", "Praline", "Medium to medium-deep", "warm"],
+    ["MD1", "Biscuit", "Medium to medium-deep", "warm"],
+    ["MD1.5", "Sucre D'Orge", "Medium to medium-deep", "warm"],
+    ["MD2", "Caramel", "Medium to medium-deep", "warm"],
+    ["MD2.5", "Chestnut", "Medium-deep", "cool"],
+    ["MD2.6", "Walnut", "Medium-deep", "olive"],
+    ["MD2.75", "Truffle", "Medium-deep", "warm"],
+    ["MD3", "Amande", "Medium-deep to deep", "neutral"],
+    ["MD4", "Hazelnut", "Medium-deep to deep", "cool"],
+    ["D0", "Chocolat", "Medium-deep to deep", "warm"],
+    ["D1", "Café", "Medium-deep to deep", "neutral"],
+    ["D2", "Cacao", "Deep", "warm"],
+    ["D3", "Dark Coffee", "Deep", "neutral"]
   ].map((s, i) =>
     makeConcealerShade(
-      `kosas-revealer-${i + 1}`,
-      s[0], s[0], s[1], s[2]
+      `nars-rcc-${i + 1}`, s[0], s[1], s[2], s[3]
     )
-  ),
-
-  source: {
-    type: "brand-official",
-    url: "https://kosas.com/products/revealer-concealer"
-  }
+  )
 });
 
+/* 2. TARTE - SHAPE TAPE CONCEALER */
 
-/* TARTE - SHAPE TAPE CONCEALER */
-
-BEAUTY_AI_PRODUCTS.push({
+addConcealer({
   id: "tarte-shape-tape-concealer",
   brand: "Tarte",
   product: "Shape Tape Concealer",
-  category: "concealer",
-  formula: "liquid",
   image: "assets/makeup/tarte-shape-tape-concealer.jpg",
-
+  url: "https://tartecosmetics.com/en-sa/products/shape-tape-concealer",
   shades: [
     ["8B", "Porcelain Beige", "Very fair", "cool"],
     ["12B", "Fair Beige", "Fair", "cool"],
@@ -634,42 +626,335 @@ BEAUTY_AI_PRODUCTS.push({
     ["47H", "Tan-Deep Honey", "Tan to deep", "peach"],
     ["47S", "Tan-Deep Sand", "Tan to deep", "golden"],
     ["48G", "Tan-Deep Golden", "Tan to deep", "olive"],
-    ["49W", "Tan-Deep Warm", "Tan to deep", "rosy"],
+    ["49W", "Tan-Deep Warm", "Tan to deep", "unknown"],
     ["51H", "Deep Honey", "Deep", "peach"],
     ["53G", "Deep Golden", "Deep", "olive"],
     ["53N", "Deep", "Deep", "neutral"],
     ["53S", "Deep Sand", "Deep", "golden"],
     ["53H", "Deep Honey", "Deep", "peach"],
     ["54H", "Deep Honey", "Deep", "peach"],
-    ["55W", "Rich Warm", "Deeper", "rosy"],
+    ["55W", "Rich Warm", "Deeper", "unknown"],
     ["57G", "Rich Golden", "Deeper", "olive"],
     ["57S", "Rich Sand", "Deeper", "golden"],
     ["57N", "Rich", "Deeper", "neutral"],
     ["57H", "Rich Honey", "Deeper", "peach"],
     ["59H", "Rich Honey", "Deeper", "peach"],
-    ["59W", "Rich Warm", "Deeper", "rosy"],
+    ["59W", "Rich Warm", "Deeper", "unknown"],
     ["60N", "Mahogany", "Very deep", "neutral"],
     ["60H", "Mahogany Honey", "Very deep", "peach"],
-    ["60W", "Mahogany Warm", "Very deep", "rosy"],
+    ["60W", "Mahogany Warm", "Very deep", "unknown"],
     ["61H", "Espresso", "Very deep", "peach"],
     ["61G", "Espresso Golden", "Very deep", "olive"],
     ["61N", "Espresso Neutral", "Very deep", "neutral"],
     ["62H", "Espresso Honey", "Very deep", "peach"],
-    ["62W", "Espresso Warm", "Very deep", "rosy"],
+    ["62W", "Espresso Warm", "Very deep", "unknown"],
     ["63N", "Espresso Neutral", "Very deep", "neutral"],
-    ["64W", "Espresso Warm", "Very deep", "rosy"]
+    ["64W", "Espresso Warm", "Very deep", "unknown"]
   ].map((s, i) =>
     makeConcealerShade(
-      `tarte-shape-tape-${i + 1}`,
-      s[0], s[1], s[2], s[3]
+      `tarte-shape-tape-${i + 1}`, s[0], s[1], s[2], s[3]
     )
-  ),
-
-  source: {
-    type: "brand-official",
-    url: "https://tartecosmetics.com/en-sa/products/shape-tape-concealer"
-  }
+  )
 });
+
+/* 3. KOSAS - REVEALER CONCEALER */
+
+addConcealer({
+  id: "kosas-revealer-concealer",
+  brand: "Kosas",
+  product: "Revealer Concealer",
+  image: "assets/makeup/kosas-revealer-concealer.jpg",
+  url: "https://kosas.com/products/revealer-concealer",
+  shades: [
+    ["0.5 N", "0.5 N", "Very light", "neutral"],
+    ["0.7 C", "0.7 C", "Very light", "cool"],
+    ["01 N", "01 N", "Very light", "neutral"],
+    ["1.5 C", "1.5 C", "Light", "cool"],
+    ["02 W", "02 W", "Light", "golden"],
+    ["2.3 N", "2.3 N", "Light", "neutral"],
+    ["2.5 C", "2.5 C", "Light", "cool"],
+    ["2.6 C", "2.6 C", "Light", "cool"],
+    ["03 W", "03 W", "Light", "golden"],
+    ["3.2 O", "3.2 O", "Light+", "olive"],
+    ["3.5 W", "3.5 W", "Light+", "peach"],
+    ["3.6 C", "3.6 C", "Light+", "cool"],
+    ["3.8 N", "3.8 N", "Light medium", "neutral"],
+    ["04 N", "04 N", "Light medium", "golden"],
+    ["4.5 N", "4.5 N", "Light medium", "neutral"],
+    ["05 W", "05 W", "Medium", "golden"],
+    ["5.3 C", "5.3 C", "Medium", "peach"],
+    ["5.5 O", "5.5 O", "Medium", "olive"],
+    ["5.8 N", "5.8 N", "Medium", "neutral"],
+    ["06 O", "06 O", "Medium Tan", "olive"],
+    ["6.2 N", "6.2 N", "Medium Tan", "neutral"],
+    ["6.3 N", "6.3 N", "Medium Tan", "neutral"],
+    ["6.5 O", "6.5 O", "Medium Tan", "olive"],
+    ["6.8 W", "6.8 W", "Medium Tan", "peach"],
+    ["07 N", "07 N", "Medium Deep", "golden"],
+    ["7.3 N", "7.3 N", "Medium Deep", "peach"],
+    ["7.5 W", "7.5 W", "Medium Deep", "peach"],
+    ["7.8 N", "7.8 N", "Medium Deep", "neutral"],
+    ["08 W", "08 W", "Medium Deep", "golden"],
+    ["8.1 O", "8.1 O", "Medium Deep", "olive"],
+    ["8.2 W", "8.2 W", "Deep", "golden"],
+    ["8.5 C", "8.5 C", "Deep", "peach"],
+    ["8.7 N", "8.7 N", "Deep", "golden"],
+    ["8.8 N", "8.8 N", "Deep", "olive"],
+    ["9.1 N", "9.1 N", "Deep", "neutral"],
+    ["9.5 N", "9.5 N", "Deep", "red"],
+    ["10 W", "10 W", "Rich deep", "golden"],
+    ["10.5 N", "10.5 N", "Rich deep", "neutral"]
+  ].map((s, i) =>
+    makeConcealerShade(
+      `kosas-revealer-${i + 1}`, s[0], s[1], s[2], s[3]
+    )
+  )
+});
+
+/* 4. FENTY BEAUTY - WE'RE EVEN */
+
+addConcealer({
+  id: "fenty-were-even-concealer",
+  brand: "Fenty Beauty",
+  product: "We're Even Hydrating Longwear Concealer",
+  image: "assets/makeup/fenty-beauty-concealer.jpg",
+  url: "https://fentybeauty.com/en-sa/products/we-re-even-hydrating-longwear-concealer-220w",
+  shades: [
+    "100C", "110W", "120N", "125C", "130W",
+    "140N", "150N", "160W", "170C", "175W",
+    "185C", "190W", "200C", "210W", "220W",
+    "225N", "230W", "235W", "240N", "250W",
+    "260N", "265W", "280C", "290W", "295W",
+    "300N", "310W", "315W", "330W", "335W",
+    "345C", "350C", "360W", "370N", "385W",
+    "390C", "400N", "410W", "420W", "425W",
+    "430W", "440W", "445N", "450N", "470W",
+    "480N", "485C", "490N", "495C", "498N"
+  ].map((code, i) =>
+    makeConcealerShade(
+      `fenty-were-even-${i + 1}`,
+      code,
+      code,
+      null,
+      code.endsWith("C") ? "cool" :
+      code.endsWith("W") ? "warm" :
+      "neutral"
+    )
+  )
+});
+
+/* 5. HUDA BEAUTY - FAUXFILTER */
+
+addConcealer({
+  id: "huda-fauxfilter-concealer",
+  brand: "Huda Beauty",
+  product: "#FauxFilter Luminous Matte Concealer",
+  image: "assets/makeup/huda-beauty-fauxfilter-concealer.jpg",
+  url: "https://hudabeauty.com/en-sa/products/fauxfilter-luminous-matte-concealer-hb00855m",
+  shades: [
+    "Whipped Cream 0.1",
+    "Royal Icing 1.1",
+    "Marshmallow 1.3",
+    "Yogurt Drops 1.5",
+    "Honey 1.7",
+    "Meringue 2.1",
+    "Cotton Candy 2.3",
+    "Nougat 2.5",
+    "Coconut Flakes 2.7",
+    "Vanilla Swirl 3.1",
+    "Marmalade 3.3",
+    "Sugar Biscuit 3.5",
+    "Graham Cracker 4.1",
+    "Cookie Dough 4.3",
+    "Granola 4.5",
+    "Caramel Corn 5.1",
+    "Toasted Almond 5.3",
+    "Candied Ginger 6.1",
+    "Praline 6.3",
+    "Brittle 6.5",
+    "Peanut Butter 6.7",
+    "Crumble 7.1",
+    "Salted Caramel 7.3",
+    "Butterscotch 7.5",
+    "Honeycomb 7.7",
+    "Hazelnut 8.1",
+    "Maple Syrup 8.3",
+    "Brownie 8.5",
+    "Chocolate Chip 8.7"
+  ].map((name, i) =>
+    makeConcealerShade(
+      `huda-fauxfilter-${i + 1}`,
+      name.split(" ").pop(),
+      name,
+      null,
+      "unknown"
+    )
+  )
+});
+
+/* 6. TOO FACED - BORN THIS WAY */
+
+addConcealer({
+  id: "too-faced-born-this-way-concealer",
+  brand: "Too Faced",
+  product: "Born This Way Super Coverage Concealer",
+  image: "assets/makeup/too-faced-born-this-way-concealer.jpg",
+  url: "https://www.toofaced.com/product/23785/101564/face-makeup/concealer/born-this-way-super-coverage-multi-use-concealer",
+  shades: [
+    ["Cloud", "Very fair", "neutral"],
+    ["Marshmallow", "Very fair", "cool"],
+    ["Swan", "Very fair", "neutral"],
+    ["Snow", "Very fair", "cool"],
+    ["Cream Puff", "Very fair", "cool"],
+    ["Almond", "Fair", "golden"],
+    ["Porcelain", "Fair", "neutral"],
+    ["Shortbread", "Very light", "golden"],
+    ["Vanilla", "Very light", "neutral"],
+    ["Nude", "Very light", "cool"],
+    ["Golden Beige", "Light", "golden"],
+    ["Light Beige", "Light", "neutral"],
+    ["Taffy", "Light medium", "cool"],
+    ["Natural Beige", "Light medium", "neutral"],
+    ["Warm Beige", "Medium", "neutral"],
+    ["Sand", "Medium", "golden"],
+    ["Cookie", "Medium", "olive"],
+    ["Warm Sand", "Tan", "golden"],
+    ["Honey", "Tan", "neutral"],
+    ["Butterscotch", "Deeper", "golden"],
+    ["Caramel", "Deeper", "neutral"]
+  ].map((s, i) =>
+    makeConcealerShade(
+      `too-faced-born-this-way-${i + 1}`,
+      null,
+      s[0],
+      s[1],
+      s[2]
+    )
+  )
+});
+
+/* 7. ESTEE LAUDER - DOUBLE WEAR CONCEALER */
+
+addConcealer({
+  id: "estee-lauder-double-wear-concealer",
+  brand: "Estée Lauder",
+  product: "Double Wear Stay-in-Place 24-Hour Concealer",
+  image: "assets/makeup/estee-lauder-double-wear-concealer.jpg",
+  url: "https://www.esteelauder.com/product/642/131399/product-catalog/makeup/face/concealer/double-wear/stay-in-place-24-hour-concealer",
+  shades: [
+    ".5C", ".5N", "1C", "1N", "1W",
+    "2C", "2N", "2W", "2.5C", "3C",
+    "3N", "3W", "3.5C", "4C", "4N",
+    "4W", "5C", "5N", "5W", "5.5N",
+    "6C", "6N", "6W", "6.5N", "7C",
+    "7N", "7W", "8C", "8N", "9N"
+  ].map((code, i) =>
+    makeConcealerShade(
+      `estee-double-wear-concealer-${i + 1}`,
+      code,
+      code,
+      null,
+      code.includes("C") ? "cool" :
+      code.includes("W") ? "warm" :
+      "neutral"
+    )
+  )
+});
+
+/* 8. MAC - STUDIO FIX 36HR */
+
+addConcealer({
+  id: "mac-studio-fix-36hr-concealer",
+  brand: "M·A·C",
+  product: "Studio Fix 36HR Smooth Angles Concealer",
+  image: "assets/makeup/mac-studio-fix-concealer.jpg",
+  url: "https://www.maccosmetics.com.au/product/13844/142119/products/makeup/face/concealer/studio-fix-36hr-smooth-angles-concealer",
+  shades: [
+    "NC11.5", "NC12", "NC13", "NC14", "NC15",
+    "NC16", "NC17", "NC18", "NC20", "NC25",
+    "NC27", "NC30", "NC35", "NC37", "NC38",
+    "NC40", "NC42", "NC44", "NC45", "NC45.5",
+    "NC47", "NC50", "NC55", "NC58", "NC60",
+    "NC63", "NC65",
+    "NW11.5", "NW12", "NW13", "NW14", "NW15",
+    "NW16", "NW17", "NW18", "NW20", "NW25",
+    "NW30", "NW35", "NW40", "NW43", "NW45",
+    "NW50", "NW55", "NW58", "NW65"
+  ].map((code, i) =>
+    makeConcealerShade(
+      `mac-studio-fix-36hr-${i + 1}`,
+      code,
+      code,
+      null,
+      "unknown"
+    )
+  )
+});
+
+/* 9. DIOR - FOREVER SKIN CORRECT */
+
+addConcealer({
+  id: "dior-forever-skin-correct",
+  brand: "Dior",
+  product: "Forever Skin Correct Concealer",
+  image: "assets/makeup/dior-forever-skin-correct-concealer.jpg",
+  url: "https://www.dior.com/en_sa/beauty/products/dior-forever-skin-correct-Y0326000.html",
+  shades: [
+    ["0", "0 Neutral", "neutral"],
+    ["1.5", "1.5 Neutral", "neutral"],
+    ["1", "1 Neutral", "neutral"],
+    ["1", "1 Warm", "warm"],
+    ["2.5", "2.5 Neutral", "neutral"],
+    ["2", "2 Neutral", "neutral"],
+    ["2", "2 Warm", "warm"],
+    ["2", "2 Warm Olive", "olive"],
+    ["2", "2 Warm Peach", "peach"],
+    ["3.5", "3.5 Neutral", "neutral"],
+    ["3", "3 Neutral", "neutral"],
+    ["3", "3 Warm", "warm"],
+    ["3", "3 Warm Olive", "olive"],
+    ["4", "4 Neutral", "neutral"],
+    ["4", "4 Warm", "warm"],
+    ["4", "4 Warm Olive", "olive"]
+  ].map((s, i) =>
+    makeConcealerShade(
+      `dior-skin-correct-${i + 1}`,
+      s[0],
+      s[1],
+      null,
+      s[2]
+    )
+  )
+});
+
+/* =========================================
+   MATCH VERIFIED CONCEALER SHADES
+========================================= */
+
+export function matchVerifiedComplexionShades({
+  productId,
+  undertone,
+  skinDepth
+}) {
+  const product = BEAUTY_AI_PRODUCTS.find(
+    item => item.id === productId
+  );
+
+  if (!product || !Array.isArray(product.shades)) {
+    return [];
+  }
+
+  if (!undertone || !skinDepth) {
+    return [];
+  }
+
+  return product.shades.filter(shade =>
+    shade.normalizedUndertone === undertone &&
+    shade.skinDepth === skinDepth &&
+    shade.sourceStatus === "official-brand-page"
+  );
+}
+
 
 /* مطابقة درجات البشرة */
 
