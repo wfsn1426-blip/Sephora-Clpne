@@ -1438,8 +1438,8 @@ const undertoneMap = {
   "دافئ": ["warm", "olive", "peach", "golden"]
 };
 
-const allowedUndertones = undertoneMap[type] || [];
-
+const allowedUndertones =
+  undertoneMap[currentUndertone] || [];
 // نرتب الدرجات المتوافقة أولًا، ثم نعرض بقية الدرجات الموثقة
 const sortedShades = [...verifiedShades].sort((a, b) => {
   const aMatch = allowedUndertones.includes(a.normalizedUndertone);
