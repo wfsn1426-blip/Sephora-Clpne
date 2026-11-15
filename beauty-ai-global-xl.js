@@ -485,6 +485,192 @@ shades: diorSkinGlowLabels.map(
 }
 ];
 
+/* ================================
+   CONCEALERS - VERIFIED SHADE DATA
+   Add after BEAUTY_AI_PRODUCTS array
+================================ */
+
+const concealerDepthMap = {
+  "Very light": "very-fair",
+  "Very fair": "very-fair",
+  "Fair": "fair",
+  "Fair to light": "light",
+  "Light": "light",
+  "Light+": "light-medium",
+  "Light medium": "light-medium",
+  "Light to medium": "light-medium",
+  "Medium": "medium",
+  "Medium Tan": "medium-deep",
+  "Medium Deep": "medium-deep",
+  "Medium to tan": "medium-deep",
+  "Tan": "medium-deep",
+  "Tan to deep": "deep",
+  "Deep": "deep",
+  "Deeper": "deep",
+  "Rich deep": "very-deep",
+  "Very deep": "very-deep"
+};
+
+const concealerUndertoneMap = {
+  "cool": "cool",
+  "pink": "cool",
+  "rosy": "cool",
+  "warm": "warm",
+  "golden": "golden",
+  "peach": "peach",
+  "olive": "olive",
+  "neutral": "neutral"
+};
+
+function makeConcealerShade(id, code, name, depth, undertone) {
+  return {
+    id,
+    code,
+    name,
+    officialSkinDepth: depth,
+    skinDepth: concealerDepthMap[depth] || null,
+    officialUndertone: undertone,
+    normalizedUndertone:
+      concealerUndertoneMap[undertone] || "unknown",
+    sourceStatus: "official-brand-page"
+  };
+}
+
+/* KOSAS - REVEALER CONCEALER */
+
+BEAUTY_AI_PRODUCTS.push({
+  id: "kosas-revealer-concealer",
+  brand: "Kosas",
+  product: "Revealer Concealer",
+  category: "concealer",
+  formula: "liquid",
+  image: "assets/makeup/kosas-revealer-concealer.jpg",
+
+  shades: [
+    ["0.5 N", "Very light", "neutral"],
+    ["0.7 C", "Very light", "cool"],
+    ["01 N", "Very light", "neutral"],
+    ["1.5 C", "Light", "cool"],
+    ["02 W", "Light", "warm"],
+    ["2.3 N", "Light", "neutral"],
+    ["2.5 C", "Light", "cool"],
+    ["2.6 C", "Light", "cool"],
+    ["03 W", "Light", "warm"],
+    ["3.2 O", "Light+", "olive"],
+    ["3.5 W", "Light+", "warm"],
+    ["3.6 C", "Light+", "cool"],
+    ["3.8 N", "Light medium", "neutral"],
+    ["04 N", "Light medium", "neutral"],
+    ["4.5 N", "Light medium", "neutral"],
+    ["05 W", "Medium", "warm"],
+    ["5.3 C", "Medium", "cool"],
+    ["5.5 O", "Medium", "olive"],
+    ["5.8 N", "Medium", "neutral"],
+    ["06 O", "Medium Tan", "olive"],
+    ["6.2 N", "Medium Tan", "neutral"],
+    ["6.3 N", "Medium Tan", "neutral"],
+    ["6.5 O", "Medium Tan", "olive"],
+    ["6.8 W", "Medium Tan", "warm"],
+    ["07 N", "Medium Deep", "neutral"],
+    ["7.3 N", "Medium Deep", "neutral"],
+    ["7.5 W", "Medium Deep", "warm"],
+    ["7.8 N", "Medium Deep", "neutral"],
+    ["08 W", "Medium Deep", "warm"],
+    ["8.1 O", "Medium Deep", "olive"],
+    ["8.2 W", "Deep", "warm"],
+    ["8.5 C", "Deep", "cool"],
+    ["8.7 N", "Deep", "neutral"],
+    ["8.8 N", "Deep", "neutral"],
+    ["9.1 N", "Deep", "neutral"],
+    ["9.5 N", "Deep", "neutral"],
+    ["10 W", "Rich deep", "warm"],
+    ["10.5 N", "Rich deep", "neutral"]
+  ].map((s, i) =>
+    makeConcealerShade(
+      `kosas-revealer-${i + 1}`,
+      s[0], s[0], s[1], s[2]
+    )
+  ),
+
+  source: {
+    type: "brand-official",
+    url: "https://kosas.com/products/revealer-concealer"
+  }
+});
+
+
+/* TARTE - SHAPE TAPE CONCEALER */
+
+BEAUTY_AI_PRODUCTS.push({
+  id: "tarte-shape-tape-concealer",
+  brand: "Tarte",
+  product: "Shape Tape Concealer",
+  category: "concealer",
+  formula: "liquid",
+  image: "assets/makeup/tarte-shape-tape-concealer.jpg",
+
+  shades: [
+    ["8B", "Porcelain Beige", "Very fair", "cool"],
+    ["12B", "Fair Beige", "Fair", "cool"],
+    ["12S", "Fair", "Fair", "golden"],
+    ["12N", "Fair Neutral", "Fair", "neutral"],
+    ["16N", "Fair-Light Neutral", "Fair to light", "neutral"],
+    ["20B", "Light", "Light", "cool"],
+    ["20S", "Light Sand", "Light", "golden"],
+    ["22N", "Light Neutral", "Light", "neutral"],
+    ["22B", "Light Beige", "Light", "cool"],
+    ["27H", "Light-Medium Honey", "Light to medium", "peach"],
+    ["27S", "Light-Medium Sand", "Light to medium", "golden"],
+    ["27B", "Light-Medium Beige", "Light to medium", "cool"],
+    ["29N", "Light-Medium", "Light to medium", "neutral"],
+    ["34S", "Medium Sand", "Medium", "golden"],
+    ["35H", "Medium Honey", "Medium", "peach"],
+    ["35N", "Medium", "Medium", "neutral"],
+    ["36S", "Medium-Tan Sand", "Medium to tan", "golden"],
+    ["37G", "Medium-Tan Golden", "Medium to tan", "olive"],
+    ["38N", "Medium-Tan Neutral", "Medium to tan", "neutral"],
+    ["42S", "Tan Sand", "Tan", "golden"],
+    ["44H", "Tan", "Tan", "peach"],
+    ["47H", "Tan-Deep Honey", "Tan to deep", "peach"],
+    ["47S", "Tan-Deep Sand", "Tan to deep", "golden"],
+    ["48G", "Tan-Deep Golden", "Tan to deep", "olive"],
+    ["49W", "Tan-Deep Warm", "Tan to deep", "rosy"],
+    ["51H", "Deep Honey", "Deep", "peach"],
+    ["53G", "Deep Golden", "Deep", "olive"],
+    ["53N", "Deep", "Deep", "neutral"],
+    ["53S", "Deep Sand", "Deep", "golden"],
+    ["53H", "Deep Honey", "Deep", "peach"],
+    ["54H", "Deep Honey", "Deep", "peach"],
+    ["55W", "Rich Warm", "Deeper", "rosy"],
+    ["57G", "Rich Golden", "Deeper", "olive"],
+    ["57S", "Rich Sand", "Deeper", "golden"],
+    ["57N", "Rich", "Deeper", "neutral"],
+    ["57H", "Rich Honey", "Deeper", "peach"],
+    ["59H", "Rich Honey", "Deeper", "peach"],
+    ["59W", "Rich Warm", "Deeper", "rosy"],
+    ["60N", "Mahogany", "Very deep", "neutral"],
+    ["60H", "Mahogany Honey", "Very deep", "peach"],
+    ["60W", "Mahogany Warm", "Very deep", "rosy"],
+    ["61H", "Espresso", "Very deep", "peach"],
+    ["61G", "Espresso Golden", "Very deep", "olive"],
+    ["61N", "Espresso Neutral", "Very deep", "neutral"],
+    ["62H", "Espresso Honey", "Very deep", "peach"],
+    ["62W", "Espresso Warm", "Very deep", "rosy"],
+    ["63N", "Espresso Neutral", "Very deep", "neutral"],
+    ["64W", "Espresso Warm", "Very deep", "rosy"]
+  ].map((s, i) =>
+    makeConcealerShade(
+      `tarte-shape-tape-${i + 1}`,
+      s[0], s[1], s[2], s[3]
+    )
+  ),
+
+  source: {
+    type: "brand-official",
+    url: "https://tartecosmetics.com/en-sa/products/shape-tape-concealer"
+  }
+});
+
 /* مطابقة درجات البشرة */
 
 export function matchVerifiedComplexionShades({
