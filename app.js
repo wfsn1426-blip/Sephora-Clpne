@@ -1517,7 +1517,7 @@ const uniqueShades = [
       }
 
       const code = document.createElement("span");
-      code.textContent = item.code;
+      code.textContent = item.code || item.name || "درجة";
       code.style.display = "block";
       code.style.fontSize = "11px";
       code.style.fontWeight = "600";
