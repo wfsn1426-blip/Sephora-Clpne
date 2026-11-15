@@ -1429,27 +1429,31 @@ function showProductDetails(product) {
     item.sourceStatus === "official-brand-page"
   );
 
- const undertoneMap = {
+ 
+const undertoneMap = {
   "محايد": ["neutral"],
   "بارد": ["cool"],
-  "دافئ": ["warm", "olive", "peach"]
+  "دافئ": ["warm", "olive", "peach", "golden"]
 };
 
 const allowedUndertones = undertoneMap[type] || [];
 
-const availableShades = verifiedShades.filter(item =>
-  allowedUndertones.includes(item.normalizedUndertone) &&
-  item.sourceStatus === "official-brand-page"
-);
+// نرتب الدرجات المتوافقة أولًا، ثم نعرض بقية الدرجات الموثقة
+const sortedShades = [...verifiedShades].sort((a, b) => {
+  const aMatch = allowedUndertones.includes(a.normalizedUndertone);
+  const bMatch = allowedUndertones.includes(b.normalizedUndertone);
 
-  const uniqueShades = [
-    ...new Map(
-      availableShades.map(item => [
-        item.id || item.code,
-        item
-      ])
-    ).values()
-  ];
+  return Number(bMatch) - Number(aMatch);
+});
+
+const uniqueShades = [
+  ...new Map(
+    sortedShades.map((item, index) => [
+      item.id || `${item.code || item.name}-${index}`,
+      item
+    ])
+  ).values()
+];
 
   const shadeTitle = document.createElement("p");
   shadeTitle.textContent = "الدرجات المتاحة";
