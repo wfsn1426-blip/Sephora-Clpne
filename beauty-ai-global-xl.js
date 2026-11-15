@@ -1308,9 +1308,3 @@ blushProducts.forEach(([id, brand, product, formula, priceSAR]) => {
     }
   });
 });
-// إتاحة قاعدة بيانات الدرجات لواجهة BEAUTY AI
-if (typeof window !== "undefined") {
-  window.BEAUTY_AI_DATABASE = {
-    BEAUTY_AI_PRODUCTS
-  };
-}
