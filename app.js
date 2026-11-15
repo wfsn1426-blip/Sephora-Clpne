@@ -897,20 +897,21 @@ if (undertoneScore > 10) {
 }
 
 // عمق البشرة: تقدير أولي يتأثر بالإضاءة والكاميرا
+// Skin Depth
 let skinTone;
 
 if (brightness >= 210) {
-  skinTone = "فاتح";
+  skinTone = "Light";
 } else if (brightness >= 180) {
-  skinTone = "فاتح متوسط";
+  skinTone = "Light Medium";
 } else if (brightness >= 145) {
-  skinTone = "متوسط";
+  skinTone = "Medium";
 } else if (brightness >= 110) {
-  skinTone = "قمحي";
+  skinTone = "Medium Deep";
 } else if (brightness >= 75) {
-  skinTone = "داكن";
+  skinTone = "Deep";
 } else {
-  skinTone = "عميق";
+  skinTone = "Very Deep";
 }
 
 displayUndertoneResult(type, description, colors, skinTone);
