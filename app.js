@@ -209,6 +209,28 @@ const products = [
   databaseId: "fenty-pro-filtr-foundation",
   image: "assets/makeup/fenty-pro-filtr-foundation.jpg"
 },
+{
+  brand: "HUDA BEAUTY",
+  name: "Easy Blur Natural Airbrush Foundation",
+  description: "كريم أساس بلمسة إيربراش طبيعية وتقنية تمويه وتنعيم.",
+  price: 225,
+  category: "makeup",
+  productType: "foundation",
+  databaseId: "huda-easy-blur-foundation",
+  image: "assets/makeup/huda-beauty-easy-blur-foundation.jpg",
+  officialUrl: "https://hudabeauty.com/ar-sa/products/easy-blur-natural-airbrush-foundation-with-niacinamide-hb01166m"
+},
+{
+  brand: "URBAN DECAY",
+  name: "Face Bond Self-Setting Waterproof Foundation",
+  description: "كريم أساس بتغطية متوسطة قابلة للبناء ولمسة مطفية طبيعية.",
+  price: 235,
+  category: "makeup",
+  productType: "foundation",
+  databaseId: "urban-decay-face-bond",
+  image: "assets/makeup/urban-decay-face-bond.jpg",
+  officialUrl: "https://www.sephora.me/sa-en/p/face-bond-self-setting-waterproof-foundation/P10059355"
+},
 ];
 
 // عرض المنتجات
