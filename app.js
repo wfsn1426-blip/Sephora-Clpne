@@ -227,7 +227,7 @@ const products = [
   price: 235,
   category: "makeup",
   productType: "foundation",
-  databaseId: "urban-decay-face-bond",
+  databaseId: "urban-decay-face-bond-foundation",
   image: "assets/makeup/urban-decay-face-bond.jpg",
   officialUrl: "https://www.sephora.me/sa-en/p/face-bond-self-setting-waterproof-foundation/P10059355"
 },
