@@ -1565,7 +1565,7 @@ const uniqueShades = [
     unavailable.style.color = "#888";
     productArea.appendChild(unavailable);
   } else {
-    productArea.append(shadeGrid, moreButton);
+  productArea.append(shadeGrid, moreButton, addToCartButton);
     renderShadeOptions();
   }
   
