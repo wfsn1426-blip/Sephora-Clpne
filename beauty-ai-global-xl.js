@@ -553,7 +553,7 @@ addConcealer({
   id: "nars-radiant-creamy-concealer",
   brand: "NARS",
   product: "Radiant Creamy Concealer",
-  image: "assets/makeup/nars-radiant-creamy-concealer.jpg",
+  image: "assets/makeup/nars-radiant-creamy-concealer.jpg.",
   url: "https://www.narscosmetics.com/USA/radiant-creamy-concealer/999NACRCC0001.html",
   shades: [
     ["L1", "Chantilly", "Very light", "neutral"],
@@ -599,7 +599,7 @@ addConcealer({
   id: "tarte-shape-tape-concealer",
   brand: "Tarte",
   product: "Shape Tape Concealer",
-  image: "assets/makeup/tarte-shape-tape-concealer.jpg",
+  image: "assets/makeup/tarte-shape-tape-concealer.jpg.avif",
   url: "https://tartecosmetics.com/en-sa/products/shape-tape-concealer",
   shades: [
     ["8B", "Porcelain Beige", "Very fair", "cool"],
@@ -663,7 +663,7 @@ addConcealer({
   id: "kosas-revealer-concealer",
   brand: "Kosas",
   product: "Revealer Concealer",
-  image: "assets/makeup/kosas-revealer-concealer.jpg",
+  image: "assets/makeup/kosas-revealer-concealer.jpg.avif",
   url: "https://kosas.com/products/revealer-concealer",
   shades: [
     ["0.5 N", "0.5 N", "Very light", "neutral"],
@@ -717,7 +717,7 @@ addConcealer({
   id: "fenty-were-even-concealer",
   brand: "Fenty Beauty",
   product: "We're Even Hydrating Longwear Concealer",
-  image: "assets/makeup/fenty-beauty-concealer.jpg",
+  image: "assets/makeup/fenty-beauty-concealer.jpg.avif",
   url: "https://fentybeauty.com/en-sa/products/we-re-even-hydrating-longwear-concealer-220w",
   shades: [
     "100C", "110W", "120N", "125C", "130W",
@@ -749,7 +749,7 @@ addConcealer({
   id: "huda-fauxfilter-concealer",
   brand: "Huda Beauty",
   product: "#FauxFilter Luminous Matte Concealer",
-  image: "assets/makeup/huda-beauty-fauxfilter-concealer.jpg",
+  image: "assets/makeup/huda-beauty-fauxfilter-concealer.jpg.avif",
   url: "https://hudabeauty.com/en-sa/products/fauxfilter-luminous-matte-concealer-hb00855m",
   shades: [
     "Whipped Cream 0.1",
@@ -798,7 +798,7 @@ addConcealer({
   id: "too-faced-born-this-way-concealer",
   brand: "Too Faced",
   product: "Born This Way Super Coverage Concealer",
-  image: "assets/makeup/too-faced-born-this-way-concealer.jpg",
+  image: "assets/makeup/too-faced-born-this-way-concealer.jpg.avif",
   url: "https://www.toofaced.com/product/23785/101564/face-makeup/concealer/born-this-way-super-coverage-multi-use-concealer",
   shades: [
     ["Cloud", "Very fair", "neutral"],
@@ -839,7 +839,7 @@ addConcealer({
   id: "estee-lauder-double-wear-concealer",
   brand: "Estée Lauder",
   product: "Double Wear Stay-in-Place 24-Hour Concealer",
-  image: "assets/makeup/estee-lauder-double-wear-concealer.jpg",
+  image: "assets/makeup/estee-lauder-double-wear-concealer.jpg.avif",
   url: "https://www.esteelauder.com/product/642/131399/product-catalog/makeup/face/concealer/double-wear/stay-in-place-24-hour-concealer",
   shades: [
     ".5C", ".5N", "1C", "1N", "1W",
@@ -867,7 +867,7 @@ addConcealer({
   id: "mac-studio-fix-36hr-concealer",
   brand: "M·A·C",
   product: "Studio Fix 36HR Smooth Angles Concealer",
-  image: "assets/makeup/mac-studio-fix-concealer.jpg",
+  image: "assets/makeup/mac-studio-fix-concealer.jpg.avif",
   url: "https://www.maccosmetics.com.au/product/13844/142119/products/makeup/face/concealer/studio-fix-36hr-smooth-angles-concealer",
   shades: [
     "NC11.5", "NC12", "NC13", "NC14", "NC15",
@@ -897,7 +897,7 @@ addConcealer({
   id: "dior-forever-skin-correct",
   brand: "Dior",
   product: "Forever Skin Correct Concealer",
-  image: "assets/makeup/dior-forever-skin-correct-concealer.jpg",
+  image: "assets/makeup/dior-forever-skin-correct-concealer.jpg.avif",
   url: "https://www.dior.com/en_sa/beauty/products/dior-forever-skin-correct-Y0326000.html",
   shades: [
     ["0", "0 Neutral", "neutral"],
