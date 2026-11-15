@@ -955,34 +955,6 @@ export function matchVerifiedComplexionShades({
   );
 }
 
-
-/* مطابقة درجات البشرة */
-
-export function matchVerifiedComplexionShades({
-  productId,
-  undertone,
-  skinDepth
-}) {
-
-  const product = BEAUTY_AI_PRODUCTS.find(
-    item => item.id === productId
-  );
-
-  if (!product || !Array.isArray(product.shades)) {
-    return [];
-  }
-
-  if (!undertone || !skinDepth) {
-    return [];
-  }
-
-  return product.shades.filter(shade =>
-    shade.normalizedUndertone === undertone &&
-    shade.skinDepth === skinDepth &&
-    shade.sourceStatus === "official-brand-page"
-  );
-}
-
 /* ترشيحات ألوان المكياج */
 
 export const COLOR_COSMETIC_MATCH_FIELDS = {
