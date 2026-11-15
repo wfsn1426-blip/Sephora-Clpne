@@ -182,13 +182,13 @@ shades: diorSkinGlowLabels.map(
   })
 ),
 
-    source: {
-      type: "brand-official",
-      url: "https://www.dior.com/en_sa/beauty",
-      checkedAt: "2026-11-12"
-    }
+   source: {
+  type: "brand-official",
+  url: "https://www.dior.com/en_sa/beauty",
+  checkedAt: "2026-11-12"
+  }
+},
 
- 
 {
   id: "mac-studio-fix-fluid",
   brand: "M·A·C",
