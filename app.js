@@ -1546,6 +1546,8 @@ const uniqueShades = [
       : "عرض المزيد";
 
     moreButton.hidden = uniqueShades.length <= 4;
+    addToCartButton.disabled = !selectedShade;
+    addToCartButton.style.opacity = selectedShade ? "1" : ".5";
   }
     productArea.style.display = "block";
 
@@ -1603,7 +1605,42 @@ const uniqueShades = [
     block: "start"
   });
 }
+const addToCartButton = document.createElement("button");
+addToCartButton.type = "button";
+addToCartButton.textContent = "أضيفي للسلة";
+addToCartButton.disabled = true;
 
+addToCartButton.style.cssText = `
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 22px;
+  background: #879487;
+  color: white;
+  cursor: pointer;
+  opacity: .5;
+`;
+
+addToCartButton.addEventListener("click", () => {
+  if (!selectedShade) return;
+
+  addBeautyCartItem({
+    productId: product.databaseId || product.name,
+    brand: product.brand,
+    name: product.name,
+    image: product.image,
+    price: Number(product.price) || 0,
+    shadeCode: selectedShade.code || selectedShade.name || "Selected shade",
+    shadeName: selectedShade.name || selectedShade.code || "Selected shade"
+  });
+
+  addToCartButton.textContent = "تمت الإضافة ✓";
+
+  setTimeout(() => {
+    addToCartButton.textContent = "أضيفي للسلة";
+  }, 1300);
+});
 // إعادة التحليل
 document.getElementById("resetAnalysis")?.addEventListener("click", () => {
   stopCameraStream();
