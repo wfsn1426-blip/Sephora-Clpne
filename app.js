@@ -989,19 +989,22 @@ function renderCategory() {
   const categoryProducts = groupedProducts[category.id];
 
   heading.textContent = category.name;
-  counter.textContent =
-    `${currentCategory + 1} / ${categories.length}`;
+  counter.textContent = `${currentCategory + 1} / ${categories.length}`;
 
   productArea.innerHTML = "";
+  productArea.style.display = "grid";
+  productArea.style.gridTemplateColumns =
+    "repeat(auto-fit, minmax(150px, 1fr))";
+  productArea.style.gap = "12px";
+
   navigation.hidden = false;
 
-  // عرض المنتجات بدون درجات
   if (categoryProducts.length === 0) {
     const empty = document.createElement("p");
     empty.textContent = "لا توجد منتجات مضافة لهذا القسم حاليًا.";
     empty.style.gridColumn = "1 / -1";
     empty.style.textAlign = "center";
-    empty.style.padding = "25px 10px";
+    empty.style.padding = "25px";
     empty.style.color = "#888";
     productArea.appendChild(empty);
   }
@@ -1009,81 +1012,270 @@ function renderCategory() {
   categoryProducts.forEach(product => {
     const card = document.createElement("article");
 
-    card.style.textAlign = "center";
-    card.style.padding = "12px";
-    card.style.border = "1px solid #eee";
-    card.style.borderRadius = "14px";
-    card.style.background = "#fff";
-    card.style.minWidth = "0";
-    card.style.cursor = "pointer";
-    card.style.transition = "border-color .2s";
+    card.style.cssText = `
+      border: 1px solid #eee;
+      border-radius: 14px;
+      padding: 12px;
+      background: white;
+      text-align: center;
+      cursor: pointer;
+      min-width: 0;
+      transition: .2s;
+    `;
 
     const image = document.createElement("img");
     image.src = product.image;
     image.alt = product.name;
     image.loading = "lazy";
-    image.style.width = "100%";
-    image.style.height = "130px";
-    image.style.objectFit = "contain";
-    image.style.display = "block";
-    image.style.margin = "0 auto 10px";
-
-    image.onerror = () => {
-      image.style.display = "none";
-    };
+    image.style.cssText = `
+      width: 100%;
+      height: 125px;
+      object-fit: contain;
+      margin-bottom: 8px;
+    `;
+    image.onerror = () => image.style.display = "none";
 
     const brand = document.createElement("strong");
     brand.textContent = product.brand;
-    brand.style.display = "block";
-    brand.style.fontSize = "13px";
-    brand.style.marginBottom = "5px";
+    brand.style.cssText = `
+      display: block;
+      font-size: 13px;
+      margin-bottom: 5px;
+    `;
 
     const name = document.createElement("p");
     name.textContent = product.name;
-    name.style.fontSize = "12px";
-    name.style.margin = "0 0 8px";
-    name.style.color = "#555";
+    name.style.cssText = `
+      font-size: 12px;
+      color: #555;
+      margin: 0 0 8px;
+    `;
 
     const price = document.createElement("strong");
-    price.textContent =
-      `${Number(product.price).toLocaleString("en-US")} ر.س`;
-    price.style.display = "block";
-    price.style.fontSize = "13px";
-    price.style.color = "#343A36";
-    price.style.marginBottom = "10px";
+    price.textContent = `${product.price} ر.س`;
+    price.style.cssText = `
+      display: block;
+      color: #343a36;
+      font-size: 13px;
+      margin-bottom: 10px;
+    `;
 
-    const chooseButton = document.createElement("button");
-    chooseButton.type = "button";
-    chooseButton.textContent = "اختاري درجتك";
-    chooseButton.style.padding = "7px 14px";
-    chooseButton.style.border = "1px solid #879487";
-    chooseButton.style.borderRadius = "20px";
-    chooseButton.style.background = "#fff";
-    chooseButton.style.color = "#526452";
-    chooseButton.style.fontSize = "11px";
-    chooseButton.style.cursor = "pointer";
+    const choose = document.createElement("span");
+    choose.textContent = "اختاري درجتك";
+    choose.style.cssText = `
+      display: inline-block;
+      color: #687968;
+      font-size: 12px;
+      border: 1px solid #879487;
+      border-radius: 20px;
+      padding: 6px 14px;
+    `;
 
-    function openProduct() {
+    card.append(image, brand, name, price, choose);
+
+    card.addEventListener("click", () => {
       showProductDetails(product);
-    }
-
-    card.addEventListener("click", openProduct);
-    chooseButton.addEventListener("click", event => {
-      event.stopPropagation();
-      openProduct();
     });
-
-    card.append(
-      image,
-      brand,
-      name,
-      price,
-      chooseButton
-    );
 
     productArea.appendChild(card);
   });
 
+  previousButton.disabled = currentCategory === 0;
+  nextButton.disabled = currentCategory === categories.length - 1;
+  previousButton.style.opacity = previousButton.disabled ? "0.4" : "1";
+  nextButton.style.opacity = nextButton.disabled ? "0.4" : "1";
+}
+
+function showProductDetails(product) {
+  const databaseProducts =
+    window.BEAUTY_AI_DATABASE?.BEAUTY_AI_PRODUCTS || [];
+
+  const databaseProduct = databaseProducts.find(
+    item => item.id === product.databaseId
+  );
+
+  const allShades = (databaseProduct?.shades || []).filter(
+    shade => shade.sourceStatus === "official-brand-page"
+  );
+
+  const undertoneMap = {
+    "محايد": "neutral",
+    "دافئ": "warm",
+    "بارد": "cool"
+  };
+
+  const selectedUndertone = undertoneMap[type] || null;
+
+  const matchingShades = allShades.filter(
+    shade =>
+      selectedUndertone &&
+      shade.normalizedUndertone === selectedUndertone
+  );
+
+  const shadesToShow = matchingShades.length
+    ? matchingShades
+    : allShades;
+
+  productArea.innerHTML = "";
+  productArea.style.display = "block";
+  navigation.hidden = true;
+
+  const backButton = document.createElement("button");
+  backButton.textContent = "→ العودة للمنتجات";
+  backButton.style.cssText = `
+    border: 0;
+    background: transparent;
+    color: #687968;
+    cursor: pointer;
+    padding: 8px 0;
+    margin-bottom: 14px;
+  `;
+  backButton.onclick = renderCategory;
+
+  const title = document.createElement("h3");
+  title.textContent = product.brand;
+  title.style.margin = "0 0 5px";
+
+  const productName = document.createElement("p");
+  productName.textContent = product.name;
+  productName.style.color = "#777";
+  productName.style.fontSize = "13px";
+
+  const productPrice = document.createElement("strong");
+  productPrice.textContent = `${product.price} ر.س`;
+
+  const subtitle = document.createElement("p");
+  subtitle.textContent = matchingShades.length
+    ? "درجات متوافقة مع مؤشر الاندرتون"
+    : "الدرجات الموثقة المتاحة";
+  subtitle.style.cssText = `
+    font-size: 13px;
+    color: #879487;
+    margin: 18px 0 12px;
+  `;
+
+  productArea.append(
+    backButton,
+    title,
+    productName,
+    productPrice,
+    subtitle
+  );
+
+  if (!shadesToShow.length) {
+    const empty = document.createElement("p");
+    empty.textContent =
+      "لم تتم إضافة درجات موثقة لهذا المنتج حتى الآن.";
+    empty.style.cssText = `
+      text-align: center;
+      color: #888;
+      padding: 25px 10px;
+    `;
+    productArea.appendChild(empty);
+    return;
+  }
+
+  const shadeGrid = document.createElement("div");
+  shadeGrid.style.cssText = `
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  `;
+
+  let selectedShade = null;
+
+  shadesToShow.forEach(shade => {
+    const shadeButton = document.createElement("button");
+    shadeButton.type = "button";
+    shadeButton.style.cssText = `
+      border: 1px solid #e5e5e5;
+      border-radius: 10px;
+      background: white;
+      padding: 8px 4px;
+      cursor: pointer;
+      min-width: 0;
+    `;
+
+    const swatch = document.createElement("div");
+    swatch.style.cssText = `
+      width: 100%;
+      height: 38px;
+      border-radius: 7px;
+      background: #eeeae4;
+      margin-bottom: 7px;
+    `;
+
+    if (shade.swatchImage) {
+      swatch.style.backgroundImage = `url("${shade.swatchImage}")`;
+      swatch.style.backgroundSize = "cover";
+      swatch.style.backgroundPosition = "center";
+    }
+
+    const code = document.createElement("strong");
+    code.textContent = shade.code;
+    code.style.cssText = "display:block;font-size:12px";
+
+    const undertone = document.createElement("small");
+    undertone.textContent = shade.officialUndertone || "";
+    undertone.style.cssText = `
+      display:block;
+      font-size:10px;
+      color:#888;
+      margin-top:3px;
+    `;
+
+    shadeButton.append(swatch, code, undertone);
+
+    shadeButton.addEventListener("click", () => {
+      selectedShade = shade;
+
+      [...shadeGrid.children].forEach(button => {
+        button.style.border = "1px solid #e5e5e5";
+        button.style.background = "white";
+      });
+
+      shadeButton.style.border = "2px solid #27945c";
+      shadeButton.style.background = "#f1f7f2";
+    });
+
+    shadeGrid.appendChild(shadeButton);
+  });
+
+  productArea.appendChild(shadeGrid);
+
+  const note = document.createElement("p");
+  note.textContent =
+    "المطابقة أولية حسب الاندرتون؛ عمق البشرة يحتاج بيانات موثقة.";
+  note.style.cssText = `
+    font-size: 11px;
+    color: #888;
+    margin-top: 12px;
+  `;
+  productArea.appendChild(note);
+
+  const addButton = document.createElement("button");
+  addButton.type = "button";
+  addButton.textContent = "أضيفي للسلة";
+  addButton.disabled = true;
+  addButton.style.cssText = `
+    width: 100%;
+    padding: 12px;
+    margin-top: 14px;
+    border: 0;
+    border-radius: 22px;
+    background: #879487;
+    color: white;
+    cursor: pointer;
+    opacity: .5;
+  `;
+
+  shadeGrid.addEventListener("click", () => {
+    addButton.disabled = !selectedShade;
+    addButton.style.opacity = selectedShade ? "1" : ".5";
+  });
+
+  productArea.appendChild(addButton);
+}
   previousButton.disabled = currentCategory === 0;
   nextButton.disabled =
     currentCategory === categories.length - 1;
