@@ -313,23 +313,6 @@ const products = [
     image: "assets/makeup/dior-forever-skin-correct-concealer.jpg"
   },
 ];
-
-const BEAUTY_PRICES = {
-  "NARS|Radiant Creamy Concealer": 190,
-  "TARTE|Shape Tape Concealer": 170,
-  "KOSAS|Revealer Concealer": 155,
-  "FENTY BEAUTY|We're Even Hydrating Longwear Concealer": 170,
-  "HUDA BEAUTY|#FauxFilter Luminous Matte Concealer": 163,
-  "TOO FACED|Born This Way Super Coverage Concealer": 195,
-  "ESTÉE LAUDER|Double Wear Stay-in-Place Concealer": 160,
-  "M·A·C|Studio Fix 36HR Smooth Angles Concealer": 145,
-  "DIOR|Forever Skin Correct Concealer": 205,
-
-  "M·A·C|Studio Fix Fluid Foundation": 250,
-  "FENTY BEAUTY|Pro Filt'r Foundation": 230,
-  "URBAN DECAY|Face Bond Self-Setting Waterproof Foundation": 235
-};
-
 function getBeautyPrice(product) {
   const key = `${product.brand}|${product.name}`;
   return Number(product.price) || BEAUTY_PRICES[key] || 0;
