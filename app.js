@@ -1475,25 +1475,7 @@ const availableShades = verifiedShades.filter(item =>
     productArea.append(shadeGrid, moreButton);
     renderShadeOptions();
   }
-  productArea.style.display = "block";
-
-  productArea.append(
-    backButton,
-    details,
-    shadeTitle
-  );
-
-  if (uniqueShades.length === 0) {
-    const unavailable = document.createElement("p");
-    unavailable.textContent =
-      "لا توجد درجات موثقة لهذا المنتج حاليًا.";
-    unavailable.style.textAlign = "center";
-    unavailable.style.color = "#888";
-    productArea.appendChild(unavailable);
-  } else {
-    productArea.append(shadeGrid, moreButton);
-    renderShadeOptions();
-  }
+  
   previousButton.disabled = currentCategory === 0;
     nextButton.disabled = currentCategory === categories.length - 1;
 
