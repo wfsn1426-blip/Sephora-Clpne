@@ -428,7 +428,8 @@ const analysisResult = document.getElementById("analysisResult");
 let cameraStream = null;
 let selectedImage = null;
 let selectedTarget = "face";
-
+let currentUndertone = null;
+let currentSkinTone = null;
 let visionFilesetPromise = null;
 let faceLandmarker = null;
 let handLandmarker = null;
