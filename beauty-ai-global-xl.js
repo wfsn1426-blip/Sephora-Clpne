@@ -193,7 +193,7 @@ shades: diorSkinGlowLabels.map(
   id: "nars-natural-radiant-longwear",
   brand: "NARS",
   product: "Natural Radiant Longwear Foundation",
-  image: "assets/nars-natural-radiant.jpg",
+  image: "assets/makeup/nars-natural-radiant.jpg",
   category: "foundation",
   formula: "liquid",
   finish: "natural radiant",
