@@ -1345,19 +1345,18 @@ function showProductDetails(product) {
     item.sourceStatus === "official-brand-page"
   );
 
-  const matchingShades = verifiedShades.filter(item =>
-    item.normalizedUndertone ===
-    ({
-      "محايد": "neutral",
-      "دافئ": "warm",
-      "بارد": "cool"
-    }[type])
-  );
+ const undertoneMap = {
+  "محايد": ["neutral"],
+  "بارد": ["cool"],
+  "دافئ": ["warm", "olive", "peach"]
+};
 
-  const availableShades =
-    matchingShades.length > 0
-      ? matchingShades
-      : verifiedShades;
+const allowedUndertones = undertoneMap[type] || [];
+
+const availableShades = verifiedShades.filter(item =>
+  allowedUndertones.includes(item.normalizedUndertone) &&
+  item.sourceStatus === "official-brand-page"
+);
 
   const uniqueShades = [
     ...new Map(
