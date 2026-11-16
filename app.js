@@ -310,14 +310,15 @@ const products = [
     description: "كونسيلر بتغطية عالية ولمسة طبيعية.",
     price: 205,
     category: "makeup",
-   image: "assets/makeup/dior-forever-skin-correct-concealer.jpg"
-}
+     image: "assets/makeup/dior-forever-skin-correct-concealer.jpg"
+  }
 ];
+
 function getBeautyPrice(product) {
   const key = `${product.brand}|${product.name}`;
   return Number(product.price) || BEAUTY_PRICES[key] || 0;
 }
-  
+
 // عرض المنتجات
 function renderProducts(category, containerId) {
   const container = document.getElementById(containerId);
