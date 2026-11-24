@@ -958,66 +958,177 @@ if (averageBrightness < 45 || averageBrightness > 220) {
     "الإضاءة غير مناسبة للتحليل. استخدمي إضاءة طبيعية متوازنة ومن دون فلاش.";
   return;
 }
+ 
+// ===============================
+// Advanced Skin Color Analysis
+// RGB -> CIELAB
+// ===============================
 
+function srgbToLinear(value) {
+  value = value / 255;
 
-   
-const brightness = (red + green + blue) / 3;
-
-// تحويل اللون إلى مؤشرات لونية نسبية
-const redGreen = red - green;
-const blueYellow = (red + green) / 2 - blue;
-    console.log("قيم تحليل البشرة:", {
-  red,
-  green,
-  blue,
-  redGreen,
-  blueYellow
-});
-    
-// تصنيف مبدئي وليس قياسًا مؤكدًا للاندرتون
-let type;
-let description;
-let colors;
-
-
-const undertoneScore = blueYellow - redGreen;
-
-if (undertoneScore > 10) {
-  type = "دافئ";
-  description = "تظهر مؤشرات دافئة مبدئيًا. قد تناسبك الدرجات الذهبية والخوخية.";
-  colors = ["#D69B68", "#C9825B", "#E5B58B", "#A96D45"];
-
-} else if (undertoneScore < -10) {
-  type = "بارد";
-  description = "تظهر مؤشرات باردة مبدئيًا. قد تناسبك الدرجات الوردية والتوتية.";
-  colors = ["#D8A0A8", "#A96D88", "#B8A1C9", "#C58B9D"];
-
-} else {
-  type = "محايد";
-  description = "المؤشرات اللونية متقاربة. قد تناسبك الدرجات المتوازنة.";
-  colors = ["#C9A58A", "#D4B8A5", "#B78F83", "#C7B4A1"];
+  return value <= 0.04045
+    ? value / 12.92
+    : Math.pow((value + 0.055) / 1.055, 2.4);
 }
 
-// عمق البشرة: تقدير أولي يتأثر بالإضاءة والكاميرا
-// Skin Depth
+const rLinear = srgbToLinear(red);
+const gLinear = srgbToLinear(green);
+const bLinear = srgbToLinear(blue);
+
+// RGB to XYZ
+const X =
+  rLinear * 0.4124 +
+  gLinear * 0.3576 +
+  bLinear * 0.1805;
+
+const Y =
+  rLinear * 0.2126 +
+  gLinear * 0.7152 +
+  bLinear * 0.0722;
+
+const Z =
+  rLinear * 0.0193 +
+  gLinear * 0.1192 +
+  bLinear * 0.9505;
+
+// XYZ to LAB
+function xyzToLab(value) {
+  const reference = value > 0.008856
+    ? Math.cbrt(value)
+    : (7.787 * value) + (16 / 116);
+
+  return reference;
+}
+
+const xLab = xyzToLab(X / 0.95047);
+const yLab = xyzToLab(Y);
+const zLab = xyzToLab(Z / 1.08883);
+
+const L = (116 * yLab) - 16;
+const a = 500 * (xLab - yLab);
+const b = 200 * (yLab - zLab);
+
+console.log("CIELAB skin analysis:", {
+  L: L.toFixed(2),
+  a: a.toFixed(2),
+  b: b.toFixed(2)
+});
+
+// ===============================
+// Skin Depth Classification
+// ===============================
+
 let skinTone;
 
-if (brightness >= 210) {
+if (L >= 80) {
+  skinTone = "Very Light";
+} else if (L >= 72) {
   skinTone = "Light";
-} else if (brightness >= 180) {
+} else if (L >= 64) {
   skinTone = "Light Medium";
-} else if (brightness >= 145) {
+} else if (L >= 56) {
   skinTone = "Medium";
-} else if (brightness >= 110) {
+} else if (L >= 48) {
   skinTone = "Medium Deep";
-} else if (brightness >= 75) {
+} else if (L >= 38) {
   skinTone = "Deep";
 } else {
   skinTone = "Very Deep";
 }
 
-displayUndertoneResult(type, description, colors, skinTone);
+// ===============================
+// Undertone Analysis
+// Conservative classification
+// ===============================
 
+let type;
+let description;
+let colors;
+
+const warmIndex = b - a;
+const chroma = Math.sqrt(a * a + b * b);
+
+console.log("Undertone indicators:", {
+  warmIndex: warmIndex.toFixed(2),
+  chroma: chroma.toFixed(2)
+});
+
+// Olive
+if (b > 13 && a < 13 && warmIndex > 5) {
+  type = "زيتوني";
+
+  description =
+    "تظهر مؤشرات زيتونية مبدئيًا. قد تناسبك درجات البيج المحايدة والذهبية الهادئة.";
+
+  colors = [
+    "#B8A17A",
+    "#C6AD8B",
+    "#A68B69",
+    "#D0B99A"
+  ];
+
+// Warm
+} else if (b > 18 && warmIndex > 7) {
+  type = "دافئ";
+
+  description =
+    "تظهر مؤشرات دافئة مبدئيًا. قد تناسبك الدرجات الذهبية والخوخية.";
+
+  colors = [
+    "#D69B68",
+    "#C9825B",
+    "#E5B58B",
+    "#A96D45"
+  ];
+
+// Cool
+} else if (a > 16 && b < 18) {
+  type = "بارد";
+
+  description =
+    "تظهر مؤشرات باردة مبدئيًا. قد تناسبك الدرجات الوردية والتوتية.";
+
+  colors = [
+    "#D8A0A8",
+    "#A96D88",
+    "#B8A1C9",
+    "#C58B9D"
+  ];
+
+// Neutral
+} else {
+  type = "محايد";
+
+  description =
+    "المؤشرات اللونية متقاربة. قد تناسبك الدرجات المتوازنة بين الدافئة والباردة.";
+
+  colors = [
+    "#C9A58A",
+    "#D4B8A5",
+    "#B78F83",
+    "#C7B4A1"
+  ];
+}
+
+// ===============================
+// Confidence Check
+// ===============================
+
+if (chroma < 8) {
+  type = "محايد";
+
+  description =
+    "لون العينة منخفض التباين، لذلك يصعب تحديد الاندرتون بدقة. نوصي بدرجات محايدة.";
+}
+
+// Display result
+displayUndertoneResult(
+  type,
+  description,
+  colors,
+  skinTone
+);
 
  } catch (error) {
   console.error("Beauty AI analysis error:", error);
