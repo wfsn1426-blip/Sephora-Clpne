@@ -149,7 +149,7 @@ const products = [
   category: "makeup",
   productType: "blush",
   databaseId: "rare-beauty-bouncy-blush",
-  image: "assets/makeup/rare-beauty-bouncy-blush.jpg"
+  image: "assets/makeup/rare-beauty-soft-pinch.jpg"
 },
   {
     brand: "MILK MAKEUP",
