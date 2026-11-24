@@ -958,9 +958,6 @@ currentSkinTone = skinTone;
     { id: "foundation", name: "كريم الأساس" },
     { id: "concealer", name: "الكونسيلر" },
     { id: "blush", name: "البلاشر" },
-    { id: "lipstick", name: "الأرواج" },
-    { id: "contour", name: "الكونتور" },
-    { id: "lipliner", name: "محدد الشفاه" }
   ];
 
   // تحديد نوع المنتج من بياناته أو اسمه
