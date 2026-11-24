@@ -1528,17 +1528,22 @@ function showProductDetails(product) {
   );
 
   const verifiedShades = (
-    databaseProduct?.shades || []
-  ).filter(item =>
-    item.sourceStatus === "official-brand-page"
-  );
-
+  databaseProduct?.shades || []
+).filter(item =>
+  product.productType === "blush"
+    ? item.sourceStatus === "color-guidance"
+    : item.sourceStatus === "official-brand-page"
+);
  
 const undertoneMap = {
   "محايد": ["neutral"],
   "بارد": ["cool"],
-  "دافئ": ["warm", "olive", "peach", "golden"]
+  "دافئ": ["warm"],
+  "زيتوني": ["olive"]
 };
+
+const allowedUndertones =
+  undertoneMap[currentUndertone] || [];
 
 const allowedUndertones =
   undertoneMap[currentUndertone] || [];
