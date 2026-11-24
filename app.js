@@ -1668,10 +1668,16 @@ const allowedUndertones =
 const preferredCodes = skinDepthMap[currentSkinTone] || [];  
 // نرتب الدرجات المتوافقة أولًا، ثم نعرض بقية الدرجات الموثقة
 const sortedShades = [...verifiedShades].sort((a, b) => {
-  const aMatch = allowedUndertones.includes(a.normalizedUndertone);
-  const bMatch = allowedUndertones.includes(b.normalizedUndertone);
+  const aUndertone = allowedUndertones.includes(a.normalizedUndertone);
+  const bUndertone = allowedUndertones.includes(b.normalizedUndertone);
 
-  return Number(bMatch) - Number(aMatch);
+  const aDepth = preferredCodes.includes(a.code);
+  const bDepth = preferredCodes.includes(b.code);
+
+  const aScore = (aUndertone ? 2 : 0) + (aDepth ? 1 : 0);
+  const bScore = (bUndertone ? 2 : 0) + (bDepth ? 1 : 0);
+
+  return bScore - aScore;
 });
 
 const uniqueShades = [
