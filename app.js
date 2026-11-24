@@ -69,7 +69,7 @@ const products = [
   category: "makeup",
   productType: "blush",
   databaseId: "dior-rosy-glow-blush",
-  image: "assets/makeup/dior-rosy-glow-blush.jpg"
+  image: "assets/makeup//dior-rosy-glow.jpg"
 },
 {
   brand: "M·A·C",
