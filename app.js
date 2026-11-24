@@ -52,6 +52,106 @@ const products = [
     image: "assets/makeup/patrick-ta-blush-duo.jpg"
   },
   {
+  brand: "NARS",
+  name: "Powder Blush",
+  description: "بلاشر بودرة لإضافة لون طبيعي للخدود.",
+  price: 220,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "nars-powder-blush",
+  image: "assets/makeup/nars-powder-blush.jpg"
+},
+{
+  brand: "DIOR",
+  name: "Rosy Glow Blush",
+  description: "بلاشر بودرة يمنح الخدود لونًا ورديًا.",
+  price: 210,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "dior-rosy-glow-blush",
+  image: "assets/makeup/dior-rosy-glow-blush.jpg"
+},
+{
+  brand: "M·A·C",
+  name: "Powder Blush",
+  description: "بلاشر بودرة بلمسة لون ناعمة.",
+  price: 155,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "mac-powder-blush",
+  image: "assets/makeup/mac-powder-blush.jpg"
+},
+{
+  brand: "HOURGLASS",
+  name: "Ambient Lighting Blush",
+  description: "بلاشر يمنح الخدود لونًا وإضاءة ناعمة.",
+  price: 240,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "hourglass-ambient-blush",
+  image: "assets/makeup/hourglass-ambient-blush.jpg"
+},
+{
+  brand: "HUDA BEAUTY",
+  name: "Blush Filter Palette",
+  description: "باليت بلاشر بألوان متعددة.",
+  price: 205,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "huda-blush-filter",
+  image: "assets/makeup/huda-blush-filter.jpg"
+},
+{
+  brand: "FENTY BEAUTY",
+  name: "Cheeks Out Cream Blush",
+  description: "بلاشر كريمي سهل الدمج.",
+  price: 145,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "fenty-cheeks-out",
+  image: "assets/makeup/fenty-cheeks-out.jpg"
+},
+{
+  brand: "DIOR",
+  name: "Rosy Glow Stick",
+  description: "بلاشر كريمي بصيغة ستيك.",
+  price: 230,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "dior-rosy-glow-stick",
+  image: "assets/makeup/dior-rosy-glow-stick.jpg"
+},
+{
+  brand: "MILK MAKEUP",
+  name: "Lip + Cheek",
+  description: "لون كريمي للخدود والشفاه.",
+  price: 125,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "milk-lip-cheek",
+  image: "assets/makeup/milk-lip-cheek.jpg"
+},
+{
+  brand: "NUDESTIX",
+  name: "Nudies Blush",
+  description: "بلاشر كريمي عملي وسهل الاستخدام.",
+  price: 145,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "nudestix-nudies-blush",
+  image: "assets/makeup/nudestix-nudies-blush.jpg"
+},
+{
+  brand: "RARE BEAUTY",
+  name: "Soft Pinch Bouncy Blush",
+  description: "بلاشر بقوام ناعم يمنح الخدود لونًا.",
+  price: 170,
+  category: "makeup",
+  productType: "blush",
+  databaseId: "rare-beauty-bouncy-blush",
+  image: "assets/makeup/rare-beauty-bouncy-blush.jpg"
+},
+  {
     brand: "MILK MAKEUP",
     name: "Bronzer Stick",
     description: "برونزر كريمي سهل الدمج يمنح البشرة دفئًا طبيعيًا.",
