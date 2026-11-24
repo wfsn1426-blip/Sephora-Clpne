@@ -1712,6 +1712,43 @@ const uniqueShades = [
   moreButton.style.color = "#526452";
   moreButton.style.cursor = "pointer";
 
+  const addToCartButton = document.createElement("button");
+addToCartButton.type = "button";
+addToCartButton.textContent = "أضيفي للسلة";
+addToCartButton.disabled = true;
+
+addToCartButton.style.cssText = `
+  width:100%;
+  padding:12px;
+  margin-top:14px;
+  border:0;
+  border-radius:22px;
+  background:#879487;
+  color:white;
+  cursor:pointer;
+  opacity:.5;
+`;
+
+addToCartButton.addEventListener("click", () => {
+  if (!selectedShade) return;
+
+  addBeautyCartItem({
+    productId: product.databaseId || product.name,
+    brand: product.brand,
+    name: product.name,
+    image: product.image,
+    price: Number(product.price) || 0,
+    shadeCode: selectedShade.code || selectedShade.name,
+    shadeName: selectedShade.name || selectedShade.code
+  });
+
+  addToCartButton.textContent = "تمت الإضافة ✓";
+
+  setTimeout(() => {
+    addToCartButton.textContent = "أضيفي للسلة";
+  }, 1300);
+});
+  
   function renderShadeOptions() {
     shadeGrid.innerHTML = "";
 
