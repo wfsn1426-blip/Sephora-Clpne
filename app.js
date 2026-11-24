@@ -99,7 +99,7 @@ const products = [
   category: "makeup",
   productType: "blush",
   databaseId: "huda-blush-filter",
-  image: "assets/makeup/huda-blush-filter.jpg"
+  image: "assets/makeup/huda-beauty-blush.jpg"
 },
 {
   brand: "FENTY BEAUTY",
