@@ -1655,7 +1655,17 @@ const undertoneMap = {
 
 const allowedUndertones =
   undertoneMap[currentUndertone] || [];
-  
+  const skinDepthMap = {
+  "Very Light": ["01", "02", "04", "08"],
+  "Light": ["01", "02", "04", "08", "03"],
+  "Light Medium": ["02", "03", "04", "07", "08"],
+  "Medium": ["03", "04", "05", "07", "08", "09"],
+  "Medium Deep": ["03", "05", "06", "07", "09", "10"],
+  "Deep": ["05", "06", "09", "10", "03"],
+  "Very Deep": ["05", "06", "09", "10"]
+};
+
+const preferredCodes = skinDepthMap[currentSkinTone] || [];  
 // نرتب الدرجات المتوافقة أولًا، ثم نعرض بقية الدرجات الموثقة
 const sortedShades = [...verifiedShades].sort((a, b) => {
   const aMatch = allowedUndertones.includes(a.normalizedUndertone);
