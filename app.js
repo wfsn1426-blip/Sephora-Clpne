@@ -1280,10 +1280,12 @@ function showProductDetails(product) {
     item => item.id === product.databaseId
   );
 
-  const allShades = (databaseProduct?.shades || []).filter(
-    shade => shade.sourceStatus === "official-brand-page"
-  );
-
+ const allShades = (databaseProduct?.shades || []).filter(
+  shade =>
+    product.productType === "blush"
+      ? shade.sourceStatus === "color-guidance"
+      : shade.sourceStatus === "official-brand-page"
+);
   const undertoneMap = {
     "محايد": "neutral",
     "دافئ": "warm",
