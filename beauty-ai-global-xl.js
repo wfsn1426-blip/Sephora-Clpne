@@ -490,365 +490,302 @@ shades: diorSkinGlowLabels.map(
   product: "Powder Blush",
   category: "blush",
   formula: "powder",
+  finish: "matte / shimmer",
+  priceSAR: 220,
+  shades: [
+    { code: "777", name: "Orgasm", colorDescription: "Peachy pink with golden shimmer", swatchHex: "#E78D91", normalizedUndertone: "warm", skinDepth: null },
+    { code: "778", name: "Orgasm Edge", colorDescription: "Matte peachy pink", swatchHex: "#E99C91", normalizedUndertone: "warm", skinDepth: null },
+    { code: "776", name: "Orgasm X", colorDescription: "Deep coral with gold pearl", swatchHex: "#D96858", normalizedUndertone: "warm", skinDepth: null },
+    { code: "775", name: "Orgasm Rush", colorDescription: "Deep rose bronze shimmer", swatchHex: "#A75E62", normalizedUndertone: "warm", skinDepth: null },
+    { code: "237", name: "Deep Throat", colorDescription: "Soft pink with golden sheen", swatchHex: "#D98D91", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "900", name: "Behave", colorDescription: "Matte pink mauve", swatchHex: "#B87991", normalizedUndertone: "cool", skinDepth: null },
+    { code: "901", name: "Amour", colorDescription: "Matte warm pink", swatchHex: "#D76C78", normalizedUndertone: "warm", skinDepth: null },
+    { code: "888", name: "Dolce Vita", colorDescription: "Matte dusty rose", swatchHex: "#B76C78", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "920", name: "Sex Appeal", colorDescription: "Matte soft peach", swatchHex: "#E8B19A", normalizedUndertone: "warm", skinDepth: null },
+    { code: "921", name: "Gina", colorDescription: "Matte tangerine", swatchHex: "#E88949", normalizedUndertone: "warm", skinDepth: null },
+    { code: "922", name: "Forbidden", colorDescription: "Matte beige coral", swatchHex: "#D58B72", normalizedUndertone: "warm", skinDepth: null },
+    { code: "252", name: "Torrid", colorDescription: "Warm coral with golden shimmer", swatchHex: "#E47762", normalizedUndertone: "warm", skinDepth: null },
+    { code: "923", name: "Obsession", colorDescription: "Matte papaya coral", swatchHex: "#E66D50", normalizedUndertone: "warm", skinDepth: null },
+    { code: "950", name: "Thrill", colorDescription: "Matte cool light pink", swatchHex: "#F1A5C4", normalizedUndertone: "cool", skinDepth: null },
+    { code: "951", name: "Dominant", colorDescription: "Matte poppy pink", swatchHex: "#E95779", normalizedUndertone: "cool", skinDepth: null },
+    { code: "952", name: "Teased", colorDescription: "Matte fuchsia", swatchHex: "#C93685", normalizedUndertone: "cool", skinDepth: null },
+    { code: "953", name: "Exhibit A", colorDescription: "Matte red", swatchHex: "#D94345", normalizedUndertone: "warm", skinDepth: null },
+    { code: "955", name: "Taj Mahal", colorDescription: "Burnished orange with golden shimmer", swatchHex: "#D8792D", normalizedUndertone: "warm", skinDepth: null },
+    { code: "956", name: "Foreplay", colorDescription: "Shimmering red brown", swatchHex: "#995449", normalizedUndertone: "warm", skinDepth: null },
+    { code: "903", name: "Impassioned", colorDescription: "Matte pink orchid", swatchHex: "#C77CB4", normalizedUndertone: "cool", skinDepth: null },
+    { code: "907", name: "Mad Love", colorDescription: "Mauve pink with gold shimmer", swatchHex: "#B87991", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "908", name: "Catch Me", colorDescription: "Matte cool pink", swatchHex: "#D47EA3", normalizedUndertone: "cool", skinDepth: null },
+    { code: "909", name: "Wild Bunch", colorDescription: "Shimmering raspberry", swatchHex: "#B83C69", normalizedUndertone: "cool", skinDepth: null },
+    { code: "910", name: "Never Enough", colorDescription: "Matte peachy rose", swatchHex: "#CF827D", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "961", name: "Hot One", colorDescription: "Matte burgundy", swatchHex: "#873C52", normalizedUndertone: "cool", skinDepth: null },
+    { code: "962", name: "Hunger", colorDescription: "Shimmering plum", swatchHex: "#80517C", normalizedUndertone: "cool", skinDepth: null },
+    { code: "902", name: "Infatuated", colorDescription: "Matte deep plumberry", swatchHex: "#743E56", normalizedUndertone: "cool", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://www.narscosmetics.eu/en/powder-blush/0194251140414.html",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are visual approximations, not official digital shade color values."
+},
+{
+  id: "dior-rosy-glow-blush",
+  brand: "Dior",
+  product: "Backstage Rosy Glow Blush",
+  category: "blush",
+  formula: "powder",
+  finish: "natural / pearly",
+  priceSAR: 210,
+  shades: [
+    { code: "001", name: "Pink", colorDescription: "Soft pink", swatchHex: "#E98EAF", normalizedUndertone: "cool", skinDepth: null },
+    { code: "006", name: "Berry", colorDescription: "Berry pink", swatchHex: "#B94E78", normalizedUndertone: "cool", skinDepth: null },
+    { code: "012", name: "Rosewood", colorDescription: "Muted rosewood", swatchHex: "#B97985", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "063", name: "Pink Lilac", colorDescription: "Cool lilac pink", swatchHex: "#CE91CB", normalizedUndertone: "cool", skinDepth: null },
+    { code: "077", name: "Candy", colorDescription: "Bright candy pink", swatchHex: "#F17FA9", normalizedUndertone: "cool", skinDepth: null },
+    { code: "103", name: "Toffee", colorDescription: "Warm nude brown", swatchHex: "#B98265", normalizedUndertone: "warm", skinDepth: null },
+    { code: "106", name: "Pomelo", colorDescription: "Soft coral peach", swatchHex: "#F0927D", normalizedUndertone: "warm", skinDepth: null },
+    { code: "107", name: "Dragonfruit", colorDescription: "Vibrant pink", swatchHex: "#D94887", normalizedUndertone: "cool", skinDepth: null },
+    { code: "108", name: "Guava", colorDescription: "Warm coral pink", swatchHex: "#E87978", normalizedUndertone: "warm", skinDepth: null },
+    { code: "109", name: "Goji", colorDescription: "Deep berry red", swatchHex: "#A83F57", normalizedUndertone: "cool", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://www.dior.com/en_sa/beauty/products/dior-backstage-rosy-glow-Y0000049.html",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations."
+},
+{
+  id: "mac-powder-blush",
+  brand: "M·A·C",
+  product: "Skinfinish Colourstruck Blush",
+  category: "blush",
+  formula: "powder",
+  finish: "matte / radiant",
+  priceSAR: 155,
+  shades: [
+    { code: "01", name: "Snob", colorDescription: "Light cool pink", swatchHex: "#E9A4BD", normalizedUndertone: "cool", skinDepth: null },
+    { code: "02", name: "CB96", colorDescription: "Copper peach shimmer", swatchHex: "#C98255", normalizedUndertone: "warm", skinDepth: null },
+    { code: "03", name: "Pony", colorDescription: "Soft peachy nude", swatchHex: "#DCA58C", normalizedUndertone: "warm", skinDepth: null },
+    { code: "04", name: "Cheeky Chili", colorDescription: "Warm terracotta", swatchHex: "#C76D53", normalizedUndertone: "warm", skinDepth: null },
+    { code: "05", name: "Sinner", colorDescription: "Deep berry", swatchHex: "#843D58", normalizedUndertone: "cool", skinDepth: null },
+    { code: "06", name: "Loudspeaker", colorDescription: "Bright coral pink", swatchHex: "#E95D73", normalizedUndertone: "warm", skinDepth: null },
+    { code: "07", name: "Honeylove", colorDescription: "Soft beige nude", swatchHex: "#C99B83", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "08", name: "Peachykeen", colorDescription: "Peachy pink shimmer", swatchHex: "#E69B86", normalizedUndertone: "warm", skinDepth: null },
+    { code: "09", name: "Velvet Teddy", colorDescription: "Muted rosy brown", swatchHex: "#B77A70", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "10", name: "Antique Velvet", colorDescription: "Deep muted plum", swatchHex: "#81536B", normalizedUndertone: "cool", skinDepth: null },
+    { code: "11", name: "LaLaLavender", colorDescription: "Lavender pink", swatchHex: "#C69CCF", normalizedUndertone: "cool", skinDepth: null },
+    { code: "12", name: "Pinch Me", colorDescription: "Rosy coral", swatchHex: "#D77C83", normalizedUndertone: "warm", skinDepth: null },
+    { code: "13", name: "Thanks, It's MAC", colorDescription: "Beige pink nude", swatchHex: "#C99B9A", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "14", name: "No Filter", colorDescription: "Muted mauve pink", swatchHex: "#B9829A", normalizedUndertone: "cool", skinDepth: null },
+    { code: "15", name: "Sunbasque", colorDescription: "Warm peach bronze", swatchHex: "#CB8658", normalizedUndertone: "warm", skinDepth: null },
+    { code: "16", name: "Blushbaby", colorDescription: "Muted beige pink", swatchHex: "#C39B8D", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "17", name: "Gingerly", colorDescription: "Warm peach brown", swatchHex: "#C88963", normalizedUndertone: "warm", skinDepth: null },
+    { code: "18", name: "Ruby Wooed", colorDescription: "Ruby red", swatchHex: "#B94754", normalizedUndertone: "cool", skinDepth: null },
+    { code: "19", name: "Peachtwist", colorDescription: "Peach bronze shimmer", swatchHex: "#D68D68", normalizedUndertone: "warm", skinDepth: null },
+    { code: "20", name: "Pink Flamingo", colorDescription: "Bright pink", swatchHex: "#E75D91", normalizedUndertone: "cool", skinDepth: null },
+    { code: "21", name: "Plush", colorDescription: "Mauve rose", swatchHex: "#BA7898", normalizedUndertone: "cool", skinDepth: null },
+    { code: "22", name: "Your Heroine", colorDescription: "Warm rose", swatchHex: "#C86F75", normalizedUndertone: "warm", skinDepth: null },
+    { code: "23", name: "Babygirl", colorDescription: "Soft pink", swatchHex: "#D98DAA", normalizedUndertone: "cool", skinDepth: null },
+    { code: "24", name: "Coppertone", colorDescription: "Copper brown", swatchHex: "#B9784F", normalizedUndertone: "warm", skinDepth: null },
+    { code: "25", name: "Raizin The Roof", colorDescription: "Deep plum brown", swatchHex: "#79464D", normalizedUndertone: "warm", skinDepth: null },
+    { code: "26", name: "Film Noir Buff", colorDescription: "Deep neutral brown", swatchHex: "#79584F", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "27", name: "Desert Rose", colorDescription: "Dusty rose", swatchHex: "#B66E79", normalizedUndertone: "neutral", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://www.maccosmetics-sa.com/en/product/skinfinish-colourstruck-blush",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations and not official brand color values."
+},
+{
+  id: "hourglass-ambient-blush",
+  brand: "Hourglass",
+  product: "Ambient Lighting Blush",
+  category: "blush",
+  formula: "powder",
+  finish: "radiant",
+  priceSAR: 240,
+  shades: [
+    { code: "SUBLIME FLUSH", name: "Sublime Flush", colorDescription: "Soft pink fused with lilac", swatchHex: "#D99ABF", normalizedUndertone: "cool", skinDepth: null },
+    { code: "AT NIGHT", name: "At Night", colorDescription: "Brick red", swatchHex: "#A64E43", normalizedUndertone: "warm", skinDepth: null },
+    { code: "DIFFUSED HEAT", name: "Diffused Heat", colorDescription: "Vibrant poppy coral", swatchHex: "#E46A52", normalizedUndertone: "warm", skinDepth: null },
+    { code: "LUMINOUS FLUSH", name: "Luminous Flush", colorDescription: "Champagne rose", swatchHex: "#D99A9B", normalizedUndertone: "warm", skinDepth: null },
+    { code: "RADIANT MAGENTA", name: "Radiant Magenta", colorDescription: "Golden fuchsia", swatchHex: "#D4488F", normalizedUndertone: "cool", skinDepth: null },
+    { code: "DIM INFUSION", name: "Dim Infusion", colorDescription: "Subdued coral", swatchHex: "#D58A75", normalizedUndertone: "warm", skinDepth: null },
+    { code: "ETHEREAL GLOW", name: "Ethereal Glow", colorDescription: "Cool pink", swatchHex: "#E5A1C5", normalizedUndertone: "cool", skinDepth: null },
+    { code: "MOOD EXPOSURE", name: "Mood Exposure", colorDescription: "Soft plum", swatchHex: "#A77C9B", normalizedUndertone: "cool", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://hourglasscolor.com/products/ambient-lighting-blush",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
+},
+{
+  id: "huda-blush-filter",
+  brand: "Huda Beauty",
+  product: "Blush Filter Blurring Blushlighters Palette",
+  category: "blush",
+  formula: "powder",
+  finish: "matte / radiant",
+  priceSAR: 210,
   shades: [
     {
-      id: "nars-777",
-      code: "777",
-      name: "Orgasm",
-      colorName: "Peachy Pink with Golden Shimmer",
-      swatchHex: "#E99B91",
-      normalizedUndertone: "warm",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-778",
-      code: "778",
-      name: "Orgasm Edge",
-      colorName: "Matte Peachy Pink",
-      swatchHex: "#E5A08E",
-      normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-776",
-      code: "776",
-      name: "Orgasm X",
-      colorName: "Deep Coral with Gold Pearl",
-      swatchHex: "#C96F64",
-      normalizedUndertone: "warm",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-775",
-      code: "775",
-      name: "Orgasm Rush",
-      colorName: "Deep Rose Bronze",
-      swatchHex: "#A96966",
-      normalizedUndertone: "warm",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-237",
-      code: "237",
-      name: "Deep Throat",
-      colorName: "Soft Pink with Golden Sheen",
-      swatchHex: "#D9949D",
-      normalizedUndertone: "neutral",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-900",
-      code: "900",
-      name: "Behave",
-      colorName: "Pink Mauve",
-      swatchHex: "#B98296",
+      code: "01",
+      name: "Strawberry Latte",
+      colorDescription: "Rosy pink and strawberry tones",
+      swatchHex: "#D9829D",
       normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
+      skinDepth: null
     },
     {
-      id: "nars-901",
-      code: "901",
-      name: "Amour",
-      colorName: "Warm Pink",
-      swatchHex: "#D77C89",
+      code: "02",
+      name: "Rose Berry",
+      colorDescription: "Berry rose tones",
+      swatchHex: "#B85D7D",
+      normalizedUndertone: "cool",
+      skinDepth: null
+    },
+    {
+      code: "03",
+      name: "Toasty Peach",
+      colorDescription: "Warm peach and coral tones",
+      swatchHex: "#DF906E",
       normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
+      skinDepth: null
     },
     {
-      id: "nars-888",
-      code: "888",
-      name: "Dolce Vita",
-      colorName: "Dusty Rose",
-      swatchHex: "#B96F83",
-      normalizedUndertone: "neutral",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-902",
-      code: "902",
-      name: "Infatuated",
-      colorName: "Deep Plum Berry",
-      swatchHex: "#81465F",
+      code: "04",
+      name: "Baby Pink",
+      colorDescription: "Soft baby pink tones",
+      swatchHex: "#E9A4BD",
       normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-920",
-      code: "920",
-      name: "Sex Appeal",
-      colorName: "Soft Peach",
-      swatchHex: "#E7B19B",
-      normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-921",
-      code: "921",
-      name: "Gina",
-      colorName: "Tangerine",
-      swatchHex: "#DF8055",
-      normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-922",
-      code: "922",
-      name: "Forbidden",
-      colorName: "Beige Coral",
-      swatchHex: "#C98C78",
-      normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-252",
-      code: "252",
-      name: "Torrid",
-      colorName: "Warm Coral with Golden Shimmer",
-      swatchHex: "#D87963",
-      normalizedUndertone: "warm",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-923",
-      code: "923",
-      name: "Obsession",
-      colorName: "Papaya Coral",
-      swatchHex: "#E98262",
-      normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-950",
-      code: "950",
-      name: "Thrill",
-      colorName: "Cool Light Pink",
-      swatchHex: "#E5A6C4",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-951",
-      code: "951",
-      name: "Dominant",
-      colorName: "Poppy Pink",
-      swatchHex: "#D95678",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-952",
-      code: "952",
-      name: "Teased",
-      colorName: "Fuchsia",
-      swatchHex: "#C83C85",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-953",
-      code: "953",
-      name: "Exhibit A",
-      colorName: "Red",
-      swatchHex: "#C83E43",
-      normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-955",
-      code: "955",
-      name: "Taj Mahal",
-      colorName: "Burnished Orange with Golden Shimmer",
-      swatchHex: "#C76C32",
-      normalizedUndertone: "warm",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-956",
-      code: "956",
-      name: "Foreplay",
-      colorName: "Red Brown",
-      swatchHex: "#9A5148",
-      normalizedUndertone: "warm",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-903",
-      code: "903",
-      name: "Impassioned",
-      colorName: "Pink Orchid",
-      swatchHex: "#C77BAA",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-925",
-      code: "925",
-      name: "Cherish",
-      colorName: "Soft Pink",
-      swatchHex: "#D9A0AA",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-957",
-      code: "957",
-      name: "Madly",
-      colorName: "Muted Peach",
-      swatchHex: "#C9907B",
-      normalizedUndertone: "neutral",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-958",
-      code: "958",
-      name: "Tempted",
-      colorName: "Rose",
-      swatchHex: "#B86D7D",
-      normalizedUndertone: "neutral",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-927",
-      code: "927",
-      name: "Devilish",
-      colorName: "Pink Coral",
-      swatchHex: "#D98282",
-      normalizedUndertone: "warm",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-959",
-      code: "959",
-      name: "Slow Burn",
-      colorName: "Muted Rose",
-      swatchHex: "#AA7477",
-      normalizedUndertone: "neutral",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-960",
-      code: "960",
-      name: "Please Me",
-      colorName: "Pink",
-      swatchHex: "#D783A0",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-905",
-      code: "905",
-      name: "Sex Fantasy",
-      colorName: "Light Pink",
-      swatchHex: "#E5B8C9",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-907",
-      code: "907",
-      name: "Mad Love",
-      colorName: "Mauve Pink with Gold Shimmer",
-      swatchHex: "#BA7D91",
-      normalizedUndertone: "neutral",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-908",
-      code: "908",
-      name: "Catch Me",
-      colorName: "Cool Pink",
-      swatchHex: "#D878A1",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-909",
-      code: "909",
-      name: "Wild Bunch",
-      colorName: "Raspberry",
-      swatchHex: "#B8476D",
-      normalizedUndertone: "cool",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-910",
-      code: "910",
-      name: "Never Enough",
-      colorName: "Peachy Rose",
-      swatchHex: "#D58A80",
-      normalizedUndertone: "neutral",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-961",
-      code: "961",
-      name: "Hot One",
-      colorName: "Burgundy",
-      swatchHex: "#813E54",
-      normalizedUndertone: "cool",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-962",
-      code: "962",
-      name: "Hunger",
-      colorName: "Shimmering Plum",
-      swatchHex: "#784D72",
-      normalizedUndertone: "cool",
-      finish: "shimmer",
-      sourceStatus: "official-brand-page"
-    },
-    {
-      id: "nars-906",
-      code: "906",
-      name: "Loves Me Not",
-      colorName: "Rose",
-      swatchHex: "#B96D86",
-      normalizedUndertone: "neutral",
-      finish: "matte",
-      sourceStatus: "official-brand-page"
+      skinDepth: null
     }
   ],
   source: {
     type: "brand-official",
-    url: "https://www.narscosmetics.com/USA/powder-blush/0194251163215.html",
-    checkedAt: "2026-11-24"
-  }
+    url: "https://hudabeauty.com/en-sa/collections/huda-beauty-face",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations. Palette shade descriptions are simplified for matching."
 },
-
+{
+  id: "fenty-cheeks-out",
+  brand: "Fenty Beauty",
+  product: "Cheeks Out Freestyle Cream Blush",
+  category: "blush",
+  formula: "cream",
+  finish: "natural",
+  priceSAR: 165,
+  shades: [
+    { code: "01", name: "Petal Poppin", colorDescription: "Soft pink", swatchHex: "#E99CBF", normalizedUndertone: "cool", skinDepth: null },
+    { code: "02", name: "Peach Face", colorDescription: "Peachy nude", swatchHex: "#E5A17D", normalizedUndertone: "warm", skinDepth: null },
+    { code: "03", name: "Riri", colorDescription: "Soft rose", swatchHex: "#B87587", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "04", name: "Raisin Standardz", colorDescription: "Deep raisin berry", swatchHex: "#74404D", normalizedUndertone: "cool", skinDepth: null },
+    { code: "05", name: "Cool Berry", colorDescription: "Cool berry pink", swatchHex: "#B94D78", normalizedUndertone: "cool", skinDepth: null },
+    { code: "06", name: "Summertime Wine", colorDescription: "Wine rose", swatchHex: "#9D5364", normalizedUndertone: "cool", skinDepth: null },
+    { code: "07", name: "Rosé Latte", colorDescription: "Muted rosy brown", swatchHex: "#B98177", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "08", name: "Fuego Flush", colorDescription: "Warm coral red", swatchHex: "#D96855", normalizedUndertone: "warm", skinDepth: null },
+    { code: "09", name: "Big Melons", colorDescription: "Bright watermelon pink", swatchHex: "#E96D86", normalizedUndertone: "cool", skinDepth: null },
+    { code: "10", name: "Strawberry Drip", colorDescription: "Strawberry pink", swatchHex: "#D94F79", normalizedUndertone: "cool", skinDepth: null },
+    { code: "11", name: "Drama Cla$$", colorDescription: "Deep plum", swatchHex: "#8B3F61", normalizedUndertone: "cool", skinDepth: null },
+    { code: "12", name: "Pinky Promise", colorDescription: "Bright pink", swatchHex: "#E85B9B", normalizedUndertone: "cool", skinDepth: null },
+    { code: "13", name: "Daiquiri Dip", colorDescription: "Coral orange", swatchHex: "#E87952", normalizedUndertone: "warm", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://fentybeauty.com/en-sa/products/cheeks-out-freestyle-cream-blush-big-melons",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
+},
+{
+  id: "milk-lip-cheek",
+  brand: "Milk Makeup",
+  product: "Lip + Cheek Cream Blush Stick",
+  category: "blush",
+  formula: "cream",
+  finish: "satin",
+  priceSAR: 125,
+  shades: [
+    { code: "01", name: "Werk", colorDescription: "Natural dusty rose", swatchHex: "#C77D8D", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "02", name: "Dash", colorDescription: "Soft pink", swatchHex: "#E7A5B8", normalizedUndertone: "cool", skinDepth: null },
+    { code: "03", name: "Rally", colorDescription: "Mauve pink with shimmer", swatchHex: "#C783A5", normalizedUndertone: "cool", skinDepth: null },
+    { code: "04", name: "Perk", colorDescription: "Coral with shimmer", swatchHex: "#E58B79", normalizedUndertone: "warm", skinDepth: null },
+    { code: "05", name: "Quirk", colorDescription: "Warm rose", swatchHex: "#C77A76", normalizedUndertone: "warm", skinDepth: null },
+    { code: "06", name: "Pep", colorDescription: "Bright pink", swatchHex: "#E55B91", normalizedUndertone: "cool", skinDepth: null },
+    { code: "07", name: "Muse", colorDescription: "Deep burgundy", swatchHex: "#873F52", normalizedUndertone: "cool", skinDepth: null },
+    { code: "08", name: "Enigma", colorDescription: "Beige rose", swatchHex: "#B9857D", normalizedUndertone: "neutral", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://milkmakeup.com/products/lip-cheek",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
+},
+{
+  id: "nudestix-nudies-blush",
+  brand: "Nudestix",
+  product: "Nudies Blush Stick",
+  category: "blush",
+  formula: "cream",
+  finish: "matte",
+  priceSAR: 160,
+  shades: [
+    { code: "01", name: "Bare Back", colorDescription: "Neutral nude pink", swatchHex: "#C88F91", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "02", name: "Sweet Cheeks", colorDescription: "Soft rosy pink", swatchHex: "#D989A4", normalizedUndertone: "cool", skinDepth: null },
+    { code: "03", name: "Bubba", colorDescription: "Dusty rose", swatchHex: "#B96F83", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "04", name: "Naughty N' Spice", colorDescription: "Deep rose", swatchHex: "#A85F70", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "05", name: "Sunkissed Pink", colorDescription: "Bright rose pink", swatchHex: "#E65D8C", normalizedUndertone: "cool", skinDepth: null },
+    { code: "06", name: "Sunset Strip", colorDescription: "Warm bright coral", swatchHex: "#E77B58", normalizedUndertone: "warm", skinDepth: null },
+    { code: "07", name: "Hot Fire", colorDescription: "Universal red", swatchHex: "#D94B48", normalizedUndertone: "warm", skinDepth: null },
+    { code: "08", name: "Body Language", colorDescription: "Neutral nude rose", swatchHex: "#C28A85", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "09", name: "Picante", colorDescription: "Warm fresh orange", swatchHex: "#E7793E", normalizedUndertone: "warm", skinDepth: null },
+    { code: "10", name: "In The Nude", colorDescription: "Warm nude peach", swatchHex: "#D6A080", normalizedUndertone: "warm", skinDepth: null },
+    { code: "11", name: "Salty Siren", colorDescription: "Warm rosy coral", swatchHex: "#D67C70", normalizedUndertone: "warm", skinDepth: null },
+    { code: "12", name: "Nude Peach", colorDescription: "Warm fresh peach", swatchHex: "#E3A17E", normalizedUndertone: "warm", skinDepth: null },
+    { code: "13", name: "Moodie Blu", colorDescription: "Cool deep eggplant", swatchHex: "#68445F", normalizedUndertone: "cool", skinDepth: null },
+    { code: "14", name: "Cherie", colorDescription: "Neutral nude coral rose", swatchHex: "#C9827E", normalizedUndertone: "neutral", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://www.nudestix.com/collections/face/products/nudies-blush",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
+},
+{
+  id: "rare-beauty-bouncy-blush",
+  brand: "Rare Beauty",
+  product: "Soft Pinch Matte Bouncy Blush",
+  category: "blush",
+  formula: "cream-to-powder",
+  finish: "matte",
+  priceSAR: 170,
+  shades: [
+    { code: "01", name: "Hope", colorDescription: "Nude mauve", swatchHex: "#B98291", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "02", name: "Happy", colorDescription: "Cool pink", swatchHex: "#E58DB5", normalizedUndertone: "cool", skinDepth: null },
+    { code: "03", name: "Worth", colorDescription: "True rose", swatchHex: "#C96F85", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "04", name: "Grateful", colorDescription: "Soft red", swatchHex: "#D65B61", normalizedUndertone: "warm", skinDepth: null },
+    { code: "05", name: "Alive", colorDescription: "Bright coral orange", swatchHex: "#F0784C", normalizedUndertone: "warm", skinDepth: null },
+    { code: "06", name: "Thriving", colorDescription: "Bright raspberry", swatchHex: "#D63883", normalizedUndertone: "cool", skinDepth: null },
+    { code: "07", name: "Truth", colorDescription: "Soft plum", swatchHex: "#A66D8B", normalizedUndertone: "cool", skinDepth: null },
+    { code: "08", name: "Divine", colorDescription: "True tea rose", swatchHex: "#C77B84", normalizedUndertone: "neutral", skinDepth: null },
+    { code: "09", name: "Spirited", colorDescription: "Mid-tone violet", swatchHex: "#9465A5", normalizedUndertone: "cool", skinDepth: null },
+    { code: "10", name: "Soulful", colorDescription: "Deep berry", swatchHex: "#7D3F59", normalizedUndertone: "cool", skinDepth: null }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://www.rarebeauty.com/products/soft-pinch-matte-bouncy-blush",
+    checkedAt: "2026-11-25"
+  },
+  swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
+},
 /* =========================================
    CONCEALERS -
    Official shade data only
