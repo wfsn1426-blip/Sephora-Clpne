@@ -476,6 +476,7 @@ shades: diorSkinGlowLabels.map(
     url: "https://www.urbandecay.com/face-bond-2024.html",
     checkedAt: "2026-11-15"
 },
+]; 
 {
   id: "nars-powder-blush",
   brand: "NARS",
