@@ -484,7 +484,370 @@ shades: diorSkinGlowLabels.map(
   }
 }
 ];
-
+{
+  id: "nars-powder-blush",
+  brand: "NARS",
+  product: "Powder Blush",
+  category: "blush",
+  formula: "powder",
+  shades: [
+    {
+      id: "nars-777",
+      code: "777",
+      name: "Orgasm",
+      colorName: "Peachy Pink with Golden Shimmer",
+      swatchHex: "#E99B91",
+      normalizedUndertone: "warm",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-778",
+      code: "778",
+      name: "Orgasm Edge",
+      colorName: "Matte Peachy Pink",
+      swatchHex: "#E5A08E",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-776",
+      code: "776",
+      name: "Orgasm X",
+      colorName: "Deep Coral with Gold Pearl",
+      swatchHex: "#C96F64",
+      normalizedUndertone: "warm",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-775",
+      code: "775",
+      name: "Orgasm Rush",
+      colorName: "Deep Rose Bronze",
+      swatchHex: "#A96966",
+      normalizedUndertone: "warm",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-237",
+      code: "237",
+      name: "Deep Throat",
+      colorName: "Soft Pink with Golden Sheen",
+      swatchHex: "#D9949D",
+      normalizedUndertone: "neutral",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-900",
+      code: "900",
+      name: "Behave",
+      colorName: "Pink Mauve",
+      swatchHex: "#B98296",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-901",
+      code: "901",
+      name: "Amour",
+      colorName: "Warm Pink",
+      swatchHex: "#D77C89",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-888",
+      code: "888",
+      name: "Dolce Vita",
+      colorName: "Dusty Rose",
+      swatchHex: "#B96F83",
+      normalizedUndertone: "neutral",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-902",
+      code: "902",
+      name: "Infatuated",
+      colorName: "Deep Plum Berry",
+      swatchHex: "#81465F",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-920",
+      code: "920",
+      name: "Sex Appeal",
+      colorName: "Soft Peach",
+      swatchHex: "#E7B19B",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-921",
+      code: "921",
+      name: "Gina",
+      colorName: "Tangerine",
+      swatchHex: "#DF8055",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-922",
+      code: "922",
+      name: "Forbidden",
+      colorName: "Beige Coral",
+      swatchHex: "#C98C78",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-252",
+      code: "252",
+      name: "Torrid",
+      colorName: "Warm Coral with Golden Shimmer",
+      swatchHex: "#D87963",
+      normalizedUndertone: "warm",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-923",
+      code: "923",
+      name: "Obsession",
+      colorName: "Papaya Coral",
+      swatchHex: "#E98262",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-950",
+      code: "950",
+      name: "Thrill",
+      colorName: "Cool Light Pink",
+      swatchHex: "#E5A6C4",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-951",
+      code: "951",
+      name: "Dominant",
+      colorName: "Poppy Pink",
+      swatchHex: "#D95678",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-952",
+      code: "952",
+      name: "Teased",
+      colorName: "Fuchsia",
+      swatchHex: "#C83C85",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-953",
+      code: "953",
+      name: "Exhibit A",
+      colorName: "Red",
+      swatchHex: "#C83E43",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-955",
+      code: "955",
+      name: "Taj Mahal",
+      colorName: "Burnished Orange with Golden Shimmer",
+      swatchHex: "#C76C32",
+      normalizedUndertone: "warm",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-956",
+      code: "956",
+      name: "Foreplay",
+      colorName: "Red Brown",
+      swatchHex: "#9A5148",
+      normalizedUndertone: "warm",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-903",
+      code: "903",
+      name: "Impassioned",
+      colorName: "Pink Orchid",
+      swatchHex: "#C77BAA",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-925",
+      code: "925",
+      name: "Cherish",
+      colorName: "Soft Pink",
+      swatchHex: "#D9A0AA",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-957",
+      code: "957",
+      name: "Madly",
+      colorName: "Muted Peach",
+      swatchHex: "#C9907B",
+      normalizedUndertone: "neutral",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-958",
+      code: "958",
+      name: "Tempted",
+      colorName: "Rose",
+      swatchHex: "#B86D7D",
+      normalizedUndertone: "neutral",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-927",
+      code: "927",
+      name: "Devilish",
+      colorName: "Pink Coral",
+      swatchHex: "#D98282",
+      normalizedUndertone: "warm",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-959",
+      code: "959",
+      name: "Slow Burn",
+      colorName: "Muted Rose",
+      swatchHex: "#AA7477",
+      normalizedUndertone: "neutral",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-960",
+      code: "960",
+      name: "Please Me",
+      colorName: "Pink",
+      swatchHex: "#D783A0",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-905",
+      code: "905",
+      name: "Sex Fantasy",
+      colorName: "Light Pink",
+      swatchHex: "#E5B8C9",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-907",
+      code: "907",
+      name: "Mad Love",
+      colorName: "Mauve Pink with Gold Shimmer",
+      swatchHex: "#BA7D91",
+      normalizedUndertone: "neutral",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-908",
+      code: "908",
+      name: "Catch Me",
+      colorName: "Cool Pink",
+      swatchHex: "#D878A1",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-909",
+      code: "909",
+      name: "Wild Bunch",
+      colorName: "Raspberry",
+      swatchHex: "#B8476D",
+      normalizedUndertone: "cool",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-910",
+      code: "910",
+      name: "Never Enough",
+      colorName: "Peachy Rose",
+      swatchHex: "#D58A80",
+      normalizedUndertone: "neutral",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-961",
+      code: "961",
+      name: "Hot One",
+      colorName: "Burgundy",
+      swatchHex: "#813E54",
+      normalizedUndertone: "cool",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-962",
+      code: "962",
+      name: "Hunger",
+      colorName: "Shimmering Plum",
+      swatchHex: "#784D72",
+      normalizedUndertone: "cool",
+      finish: "shimmer",
+      sourceStatus: "official-brand-page"
+    },
+    {
+      id: "nars-906",
+      code: "906",
+      name: "Loves Me Not",
+      colorName: "Rose",
+      swatchHex: "#B96D86",
+      normalizedUndertone: "neutral",
+      finish: "matte",
+      sourceStatus: "official-brand-page"
+    }
+  ],
+  source: {
+    type: "brand-official",
+    url: "https://www.narscosmetics.com/USA/powder-blush/0194251163215.html",
+    checkedAt: "2026-11-24"
+  }
+},
 
 /* =========================================
    CONCEALERS -
