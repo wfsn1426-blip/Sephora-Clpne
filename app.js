@@ -1384,19 +1384,19 @@ function renderCategory() {
 }
 
 function showProductDetails(product) {
-  const databaseProducts =
-    window.BEAUTY_AI_DATABASE?.BEAUTY_AI_PRODUCTS || [];
+  const databaseProducts = window.BEAUTY_AI_DATABASE?.BEAUTY_AI_PRODUCTS || [];
 
-  const databaseProduct = databaseProducts.find(
-    item => item.id === product.databaseId
-  );
-
- const allShades = (databaseProduct?.shades || []).filter(
-  shade =>
-    product.productType === "blush"
-      ? shade.sourceStatus === "color-guidance"
-      : shade.sourceStatus === "official-brand-page"
+const databaseProduct = databaseProducts.find(
+  item => item.id === product.databaseId
 );
+
+const shades = databaseProduct?.shades || [];
+
+console.log("Product:", product.name);
+console.log("Database ID:", product.databaseId);
+console.log("Database product:", databaseProduct);
+console.log("Available shades:", shades);
+  
   const undertoneMap = {
     "محايد": "neutral",
     "دافئ": "warm",
