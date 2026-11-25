@@ -307,7 +307,6 @@ shades: diorSkinGlowLabels.map(
   verificationNote:
     "66 shade codes captured from official MAC shade descriptions. Brand page claims 67 shades; one code is not present in the retrieved description. Undertone and skin depth are not inferred."
 },
-
   {
     id: "fenty-pro-filtr-foundation",
     brand: "Fenty Beauty",
@@ -327,7 +326,6 @@ shades: diorSkinGlowLabels.map(
     verificationNote:
       "Individual shade codes require formula-specific confirmation."
   },
-
   {
     id: "estee-lauder-double-wear",
     brand: "Estée Lauder",
@@ -346,8 +344,7 @@ shades: diorSkinGlowLabels.map(
 
     verificationNote:
       "Use the official finder for the current exact formula shade list."
-  }
-,
+  },
 {
   id: "huda-easy-blur-foundation",
   brand: "Huda Beauty",
@@ -412,10 +409,7 @@ shades: diorSkinGlowLabels.map(
     type: "brand-official-product-page",
     url: "https://hudabeauty.com/en-sa/products/easy-blur-natural-airbrush-foundation-with-niacinamide-hb01166m",
     checkedAt: "2026-11-15"
-  }
-}
-  
-,
+},
 {
   id: "urban-decay-face-bond-foundation",
   brand: "Urban Decay",
@@ -481,7 +475,6 @@ shades: diorSkinGlowLabels.map(
     type: "brand-official-product-page",
     url: "https://www.urbandecay.com/face-bond-2024.html",
     checkedAt: "2026-11-15"
-  }
 },
 {
   id: "nars-powder-blush",
