@@ -527,7 +527,6 @@ shades: diorSkinGlowLabels.map(
   },
    swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
 }
-];
 {
   id: "dior-rosy-glow-blush",
   brand: "Dior",
