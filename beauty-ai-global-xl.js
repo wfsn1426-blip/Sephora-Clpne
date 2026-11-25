@@ -525,8 +525,9 @@ shades: diorSkinGlowLabels.map(
     url: "https://www.narscosmetics.eu/en/powder-blush/0194251140414.html",
     checkedAt: "2026-11-25"
   },
-  swatchNote: "swatchHex values are visual approximations, not official digital shade color values."
-},
+   swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
+}
+];
 {
   id: "dior-rosy-glow-blush",
   brand: "Dior",
