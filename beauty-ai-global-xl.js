@@ -786,6 +786,7 @@ shades: diorSkinGlowLabels.map(
   },
   swatchNote: "swatchHex values are approximate visual representations, not official brand color values."
 },
+];
 /* =========================================
    CONCEALERS -
    Official shade data only
