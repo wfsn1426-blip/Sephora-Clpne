@@ -471,13 +471,14 @@ shades: diorSkinGlowLabels.map(
     sourceStatus: "official-brand-page"
   })),
 
-  source: {
-  type: "brand-official-product-page",
-  url: "https://www.urbandecay.com/face-bond-2024.html",
-  checkedAt: "2026-11-15"
-}
-}
+     source: {
+      type: "brand-official-product-page",
+      url: "https://www.urbandecay.com/face-bond-2024.html",
+      checkedAt: "2026-11-15"
+    }
+  }
 ];
+
 /* =========================================
    BLUSH - POWDER & CREAM
 ========================================= */
