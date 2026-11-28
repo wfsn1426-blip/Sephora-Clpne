@@ -479,6 +479,7 @@ shades: diorSkinGlowLabels.map(
       checkedAt: "2026-11-15"
     }
 },
+];
 
 /* =========================================
    BLUSH - POWDER & CREAM
