@@ -1814,8 +1814,8 @@ undertone.style.display = "block";
 undertone.style.fontSize = "9px";
 undertone.style.color = "#888";
 
-      shadeCard.append(swatch, code, undertone);
-
+shadeCard.append(swatch, shadeName, shadeCode, undertone);
+      
       shadeCard.addEventListener("click", () => {
         selectedShade = item;
         renderShadeOptions();
