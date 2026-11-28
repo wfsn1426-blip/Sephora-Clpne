@@ -268,7 +268,7 @@ const narsNaturalRadiantSwatches = {
     { code: "D5", name: "Zambie", normalizedUndertone: "warm", skinDepth: "deep", officialSkinDepth: "Deep" },
     { code: "D6", name: "Mali", normalizedUndertone: "neutral", skinDepth: "very-deep", officialSkinDepth: "Very deep" },
     { code: "D1", name: "Manaus", normalizedUndertone: "cool", skinDepth: "deep", officialSkinDepth: "Deep" }
-  
+
 ].map((shade, index) => ({
   id: `nars-natural-radiant-${index + 1}`,
   ...shade,
