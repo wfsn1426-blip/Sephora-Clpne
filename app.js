@@ -1795,17 +1795,24 @@ addToCartButton.addEventListener("click", () => {
         swatch.style.backgroundSize = "cover";
       }
 
-      const code = document.createElement("span");
-      code.textContent = item.code || item.name || "درجة";
-      code.style.display = "block";
-      code.style.fontSize = "11px";
-      code.style.fontWeight = "600";
+      const shadeName = document.createElement("span");
+shadeName.textContent = item.name || item.code || "درجة";
+shadeName.style.display = "block";
+shadeName.style.fontSize = "10px";
+shadeName.style.fontWeight = "600";
+shadeName.style.lineHeight = "1.4";
 
-      const undertone = document.createElement("span");
-      undertone.textContent = item.officialUndertone || "";
-      undertone.style.display = "block";
-      undertone.style.fontSize = "9px";
-      undertone.style.color = "#888";
+const shadeCode = document.createElement("span");
+shadeCode.textContent = item.code ? `(${item.code})` : "";
+shadeCode.style.display = "block";
+shadeCode.style.fontSize = "9px";
+shadeCode.style.color = "#999";
+
+const undertone = document.createElement("span");
+undertone.textContent = item.officialUndertone || item.normalizedUndertone || "";
+undertone.style.display = "block";
+undertone.style.fontSize = "9px";
+undertone.style.color = "#888";
 
       shadeCard.append(swatch, code, undertone);
 
