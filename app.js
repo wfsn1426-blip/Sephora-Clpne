@@ -1510,18 +1510,33 @@ console.log("Available shades:", shades);
       swatch.style.backgroundPosition = "center";
     }
 
-    const code = document.createElement("strong");
-    code.textContent = shade.code;
-    code.style.cssText = "display:block;font-size:12px";
+    const shadeName = document.createElement("strong");
+shadeName.textContent = shade.name || shade.code || "درجة";
+shadeName.style.cssText = `
+  display:block;
+  font-size:11px;
+  line-height:1.4;
+`;
 
-    const undertone = document.createElement("small");
-    undertone.textContent = shade.officialUndertone || "";
-    undertone.style.cssText = `
-      display:block;
-      font-size:10px;
-      color:#888;
-      margin-top:3px;
-    `;
+const shadeCode = document.createElement("small");
+shadeCode.textContent = shade.code ? `(${shade.code})` : "";
+shadeCode.style.cssText = `
+  display:block;
+  font-size:9px;
+  color:#999;
+`;
+
+const undertone = document.createElement("small");
+undertone.textContent =
+  shade.officialUndertone ||
+  shade.normalizedUndertone ||
+  "";
+undertone.style.cssText = `
+  display:block;
+  font-size:10px;
+  color:#888;
+  margin-top:3px;
+`;
 
     shadeButton.append(swatch, code, undertone);
 
