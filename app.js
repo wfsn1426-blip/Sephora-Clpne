@@ -1638,13 +1638,18 @@ function showProductDetails(product) {
     item => item.id === product.databaseId
   );
 
-  const verifiedShades = (
+const verifiedShades = (
   databaseProduct?.shades || []
-).filter(item =>
-  product.productType === "blush"
-    ? item.sourceStatus === "color-guidance"
-    : item.sourceStatus === "official-brand-page"
-);
+).filter(item => {
+  if (product.productType === "blush") {
+    return Boolean(item.swatchHex || item.swatchImage || item.name);
+  }
+
+  return (
+    item.sourceStatus === "official-brand-page" ||
+    item.sourceStatus === "official-brand-product-page"
+  );
+});
  
 const undertoneMap = {
   "محايد": ["neutral"],
