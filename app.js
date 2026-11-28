@@ -1783,7 +1783,7 @@ addToCartButton.addEventListener("click", () => {
       swatch.style.height = "23px";
       swatch.style.margin = "0 auto 5px";
       swatch.style.borderRadius = "50%";
-      swatch.style.background = "#d8cbb9";
+      swatch.style.background = item.swatchHex || "#d8cbb9";
       swatch.style.border = "1px solid #ddd";
 
       if (item.swatchImage) {
