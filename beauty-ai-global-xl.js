@@ -235,10 +235,47 @@ shades: diorSkinGlowLabels.map(
     { code: "D5", name: "Zambie", normalizedUndertone: "warm", skinDepth: "deep", officialSkinDepth: "Deep" },
     { code: "D6", name: "Mali", normalizedUndertone: "neutral", skinDepth: "very-deep", officialSkinDepth: "Very deep" },
     { code: "D1", name: "Manaus", normalizedUndertone: "cool", skinDepth: "deep", officialSkinDepth: "Deep" }
-  ].map((shade, index) => ({
-    id: `nars-natural-radiant-${index + 1}`,
-    ...shade,
-    sourceStatus: "official-brand-page"
+  
+  ].map((shade, index) => {
+    const swatchHex = {
+      "L1": "#F2D8CC",
+      "L2": "#EFD8C8",
+      "L2.5": "#E8CDBB",
+      "L3": "#E6C6A9",
+      "L3.5": "#E3C2A5",
+      "L4": "#E5CDB9",
+      "L4.5": "#E0C1AE",
+      "L5": "#DDB99C",
+      "M1": "#D6AC8B",
+      "M1.2": "#D3AD96",
+      "M1.5": "#D1A58E",
+      "M2": "#CFA58B",
+      "M2.5": "#C99D7E",
+      "M3": "#C79472",
+      "M3.5": "#BD8D70",
+      "M4": "#BB896C",
+      "M5": "#B47D61",
+      "M6": "#AE8068",
+      "MD1": "#A97859",
+      "MD2": "#A57A65",
+      "MD2.6": "#A47B68",
+      "MD3.3": "#986C53",
+      "MD3.6": "#94684F",
+      "MD4": "#8E624A",
+      "D3": "#825B47",
+      "D4": "#79543C",
+      "D5": "#704C36",
+      "D6": "#593B2C",
+      "D1": "#86624F"
+    }[shade.code];
+
+    return {
+      id: `nars-natural-radiant-${index + 1}`,
+      ...shade,
+      swatchHex,
+      color: swatchHex,
+      sourceStatus: "official-brand-page"
+    };
   })),
 
   source: {
