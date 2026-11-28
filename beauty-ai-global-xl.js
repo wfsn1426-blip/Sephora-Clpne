@@ -484,8 +484,8 @@ shades: diorSkinGlowLabels.map(
    BLUSH - POWDER & CREAM
 ========================================= */
 
-const blushShadeColors = [
-{
+const blushProductDatabase = [
+  {
   id: "nars-powder-blush",
   brand: "NARS",
   product: "Powder Blush",
