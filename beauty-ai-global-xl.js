@@ -1624,6 +1624,11 @@ const blushProducts = [
 ];
 
 blushProducts.forEach(([id, brand, product, formula, priceSAR]) => {
+
+  const officialBlush = blushProductDatabase.find(
+    blush => blush.id === id
+  );
+
   BEAUTY_AI_PRODUCTS.push({
     id,
     brand,
@@ -1631,17 +1636,24 @@ blushProducts.forEach(([id, brand, product, formula, priceSAR]) => {
     category: "blush",
     formula,
     priceSAR,
-    shades: blushShadeColors.map(shade => ({
+
+    shades: (officialBlush?.shades || []).map(shade => ({
       id: `${id}-${shade.code}`,
       code: shade.code,
       name: shade.name,
-      normalizedUndertone: shade.undertone,
-      color: shade.color,
-      sourceStatus: "color-guidance"
+      colorDescription: shade.colorDescription,
+      swatchHex: shade.swatchHex,
+      color: shade.swatchHex,
+      normalizedUndertone: shade.normalizedUndertone,
+      skinDepth: shade.skinDepth,
+      officialUndertone: shade.officialUndertone || "",
+      sourceStatus: "official-brand-page"
     })),
+
     source: {
-      type: "color-guidance",
-      note: "ألوان إرشادية للتجربة وليست أسماء درجات رسمية من الماركة."
+      type: "official-brand-page",
+      note: "درجات المنتج مرتبطة بقاعدة درجات المنتج الأصلية."
     }
   });
+
 });
