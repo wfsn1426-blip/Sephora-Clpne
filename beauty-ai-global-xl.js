@@ -406,11 +406,13 @@ shades: diorSkinGlowLabels.map(
   })),
 
   source: {
-    type: "brand-official-product-page",
-    url: "https://hudabeauty.com/en-sa/products/easy-blur-natural-airbrush-foundation-with-niacinamide-hb01166m",
-    checkedAt: "2026-11-15"
+  type: "brand-official-product-page",
+  url: "https://hudabeauty.com/en-sa/products/easy-blur-natural-airbrush-foundation-with-niacinamide-hb01166m",
+  checkedAt: "2026-11-15"
+}
 },
 {
+  id: "urban-decay-face-bond-foundation",
   id: "urban-decay-face-bond-foundation",
   brand: "Urban Decay",
   product: "Face Bond Self-Setting Waterproof Foundation",
