@@ -1716,7 +1716,10 @@ const uniqueShades = [
   moreButton.style.background = "#fff";
   moreButton.style.color = "#526452";
   moreButton.style.cursor = "pointer";
-
+  moreButton.addEventListener("click", () => {
+  showingAllShades = !showingAllShades;
+  renderShadeOptions();
+});
   const addToCartButton = document.createElement("button");
 addToCartButton.type = "button";
 addToCartButton.textContent = "أضيفي للسلة";
