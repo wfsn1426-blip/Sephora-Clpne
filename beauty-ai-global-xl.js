@@ -184,14 +184,47 @@ shades: diorSkinGlowLabels.map(
   })
 ),
 
-
    source: {
   type: "brand-official",
   url: "https://www.dior.com/en_sa/beauty",
   checkedAt: "2026-11-12"
   }
 },
+  
+const narsNaturalRadiantSwatches = {
+  "L1": "#F2D8C9",
+  "L2": "#EED8C8",
+  "L2.5": "#E8CDBB",
+  "L3": "#E6C6A8",
+  "L3.5": "#E3C2A4",
+  "L4": "#E8CDB5",
+  "L4.5": "#E0C2B0",
+  "L5": "#DDBB9B",
 
+  "M1": "#D9B18C",
+  "M1.2": "#D8B79C",
+  "M1.5": "#D2AA91",
+  "M2": "#D1AC94",
+  "M2.5": "#CDA17E",
+  "M3": "#C99B76",
+  "M3.5": "#C49372",
+  "M4": "#BD8B68",
+  "M5": "#B98561",
+  "M6": "#B27D62",
+
+  "MD1": "#AA7859",
+  "MD2": "#A77963",
+  "MD2.6": "#9F735F",
+  "MD3.3": "#95694F",
+  "MD3.6": "#8E624A",
+  "MD4": "#875C46",
+
+  "D1": "#815A4C",
+  "D3": "#76523F",
+  "D4": "#6E4938",
+  "D5": "#633F31",
+  "D6": "#56382D"
+};
 {
   id: "nars-natural-radiant-longwear",
   brand: "NARS",
