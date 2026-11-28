@@ -1230,7 +1230,8 @@ addConcealer({
 });
 
 /* =========================================
-   MATCH VERIFIED CONCEALER SHADES
+   MATCH VERIFIED COMPLEXION SHADES
+   Flexible undertone + skin depth matching
 ========================================= */
 
 export function matchVerifiedComplexionShades({
@@ -1246,15 +1247,48 @@ export function matchVerifiedComplexionShades({
     return [];
   }
 
-  if (!undertone || !skinDepth) {
+  if (!undertone) {
     return [];
   }
 
-  return product.shades.filter(shade =>
-    shade.normalizedUndertone === undertone &&
-    shade.skinDepth === skinDepth &&
-    shade.sourceStatus === "official-brand-page"
-  );
+  const normalize = value =>
+    String(value || "")
+      .toLowerCase()
+      .trim()
+      .replace(/[_\s]+/g, "-");
+
+  const selectedUndertone = normalize(undertone);
+  const selectedDepth = normalize(skinDepth);
+
+  // أولًا: درجات نفس الـ Undertone
+  const undertoneMatches = product.shades.filter(shade => {
+    const shadeUndertone = normalize(
+      shade.normalizedUndertone || shade.undertone
+    );
+
+    return shadeUndertone === selectedUndertone;
+  });
+
+  if (!undertoneMatches.length) {
+    return [];
+  }
+
+  // ثانيًا: نفضّل نفس عمق البشرة
+  const depthMatches = undertoneMatches.filter(shade => {
+    const shadeDepth = normalize(
+      shade.skinDepth || shade.depth
+    );
+
+    return shadeDepth && shadeDepth === selectedDepth;
+  });
+
+  // إذا وجد درجات بنفس العمق والـ Undertone
+  if (depthMatches.length) {
+    return depthMatches;
+  }
+
+  // إذا لم يوجد تطابق بالعمق، لا نخفي الدرجات
+  return undertoneMatches;
 }
 
 /* ترشيحات ألوان المكياج */
