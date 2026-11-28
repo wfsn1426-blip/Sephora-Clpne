@@ -167,21 +167,23 @@ export const BEAUTY_AI_PRODUCTS = [
     shadeCountClaimedByBrand: 45,
     shadeCountDisplayedOnSaudiPage: diorSkinGlowLabels.length,
 
-   
 shades: diorSkinGlowLabels.map(
-  ([code, officialUndertone], index) => ({
+  ([code, officialUndertone, shadeName, swatchHex], index) => ({
     id: `dior-fsg-${index + 1}`,
     code,
-    name: null,
+    name: shadeName,
     officialUndertone,
     normalizedUndertone: normalizeUndertone(officialUndertone),
     skinDepth: null,
+    swatchHex,
+    color: swatchHex,
     swatchImage: null,
     sourceStatus: "official-brand-page",
     verificationNote:
-      "Official undertone label captured; depth not assigned without a brand-published depth label."
+      "Official undertone label captured; swatch colors are visual approximations."
   })
 ),
+
 
    source: {
   type: "brand-official",
