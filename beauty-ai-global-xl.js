@@ -557,7 +557,107 @@ const blushProductDatabase = [
   },
   swatchNote: "swatchHex values are approximate visual representations."
 },
-{
+  {
+  id: "dior-rosy-glow-stick",
+  brand: "Dior",
+  product: "Backstage Rosy Glow Stick",
+  category: "blush",
+  formula: "cream",
+  finish: "dewy glow",
+  priceSAR: 230,
+
+  shades: [
+    {
+      code: "001",
+      name: "Pink",
+      colorDescription: "Soft pink",
+      swatchHex: "#E98EAF",
+      normalizedUndertone: "cool",
+      skinDepth: null
+    },
+    {
+      code: "006",
+      name: "Berry",
+      colorDescription: "Berry pink",
+      swatchHex: "#B94E78",
+      normalizedUndertone: "cool",
+      skinDepth: null
+    },
+    {
+      code: "012",
+      name: "Rosewood",
+      colorDescription: "Muted rosewood",
+      swatchHex: "#B97985",
+      normalizedUndertone: "neutral",
+      skinDepth: null
+    },
+    {
+      code: "063",
+      name: "Pink Lilac",
+      colorDescription: "Cool lilac pink",
+      swatchHex: "#CE91CB",
+      normalizedUndertone: "cool",
+      skinDepth: null
+    },
+    {
+      code: "077",
+      name: "Candy",
+      colorDescription: "Bright candy pink",
+      swatchHex: "#F17FA9",
+      normalizedUndertone: "cool",
+      skinDepth: null
+    },
+    {
+      code: "103",
+      name: "Toffee",
+      colorDescription: "Warm nude brown",
+      swatchHex: "#B98265",
+      normalizedUndertone: "warm",
+      skinDepth: null
+    },
+    {
+      code: "106",
+      name: "Pomelo",
+      colorDescription: "Soft coral peach",
+      swatchHex: "#F0927D",
+      normalizedUndertone: "warm",
+      skinDepth: null
+    },
+    {
+      code: "107",
+      name: "Dragonfruit",
+      colorDescription: "Vibrant pink",
+      swatchHex: "#D94887",
+      normalizedUndertone: "cool",
+      skinDepth: null
+    },
+    {
+      code: "108",
+      name: "Guava",
+      colorDescription: "Warm coral pink",
+      swatchHex: "#E87978",
+      normalizedUndertone: "warm",
+      skinDepth: null
+    },
+    {
+      code: "109",
+      name: "Goji",
+      colorDescription: "Deep berry red",
+      swatchHex: "#A83F57",
+      normalizedUndertone: "cool",
+      skinDepth: null
+    }
+  ],
+
+  source: {
+    type: "brand-official",
+    url: "https://www.dior.com/en_sa/beauty/products/dior-backstage-rosy-glow-stick",
+    checkedAt: "2026-11-28"
+  },
+
+  swatchNote: "swatchHex values are approximate visual representations."
+},
+  {
   id: "mac-powder-blush",
   brand: "M·A·C",
   product: "Skinfinish Colourstruck Blush",
