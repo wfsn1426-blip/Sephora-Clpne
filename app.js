@@ -1653,9 +1653,9 @@ const verifiedShades = (
  
 const undertoneMap = {
   "محايد": ["neutral"],
-  "بارد": ["cool"],
-  "دافئ": ["warm"],
-  "زيتوني": ["olive"]
+  "بارد": ["cool", "rosy"],
+  "دافئ": ["warm", "golden", "peach"],
+  "زيتوني": ["olive", "warm olive"]
 };
 
 const allowedUndertones =
